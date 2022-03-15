@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>කතෘ</translation>
     </message>
     <message>
         <source>Close</source>
@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>සබඳතාව</translation>
     </message>
 </context>
 <context>
@@ -84,11 +84,11 @@
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>පසුරුපුවරුවට අනුරුව පිටපත් කරන්න</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>උඩුගත කරන්න</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
@@ -96,7 +96,7 @@
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>අනුරුව සුරකින්න</translation>
     </message>
     <message>
         <source>Hide Main Window</source>
@@ -318,7 +318,7 @@ to the new content, increasing this delay might improve the behavior.</source>
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>කතුවරු:</translation>
     </message>
 </context>
 <context>
@@ -391,11 +391,11 @@ Do you want to save it?</source>
     <name>CopyAsDataUriOperation</name>
     <message>
         <source>Failed to copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>පසුරුපුවරුවට පිටපත් වීමට අසමත් විය</translation>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>base64 ආකේතිත අනුරුවක් ලෙස පසුරුපුවරුවට පිටපත් වීමට අසමත් විය.</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
@@ -403,14 +403,14 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>base64 ආකේතිත අනුරුවක් ලෙස පසුරුපුවරුවට පිටපත් විය.</translation>
     </message>
 </context>
 <context>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>අනුරුව මකන්න</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
@@ -456,15 +456,15 @@ Do you want to continue?</source>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>සෘජුකෝණාස්‍ර ප්‍රදේශය</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>අන්තිම සෘජුකෝණාස්‍ර පෙදෙස</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished"></translation>
+        <translation>පූර්ණ තිරය (සියළු දර්ශක)</translation>
     </message>
     <message>
         <source>Current Screen</source>
@@ -487,19 +487,19 @@ Do you want to continue?</source>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>බලාත්මක නිර්නාමික උඩුගත කිරීම.</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>ඒ.ස.නි.</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">පරිශීලක නාමය</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>මුරපදය</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
@@ -514,7 +514,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>උඩුගත කිරීමට අනුරුව තාවකාලිකව සුරැකීමට නොහැකියි.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
@@ -558,11 +558,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Connection Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>සම්බන්ධතාවයේ දෝෂයකි.</translation>
     </message>
     <message>
         <source>Permission Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>අවසර දෝෂයකි.</translation>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
@@ -570,7 +570,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Uploaded to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 වෙත උඩුගත විය</translation>
     </message>
 </context>
 <context>
@@ -658,7 +658,7 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>තිරසේයාව අතරතුර ප්‍රධාන කවුළුව සඟවන්න</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
@@ -686,7 +686,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">වසන්න</translation>
+        <translation>වසන්න</translation>
     </message>
     <message>
         <source>Time Stamp</source>
@@ -698,7 +698,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Delete Link</source>
-        <translation type="unfinished"></translation>
+        <translation>සබැඳිය මකන්න</translation>
     </message>
 </context>
 <context>
@@ -724,7 +724,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>සැමවිටම Imgur සබැඳිය පසුරුපුවරුවට පිටපත් කරන්න</translation>
     </message>
     <message>
         <source>Client ID</source>
@@ -752,7 +752,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur ඉතිහාසය</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
@@ -800,18 +800,18 @@ Changing requires restart.</source>
     <name>LoadImageFromFileOperation</name>
     <message>
         <source>Unable to open image</source>
-        <translation type="unfinished"></translation>
+        <translation>අනුරුව විවෘත කිරීමට නොහැකියි</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 මාර්ගයෙන් අනුරුව විවෘත කිරීමට නොහැකියි</translation>
     </message>
 </context>
 <context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
-        <translation type="unfinished">නව</translation>
+        <translation>නව</translation>
     </message>
     <message>
         <source>Delay in seconds between triggering
@@ -821,7 +821,7 @@ and capturing screenshot.</source>
     <message>
         <source>s</source>
         <extracomment>The small letter s stands for seconds.</extracomment>
-        <translation type="unfinished">තත්.</translation>
+        <translation>තත්.</translation>
     </message>
     <message>
         <source>Save</source>
@@ -853,7 +853,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Crop</source>
-        <translation type="unfinished"></translation>
+        <translation>කප්පාදුව</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
@@ -864,7 +864,7 @@ and capturing screenshot.</source>
     <name>MainWindow</name>
     <message>
         <source>Unsaved</source>
-        <translation type="unfinished"></translation>
+        <translation>නොසුරැකි</translation>
     </message>
     <message>
         <source>Upload</source>
@@ -900,7 +900,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation>පිළිබඳව</translation>
+        <translation>&amp;පිළිබඳව</translation>
     </message>
     <message>
         <source>Open</source>
@@ -908,15 +908,15 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>සංස්කරණය</translation>
+        <translation>&amp;සංස්කරණය</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation>විකල්ප</translation>
+        <translation>&amp;විකල්ප</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>උපකාර</translation>
+        <translation>&amp;උපකාර</translation>
     </message>
     <message>
         <source>Add Watermark</source>
@@ -928,11 +928,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation>ගොනුව</translation>
+        <translation>&amp;ගොනුව</translation>
     </message>
     <message>
         <source>Unable to show image</source>
-        <translation type="unfinished"></translation>
+        <translation>අනුරුව පෙන්වීමට නොහැකියි</translation>
     </message>
     <message>
         <source>Save As...</source>
@@ -944,7 +944,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished"></translation>
+        <translation>එබ්බවූ අලවන්න</translation>
     </message>
     <message>
         <source>Pin</source>
@@ -960,19 +960,19 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished">මාර්ගය පිටපත් කරන්න</translation>
+        <translation>මාර්ගය පිටපත් කරන්න</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>නාමාවලිය විවෘත කරන්න</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;දැක්ම</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>මකන්න</translation>
     </message>
     <message>
         <source>Rename</source>
@@ -980,7 +980,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>අනුරූ විවෘත කරන්න</translation>
     </message>
     <message>
         <source>Show Docks</source>
@@ -996,7 +996,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;මෑත දෑ විවෘත කරන්න</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
@@ -1016,19 +1016,19 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>කරකවන්න</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>අනුරුව කරකවන්න</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">ක්‍රියාමාර්ග</translation>
+        <translation>ක්‍රියාමාර්ග</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>අනුරූ ගොනු</translation>
     </message>
 </context>
 <context>
@@ -1043,7 +1043,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>නාමාවලිය විවෘත කරන්න</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -1055,7 +1055,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>මකන්න</translation>
     </message>
     <message>
         <source>Rename</source>
@@ -1103,7 +1103,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>අනුරුව යළි නම් කරන්න</translation>
     </message>
     <message>
         <source>New filename:</source>
@@ -1130,19 +1130,19 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>අනුරුව සුරැකිණි</translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>අනුරුව සුරැකීමට අසමත් විය</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>අනුරූ ගොනු</translation>
     </message>
     <message>
         <source>Saved to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 වෙත සුරැකිණි</translation>
     </message>
     <message>
         <source>Failed to save image to %1</source>
@@ -1193,7 +1193,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>පෙරනිමි</translation>
     </message>
     <message>
         <source>Factor</source>
@@ -1373,7 +1373,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished">සැකසුම් හරහා මෙම පණිවිඩය අබල කළ හැකිය.</translation>
+        <translation>සැකසුම් හරහා මෙම පණිවිඩය අබල කළ හැකිය.</translation>
     </message>
 </context>
 <context>
@@ -1516,7 +1516,7 @@ Smaller number is more transparent.</source>
     <name>TrayIcon</name>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>සංස්කරකය පෙන්වන්න</translation>
     </message>
 </context>
 <context>
@@ -1544,7 +1544,7 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>සංස්කරකය පෙන්වන්න</translation>
     </message>
     <message>
         <source>Capture</source>

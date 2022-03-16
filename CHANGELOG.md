@@ -32,6 +32,7 @@
 * Fixed: Failed Imgur uploads show up titled as 'Upload Successful'. ([#802](https://github.com/ksnip/ksnip/issues/802))
 * Fixed kImageAnnotator: Adding image effect does not send image change notification. ([#283](https://github.com/ksnip/kImageAnnotator/issues/283))
 * Fixed kImageAnnotator: Blur / Pixelate break when going past image edge once. ([#267](https://github.com/ksnip/kImageAnnotator/issues/267))
+* Fixed kImageAnnotator: Item opacity not applied when item shadow disabled. ([#284](https://github.com/ksnip/kImageAnnotator/issues/284))
 * Changed: Improve translation experience by using full sentences. ([#759](https://github.com/ksnip/ksnip/issues/759))
 
 ## Release 1.9.2

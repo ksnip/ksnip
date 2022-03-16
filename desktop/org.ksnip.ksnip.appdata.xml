@@ -117,6 +117,7 @@
                     <li>Fixed: Failed Imgur uploads show up titled as 'Upload Successful'.</li>
                     <li>Fixed kImageAnnotator: Adding image effect does not send image change notification.</li>
                     <li>Fixed kImageAnnotator: Blur / Pixelate break when going past image edge once.</li>
+                    <li>Fixed kImageAnnotator: Item opacity not applied when item shadow disabled.</li>
                     <li>Changed: Improve translation experience by using full sentences.</li>
                 </ul>
             </description>

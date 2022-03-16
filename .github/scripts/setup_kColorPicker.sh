@@ -3,12 +3,12 @@
 if [[ -z "${GITHUB_TAG}" ]]; then
     echo "Building ksnip with latest version of kColorPicker"
 
-    git clone --depth 1 git://github.com/ksnip/kColorPicker
+    git clone --depth 1 https://github.com/ksnip/kColorPicker.git
 else
     KCOLORPICKER_VERSION=$(grep "set.*KCOLORPICKER_MIN_VERSION" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
     echo "Building ksnip with kColorPicker version ${KCOLORPICKER_VERSION}"
 
-    git clone --depth 1 --branch "v${KCOLORPICKER_VERSION}" git://github.com/ksnip/kColorPicker
+    git clone --depth 1 --branch "v${KCOLORPICKER_VERSION}" https://github.com/ksnip/kColorPicker.git
 fi
 
 cd kColorPicker || exit

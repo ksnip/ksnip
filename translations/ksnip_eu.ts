@@ -512,7 +512,7 @@ Jarraitu nahi duzu?</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Erabiltzaile-izena</translation>
+        <translation>Erabiltzaile-izena</translation>
     </message>
     <message>
         <source>Password</source>
@@ -1054,7 +1054,7 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">Ekintzak</translation>
+        <translation>Ekintzak</translation>
     </message>
     <message>
         <source>Image Files</source>

@@ -12,4 +12,6 @@ cp "${OPENSSL_DIR}"/*.dll ./packageDir/
 
 cp "${COMPILE_RUNTIME_DIR}"/*.dll ./packageDir/
 
+mkdir packageDir/plugins
+
 7z a ksnip-${VERSION}-windows.zip ./packageDir/*

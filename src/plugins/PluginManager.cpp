@@ -25,6 +25,8 @@ PluginManager::PluginManager(const QSharedPointer<IConfig> &config, const QShare
 	mLogger(logger)
 {
 	loadPlugins();
+
+	connect(mConfig.data(), &IConfig::pluginsChanged, this, &PluginManager::loadPlugins);
 }
 
 bool PluginManager::isAvailable(PluginType type)  const

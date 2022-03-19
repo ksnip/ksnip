@@ -33,7 +33,7 @@ class PluginManager : public IPluginManager
 {
 public:
 	explicit PluginManager(const QSharedPointer<IConfig> &config, const QSharedPointer<IPluginLoader> &loader, const QSharedPointer<ILogger> &logger);
-	~PluginManager() = default;
+	~PluginManager() override = default;
 	bool isAvailable(PluginType type) const override;
 	QSharedPointer<QObject> get(PluginType type) const override;
 	QString getPath(PluginType type) const override;
@@ -45,6 +45,7 @@ private:
 	QMap<PluginType, QSharedPointer<QObject>> mPluginMap;
 	QMap<PluginType, QString> mPluginPathMap;
 
+private slots:
 	void loadPlugins();
 };
 

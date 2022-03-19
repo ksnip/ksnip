@@ -40,6 +40,7 @@ Latest ksnip version contains following features:
 * Run as single instance application (secondary instances send cli parameter to primary instance).
 * Pin screenshots in frameless windows that stay atop other windows.
 * User-defined actions for taking screenshot and post-processing.
+* OCR support through plugin (Window and Linux/Unix).
 * Many configuration options.
 
 # Supported Screenshot Types
@@ -187,14 +188,23 @@ $ brew install --cask ksnip
 
 # Plugins
 ksnip functionality can be extended by using plugins that need to be downloaded separately and installed or unpacked,
-depending on the environment. Currently, under `Options > Settings > Plugins` a path needs to be provided where the
-plugins are located, after clicking on "Detect", ksnip searches for known plugins and when found will list the name
-ans version. 
+depending on the environment. Currently, under `Options > Settings > Plugins` a plugin detection can be triggered either
+in the default location(s) or by providing a search path where to look for plugins. After clicking on "Detect", ksnip 
+searches for known plugins and when found will list the name and version. 
 
-## OCR (Window and Linux/Unix - WIP)
+### Default search locations  
+Windows: `plugins` directory, next to `ksnip.exe`  
+Linux/Unix: `/usr/local/lib`, `/usr/local/lib64`, `/usr/lib`, `/usr/lib64`  
+
+### Version selection
+The plugin must match the Qt version and build type of ksnip. If you have a ksnip version that uses Qt 15.5.X and was
+build in `DEBUG` then the plugin must match the same criteria. In most cases the latest ksnip and plugin version will
+be using the same Qt version, the only think that you need to watch out for is to not mix `DEBUG` and `RELEASE` build.
+
+## OCR (Window and Linux/Unix)
 ksnip supports OCR by using the [ksnip-plugin-ocr](https://github.com/ksnip/ksnip-plugin-ocr) which utilizes Tesseract
 to convert Image to text. When the OCR plugin was loaded, the OCR option becomes available under `Options > OCR`.
-The latest plugin version can be found [here](https://github.com/ksnip/ksnip-plugin-ocr/releases)
+The latest plugin version can be found [here](https://github.com/ksnip/ksnip-plugin-ocr/releases).
 
 
 # Dependencies

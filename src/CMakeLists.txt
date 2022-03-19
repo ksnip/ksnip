@@ -163,6 +163,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/logging/ConsoleLogger.cpp
 	${CMAKE_SOURCE_DIR}/src/logging/NoneLogger.cpp
 	${CMAKE_SOURCE_DIR}/src/plugins/PluginInfo.cpp
+	${CMAKE_SOURCE_DIR}/src/plugins/IPluginManager.h
 	${CMAKE_SOURCE_DIR}/src/plugins/PluginManager.cpp
 	${CMAKE_SOURCE_DIR}/src/plugins/PluginFinder.cpp
 	${CMAKE_SOURCE_DIR}/src/plugins/PluginLoader.cpp

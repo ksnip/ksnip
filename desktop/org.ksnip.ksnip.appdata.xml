@@ -38,6 +38,7 @@
             <li>Run as single instance application (secondary instances send cli parameter to primary instance).</li>
             <li>Pin Screenshots in Frameless windows that stay on top of other windows.</li>
             <li>User-defined actions for taking screenshot and post-processing.</li>
+            <li>OCR support through plugin (Window and Linux/Unix).</li>
             <li>Many configuration options.</li>
         </ul>
     </description>
@@ -103,6 +104,7 @@
                     <li>New: Search bar in the settings dialog.</li>
                     <li>New: Make implicit capture delay configurable.</li>
                     <li>New: Shortcuts for Actions can be made global and non-global per config.</li>
+                    <li>New: OCR scan of screenshots (via plugin).</li>
                     <li>New kImageAnnotator: Add optional undo, redo, crop, scale and modify canvas buttons to dock widgets.</li>
                     <li>New kImageAnnotator: Cut out vertical or horizontal slice of an image.</li>
                     <li>New kImageAnnotator: Middle-click on tab header closes tab.</li>

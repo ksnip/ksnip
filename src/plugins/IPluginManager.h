@@ -22,11 +22,12 @@
 
 #include "src/common/enum/PluginType.h"
 
-class IPluginManager
+class IPluginManager : public QObject
 {
+	Q_OBJECT
 public:
 	IPluginManager() = default;
-	~IPluginManager() = default;
+	~IPluginManager() override = default;
 	virtual bool isAvailable(PluginType type) const = 0;
 	virtual QSharedPointer<QObject> get(PluginType type) const = 0;
 	virtual QString getPath(PluginType type) const = 0;

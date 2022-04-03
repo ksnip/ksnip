@@ -111,6 +111,8 @@
                     <li>New kImageAnnotator: Add button to fit image into current view.</li>
                     <li>New kImageAnnotator: Allow changing item opacity.</li>
                     <li>New kImageAnnotator: Add support for RGBA colors with transparency.</li>
+                    <li>New kImageAnnotator: Add mouse cursor sticker.</li>
+                    <li>New kImageAnnotator: Allow scaling stickers per setting.</li>
                     <li>Fixed: Opens a new window for each capture.</li>
                     <li>Fixed: First cli invocation won't copy image to clipboard.</li>
                     <li>Fixed: Snipping area incorrectly positioned with screen scaling.</li>

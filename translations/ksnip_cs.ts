@@ -72,7 +72,7 @@
     <message>
         <source>s</source>
         <extracomment>The small letter s stands for seconds.</extracomment>
-        <translation type="unfinished">s</translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Capture Mode</source>

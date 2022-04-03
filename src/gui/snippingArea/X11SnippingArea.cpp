@@ -24,6 +24,9 @@ X11SnippingArea::X11SnippingArea(const QSharedPointer<IConfig> &config) :
 {
 	setWindowFlags(windowFlags() | Qt::Tool | Qt::X11BypassWindowManagerHint);
 
+	connect(qGuiApp, &QGuiApplication::screenRemoved, this, &X11SnippingArea::calculateDesktopGeometry);
+	connect(qGuiApp, &QGuiApplication::screenAdded, this, &X11SnippingArea::calculateDesktopGeometry);
+
 	calculateDesktopGeometry();
 }
 
@@ -51,6 +54,8 @@ QSizeF X11SnippingArea::getSize() const
 
 void X11SnippingArea::calculateDesktopGeometry()
 {
+	mDesktopGeometry = QRectF();
+
 	auto screens = QGuiApplication::screens();
 	for(auto screen : screens) {
 		auto scaleFactor = screen->devicePixelRatio();

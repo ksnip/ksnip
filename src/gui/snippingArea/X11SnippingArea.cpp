@@ -19,13 +19,15 @@
 
 #include "X11SnippingArea.h"
 
+#include <QDebug>
+
 X11SnippingArea::X11SnippingArea(const QSharedPointer<IConfig> &config) :
     AbstractSnippingArea(config)
 {
 	setWindowFlags(windowFlags() | Qt::Tool | Qt::X11BypassWindowManagerHint);
 
-	connect(qGuiApp, &QGuiApplication::screenRemoved, this, &X11SnippingArea::calculateDesktopGeometry);
-	connect(qGuiApp, &QGuiApplication::screenAdded, this, &X11SnippingArea::calculateDesktopGeometry);
+	connect(qGuiApp, &QGuiApplication::screenRemoved, []() { qDebug() << "Screen count changed: " << QGuiApplication::screens(); });
+	connect(qGuiApp, &QGuiApplication::screenAdded, []() { qDebug() << "Screen count changed: " << QGuiApplication::screens(); });
 
 	calculateDesktopGeometry();
 }
@@ -57,8 +59,14 @@ void X11SnippingArea::calculateDesktopGeometry()
 	mDesktopGeometry = QRectF();
 
 	auto screens = QGuiApplication::screens();
+
+	qDebug() << "Screen count: " << QGuiApplication::screens();
+
 	for(auto screen : screens) {
 		auto scaleFactor = screen->devicePixelRatio();
+
+		qDebug() << "Scale factor: " << screen->devicePixelRatio();
+
 		auto screenGeometry = screen->geometry();
 		auto x = screenGeometry.x() / scaleFactor;
 		auto y = screenGeometry.y() / scaleFactor;
@@ -66,5 +74,7 @@ void X11SnippingArea::calculateDesktopGeometry()
 		auto height = (qreal)screenGeometry.height();
 
         mDesktopGeometry = mDesktopGeometry.united({x, y, width, height});
+
+		qDebug() << "Calculated geometry: " << mDesktopGeometry;
 	}
 }

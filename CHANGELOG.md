@@ -26,6 +26,8 @@
 * New kImageAnnotator: Add support for RGBA colors with transparency. ([#119](https://github.com/ksnip/kImageAnnotator/issues/119))
 * New kImageAnnotator: Add mouse cursor sticker. ([#290](https://github.com/ksnip/kImageAnnotator/issues/290))
 * New kImageAnnotator: Allow scaling stickers per setting. ([#285](https://github.com/ksnip/kImageAnnotator/issues/285))
+* New kImageAnnotator: Respect original aspect ratio of stickers. ([#291](https://github.com/ksnip/kImageAnnotator/issues/291))
+* New kImageAnnotator: Respect original size of stickers. ([#295](https://github.com/ksnip/kImageAnnotator/issues/295))
 * Fixed: Opens a new window for each capture. ([#728](https://github.com/ksnip/ksnip/issues/728))
 * Fixed: First cli invocation won't copy image to clipboard. ([#764](https://github.com/ksnip/ksnip/issues/764))
 * Fixed: Snipping area incorrectly positioned with screen scaling. ([#276](https://github.com/ksnip/ksnip/issues/276))

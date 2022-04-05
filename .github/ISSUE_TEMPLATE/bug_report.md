@@ -25,10 +25,10 @@ If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
  - OS: [e.g. Linux]
- - Distribution in case of Linux [e.g. Ubuntu]
- - Window System in case of Linux [e.g. X11]
- - ksnip version [e.g. 1.8.0]
- - How did you install ksnip [e.g. AppImage]
+ - Distribution in case of Linux: [e.g. Ubuntu]
+ - Window System in case of Linux: [e.g. X11]
+ - ksnip version: [e.g. 1.8.0]
+ - How did you install ksnip: [e.g. AppImage]
 
 **Additional context**
-Add any other context about the problem here.
+If applicable, add any other context about the problem here.

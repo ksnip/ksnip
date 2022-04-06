@@ -19,17 +19,14 @@
 
 #include "X11SnippingArea.h"
 
-#include <QDebug>
-
 X11SnippingArea::X11SnippingArea(const QSharedPointer<IConfig> &config) :
-    AbstractSnippingArea(config)
+    AbstractSnippingArea(config),
+	mScreenCountChanged(true)
 {
 	setWindowFlags(windowFlags() | Qt::Tool | Qt::X11BypassWindowManagerHint);
 
-	connect(qGuiApp, &QGuiApplication::screenRemoved, []() { qDebug() << "Screen count changed: " << QGuiApplication::screens(); });
-	connect(qGuiApp, &QGuiApplication::screenAdded, []() { qDebug() << "Screen count changed: " << QGuiApplication::screens(); });
-
-	calculateDesktopGeometry();
+	connect(qGuiApp, &QGuiApplication::screenRemoved, [this]() { mScreenCountChanged = true; });
+	connect(qGuiApp, &QGuiApplication::screenAdded, [this]() {	mScreenCountChanged = true;	});
 }
 
 QRect X11SnippingArea::selectedRectArea() const
@@ -54,19 +51,28 @@ QSizeF X11SnippingArea::getSize() const
     return mDesktopGeometry.size();
 }
 
+void X11SnippingArea::showSnippingArea()
+{
+	// Just after the screen count is changed the new screen is not positioned
+	// correctly so our calculation is wrong. As a workaround we mark that we
+	// need to recalculate the screen and calculate just before we show the
+	// snipping area.
+	if (mScreenCountChanged) {
+		calculateDesktopGeometry();
+		mScreenCountChanged = false;
+	}
+
+	AbstractSnippingArea::showSnippingArea();
+}
+
 void X11SnippingArea::calculateDesktopGeometry()
 {
 	mDesktopGeometry = QRectF();
 
 	auto screens = QGuiApplication::screens();
 
-	qDebug() << "Screen count: " << QGuiApplication::screens();
-
 	for(auto screen : screens) {
 		auto scaleFactor = screen->devicePixelRatio();
-
-		qDebug() << "Scale factor: " << screen->devicePixelRatio();
-
 		auto screenGeometry = screen->geometry();
 		auto x = screenGeometry.x() / scaleFactor;
 		auto y = screenGeometry.y() / scaleFactor;
@@ -74,7 +80,5 @@ void X11SnippingArea::calculateDesktopGeometry()
 		auto height = (qreal)screenGeometry.height();
 
         mDesktopGeometry = mDesktopGeometry.united({x, y, width, height});
-
-		qDebug() << "Calculated geometry: " << mDesktopGeometry;
 	}
 }

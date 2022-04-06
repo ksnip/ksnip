@@ -67,7 +67,8 @@ protected:
 	virtual void grabKeyboardFocus();
 	virtual QPointF getPosition() const;
 	virtual QRectF getGeometry() const;
-    QRect getCaptureArea() const;
+	virtual void showSnippingArea();
+	QRect getCaptureArea() const;
 
 private:
     QRect mCaptureArea;
@@ -84,7 +85,6 @@ private:
 
     void setBackgroundImage(const QPixmap &background);
     void clearBackgroundImage();
-    virtual void showSnippingArea();
 	void finishSelection();
 
 private slots:

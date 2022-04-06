@@ -34,6 +34,8 @@
 * Fixed: MainWindow position not restored when outside primary screen. ([#789](https://github.com/ksnip/ksnip/issues/789))
 * Fixed: Interface window isn't restored to the default after tab is closed in maximized state. ([#757](https://github.com/ksnip/ksnip/issues/757))
 * Fixed: Failed Imgur uploads show up titled as 'Upload Successful'. ([#802](https://github.com/ksnip/ksnip/issues/802))
+* Fixed: Preview of screenshot is scaled after changing desktop size. ([#844](https://github.com/ksnip/ksnip/issues/844))
+* Fixed: After an auto start followed by reboot/turn on the window section is stretched. ([#842](https://github.com/ksnip/ksnip/issues/842))
 * Fixed kImageAnnotator: Adding image effect does not send image change notification. ([#283](https://github.com/ksnip/kImageAnnotator/issues/283))
 * Fixed kImageAnnotator: Blur / Pixelate break when going past image edge once. ([#267](https://github.com/ksnip/kImageAnnotator/issues/267))
 * Fixed kImageAnnotator: Item opacity not applied when item shadow disabled. ([#284](https://github.com/ksnip/kImageAnnotator/issues/284))

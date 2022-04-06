@@ -33,10 +33,12 @@ public:
 protected:
     void setFullScreen() override;
     QSizeF getSize() const override;
+	void showSnippingArea() override;
 
 private:
 	QRectF mDesktopGeometry;
 	HdpiScaler mHdpiScaler;
+	bool mScreenCountChanged;
 
 	void calculateDesktopGeometry();
 };

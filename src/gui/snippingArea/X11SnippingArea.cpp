@@ -20,13 +20,15 @@
 #include "X11SnippingArea.h"
 
 X11SnippingArea::X11SnippingArea(const QSharedPointer<IConfig> &config) :
-    AbstractSnippingArea(config),
-	mScreenCountChanged(true)
+	AbstractSnippingArea(config),
+	mIsDesktopGeometryCalculated(false)
 {
 	setWindowFlags(windowFlags() | Qt::Tool | Qt::X11BypassWindowManagerHint);
 
-	connect(qGuiApp, &QGuiApplication::screenRemoved, [this]() { mScreenCountChanged = true; });
-	connect(qGuiApp, &QGuiApplication::screenAdded, [this]() {	mScreenCountChanged = true;	});
+	connect(qGuiApp, &QGuiApplication::screenRemoved, this, &X11SnippingArea::screenCountChanged);
+	connect(qGuiApp, &QGuiApplication::screenAdded, this, &X11SnippingArea::screenCountChanged);
+
+	screenCountChanged();
 }
 
 QRect X11SnippingArea::selectedRectArea() const
@@ -57,9 +59,9 @@ void X11SnippingArea::showSnippingArea()
 	// correctly so our calculation is wrong. As a workaround we mark that we
 	// need to recalculate the screen and calculate just before we show the
 	// snipping area.
-	if (mScreenCountChanged) {
+	if (!mIsDesktopGeometryCalculated) {
 		calculateDesktopGeometry();
-		mScreenCountChanged = false;
+		mIsDesktopGeometryCalculated = true;
 	}
 
 	AbstractSnippingArea::showSnippingArea();
@@ -81,4 +83,19 @@ void X11SnippingArea::calculateDesktopGeometry()
 
         mDesktopGeometry = mDesktopGeometry.united({x, y, width, height});
 	}
+}
+
+void X11SnippingArea::screenCountChanged()
+{
+	desktopGeometryChanged();
+
+	auto screens = QGuiApplication::screens();
+	for(auto screen : screens) {
+		connect(screen, &QScreen::availableGeometryChanged, this, &X11SnippingArea::desktopGeometryChanged, Qt::UniqueConnection);
+	}
+}
+
+void X11SnippingArea::desktopGeometryChanged()
+{
+	mIsDesktopGeometryCalculated = false;
 }

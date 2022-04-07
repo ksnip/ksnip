@@ -38,9 +38,13 @@ protected:
 private:
 	QRectF mDesktopGeometry;
 	HdpiScaler mHdpiScaler;
-	bool mScreenCountChanged;
+	bool mIsDesktopGeometryCalculated;
 
 	void calculateDesktopGeometry();
+
+private slots:
+	void screenCountChanged();
+	void desktopGeometryChanged();
 };
 
 #endif //KSNIP_X11SNIPPINGAREA_H

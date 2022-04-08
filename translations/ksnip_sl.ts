@@ -13,30 +13,30 @@
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Različica</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Avtor</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapri</translation>
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Licenca</translation>
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontakt</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>License: </source>
-        <translation type="unfinished"></translation>
+        <translation>Licenca </translation>
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
@@ -47,15 +47,15 @@
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Ime</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Bližnjica</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Počisti</translation>
     </message>
     <message>
         <source>Take Capture</source>
@@ -67,16 +67,16 @@
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Zakasnitev</translation>
     </message>
     <message>
         <source>s</source>
         <extracomment>The small letter s stands for seconds.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Način zajema</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
@@ -84,7 +84,7 @@
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiraj sliko v odložišče</translation>
     </message>
     <message>
         <source>Upload image</source>
@@ -92,30 +92,30 @@
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Odprite nadrejeni imenik slik</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Shrani sliko</translation>
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrij glavno okno</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavitve dejanj</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Dejanje</translation>
     </message>
 </context>
 <context>
@@ -142,13 +142,15 @@ marker paths after finished drawing.</source>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Stopnja glajenja</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished"></translation>
+        <translation>Povečanje stopnje glajenja bo zmanjšalo
+ natančnost za pero in marker, ampak jih bo
+ naredilobolj gladke.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
@@ -160,7 +162,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Po risanju predmeta preklopite na Izberi orodje</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
@@ -174,7 +176,7 @@ Disabling this option allows having duplicate numbers.</source>
     </message>
     <message>
         <source>Canvas Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Barva platna</translation>
     </message>
     <message>
         <source>Default Canvas background color for annotation area.
@@ -183,7 +185,7 @@ Changing color affects only new annotation areas.</source>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>Izberite element po risanju</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
@@ -199,7 +201,7 @@ being created, allowing changing settings.</source>
     </message>
     <message>
         <source>Application Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Slog aplikacije</translation>
     </message>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
@@ -208,11 +210,11 @@ Change requires ksnip restart to take effect.</source>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavitve aplikacije</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Samodejno kopiranje novih posnetkov v odložišče</translation>
     </message>
     <message>
         <source>Use Tabs</source>

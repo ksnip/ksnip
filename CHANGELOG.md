@@ -40,6 +40,8 @@
 * Fixed kImageAnnotator: Blur / Pixelate break when going past image edge once. ([#267](https://github.com/ksnip/kImageAnnotator/issues/267))
 * Fixed kImageAnnotator: Item opacity not applied when item shadow disabled. ([#284](https://github.com/ksnip/kImageAnnotator/issues/284))
 * Changed: Improve translation experience by using full sentences. ([#759](https://github.com/ksnip/ksnip/issues/759))
+* Changed: Make switch 'to select tool after drawing item' by default disabled.
+* Changed kImageAnnotator: Max font size changed to 100pt.
 
 ## Release 1.9.2
 * Fixed: Version `Qt_5.15' not found (required by /usr/bin/ksnip). ([#712](https://github.com/ksnip/ksnip/issues/712))

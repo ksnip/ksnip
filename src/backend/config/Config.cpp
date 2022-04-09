@@ -554,7 +554,7 @@ void Config::setRememberToolSelection(bool enabled)
 
 bool Config::switchToSelectToolAfterDrawingItem() const
 {
-	return loadValue(ConfigOptions::switchToSelectToolAfterDrawingItemString(), true).toBool();
+	return loadValue(ConfigOptions::switchToSelectToolAfterDrawingItemString(), false).toBool();
 }
 
 void Config::setSwitchToSelectToolAfterDrawingItem(bool enabled)

@@ -127,6 +127,8 @@
                     <li>Fixed kImageAnnotator: Blur / Pixelate break when going past image edge once.</li>
                     <li>Fixed kImageAnnotator: Item opacity not applied when item shadow disabled.</li>
                     <li>Changed: Improve translation experience by using full sentences.</li>
+                    <li>Changed: Make switch 'to select tool after drawing item' by default disabled.</li>
+                    <li>Changed kImageAnnotator: Max font size changed to 100pt.</li>
                 </ul>
             </description>
         </release>

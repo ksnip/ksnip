@@ -70,6 +70,8 @@ so use them with caution.
 
 ## Linux
 
+*Click on the item, to expand information.*
+
 <details>
   <summary>AppImage</summary>
 
@@ -261,6 +263,8 @@ If you are using Archlinux, you may prefer to [build ksnip through AUR](https://
 
 # Known Issues
 
+<details>
+  <summary>Expand</summary>
 ### X11
 1. Snipping area with transparent background doesn't work when compositor is turned off, freeze background is used in that case.
 
@@ -290,6 +294,7 @@ don't provide an interface for us to work with Global Hotkeys, does won't be sup
 ### Screen Scaling (HiDPI)
 1. Qt is having issues with screen scaling, it can occur that the Snipping area is incorrectly positioned. As a workaround
 the Snipping Area position or offset can be configured so that it's placed correctly. Issue [#276]
+</details>
 
 # Discussion & Community
 If you have general questions, ideas or just want to talk about ksnip, please join our [Discord][discord-badge-url] 

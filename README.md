@@ -295,19 +295,14 @@ the Snipping Area position or offset can be configured so that it's placed corre
 If you have general questions, ideas or just want to talk about ksnip, please join our [Discord][discord-badge-url] 
 or [IRC][libera-badge-url] server. 
 
-# Bug report
-Please report any bugs or feature requests related to the annotation editor on the [kImageAnnotator](https://github.com/ksnip/kImageAnnotator/issues) GitHub page under the "Issue" section.
-All other bugs or feature requests can be reported on the [ksnip](https://github.com/ksnip/ksnip/issues) GitHub page under the "Issue" section.
-
 # Contribution
 Any contribution is welcome, be it code, translations or other things. Currently, we need:
 * Developers for writing code and fixing bugs for linux, windows and macOS. We have **only one developer** and the feature requests and bugs are pilling up.
 * Testers for testing releases on different OS and Distros.
 * Docu writers, there are a lot of features that the casual users don't know about.
-* Translations
-As with all continuous translations, contributors are always welcome!
-For translations [Weblate](https://hosted.weblate.org/projects/ksnip/translations/) is used.
-For translations of annotator-related texts, please refer to [kImageAnnotator](https://github.com/ksnip/kImageAnnotator)
+* Bug reporting, Please report any bugs or feature requests related to the annotation editor on the [kImageAnnotator](https://github.com/ksnip/kImageAnnotator/issues) GitHub page under the "Issue" section.
+All other bugs or feature requests can be reported on the [ksnip](https://github.com/ksnip/ksnip/issues) GitHub page under the "Issue" section.
+* Translations - [Weblate](https://hosted.weblate.org/projects/ksnip/translations/) is used for translations. For translating annotator-related texts, please refer to [kImageAnnotator](https://github.com/ksnip/kImageAnnotator)
 <details>
   <summary>Translation status</summary>
 

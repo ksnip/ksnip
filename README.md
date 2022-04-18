@@ -2,6 +2,7 @@
 [![Linux build status][github-linux-badge]][github-linux-url] [![Windows build status][github-windows-badge]][github-windows-url] [![MacOS build status][github-macos-badge]][github-macos-url] [![GitHub commits (since latest release)][gh-comm-since-badge]][gh-comm-since-url]  
 [![Translation status][weblate-badge]][weblate-url] [![GitHub total downloads][gh-dl-badge]][gh-dl-url] [![SourceForge total downloads][sf-dt-badge]][sf-dt-badge-url] [![Discord][discord-badge]][discord-badge-url]
 [![IRC: #ksnip on libera.chat][libera-badge]][libera-badge-url]
+[![GitHub license](https://img.shields.io/github/license/ksnip/ksnip?color=lightgrey)](https://github.com/ksnip/ksnip/blob/master/LICENSE)
 
 Version v1.10.0
 

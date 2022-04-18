@@ -70,7 +70,9 @@ so use them with caution.
 
 ## Linux
 
-### AppImage
+<details>
+  <summary>AppImage</summary>
+
 To use AppImages, make them executable and run them, no installation required.
 ```
 $ chmod a+x ksnip*.AppImage
@@ -78,22 +80,30 @@ $ ./ksnip*.AppImage
 ```
 
 More info about setting to executable can be found [here](https://discourse.appimage.org/t/how-to-make-an-appimage-executable/80).
+</details>
 
-### RPM
+<details>
+  <summary>RPM</summary>
+
 Just install them via RPM and use.
 ```
 $ rpm -Uvh ksnip*.rpm
 $ ksnip
 ```
+</details>
 
-### DEB
+<details>
+  <summary>DEB</summary>
+
 Just install them via apt and start using.
 ```
 $ sudo apt install ./ksnip*.deb
 $ ksnip
 ```
+</details>
 
-### APT
+<details>
+  <summary>APT</summary>
 
 Starting with Ubuntu 21.04 Hirsute Hippo, you can install from the [official package](https://launchpad.net/ubuntu/+source/ksnip):
 ```
@@ -114,8 +124,11 @@ $ sudo apt install ksnip
 
 For Debian 10 and Debian 9, ksnip is available via [Debian Backports](https://backports.debian.org/).
 Please enable `bullseye-backports` and `buster-backports` repo for Debian 10 and Debian 9 respectively before installing using `sudo apt install ksnip`.
+</details>
 
-### Archlinux
+<details>
+  <summary>ArchLinux</summary>
+
 Ksnip is in the [Community repository](https://archlinux.org/packages/community/x86_64/ksnip/), so you can install it directly via pacman.
 ```
 $ sudo pacman -S ksnip
@@ -125,8 +138,11 @@ If you want to build from the GIT repository, you can use the [AUR package](http
 ```
 $ yay -S ksnip-git kimageannotator-git kcolorpicker-git
 ```
+</details>
 
-### Snap
+<details>
+  <summary>Snap</summary>
+
 The usual method for Snaps, will install the latest version:
 ```
 $ sudo snap install ksnip
@@ -151,8 +167,11 @@ $ snap connect ksnip:removable-media
 This only needs to be done once and connects some Snap plugs which are currently not auto-connected.
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/ksnip)
+</Details>
 
-### Flatpak
+<details>
+  <summary>Flatpak</summary>
+
 The usual method for Flatpaks will install the latest version:
 ```
 $ flatpak install flathub org.ksnip.ksnip
@@ -164,27 +183,40 @@ $ flatpak run org.ksnip.ksnip
 ```
 
 <a href='https://flathub.org/apps/details/org.ksnip.ksnip'><img width='220' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-en.png'/></a>
+</details>
 
 ## Windows
 
-### MSI
-The MSI installer installs ksnip on your system and is the preferred way for installing ksnip under Windows.
+<details>
+  <summary>MSI</summary>
 
-### EXE
+The MSI installer installs ksnip on your system and is the preferred way for installing ksnip under Windows.
+</details>
+
+<details>
+  <summary>EXE</summary>
+
 The EXE file with all required dependencies comes in a zipped package, which just need to be unzipped
 with your favorite unpacking tool. Ksnip can then be started by just double-clicking ksnip.exe.
+</details>
 
 ## macOS
 
-### APP
+<details>
+  <summary>APP</summary>
+
 The app file comes in a DMG package which needs to be opened, and the ksnip.app file needs to be dragged
 and dropped into the "Application" folder. After that the application can be started by double clicking ksnip.app
+</details>
 
-### Homebrew Cask
+<details>
+  <summary>Homebrew Cask</summary>
+
 Just install via Homebrew and start using from your "Applications" folder.
 ```
 $ brew install --cask ksnip
 ```
+</details>
 
 # Plugins
 ksnip functionality can be extended by using plugins that need to be downloaded separately and installed or unpacked,
@@ -226,13 +258,6 @@ to be installed before building ksnip from source. Installation instructions can
     `$ ksnip`
 
 If you are using Archlinux, you may prefer to [build ksnip through AUR](https://github.com/ksnip/ksnip#archlinux).
-
-# Translations
-As with all continuous translations, contributors are always welcome!
-For translations [Weblate](https://hosted.weblate.org/projects/ksnip/translations/) is used.
-[![Translation status](https://hosted.weblate.org/widgets/ksnip/-/translations/multi-green.svg)](https://hosted.weblate.org/engage/ksnip/?utm_source=widget)
-
-For translations of annotator-related texts, please refer to [kImageAnnotator](https://github.com/ksnip/kImageAnnotator)
 
 # Known Issues
 
@@ -279,6 +304,15 @@ Any contribution is welcome, be it code, translations or other things. Currently
 * Developers for writing code and fixing bugs for linux, windows and macOS. We have **only one developer** and the feature requests and bugs are pilling up.
 * Testers for testing releases on different OS and Distros.
 * Docu writers, there are a lot of features that the casual users don't know about.
+* Translations
+As with all continuous translations, contributors are always welcome!
+For translations [Weblate](https://hosted.weblate.org/projects/ksnip/translations/) is used.
+For translations of annotator-related texts, please refer to [kImageAnnotator](https://github.com/ksnip/kImageAnnotator)
+<details>
+  <summary>Translation status</summary>
+
+[![Translation status](https://hosted.weblate.org/widgets/ksnip/-/translations/multi-green.svg)](https://hosted.weblate.org/engage/ksnip/?utm_source=widget)
+</details>
 
 # Donation 
 ksnip is a non-profitable copylefted libre software project, and still has some costs that need to be covered, like domain costs or hardware costs for cross-platform support.

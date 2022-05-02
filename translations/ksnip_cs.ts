@@ -394,11 +394,11 @@ Chcete změny uložit?</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokud máte obecné otázky, nápady nebo si jen chcete povídat o ksnip,&lt;br/&gt;prosím, připojte se na náš %1 nebo náš %2 server.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prosím použijte %1 pro nahlašování chyb.</translation>
     </message>
 </context>
 <context>

@@ -445,19 +445,19 @@ Chcete pokračovat?</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip je neziskový copyleft volný softwarový projekt a &lt;br/&gt; stále má nějaké výdaje, které je třeba pokrýt,&lt;br/&gt;jako domény nebo hardware pro podporu více platforem.</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokud chcete pomoct nebo jen chcete ocenit práci, kterou děláme,&lt;br/&gt;tím, že zaplatíte vývojářům pivo nebo kávu, můžete tak učinit %1zde%2.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
-        <translation type="unfinished"></translation>
+        <translation>Stát se GitHub sponzorem?</translation>
     </message>
     <message>
         <source>Also possible, %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Také možnost, %1zde%2.</translation>
     </message>
 </context>
 <context>

@@ -1603,7 +1603,7 @@ El cambio requiere que se reinicie.</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation>Acción por defecto de clic-izquierdo en el icono de la bandeja</translation>
+        <translation>Acción por defecto de clic izquierdo en el icono de la bandeja</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
@@ -1611,7 +1611,7 @@ El cambio requiere que se reinicie.</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilice el servicio de notificación específico de la plataforma</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification

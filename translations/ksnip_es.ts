@@ -1607,7 +1607,7 @@ El cambio requiere que se reinicie.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración del icono de bandeja</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>

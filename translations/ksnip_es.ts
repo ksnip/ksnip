@@ -1039,7 +1039,7 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Escalar Imagen</translation>
     </message>
     <message>
         <source>Rotate</source>
@@ -1506,7 +1506,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation>Color del recuadro de recorte</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
@@ -1515,7 +1515,7 @@ on the snipping area.</source>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>Transparencia del area de recorte</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
@@ -1599,11 +1599,11 @@ El cambio requiere que se reinicie.</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation type="unfinished"></translation>
+        <translation>Acción por defecto del icono de bandeja</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Acción por defecto de clic-izquierdo en el icono de la bandeja</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>

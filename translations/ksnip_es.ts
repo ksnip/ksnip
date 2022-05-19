@@ -55,7 +55,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Limpiar</translation>
+        <translation>Limpiar</translation>
     </message>
     <message>
         <source>Take Capture</source>
@@ -72,7 +72,7 @@
     <message>
         <source>s</source>
         <extracomment>The small letter s stands for seconds.</extracomment>
-        <translation type="unfinished">s</translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Capture Mode</source>
@@ -107,7 +107,7 @@
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Añadir</translation>
+        <translation>Añadir</translation>
     </message>
     <message>
         <source>Actions Settings</source>
@@ -163,7 +163,7 @@ más suaves.</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation>Cambiar a la herramienta de selección después de dibujar un elemento</translation>
+        <translation>Cambiar a Selección de Herramienta después de dibujar Item</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
@@ -258,7 +258,7 @@ un nuevo inicio de todas las instancias.</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished">Ocultar automáticamente los Docks</translation>
+        <translation>Ocultar automáticamente los Docks</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
@@ -286,7 +286,7 @@ Este cambio require reiniciar ksnip.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Redimensionar al retraso del contenido</translation>
     </message>
     <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
@@ -343,8 +343,8 @@ to the new content, increasing this delay might improve the behavior.</source>
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation>Se ha modificado la captura %1%2%3.
-¿Quiere guardarla?</translation>
+        <translation>La captura %1%2%3 ha sido modificada
+¿Desea guardar?</translation>
     </message>
 </context>
 <context>
@@ -398,7 +398,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilice %1 para informar errores.</translation>
     </message>
 </context>
 <context>
@@ -445,7 +445,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip es un proyecto de software libre copyleft no rentable, y&lt;br/&gt;todavía tiene algunos costos que deben cubrirse,&lt;br/&gt;como costos de dominio o costos de hardware para el soporte multiplataforma.</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
@@ -453,11 +453,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
-        <translation type="unfinished"></translation>
+        <translation>¿Convertirse en patrocinador de GitHub?</translation>
     </message>
     <message>
         <source>Also possible, %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>También es posible, %1aquí%2.</translation>
     </message>
 </context>
 <context>
@@ -471,31 +471,31 @@ Do you want to continue?</source>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Área rectangular</translation>
+        <translation>Área rectangular</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished">Última área rectangular</translation>
+        <translation>Última área rectangular</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished">Pantalla completa (todos los monitores)</translation>
+        <translation>Pantalla completa (todos los monitores)</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Pantalla actual</translation>
+        <translation>Pantalla actual</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">Ventana activa</translation>
+        <translation>Ventana activa</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">Ventana bajo el puntero</translation>
+        <translation>Ventana bajo el puntero</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished">Portal de capturas</translation>
+        <translation>Portal de capturas</translation>
     </message>
 </context>
 <context>
@@ -506,19 +506,19 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>Url</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Nombre de usuario</translation>
+        <translation>Usuario</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Clave</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargador FTP</translation>
     </message>
 </context>
 <context>
@@ -561,23 +561,23 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation>Secuencia transferida a la salida estándar de errores.</translation>
+        <translation>Script escrito en el StdErr</translation>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Carga FTP finalizada con éxito.</translation>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Error desconocido.</translation>
     </message>
     <message>
         <source>Connection Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Error de conexión.</translation>
     </message>
     <message>
         <source>Permission Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Error de permiso.</translation>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
@@ -975,7 +975,7 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation>Anclar</translation>
+        <translation type="unfinished">Anclar</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
@@ -1043,11 +1043,11 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Girar</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Girar imagen</translation>
     </message>
     <message>
         <source>Actions</source>
@@ -1108,14 +1108,14 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation>Cerrar todo</translation>
+        <translation>Cerrar todos</translation>
     </message>
 </context>
 <context>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation>Anclar ventana %1</translation>
+        <translation>Fijar ventana %1</translation>
     </message>
 </context>
 <context>
@@ -1551,7 +1551,7 @@ Smaller number is more transparent.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Quitar</translation>
+        <translation>Remover</translation>
     </message>
     <message>
         <source>Add Stickers</source>

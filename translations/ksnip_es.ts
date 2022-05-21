@@ -292,7 +292,9 @@ Este cambio require reiniciar ksnip.</translation>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambiar el tamaño al contenido es un retraso para permitir que el Administrador de ventanas reciba
+el nuevo contenido. En caso de que la ventana principal no esté correctamente ajustada
+al nuevo contenido, aumentar este retraso podría mejorar el comportamiento.</translation>
     </message>
 </context>
 <context>
@@ -394,7 +396,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si tiene preguntas generales, ideas o simplemente quiere hablar sobre ksnip,&lt;br/&gt;únase a nuestro %1 o nuestro %2 servidor.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
@@ -449,7 +451,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si desea ayudar o simplemente desea apreciar el trabajo que se está realizando&lt;br/&gt;invitando a los desarrolladores a tomar una cerveza o un café, puede hacerlo %1aquí%2.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
@@ -502,7 +504,7 @@ Do you want to continue?</source>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Forzar subida anónima.</translation>
     </message>
     <message>
         <source>Url</source>
@@ -561,7 +563,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation>Script escrito en el StdErr</translation>
+        <translation>El script escribió en StdErr.</translation>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
@@ -581,11 +583,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>El script de carga %1 finalizó correctamente.</translation>
     </message>
     <message>
         <source>Uploaded to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Subido a %1</translation>
     </message>
 </context>
 <context>
@@ -692,15 +694,16 @@ El cambio en esta opción requiere un reinicio de ksnip.</translation>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar ventana principal después de capturar una nueva captura de pantalla
+cuando la ventana principal estaba oculta o minimizada.</translation>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Forzar Genérico Wayland (xdg-desktop-portal) Captura de pantalla</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Escala Genérica Wayland (xdg-desktop-portal) Captura de pantalla</translation>
     </message>
 </context>
 <context>
@@ -1055,7 +1058,7 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Archivos de Imagen</translation>
     </message>
 </context>
 <context>
@@ -1138,11 +1141,11 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Successfully renamed image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagen renombrada correctamente a %1</translation>
     </message>
     <message>
         <source>Failed to rename image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Error al cambiar el nombre de la imagen a %1</translation>
     </message>
 </context>
 <context>
@@ -1165,15 +1168,15 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Archivos de Imagen</translation>
     </message>
     <message>
         <source>Saved to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvado a %1</translation>
     </message>
     <message>
         <source>Failed to save image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Error al guardar la imagen en %1</translation>
     </message>
 </context>
 <context>
@@ -1359,7 +1362,7 @@ Cuando se omite, se copia todo.</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargador FTP</translation>
     </message>
 </context>
 <context>

@@ -1050,7 +1050,7 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation>Girar imagen</translation>
+        <translation>Rotar Imagen</translation>
     </message>
     <message>
         <source>Actions</source>
@@ -1621,7 +1621,7 @@ El cambio requiere que se reinicie.</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation>Utilice el servicio de notificación específico de la plataforma</translation>
+        <translation>Usar el servicio de notificaciones del sistema</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification

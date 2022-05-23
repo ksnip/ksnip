@@ -167,7 +167,7 @@ más suaves.</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation>Al seleccionar un modo diferente en la herramienta numérica se actualizan todos los elementos numéricos</translation>
+        <translation>El cambio de semilla de herramienta numérica actualiza todos los elementos numéricos</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
@@ -286,7 +286,7 @@ Este cambio require reiniciar ksnip.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
-        <translation type="unfinished">Redimensionar al retraso del contenido</translation>
+        <translation>Redimensionar al retraso del contenido</translation>
     </message>
     <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
@@ -733,7 +733,7 @@ cuando la ventana principal estaba oculta o minimizada.</translation>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Finalizó la carga en imgur.com.</translation>
+        <translation>Finalizó la carga en imgur.com!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
@@ -978,11 +978,11 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished">Anclar</translation>
+        <translation>Fijar</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation>Fija la captura de pantalla al primer plano en una ventana sin marco</translation>
+        <translation>Fijar captura de pantalla en primer plano, en una ventana sin bordes</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
@@ -1054,7 +1054,7 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">Acciones</translation>
+        <translation>Acciones</translation>
     </message>
     <message>
         <source>Image Files</source>
@@ -1240,9 +1240,8 @@ El nombre del archivo puede contener los siguientes comodines:
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation>Defina 0 para obtener archivos pequeños y comprimidos o 100 para archivos
-grandes y sin comprimir.
-No todos los formatos de archivo admiten todo el intervalo; JPG lo hace.</translation>
+        <translation>Defina 0 para obtener archivos pequeños y comprimidos, 100 para archivos grandes y sin comprimir.
+No todos los formatos de imagen son compatibles con la gama completa, JPEG sí lo es.</translation>
     </message>
 </context>
 <context>
@@ -1419,7 +1418,7 @@ Cuando se omite, se copia todo.</translation>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Congele la imagen mientras corta</translation>
+        <translation>Congele la imagen mientras se corta</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1441,71 +1440,77 @@ habilitado para MacOs.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Mostrar lupa en el área de corte</translation>
+        <translation>Mostrar lupa en el área de recorte</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">Muestra una lupa que se acerca a
+        <translation>Muestra una lupa que se acerca a
 la imagen de fondo. Esta opción solo funciona
 con la opción &quot;Congelar la imagen mientras se corta&quot; activada.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Mostrar reglas del área de recorte</translation>
+        <translation>Mostrar reglas del área de recorte</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Líneas horizontales y verticales que van desde
+        <translation>Líneas horizontales y verticales que van desde
 los bordes del escritorio al cursor en el área de corte.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Mostrar la posición del área de corte y la información del tamaño</translation>
+        <translation>Mostrar la posición del área de corte y la información del tamaño</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuando no se presiona el botón izquierdo del mouse,
+se muestra la posición, cuando se presiona el botón del mouse,
+el tamaño del área seleccionada se muestra a la izquierda
+y arriba del área capturada.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation type="unfinished"></translation>
+        <translation>Permitir cambiar el tamaño de la selección del área recta por defecto</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuando está habilitado, después de seleccionar una area
+recta, permite cambiar el tamaño de la selección. Cuando
+terminado de cambiar el tamaño de la selección se puede confirmar
+presionando regresar.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar información del área de recorte</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Color del área de corte del cursor</translation>
+        <translation>Color del cursor de área de corte</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Establece el color del cursor del área de recorte.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Grosor del área de corte del cursor</translation>
+        <translation>Grosor del cursor del área de recorte</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Establece el grosor del cursor del área de recorte.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished">Área de recorte</translation>
+        <translation>Área de recorte</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
@@ -1514,7 +1519,8 @@ by pressing return.</source>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Establece el color de todos los elementos de adorno
+en el área de corte.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
@@ -1523,7 +1529,8 @@ on the snipping area.</source>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alfa para la región no seleccionada en el área de recorte.
+El número más pequeño es más transparente.</translation>
     </message>
 </context>
 <context>
@@ -1572,33 +1579,33 @@ Smaller number is more transparent.</source>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished">Usa el icono de la bandeja</translation>
+        <translation>Usar icono de bandeja</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">Al activarse, añadirá un icono de bandeja a la barra de tareas si el administrador de ventanas del sistema operativo lo admite.
+        <translation>Al activarse, añadirá un icono de bandeja a la barra de tareas si el administrador de ventanas del sistema operativo lo admite.
 El cambio requiere que se reinicie.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished">Minimizar a la bandeja</translation>
+        <translation>Minimizar a la bandeja</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished">Iniciar minimizado en la bandeja</translation>
+        <translation>Iniciar minimizado en la bandeja</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished">Cierre a la Bandeja</translation>
+        <translation>Cierre a la Bandeja</translation>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished">Mostrar editor</translation>
+        <translation>Mostrar editor</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished">Capturar</translation>
+        <translation>Capturar</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
@@ -1606,7 +1613,7 @@ El cambio requiere que se reinicie.</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation>Acción por defecto de clic izquierdo en el icono de la bandeja</translation>
+        <translation>Acción por defecto de clic izquierdo en el icono de la bandeja.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
@@ -1619,11 +1626,12 @@ El cambio requiere que se reinicie.</translation>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuando esté habilitado, intentará usar el servicio de notificación específico
+de la plataforma cuando exista. El cambio requiere reiniciar para tener efecto.</translation>
     </message>
     <message>
         <source>Display Tray Icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar notificaciones del icono de la bandeja</translation>
     </message>
 </context>
 <context>
@@ -1634,7 +1642,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Archivos de imagen</translation>
     </message>
 </context>
 <context>
@@ -1680,7 +1688,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>FTP</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP</translation>
     </message>
 </context>
 <context>
@@ -1702,23 +1710,23 @@ service when such exists. Change requires restart to take effect.</source>
     <name>WatermarkSettings</name>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished">Imagen de marca de agua</translation>
+        <translation>Imagen de marca de agua</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Actualización</translation>
+        <translation>Actualización</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished">Rotar la marca de agua</translation>
+        <translation>Rotar la marca de agua</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished">Cuando esté activada, la marca de agua se añadirá con una rotación de 45°</translation>
+        <translation>Cuando esté activada, la marca de agua se añadirá con una rotación de 45°</translation>
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración de marca de agua</translation>
     </message>
 </context>
 </TS>

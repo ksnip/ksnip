@@ -1,5 +1,7 @@
 # Change log
 
+## Release 1.10.1
+
 ## Release 1.10.0
 * New: Set image save location on command line. ([#666](https://github.com/ksnip/ksnip/issues/666))
 * New: Add debug logging. ([#711](https://github.com/ksnip/ksnip/issues/711))

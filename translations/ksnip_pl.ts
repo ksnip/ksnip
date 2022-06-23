@@ -699,7 +699,7 @@ kiedy główne okno było ukryte lub zminimalizowane.</translation>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation type="unfinished">Zrzut ekranu Force Generic Wayland (xdg-desktop-portal)</translation>
+        <translation>Wymuś zrzut ekranu poprzez generyczny podsystem Wayland (xdg-desktop-portal)</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>

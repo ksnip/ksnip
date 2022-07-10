@@ -88,6 +88,10 @@
         <release type="stable" version="1.10.1" date="2022-08-01T00:00:00Z">
             <description>
                 <ul>
+                    <li>Fixed kImageAnnotator: Fix for unnecessary scrollbars when a screenshot has a smaller size than the previous one.</li>
+                    <li>Fixed kImageAnnotator: Add KDE support for scale factor.</li>
+                    <li>Fixed kImageAnnotator: Show tab tooltips on initial tabs.</li>
+                    <li>Fixed kImageAnnotator: Sticker resizing is broken when bounding rect flipped.</li>
                 </ul>
             </description>
         </release>

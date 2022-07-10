@@ -4,6 +4,7 @@
 * Fixed kImageAnnotator: Fix for unnecessary scrollbars when a screenshot has a smaller size than the previous one. ([#303](https://github.com/ksnip/kImageAnnotator/issues/303))
 * Fixed kImageAnnotator: Add KDE support for scale factor. ([#302](https://github.com/ksnip/kImageAnnotator/issues/302))
 * Fixed kImageAnnotator: Show tab tooltips on initial tabs.
+* Fixed kImageAnnotator: Sticker resizing is broken when bounding rect flipped. ([#306](https://github.com/ksnip/kImageAnnotator/issues/306))
 
 ## Release 1.10.0
 * New: Set image save location on command line. ([#666](https://github.com/ksnip/ksnip/issues/666))

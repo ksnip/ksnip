@@ -31,11 +31,55 @@ TrayIcon::TrayIcon(const QSharedPointer<IConfig> &config, const QSharedPointer<I
 	mQuitAction(nullptr),
 	mActionsMenu(nullptr)
 {
-	auto icon = iconLoader->loadForTheme(QLatin1String("ksnip"));
-	setIcon(icon);
 
 	mShowEditorAction = new QAction(tr("Show Editor"), this);
-	mShowEditorAction->setIcon(icon);
+
+	auto setDefaultIcon = [this, iconLoader]() {
+		// use the default (light or dark depending on theme) icon image	
+		auto icon = iconLoader->loadForTheme(QLatin1String("ksnip"));
+		setIcon(icon);
+		mShowEditorAction->setIcon(icon);
+	};
+
+	if(mConfig->useCustomTrayIconImage()) {
+		// we attempt to use a custom system tray icon image
+		auto filepath = mConfig->customTrayIconImageFile();
+
+		if(filepath == "") {
+
+			// TODO log a warning to the user
+			// fallback to default
+			setDefaultIcon();			
+		} else {
+			// attempt to load custom icon
+			try {
+				// seems to be the safest way to make sure
+				// we can actually load the file: https://stackoverflow.com/a/24261651/954986
+				// also, unlike directly constructing a QIcon from the file,
+				// this seems to allow us to properly leverage .svgs
+				auto customPixmap = QPixmap(filepath);
+				
+				if(customPixmap.isNull()) {
+					// TODO: log error
+					
+					setDefaultIcon();
+				} else {
+					auto icon = QIcon(customPixmap);
+					setIcon(icon);
+					mShowEditorAction->setIcon(icon);
+				}
+
+			} catch(...) {
+				// TODO: log error
+				setDefaultIcon();
+			}
+		}
+
+	} else {
+		// user has not provided a custom icon
+		setDefaultIcon();
+	}
+
 	connect(mShowEditorAction, &QAction::triggered, this, &TrayIcon::showEditorTriggered);
 	connect(this, &QSystemTrayIcon::activated, this, &TrayIcon::activatedDefaultAction);
 	connect(this, &QSystemTrayIcon::messageClicked, this, &TrayIcon::openContentUrl);

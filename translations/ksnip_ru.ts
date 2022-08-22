@@ -5,11 +5,11 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation>О&#xa0;приложении </translation>
+        <translation>О приложении </translation>
     </message>
     <message>
         <source>About</source>
-        <translation>О&#xa0;приложении</translation>
+        <translation>О приложении</translation>
     </message>
     <message>
         <source>Version</source>
@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation>Контакт</translation>
+        <translation>Контакты</translation>
     </message>
 </context>
 <context>
@@ -126,7 +126,7 @@
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-	<translation>Пожалуйста, добавьте изображение водяного знака через Опции &gt; Настройки &gt; Параметры рисования &gt; Установить водяной знак/логотип</translation>
+        <translation>Пожалуйста, добавьте изображение водяного знака через Опции &gt; Настройки &gt; Параметры рисования &gt; Установить водяной знак/логотип</translation>
     </message>
 </context>
 <context>
@@ -263,7 +263,7 @@ a new start of all instances.</source>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-	<translation>Скрывать панель инструментов и настройки аннотирования при запуске.
+        <translation>Скрывать панель инструментов и настройки аннотирования при запуске.
 Видимость панелей можно переключать клавишей Tab.</translation>
     </message>
     <message>
@@ -346,7 +346,7 @@ to the new content, increasing this delay might improve the behavior.</source>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
         <translation>Снимок %1%2%3 был изменён.
-Желаете сохранить его?</translation>
+Хотите сохранить его?</translation>
     </message>
 </context>
 <context>
@@ -396,7 +396,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation>Присоединяйтесь к нашим %1 или %2 серверам,&lt;br/&gt; если у вас есть вопросы, идеи, или просто хотите обсудить ksnip.</translation>
+        <translation>Присоединяйтесь к нашим %1 или %2 серверам,&lt;br/&gt;если у вас есть вопросы, идеи или просто хотите поговорить о ksnip.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
@@ -432,7 +432,7 @@ Do you want to save it?</source>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
         <translation>Элемент &quot;%1&quot; будет удален.
-Согласны продолжить?</translation>
+Хотите продолжить?</translation>
     </message>
 </context>
 <context>
@@ -508,7 +508,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Url</source>
-        <translation>Адрес</translation>
+        <translation>URL-адрес</translation>
     </message>
     <message>
         <source>Username</source>
@@ -555,7 +555,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Web error, check console output.</source>
-	<translation>Ошибка сети, проверьте вывод консоли.</translation>
+        <translation>Ошибка сети, проверьте вывод консоли.</translation>
     </message>
     <message>
         <source>Upload Failed</source>
@@ -594,7 +594,7 @@ Do you want to continue?</source>
     <name>HotKeySettings</name>
     <message>
         <source>Enable Global HotKeys</source>
-        <translation>Включить горячие клавиши (эта функция не работает в Wayland)</translation>
+        <translation>Включить глобальные горячие клавиши (не работает в Wayland)</translation>
     </message>
     <message>
         <source>Capture Rect Area</source>
@@ -614,7 +614,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
-	<translation>Снимок окна под курсором мыши</translation>
+        <translation>Снимок окна под курсором мыши</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
@@ -643,7 +643,7 @@ Disabling this option makes also the action shortcuts ksnip only.</source>
     <name>ImageGrabberSettings</name>
     <message>
         <source>Capture mouse cursor on screenshot</source>
-	<translation>Показывать курсор мыши на снимке экрана</translation>
+        <translation>Показывать курсор мыши на снимке экрана</translation>
     </message>
     <message>
         <source>Should mouse cursor be visible on
@@ -681,7 +681,7 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-	<translation>Показать главное окно после выполнения снимка экрана</translation>
+        <translation>Показать главное окно после выполнения снимка экрана</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
@@ -859,7 +859,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
-	<translation>Сохранить снимок экрана в файловой системе</translation>
+        <translation>Сохранить снимок экрана в файловой системе</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -867,7 +867,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
-	<translation>Копировать снимок экрана в буфер обмена</translation>
+        <translation>Копировать снимок экрана в буфер обмена</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -887,7 +887,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Crop Screen Capture</source>
-	<translation>Обрезать снимок экрана</translation>
+        <translation>Обрезать снимок экрана</translation>
     </message>
 </context>
 <context>
@@ -950,7 +950,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Add Watermark</source>
-	<translation>Добавить водяной знак/логотип</translation>
+        <translation>Добавить водяной знак/логотип</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
@@ -982,7 +982,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-	<translation>Закрепить снимок экрана на переднем плане в безрамочном окне</translation>
+        <translation>Закрепить снимок экрана на переднем плане в безрамочном окне</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
@@ -994,11 +994,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Open Directory</source>
-	<translation>Открыть папку с файлом</translation>
+        <translation>Открыть папку с файлом</translation>
     </message>
     <message>
         <source>&amp;View</source>
-	<translation>&amp;Просмотр</translation>
+        <translation>&amp;Просмотр</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1026,7 +1026,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-	<translation>&amp;Последние файлы</translation>
+        <translation>&amp;Последние файлы</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
@@ -1034,7 +1034,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-	<translation>Передать снимок экрана на внешний ресурс</translation>
+        <translation>Передать снимок экрана на внешний ресурс</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
@@ -1196,7 +1196,7 @@ and capturing screenshot.</source>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation>При включении каждый раз будет перезаписываться путь 
+        <translation>При включении каждый раз будет перезаписываться каталог
 для сохранения, указанный в настройках, на последний используемый.</translation>
     </message>
     <message>
@@ -1429,14 +1429,14 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation>При включении - блокирует задний фон от изменений
-в процессе выделения области захвата. 
-Также меняет поведение снимков экрана с задержкой, 
-при включенной опции - задержка
-включается до захвата области 
+        <translation>При включении задний фон блокируется от изменений
+в процессе выделения области захвата.
+Также меняется поведение снимков экрана с задержкой,
+при включенной опции задержка
+включается до захвата области
 выбора, при выключенной - после.
 Эта опция всегда отключена для Wayland
-и всегда включена для MacOs.</translation>
+и всегда включена для macOS.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
@@ -1565,7 +1565,7 @@ Smaller number is more transparent.</source>
     </message>
     <message>
         <source>Add Stickers</source>
-	<translation>Добавить стикеры</translation>
+        <translation>Добавить стикеры</translation>
     </message>
 </context>
 <context>
@@ -1584,7 +1584,7 @@ Smaller number is more transparent.</source>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation>При включении добавит значок в трей (системный лоток панели задач), если оконный менеджер ОС поддерживает это.
+        <translation>При включении добавит значок в трей панели задач, если оконный менеджер ОС это поддерживает.
 Изменение требует перезапуска приложения.</translation>
     </message>
     <message>
@@ -1653,7 +1653,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation>Пожалуйста добавьте скрипт выгрузки через Опции → Настройки → Выгрузка → Выгрузка через скрипт → Скрипт</translation>
+        <translation>Пожалуйста, добавьте скрипт выгрузки через Опции &gt; Настройки &gt; Выгрузка через скрипт &gt; Скрипт</translation>
     </message>
     <message>
         <source>Capture Upload</source>
@@ -1722,7 +1722,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>При включении водяной знак будет добавлен повёрнутым на 45°</translation>
+        <translation>При включении водяной знак будет добавлен с поворотом на 45°</translation>
     </message>
     <message>
         <source>Watermark Settings</source>

@@ -34,13 +34,13 @@
 #include "IDragContentProvider.h"
 #include "src/common/helper/FileUrlHelper.h"
 #include "src/common/helper/PathHelper.h"
-#include "src/common/provider/TempFileProvider.h"
+#include "src/common/provider/ITempFileProvider.h"
 
 class DragAndDropProcessor : public QObject
 {
 	Q_OBJECT
 public:
-	explicit DragAndDropProcessor(IDragContentProvider *dragContentProvider);
+	explicit DragAndDropProcessor(IDragContentProvider *dragContentProvider, const QSharedPointer<ITempFileProvider> &tempFileProvider);
 	~DragAndDropProcessor() override = default;
 	bool eventFilter(QObject *object, QEvent *event) override;
 
@@ -50,6 +50,7 @@ signals:
 
 private:
 	IDragContentProvider *mDragContentProvider;
+    QSharedPointer<ITempFileProvider> mTempFileProvider;
 	QPoint mDragStartPosition;
 
 	static bool handleDragEnter(QDragEnterEvent *event);
@@ -62,7 +63,7 @@ private:
 	static bool isDragStarting(const QMouseEvent *event);
 	bool isMinDragDistanceReached(const QMouseEvent *event) const;
 	void createDrag(const DragContent &dragContent);
-	static QString getPathToDraggedImage(const DragContent &dragContent);
+	QString getPathToDraggedImage(const DragContent &dragContent);
 	void processDroppedImagePaths(const QStringList &paths);
 };
 

@@ -244,7 +244,7 @@ elseif (APPLE)
         set(MACOSX_BUNDLE_LONG_VERSION_STRING ${KSNIP_VERSION})
         set(MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION})
 
-        set(MACOSX_ICON ${CMAKE_SOURCE_DIR}/icons/ksnip.icns backend/imageGrabber/AbstractImageGrabber.cpp backend/imageGrabber/AbstractImageGrabber.h)
+        set(MACOSX_ICON ${CMAKE_SOURCE_DIR}/icons/ksnip.icns)
         set_source_files_properties(${MACOSX_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
 
         add_executable(ksnip MACOSX_BUNDLE ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc ${MACOSX_ICON})

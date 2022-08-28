@@ -38,7 +38,7 @@ SettingsDialog::SettingsDialog(
 	mScaledSizeProvider(scaledSizeProvider),
 	mSettingsFilter(new SettingsFilter()),
 	mEmptyWidget(new QWidget()),
-	mApplicationSettings(new ApplicationSettings(mConfig)),
+	mApplicationSettings(new ApplicationSettings(mConfig, fileDialogService)),
 	mImageGrabberSettings(new ImageGrabberSettings(mConfig)),
 	mImgurUploaderSettings(new ImgurUploaderSettings(mConfig)),
 	mScriptUploaderSettings(new ScriptUploaderSettings(mConfig, fileDialogService)),

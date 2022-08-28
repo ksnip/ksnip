@@ -46,6 +46,7 @@ public:
 	static QString saveQualityModeString();
 	static QString saveQualityFactorString();
 	static QString isDebugEnabledString();
+	static QString tempDirectoryString();
 	static QString saveDirectoryString();
 	static QString saveFilenameString();
 	static QString saveFormatString();

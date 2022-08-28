@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2022 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,30 +17,18 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_TEMPFILEPROVIDER_H
-#define KSNIP_TEMPFILEPROVIDER_H
+#ifndef KSNIP_ITEMPFILEPROVIDER_H
+#define KSNIP_ITEMPFILEPROVIDER_H
 
-#include <QTemporaryFile>
-#include <QDir>
-#include <QSharedPointer>
+class QString;
 
-#include "ITempFileProvider.h"
-#include "src/backend/config/IConfig.h"
-
-class TempFileProvider : public ITempFileProvider, public QObject
+class ITempFileProvider
 {
 public:
-    explicit TempFileProvider(const QSharedPointer<IConfig> &config);
-    ~TempFileProvider() override = default;
+    ITempFileProvider() = default;
+    virtual ~ITempFileProvider() = default;
 
-	QString tempFile() override;
-
-private:
-    QSharedPointer<IConfig> mConfig;
-    QList<QString> mTempFiles;
-
-private slots:
-    void removeTempFiles();
+    virtual QString tempFile() = 0;
 };
 
-#endif //KSNIP_TEMPFILEPROVIDER_H
+#endif //KSNIP_ITEMPFILEPROVIDER_H

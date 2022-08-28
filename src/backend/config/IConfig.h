@@ -129,6 +129,9 @@ public:
 	virtual bool isDebugEnabled() const = 0;
 	virtual void setIsDebugEnabled(bool enabled) = 0;
 
+    virtual QString tempDirectory() const = 0;
+    virtual void setTempDirectory(const QString &path) = 0;
+
 	// Annotator
 
 	virtual bool rememberToolSelection() const = 0;

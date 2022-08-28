@@ -19,8 +19,9 @@
 
 #include "ApplicationSettings.h"
 
-ApplicationSettings::ApplicationSettings(const QSharedPointer<IConfig> &config) :
+ApplicationSettings::ApplicationSettings(const QSharedPointer<IConfig> &config, const QSharedPointer<IFileDialogService> &fileDialogService) :
 	mConfig(config),
+    mFileDialogService(fileDialogService),
 	mAutoCopyToClipboardNewCapturesCheckbox(new QCheckBox(this)),
 	mRememberPositionCheckbox(new QCheckBox(this)),
 	mCaptureOnStartupCheckbox(new QCheckBox(this)),
@@ -32,6 +33,9 @@ ApplicationSettings::ApplicationSettings(const QSharedPointer<IConfig> &config) 
 	mEnableDebugging(new QCheckBox(this)),
 	mApplicationStyleLabel(new QLabel(this)),
 	mResizeToContentDelayLabel(new QLabel(this)),
+    mTempDirectoryLabel(new QLabel(this)),
+    mTempDirectoryLineEdit(new QLineEdit(this)),
+    mBrowseButton(new QPushButton(this)),
 	mApplicationStyleCombobox(new QComboBox(this)),
 	mResizeToContentDelaySpinBox(new CustomSpinBox(0, 1000, this)),
 	mLayout(new QGridLayout)
@@ -72,7 +76,7 @@ void ApplicationSettings::initGui()
 	mEnableDebugging->setToolTip(tr("Enables debug output written to the console.\n"
 									   "Change requires ksnip restart to take effect."));
 
-	mResizeToContentDelayLabel->setText(tr("Resize to content delay") + QLatin1String(":"));
+	mResizeToContentDelayLabel->setText(tr("Resize delay") + QLatin1String(":"));
 	mResizeToContentDelayLabel->setToolTip(tr("Resizing to content is delay to allow the Window Manager to receive\n"
 										   		 "the new content. In case that the Main Windows is not adjusted correctly\n"
 												 "to the new content, increasing this delay might improve the behavior."));
@@ -86,6 +90,14 @@ void ApplicationSettings::initGui()
 	mApplicationStyleLabel->setText(tr("Application Style") + QLatin1String(":"));
 	mApplicationStyleLabel->setToolTip(tr("Sets the application style which defines the look and feel of the GUI.\n"
 	                                      "Change requires ksnip restart to take effect."));
+
+    mTempDirectoryLabel->setText(tr("Temp Directory") + QLatin1String(":"));
+
+    mTempDirectoryLineEdit->setToolTip(tr("Temp directory used for storing temporary images that are\n"
+                                          "going to be deleted after ksnip closes."));
+
+    mBrowseButton->setText(tr("Browse"));
+    connect(mBrowseButton, &QPushButton::clicked, this, &ApplicationSettings::chooseTempDirectory);
 
 	mApplicationStyleCombobox->addItems(QStyleFactory::keys());
 	mApplicationStyleCombobox->setToolTip(mApplicationStyleLabel->toolTip());
@@ -108,6 +120,10 @@ void ApplicationSettings::initGui()
 	mLayout->setRowMinimumHeight(11, 15);
 	mLayout->addWidget(mApplicationStyleLabel, 12, 0, 1, 2);
 	mLayout->addWidget(mApplicationStyleCombobox, 12, 2, Qt::AlignLeft);
+    mLayout->setRowMinimumHeight(13, 15);
+    mLayout->addWidget(mTempDirectoryLabel, 14, 0, 1, 2);
+    mLayout->addWidget(mTempDirectoryLineEdit, 14, 2, 1, 2);
+    mLayout->addWidget(mBrowseButton, 14, 4);
 
 	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
@@ -126,6 +142,7 @@ void ApplicationSettings::loadConfig()
 	mEnableDebugging->setChecked(mConfig->isDebugEnabled());
 	mResizeToContentDelaySpinBox->setValue(mConfig->resizeToContentDelay());
 	mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
+    mTempDirectoryLineEdit->setText(mConfig->tempDirectory());
 
 	useTabsChanged();
 }
@@ -143,9 +160,17 @@ void ApplicationSettings::saveSettings()
 	mConfig->setIsDebugEnabled(mEnableDebugging->isChecked());
 	mConfig->setResizeToContentDelay(mResizeToContentDelaySpinBox->value());
 	mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
+    mConfig->setTempDirectory(mTempDirectoryLineEdit->displayText());
 }
 
 void ApplicationSettings::useTabsChanged()
 {
 	mAutoHideTabsCheckbox->setEnabled(mUseTabsCheckbox->isChecked());
 }
+
+void ApplicationSettings::chooseTempDirectory()
+{
+    auto path = mFileDialogService->getExistingDirectory(this, tr("Temp Directory"), mTempDirectoryLineEdit->displayText());
+    mTempDirectoryLineEdit->setText(path);
+}
+

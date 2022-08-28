@@ -124,6 +124,11 @@ QString ConfigOptions::isDebugEnabledString()
 	return applicationSectionString() + QLatin1String("IsDebugEnabled");
 }
 
+QString ConfigOptions::tempDirectoryString()
+{
+	return applicationSectionString() + QLatin1String("TempDirectory");
+}
+
 QString ConfigOptions::saveDirectoryString()
 {
 	return applicationSectionString() + QLatin1String("SaveDirectory");

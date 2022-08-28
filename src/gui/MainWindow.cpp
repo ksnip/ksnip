@@ -63,7 +63,7 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mClipboard(mDependencyInjector->get<IClipboard>()),
 	mCapturePrinter(new CapturePrinter(this)),
 	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes(), mDependencyInjector->get<IPlatformChecker>(), mConfig)),
-	mDragAndDropProcessor(new DragAndDropProcessor(this)),
+	mDragAndDropProcessor(new DragAndDropProcessor(this, mDependencyInjector->get<ITempFileProvider>())),
 	mUploadHandler(mDependencyInjector->get<IUploadHandler>()),
 	mSessionManagerRequestedQuit(false),
 	mResizeOnNormalize(false),

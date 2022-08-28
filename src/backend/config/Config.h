@@ -134,6 +134,9 @@ public:
 	bool isDebugEnabled() const override;
 	void setIsDebugEnabled(bool enabled) override;
 
+    QString tempDirectory() const override;
+    void setTempDirectory(const QString &path) override;
+
 	// Annotator
 
 	bool rememberToolSelection() const override;

@@ -51,6 +51,7 @@
 #include "src/plugins/PluginManager.h"
 #include "src/plugins/PluginLoader.h"
 #include "src/plugins/PluginFinder.h"
+#include "src/common/provider/TempFileProvider.h"
 
 #if defined(__APPLE__)
 #include "src/backend/config/MacConfig.h"
@@ -97,8 +98,9 @@ void DependencyInjectorBootstrapper::BootstrapCommandLine(DependencyInjector *de
 	injectImageGrabber(dependencyInjector);
 	dependencyInjector->registerInstance<ISavePathProvider, SavePathProvider, IConfig>();
 	dependencyInjector->registerInstance<IImageSaver, ImageSaver, IConfig>();
+	dependencyInjector->registerInstance<ITempFileProvider, TempFileProvider, IConfig>();
 	dependencyInjector->registerInstance<IFtpUploader, FtpUploader, IConfig, ILogger>();
-	dependencyInjector->registerInstance<IScriptUploader, ScriptUploader, IConfig>();
+	dependencyInjector->registerInstance<IScriptUploader, ScriptUploader, IConfig, ITempFileProvider>();
 	dependencyInjector->registerInstance<IImgurUploader, ImgurUploader, IConfig>();
 	dependencyInjector->registerInstance<IUploadHandler, UploadHandler, IConfig, IFtpUploader, IScriptUploader, IImgurUploader>();
 	dependencyInjector->registerInstance<ICommandLineCaptureHandler, CommandLineCaptureHandler, IImageGrabber, IUploadHandler, IImageSaver, ISavePathProvider>();

@@ -1,6 +1,7 @@
 # Change log
 
 ## Release 1.10.1
+* Fixed: DragAndDrop not working with snaps. ([#898](https://github.com/ksnip/ksnip/issues/898))
 * Fixed kImageAnnotator: Fix for unnecessary scrollbars when a screenshot has a smaller size than the previous one. ([#303](https://github.com/ksnip/kImageAnnotator/issues/303))
 * Fixed kImageAnnotator: Add KDE support for scale factor. ([#302](https://github.com/ksnip/kImageAnnotator/issues/302))
 * Fixed kImageAnnotator: Show tab tooltips on initial tabs.

@@ -19,8 +19,9 @@
 
 #include "DragAndDropProcessor.h"
 
-DragAndDropProcessor::DragAndDropProcessor(IDragContentProvider *dragContentProvider) :
-	mDragContentProvider(dragContentProvider)
+DragAndDropProcessor::DragAndDropProcessor(IDragContentProvider *dragContentProvider, const QSharedPointer<ITempFileProvider> &tempFileProvider) :
+	mDragContentProvider(dragContentProvider),
+    mTempFileProvider(tempFileProvider)
 {
 
 }
@@ -141,7 +142,7 @@ QString DragAndDropProcessor::getPathToDraggedImage(const DragContent &dragConte
 	if (dragContent.isSaved) {
 		imagePath = dragContent.path;
 	} else{
-		imagePath = TempFileProvider::tempFile();
+		imagePath = mTempFileProvider->tempFile();
 		if(!dragContent.image.save(imagePath)){
 			qWarning("Failed to save temporary dragImage %s for drag and drop operation.", qPrintable(imagePath));
 		}

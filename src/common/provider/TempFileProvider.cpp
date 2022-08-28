@@ -19,13 +19,29 @@
 
 #include "TempFileProvider.h"
 
+#include <QCoreApplication>
+
+TempFileProvider::TempFileProvider(const QSharedPointer<IConfig> &config) :
+    mConfig(config)
+{
+    connect(qApp, &QCoreApplication::aboutToQuit, this, &TempFileProvider::removeTempFiles);
+}
+
 QString TempFileProvider::tempFile()
 {
-	QTemporaryFile file(QDir::tempPath() + QDir::separator() + QLatin1String("ksnip_tmp_XXXXXX.png"));
+	QTemporaryFile file(mConfig->tempDirectory() + QDir::separator() + QLatin1String("ksnip_tmp_XXXXXX.png"));
 	file.setAutoRemove(false);
 	if (!file.open()) {
 		qWarning("Failed to created temporary file %s", qPrintable(file.fileName()));
 	}
 
+    mTempFiles.append(file.fileName());
+
 	return file.fileName();
+}
+
+void TempFileProvider::removeTempFiles() {
+    for(const auto& file : mTempFiles) {
+        QFile(file).remove();
+    }
 }

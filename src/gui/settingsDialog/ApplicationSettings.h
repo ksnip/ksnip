@@ -33,12 +33,13 @@
 #include "src/backend/config/IConfig.h"
 #include "src/common/helper/EnumTranslator.h"
 #include "src/widgets/CustomSpinBox.h"
+#include "src/common/adapter/fileDialog/IFileDialogService.h"
 
 class ApplicationSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-	explicit ApplicationSettings(const QSharedPointer<IConfig> &config);
+	explicit ApplicationSettings(const QSharedPointer<IConfig> &config, const QSharedPointer<IFileDialogService> &fileDialogService);
 	~ApplicationSettings() override = default;
 	void saveSettings();
 
@@ -54,16 +55,21 @@ private:
 	QCheckBox *mEnableDebugging;
 	QLabel *mApplicationStyleLabel;
 	QLabel *mResizeToContentDelayLabel;
+    QLabel *mTempDirectoryLabel;
+    QLineEdit *mTempDirectoryLineEdit;
+    QPushButton *mBrowseButton;
 	QComboBox *mApplicationStyleCombobox;
 	CustomSpinBox *mResizeToContentDelaySpinBox;
 	QGridLayout *mLayout;
 	QSharedPointer<IConfig> mConfig;
+    QSharedPointer<IFileDialogService> mFileDialogService;
 
 	void initGui();
 	void loadConfig();
 
 private slots:
 	void useTabsChanged();
+    void chooseTempDirectory();
 };
 
 #endif //KSNIP_APPLICATIONSETTINGS_H

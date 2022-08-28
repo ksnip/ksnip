@@ -19,8 +19,9 @@
 
 #include "ScriptUploader.h"
 
-ScriptUploader::ScriptUploader(const QSharedPointer<IConfig> &config) :
-	mConfig(config)
+ScriptUploader::ScriptUploader(const QSharedPointer<IConfig> &config, const QSharedPointer<ITempFileProvider> &tempFileProvider) :
+	mConfig(config),
+    mTempFileProvider(tempFileProvider)
 {
 	connect(&mProcessHandler, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &ScriptUploader::scriptFinished);
 	connect(&mProcessHandler, &QProcess::errorOccurred, this, &ScriptUploader::errorOccurred);
@@ -43,7 +44,7 @@ UploaderType ScriptUploader::type() const
 
 bool ScriptUploader::saveImageLocally(const QImage &image)
 {
-	mPathToTmpImage = TempFileProvider::tempFile();
+	mPathToTmpImage = mTempFileProvider->tempFile();
 	return image.save(mPathToTmpImage);
 }
 
@@ -66,7 +67,6 @@ void ScriptUploader::handleSuccess()
 	auto result = parseOutput(output);
 
 	writeToConsole(output);
-	cleanup();
 
 	emit finished(UploadResult(UploadStatus::NoError, type(), result));
 }
@@ -98,7 +98,6 @@ void ScriptUploader::errorOccurred(QProcess::ProcessError errorType)
 void ScriptUploader::handleError(const UploadStatus &status, const QString &stdErrOutput)
 {
 	writeToConsole(stdErrOutput);
-	cleanup();
 
 	emit finished(UploadResult(status, type()));
 }
@@ -119,13 +118,6 @@ UploadStatus ScriptUploader::mapErrorTypeToStatus(QProcess::ProcessError errorTy
 		default:
 			return UploadStatus::UnknownError;
 	}
-}
-
-void ScriptUploader::cleanup()
-{
-	QFile file(mPathToTmpImage);
-	file.remove();
-	mPathToTmpImage.clear();
 }
 
 void ScriptUploader::writeToConsole(const QString &output) const

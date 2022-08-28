@@ -537,6 +537,19 @@ void Config::setIsDebugEnabled(bool enabled)
 	saveValue(ConfigOptions::isDebugEnabledString(), enabled);
 }
 
+QString Config::tempDirectory() const
+{
+    return loadValue(ConfigOptions::tempDirectoryString(), QDir::tempPath()).toString();
+}
+
+void Config::setTempDirectory(const QString& path)
+{
+    if (tempDirectory() == path) {
+        return;
+    }
+    saveValue(ConfigOptions::tempDirectoryString(), path);
+}
+
 // Annotator
 
 bool Config::rememberToolSelection() const

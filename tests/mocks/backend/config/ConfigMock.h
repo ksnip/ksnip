@@ -119,6 +119,9 @@ public:
 	MOCK_METHOD(bool, isDebugEnabled, (), (const, override));
 	MOCK_METHOD(void, setIsDebugEnabled, (bool enabled), (override));
 
+    MOCK_METHOD(QString, tempDirectory, (), (const, override));
+    MOCK_METHOD(void, setTempDirectory, (const QString &path), (override));
+
 	// Annotator
 
 	MOCK_METHOD(bool, rememberToolSelection, (), (const, override));

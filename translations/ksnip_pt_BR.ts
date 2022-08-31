@@ -520,7 +520,7 @@ Deseja continuar?</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation>FTP Uploader</translation>
+        <translation>Carregador FTP</translation>
     </message>
 </context>
 <context>
@@ -1329,7 +1329,7 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation>Uploader</translation>
+        <translation>Carregador</translation>
     </message>
     <message>
         <source>Script Uploader</source>
@@ -1361,7 +1361,7 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation>FTP Uploader</translation>
+        <translation>Carregador FTP</translation>
     </message>
 </context>
 <context>
@@ -1684,7 +1684,7 @@ quando tal existir. A mudança requer reinicialização para ter efeito.</transl
     </message>
     <message>
         <source>Uploader</source>
-        <translation>Uploader</translation>
+        <translation>Carregador</translation>
     </message>
     <message>
         <source>FTP</source>

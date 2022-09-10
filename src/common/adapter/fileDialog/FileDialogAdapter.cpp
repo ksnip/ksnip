@@ -21,7 +21,8 @@
 
 QString FileDialogAdapter::getExistingDirectory(QWidget *parent, const QString &title, const QString &directory)
 {
-	return QFileDialog::getExistingDirectory(parent, title, directory, mOptions);
+
+	return QFileDialog::getExistingDirectory(parent, title, directory, QFileDialog::ShowDirsOnly | mOptions);
 }
 
 QString FileDialogAdapter::getOpenFileName(QWidget *parent, const QString &title, const QString &directory)

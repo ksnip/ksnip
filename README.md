@@ -266,6 +266,7 @@ If you are using Archlinux, you may prefer to [build ksnip through AUR](https://
 
 <details>
   <summary>Expand</summary>
+
 ### X11
 1. Snipping area with transparent background doesn't work when compositor is turned off, freeze background is used in that case.
 
@@ -296,6 +297,13 @@ don't provide an interface for us to work with Global Hotkeys, does won't be sup
 1. Qt is having issues with screen scaling, it can occur that the Snipping area is incorrectly positioned. As a workaround
 the Snipping Area position or offset can be configured so that it's placed correctly. Issue [#276]
 </details>
+
+### Snap
+1. Drag and Drop might not be working when ksnip or the application that you drag and drop from/to is installed as snap.
+the reason being that the image is shared via the temp directory which in case of snaps are restricted and every 
+application can only see their own files or files of the user. The workaround for this is to change the temp directory 
+location to a user owned directory like home, document or download directory via `Options > Settings > Application > 
+Temp Directory`.
 
 # Discussion & Community
 If you have general questions, ideas or just want to talk about ksnip, please join our [Discord][discord-badge-url] 

@@ -520,7 +520,7 @@ Deseja continuar?</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation>Carregador FTP</translation>
+        <translation>Uploader FTP</translation>
     </message>
 </context>
 <context>
@@ -1361,7 +1361,7 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation>Carregador FTP</translation>
+        <translation>Uploader FTP</translation>
     </message>
 </context>
 <context>

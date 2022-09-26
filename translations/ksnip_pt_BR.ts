@@ -396,11 +396,11 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation>Se você tiver dúvidas gerais, idéias ou apenas quiser falar sobre o ksnip, &lt;br/&gt; por favor entre em nosso servidor% 1 ou% 2.</translation>
+        <translation>Se você tiver dúvidas gerais, idéias ou apenas quiser falar sobre o ksnip, &lt;br/&gt; por favor entre em nosso servidor %1 ou %2.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation>Por favor, use% 1 para relatar bugs.</translation>
+        <translation>Por favor, use %1 para relatar bugs.</translation>
     </message>
 </context>
 <context>
@@ -459,7 +459,7 @@ Deseja continuar?</translation>
     </message>
     <message>
         <source>Also possible, %1here%2.</source>
-        <translation>Também é possível,% 1aqui% 2.</translation>
+        <translation>Também é possível, %1aqui%2.</translation>
     </message>
 </context>
 <context>

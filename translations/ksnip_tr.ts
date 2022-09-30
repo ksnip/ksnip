@@ -76,7 +76,7 @@
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Yakalama Modu</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>

@@ -104,12 +104,13 @@
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>Загальне</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо позначено, скороченням можна 
+буде користуватися, навіть якщо ksnip не перебуває у фокусі.</translation>
     </message>
 </context>
 <context>
@@ -159,7 +160,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх&#x2028;
+ліній, залишених пером чи маркером, але зробить їх 
 плавнішими.</translation>
     </message>
     <message>
@@ -209,12 +210,13 @@ being created, allowing changing settings.</source>
     </message>
     <message>
         <source>Show Controls Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати віджет керування</translation>
     </message>
     <message>
         <source>The Controls Widget contains the Undo/Redo,
 Crop, Scale, Rotate and Modify Canvas buttons.</source>
-        <translation type="unfinished"></translation>
+        <translation>На віджеті керування розташовано кнопки Скасування/Повторення, 
+Обрізання, Масштабування, Обертання та Зміни полотна.</translation>
     </message>
 </context>
 <context>
@@ -313,20 +315,21 @@ to the new content, increasing this delay might improve the behavior.</source>
     </message>
     <message>
         <source>Resize delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Затримка зміни розмірів</translation>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Тимчасовий каталог</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
 going to be deleted after ksnip closes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Тимчасовий каталог використовують для зберігання тимчасових зображень, 
+які буде вилучено після завершення роботи ksnip.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Вибрати</translation>
+        <translation>Вибрати</translation>
     </message>
 </context>
 <context>
@@ -739,7 +742,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Implicit capture delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Неявна затримка захоплення</translation>
     </message>
     <message>
         <source>This delay is used when no delay was selected in
@@ -748,7 +751,12 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Цю затримку буде використано, якщо затримку не було 
+вибрано в інтерфейсі користувача. Ця затримка надає змогу 
+приховувати ksnip перед створення знімка. Значення не буде 
+застосовано, якщо ksnip вже мінімізовано. Надмірне зменшення цього 
+значення може призвести до того, що вікно ksnip з&apos;явиться на 
+знімку.</translation>
     </message>
 </context>
 <context>
@@ -871,11 +879,11 @@ Changing requires restart.</source>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Заголовок вивантаженого:</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Опис вивантаженого:</translation>
     </message>
 </context>
 <context>
@@ -1115,19 +1123,19 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Зберегти усе</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрити вікно</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Вирізати</translation>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>Розпізнати текст</translation>
     </message>
 </context>
 <context>
@@ -1162,7 +1170,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Зберегти усе</translation>
     </message>
 </context>
 <context>
@@ -1176,7 +1184,7 @@ and capturing screenshot.</source>
     <name>OcrWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Вікно розпізнавання тексту %1</translation>
     </message>
 </context>
 <context>
@@ -1198,53 +1206,53 @@ and capturing screenshot.</source>
     <name>PinWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Вікно розпізнавання тексту %1</translation>
     </message>
 </context>
 <context>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Шлях для пошуку</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Типові</translation>
+        <translation>Типове</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
-        <translation type="unfinished"></translation>
+        <translation>Каталог, у якому зберігаються додатки.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Вибрати</translation>
+        <translation>Вибрати</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Назва</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Версія</translation>
+        <translation>Версія</translation>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>Виявити</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри додатків</translation>
     </message>
     <message>
         <source>Plugin location</source>
-        <translation type="unfinished"></translation>
+        <translation>Розташування додатків</translation>
     </message>
 </context>
 <context>
     <name>ProcessIndicator</name>
     <message>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>Обробка</translation>
     </message>
 </context>
 <context>
@@ -1371,7 +1379,7 @@ Not all image formats support the full range, JPEG does.</source>
     </message>
     <message>
         <source>Overwrite file with same name</source>
-        <translation type="unfinished"></translation>
+        <translation>Перезаписати файл із тією самою назвою</translation>
     </message>
 </context>
 <context>
@@ -1495,11 +1503,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Додатки</translation>
     </message>
     <message>
         <source>Search Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри пошуку…</translation>
     </message>
 </context>
 <context>
@@ -1526,11 +1534,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
-        <translation type="unfinished"></translation>
+        <translation>Підтвердьте вибір натисканням клавіші Enter або подвійним клацанням кнопкою миші у довільному місці екрана.</translation>
     </message>
     <message>
         <source>Abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Перервати дію можна натисканням Esc.</translation>
     </message>
 </context>
 <context>
@@ -1677,7 +1685,7 @@ Smaller number is more transparent.</source>
     </message>
     <message>
         <source>Enable Snipping Area offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Увімкнути відступ області вирізання</translation>
     </message>
     <message>
         <source>When enabled will apply the configured
@@ -1685,15 +1693,19 @@ offset to the Snipping Area position which
 is required when the position is not
 correctly calculated. This is sometimes
 required with screen scaling enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо позначено, буде застосовано налаштований 
+відступ області вирізання, який потрібен, якщо 
+розташування області обчислено неправильно. 
+Такий відступ іноді потрібен, якщо увімкнено 
+масштабування екрана.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
 </context>
 <context>

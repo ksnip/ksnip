@@ -325,7 +325,7 @@ going to be deleted after ksnip closes.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">浏览</translation>
+        <translation>浏览</translation>
     </message>
 </context>
 <context>
@@ -1208,7 +1208,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">默认</translation>
+        <translation>默认</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
@@ -1216,15 +1216,15 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">浏览</translation>
+        <translation>浏览</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">名称</translation>
+        <translation>名称</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">版本</translation>
+        <translation>版本</translation>
     </message>
     <message>
         <source>Detect</source>

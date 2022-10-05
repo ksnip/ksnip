@@ -104,12 +104,13 @@
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>Globaal</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Schakel in om de sneltoets ook te gebruiken
+als ksnip niet actief is.</translation>
     </message>
 </context>
 <context>
@@ -208,12 +209,13 @@ zodat de instellingen ervan kunnen worden aangepast.</translation>
     </message>
     <message>
         <source>Show Controls Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Bedieningspaneel tonen</translation>
     </message>
     <message>
         <source>The Controls Widget contains the Undo/Redo,
 Crop, Scale, Rotate and Modify Canvas buttons.</source>
-        <translation type="unfinished"></translation>
+        <translation>Toon een bedieningspaneel met knoppen voor
+ongedaan maken/herhalen, bijsnijden, draaien, etc.</translation>
     </message>
 </context>
 <context>
@@ -312,20 +314,21 @@ dan kan deze wachttijd het gedrag verbeteren.</translation>
     </message>
     <message>
         <source>Resize delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Grootte-aanpassingsvertraging</translation>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Tijdelijke map</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
 going to be deleted after ksnip closes.</source>
-        <translation type="unfinished"></translation>
+        <translation>De tijdelijke map waarin schermfoto&apos;s worden opgeslagen die
+verwijderd gaan worden na het afsluiten.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Bladeren</translation>
+        <translation>Bladeren</translation>
     </message>
 </context>
 <context>
@@ -738,7 +741,7 @@ het hoofdvenster verborgen of geminimaliseerd is.</translation>
     </message>
     <message>
         <source>Implicit capture delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Wachttijd</translation>
     </message>
     <message>
         <source>This delay is used when no delay was selected in
@@ -747,7 +750,12 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Deze wachttijd wordt gebruikt als er geen andere wachttijd
+is ingesteld op het hoofdvenster. Hierdoor wordt ksnip
+verborgen alvorens een schermfoto te maken. Deze waarde
+wordt genegeerd als ksnip reeds geminimaliseerd is.
+Let op: door het verlagen van de waarde wordt het hoofdvenster
+mogelijk op de schermfoto getoond.</translation>
     </message>
 </context>
 <context>
@@ -870,11 +878,11 @@ Herstart om de wijzigingen toe te passen.</translation>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Uploadnaam:</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Uploadbeschrijving:</translation>
     </message>
 </context>
 <context>
@@ -1114,19 +1122,19 @@ van een schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Alles opslaan</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Venster sluiten</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Knippen</translation>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocr</translation>
     </message>
 </context>
 <context>
@@ -1161,7 +1169,7 @@ van een schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Alles opslaan</translation>
     </message>
 </context>
 <context>
@@ -1175,7 +1183,7 @@ van een schermfoto, in seconden.</translation>
     <name>OcrWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocr-venster %1</translation>
     </message>
 </context>
 <context>
@@ -1197,53 +1205,53 @@ van een schermfoto, in seconden.</translation>
     <name>PinWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocr-venster %1</translation>
     </message>
 </context>
 <context>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoeklocatie</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Standaard</translation>
+        <translation>Standaard</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
-        <translation type="unfinished"></translation>
+        <translation>De map met de plug-ins.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Bladeren</translation>
+        <translation>Bladeren</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Naam</translation>
+        <translation>Naam</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Versie</translation>
+        <translation>Versie</translation>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisch vaststellen</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Plug-in-instellingen</translation>
     </message>
     <message>
         <source>Plugin location</source>
-        <translation type="unfinished"></translation>
+        <translation>Plug-inlocatie</translation>
     </message>
 </context>
 <context>
     <name>ProcessIndicator</name>
     <message>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>Bezig met verwerken…</translation>
     </message>
 </context>
 <context>
@@ -1370,7 +1378,7 @@ hoge compressie. Niet alle formaten ondersteunen det volledige bereik, maar jpeg
     </message>
     <message>
         <source>Overwrite file with same name</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestand met dezelfde naam overschrijven</translation>
     </message>
 </context>
 <context>
@@ -1494,11 +1502,11 @@ Sla over om álles te kopiëren.</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Plug-ins</translation>
     </message>
     <message>
         <source>Search Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoekinstellingen…</translation>
     </message>
 </context>
 <context>
@@ -1525,11 +1533,11 @@ Sla over om álles te kopiëren.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bevestig de selectie door op de entertoets te drukken of te dubbelklikken.</translation>
     </message>
     <message>
         <source>Abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Breek af door op Esc te drukken.</translation>
     </message>
 </context>
 <context>
@@ -1675,7 +1683,7 @@ Lager = doorzichtiger.</translation>
     </message>
     <message>
         <source>Enable Snipping Area offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Verschuiving van vastleggebied gebruiken</translation>
     </message>
     <message>
         <source>When enabled will apply the configured
@@ -1683,15 +1691,18 @@ offset to the Snipping Area position which
 is required when the position is not
 correctly calculated. This is sometimes
 required with screen scaling enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Schakel in om de ingestelde verschuiving toe te
+passen op het vastleggebied als de positie
+onjuist wordt berekend. Deze functie is in
+sommige gevallen vereist.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
 </context>
 <context>

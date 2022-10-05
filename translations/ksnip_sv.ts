@@ -104,12 +104,13 @@
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>Systemövergripande</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivering gör genvägen tillgänglig
+även när ksnip inte har fokus.</translation>
     </message>
 </context>
 <context>
@@ -207,12 +208,13 @@ att det skapats, vilket gör det möjligt att ändra inställningar.</translatio
     </message>
     <message>
         <source>Show Controls Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa kontrollwidget</translation>
     </message>
     <message>
         <source>The Controls Widget contains the Undo/Redo,
 Crop, Scale, Rotate and Modify Canvas buttons.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrollwidgeten innehåller knappar för Ångra/Upprepa,
+Beskär, Skala, Rotera och Ändra arbetsytan.</translation>
     </message>
 </context>
 <context>
@@ -311,20 +313,21 @@ till det nya innehållet, kan en ökning av denna fördröjning förbättra bete
     </message>
     <message>
         <source>Resize delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Fördröjning av storleksändring</translation>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Temp-katalog</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
 going to be deleted after ksnip closes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Temp-katalog för att lagra tillfälliga bilder som
+kommer att raderas när ksnip stängs.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Bläddra</translation>
+        <translation>Bläddra</translation>
     </message>
 </context>
 <context>
@@ -737,7 +740,7 @@ när huvudfönstret var dolt eller minimerat.</translation>
     </message>
     <message>
         <source>Implicit capture delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Implicit klippfördröjning</translation>
     </message>
     <message>
         <source>This delay is used when no delay was selected in
@@ -746,7 +749,11 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Denna fördröjning används när ingen fördröjning har
+valts i UI, det gör att ksnip kan döljas innan det tar
+ett skärmklipp. Det här värdet används inte när ksnip
+redan är minimerad. Att minska det här värdet kan få
+effekten att ksnips huvudfönster syns på skärmklippet.</translation>
     </message>
 </context>
 <context>
@@ -869,11 +876,11 @@ Changing requires restart.</source>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppladdningsnamn:</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppladdningsbeskrivning:</translation>
     </message>
 </context>
 <context>
@@ -1113,19 +1120,19 @@ och själva skärmklippet.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Spara alla</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Stäng fönster</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Klipp ut</translation>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR</translation>
     </message>
 </context>
 <context>
@@ -1160,7 +1167,7 @@ och själva skärmklippet.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Spara alla</translation>
     </message>
 </context>
 <context>
@@ -1174,7 +1181,7 @@ och själva skärmklippet.</translation>
     <name>OcrWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR-fönster %1</translation>
     </message>
 </context>
 <context>
@@ -1196,53 +1203,53 @@ och själva skärmklippet.</translation>
     <name>PinWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR-fönster %1</translation>
     </message>
 </context>
 <context>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Sökväg</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Standard</translation>
+        <translation>Standard</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
-        <translation type="unfinished"></translation>
+        <translation>Katalog där insticksprogrammen finns.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Bläddra</translation>
+        <translation>Bläddra</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Namn</translation>
+        <translation>Namn</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Version</translation>
+        <translation>Version</translation>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>Identifiera</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Insticksinställningar</translation>
     </message>
     <message>
         <source>Plugin location</source>
-        <translation type="unfinished"></translation>
+        <translation>Plats för insticksprogrammet</translation>
     </message>
 </context>
 <context>
     <name>ProcessIndicator</name>
     <message>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>Bearbetar</translation>
     </message>
 </context>
 <context>
@@ -1369,7 +1376,7 @@ Alla bildformat stödjer inte hela intervallet, det gör JEPG.</translation>
     </message>
     <message>
         <source>Overwrite file with same name</source>
-        <translation type="unfinished"></translation>
+        <translation>Skriv över filen med samma namn</translation>
     </message>
 </context>
 <context>
@@ -1493,11 +1500,11 @@ När detta utelämnas kopieras allt.</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Insticksprogram</translation>
     </message>
     <message>
         <source>Search Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>Sökinställningar...</translation>
     </message>
 </context>
 <context>
@@ -1524,11 +1531,11 @@ När detta utelämnas kopieras allt.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bekräfta valet genom att trycka på ENTER/RETUR eller dubbelklicka med musen någonstans.</translation>
     </message>
     <message>
         <source>Abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Avbryt genom att trycka ESC.</translation>
     </message>
 </context>
 <context>
@@ -1674,7 +1681,7 @@ Lägre siffra är mer transparens.</translation>
     </message>
     <message>
         <source>Enable Snipping Area offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivera förskjutning av klippområde</translation>
     </message>
     <message>
         <source>When enabled will apply the configured
@@ -1682,15 +1689,18 @@ offset to the Snipping Area position which
 is required when the position is not
 correctly calculated. This is sometimes
 required with screen scaling enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vid aktivewring tillämpas den konfigurerade
+förskjutning till positionen för klippområdet som
+krävs när positionen inte är korrekt beräknad.
+Detta krävs ibland när skärmskalning är aktiverad.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
 </context>
 <context>

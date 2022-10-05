@@ -102,6 +102,15 @@
         <source>Hide Main Window</source>
         <translation>Sakrij glavni prozor</translation>
     </message>
+    <message>
+        <source>Global</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will make the shortcut
+available even when ksnip has no focus.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ActionsSettings</name>
@@ -197,6 +206,15 @@ being created, allowing changing settings.</source>
         <translation>Kad je ova opcija aktivirana, element se odabire nakon
 što se stvori i omogućuje mijenjanje postavki.</translation>
     </message>
+    <message>
+        <source>Show Controls Widget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The Controls Widget contains the Undo/Redo,
+Crop, Scale, Rotate and Modify Canvas buttons.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -285,16 +303,29 @@ Change requires ksnip restart to take effect.</source>
 Promjena zahtijeva ponovno pokretanje ksnip-a da bi stupilo na snagu.</translation>
     </message>
     <message>
-        <source>Resize to content delay</source>
-        <translation>Promijeni veličinu na kašnjenje sadržaja</translation>
-    </message>
-    <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
         <translation>Mijenjanje veličine sadržaja je odgoda kako bi se upravljaču prozora omogućilo primanje
 novog sadržaja. U slučaju da glavni prozori nisu pravilno podešeni
 na novi sadržaj, povećanje ovog kašnjenja moglo bi poboljšati ponašanje.</translation>
+    </message>
+    <message>
+        <source>Resize delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Temp Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Temp directory used for storing temporary images that are
+going to be deleted after ksnip closes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Pretraži</translation>
     </message>
 </context>
 <context>
@@ -705,6 +736,19 @@ kad je glavni prozor bio skriven ili smanjen.</translation>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
         <translation>Promijeni veličinu generičke wayland (xdg-desktop-portal) snimke ekrana</translation>
     </message>
+    <message>
+        <source>Implicit capture delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This delay is used when no delay was selected in
+the UI, it allows ksnip to hide before taking
+a screenshot. This value is not applied when
+ksnip was already minimized. Reducing this value
+can have the effect that ksnip&apos;s main window is
+visible on the screenshot.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImgurHistoryDialog</name>
@@ -823,6 +867,14 @@ Promjena zahtijeva ponovno pokretanje programa.</translation>
     <message>
         <source>Clear Token</source>
         <translation>Poništi token</translation>
+    </message>
+    <message>
+        <source>Upload title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload description:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1060,6 +1112,22 @@ okidanja i snimanja slike ekrana.</translation>
         <source>Image Files</source>
         <translation>Datoteke slika</translation>
     </message>
+    <message>
+        <source>Save All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OCR</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1091,12 +1159,23 @@ okidanja i snimanja slike ekrana.</translation>
         <source>Rename</source>
         <translation>Preimenuj</translation>
     </message>
+    <message>
+        <source>Save All</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
         <translation>Snimi</translation>
+    </message>
+</context>
+<context>
+    <name>OcrWindowCreator</name>
+    <message>
+        <source>OCR Window %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1115,10 +1194,56 @@ okidanja i snimanja slike ekrana.</translation>
     </message>
 </context>
 <context>
-    <name>PinWindowHandler</name>
+    <name>PinWindowCreator</name>
     <message>
-        <source>Pin Window %1</source>
-        <translation>Prikvači prozor %1</translation>
+        <source>OCR Window %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PluginsSettings</name>
+    <message>
+        <source>Search Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished">Standardno</translation>
+    </message>
+    <message>
+        <source>The directory where the plugins are located.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Pretraži</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Ime</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished">Verzija</translation>
+    </message>
+    <message>
+        <source>Detect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plugin Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plugin location</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ProcessIndicator</name>
+    <message>
+        <source>Processing</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1243,6 +1368,10 @@ Not all image formats support the full range, JPEG does.</source>
         <translation>Zadaj 0 za dobivanje male komprimirane datoteke, 100 za velike nekomprimirane datoteke.
 Neki formati slika ne podržavaju cijeli raspon, JPEG ga podržava.</translation>
     </message>
+    <message>
+        <source>Overwrite file with same name</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ScriptUploaderSettings</name>
@@ -1364,6 +1493,14 @@ RegEx izrazom. Ako se izostavi, kopira se sve.</translation>
         <source>FTP Uploader</source>
         <translation>FTP prenositelj</translation>
     </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search Settings...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1384,12 +1521,16 @@ RegEx izrazom. Ako se izostavi, kopira se sve.</translation>
         <translation>Za micanje donje desne ručke pritisni tipku ALT i koristi tipke sa strelicama.</translation>
     </message>
     <message>
-        <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation>Potvrdi odabir pomoću tipke ENTER/RETURN ili prekini pomoću tipke ESC.</translation>
-    </message>
-    <message>
         <source>This message can be disabled via settings.</source>
         <translation>Ova se poruka može deaktivirati u postavkama.</translation>
+    </message>
+    <message>
+        <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Abort by pressing ESC.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1530,6 +1671,26 @@ u području izrezivanja.</translation>
 Smaller number is more transparent.</source>
         <translation>Prozirnost za neodabrano područje u području izrezivanja.
 Manji broj znači veću prozirnost.</translation>
+    </message>
+    <message>
+        <source>Enable Snipping Area offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will apply the configured
+offset to the Snipping Area position which
+is required when the position is not
+correctly calculated. This is sometimes
+required with screen scaling enabled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

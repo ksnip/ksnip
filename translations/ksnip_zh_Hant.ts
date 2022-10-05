@@ -102,6 +102,15 @@
         <source>Hide Main Window</source>
         <translation>隱藏主視窗</translation>
     </message>
+    <message>
+        <source>Global</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will make the shortcut
+available even when ksnip has no focus.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ActionsSettings</name>
@@ -197,6 +206,15 @@ being created, allowing changing settings.</source>
         <translation>啟用此選項後，將在創建項目後對其進行選擇，
 從而可以更改設置。</translation>
     </message>
+    <message>
+        <source>Show Controls Widget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The Controls Widget contains the Undo/Redo,
+Crop, Scale, Rotate and Modify Canvas buttons.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -285,16 +303,29 @@ Change requires ksnip restart to take effect.</source>
 更改需要 ksnip 重新啟動才能生效。</translation>
     </message>
     <message>
-        <source>Resize to content delay</source>
-        <translation>調整視窗大小適應內容的延遲</translation>
-    </message>
-    <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
         <translation>根據內容大小是允許視窗管理器接收新內容的延遲。
 如果未正確調整主視窗以適應新內容，
 增加延遲可能會改善行為。</translation>
+    </message>
+    <message>
+        <source>Resize delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Temp Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Temp directory used for storing temporary images that are
+going to be deleted after ksnip closes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">瀏覽</translation>
     </message>
 </context>
 <context>
@@ -705,6 +736,19 @@ when the Main Window was hidden or minimize.</source>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
         <translation>縮放 Generic Wayland (xdg-desktop-portal) 截圖</translation>
     </message>
+    <message>
+        <source>Implicit capture delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This delay is used when no delay was selected in
+the UI, it allows ksnip to hide before taking
+a screenshot. This value is not applied when
+ksnip was already minimized. Reducing this value
+can have the effect that ksnip&apos;s main window is
+visible on the screenshot.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImgurHistoryDialog</name>
@@ -823,6 +867,14 @@ Changing requires restart.</source>
     <message>
         <source>Clear Token</source>
         <translation>清空記號</translation>
+    </message>
+    <message>
+        <source>Upload title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload description:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1060,6 +1112,22 @@ and capturing screenshot.</source>
         <source>Image Files</source>
         <translation>圖片檔案</translation>
     </message>
+    <message>
+        <source>Save All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OCR</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1091,12 +1159,23 @@ and capturing screenshot.</source>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
+    <message>
+        <source>Save All</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
         <translation>擷取</translation>
+    </message>
+</context>
+<context>
+    <name>OcrWindowCreator</name>
+    <message>
+        <source>OCR Window %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1115,10 +1194,56 @@ and capturing screenshot.</source>
     </message>
 </context>
 <context>
-    <name>PinWindowHandler</name>
+    <name>PinWindowCreator</name>
     <message>
-        <source>Pin Window %1</source>
-        <translation>固定視窗 %1</translation>
+        <source>OCR Window %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PluginsSettings</name>
+    <message>
+        <source>Search Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished">預設</translation>
+    </message>
+    <message>
+        <source>The directory where the plugins are located.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">瀏覽</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">名稱</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished">版本</translation>
+    </message>
+    <message>
+        <source>Detect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plugin Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plugin location</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ProcessIndicator</name>
+    <message>
+        <source>Processing</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1243,6 +1368,10 @@ Not all image formats support the full range, JPEG does.</source>
         <translation>指定 0 可以獲得小的壓縮檔案，100 會獲得大的未壓縮檔案。
 並非所有圖片格式都像 JPEG 一樣支持全部範圍。</translation>
     </message>
+    <message>
+        <source>Overwrite file with same name</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ScriptUploaderSettings</name>
@@ -1363,6 +1492,14 @@ When omitted, everything is copied.</source>
         <source>FTP Uploader</source>
         <translation>FTP 上傳器</translation>
     </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search Settings...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1383,12 +1520,16 @@ When omitted, everything is copied.</source>
         <translation>按 ALT 鍵的同時使用方向鍵移動右下角的控製柄。</translation>
     </message>
     <message>
-        <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation>按 ENTER/RETURN 確認選擇，或按 ESC 中止選擇。</translation>
-    </message>
-    <message>
         <source>This message can be disabled via settings.</source>
         <translation>可以通過設置禁用此消息。</translation>
+    </message>
+    <message>
+        <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Abort by pressing ESC.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1531,6 +1672,26 @@ on the snipping area.</source>
 Smaller number is more transparent.</source>
         <translation>剪裁區域中未選擇區域的 Alpha。
 數字越小越透明。</translation>
+    </message>
+    <message>
+        <source>Enable Snipping Area offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will apply the configured
+offset to the Snipping Area position which
+is required when the position is not
+correctly calculated. This is sometimes
+required with screen scaling enabled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

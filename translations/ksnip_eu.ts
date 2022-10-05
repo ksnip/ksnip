@@ -102,6 +102,15 @@
         <source>Hide Main Window</source>
         <translation>Ezkutatu leiho nagusia</translation>
     </message>
+    <message>
+        <source>Global</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will make the shortcut
+available even when ksnip has no focus.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ActionsSettings</name>
@@ -197,6 +206,15 @@ being created, allowing changing settings.</source>
         <translation>Aukera hau gaituta dagoenean, elementua hautatuta geratzen 
 da sortu ondoren, hartara ezarpenak aldatu daitezke.</translation>
     </message>
+    <message>
+        <source>Show Controls Widget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The Controls Widget contains the Undo/Redo,
+Crop, Scale, Rotate and Modify Canvas buttons.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -285,16 +303,29 @@ Change requires ksnip restart to take effect.</source>
 Ksnip berrabiarazi behar da eragina izateko.</translation>
     </message>
     <message>
-        <source>Resize to content delay</source>
-        <translation>Edukira doitzeko atzerapena</translation>
-    </message>
-    <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
         <translation>Edukira doitzeko atzerapena Leiho-kudeatzaileari eduki berria jaso ahal izateko
 atzerapena da. Leiho nagusia eduki berrira behar bezala doitzen ez bada,
 atzerapen hori handitzeak portaera hobe dezake.</translation>
+    </message>
+    <message>
+        <source>Resize delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Temp Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Temp directory used for storing temporary images that are
+going to be deleted after ksnip closes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Arakatu</translation>
     </message>
 </context>
 <context>
@@ -705,6 +736,19 @@ leiho nagusia ezkutuan edo minimizatuta dagoenean.</translation>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
         <translation>Eskalatu Generic Wayland (xdg-desktop-portal) pantaila-argazkia</translation>
     </message>
+    <message>
+        <source>Implicit capture delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This delay is used when no delay was selected in
+the UI, it allows ksnip to hide before taking
+a screenshot. This value is not applied when
+ksnip was already minimized. Reducing this value
+can have the effect that ksnip&apos;s main window is
+visible on the screenshot.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImgurHistoryDialog</name>
@@ -823,6 +867,14 @@ Aldatzeak berrabiaraztea eskatzen du.</translation>
     <message>
         <source>Clear Token</source>
         <translation>Garbitu Tokena</translation>
+    </message>
+    <message>
+        <source>Upload title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload description:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1060,6 +1112,22 @@ eta pantaila-argazkiaren artean.</translation>
         <source>Image Files</source>
         <translation>Irudi fitxategiak</translation>
     </message>
+    <message>
+        <source>Save All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OCR</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1091,12 +1159,23 @@ eta pantaila-argazkiaren artean.</translation>
         <source>Rename</source>
         <translation>Aldatu izena</translation>
     </message>
+    <message>
+        <source>Save All</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
         <translation>Argazkia</translation>
+    </message>
+</context>
+<context>
+    <name>OcrWindowCreator</name>
+    <message>
+        <source>OCR Window %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1115,10 +1194,56 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
 </context>
 <context>
-    <name>PinWindowHandler</name>
+    <name>PinWindowCreator</name>
     <message>
-        <source>Pin Window %1</source>
-        <translation>Ainguratu %1 leihoa</translation>
+        <source>OCR Window %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PluginsSettings</name>
+    <message>
+        <source>Search Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished">Lehenetsia</translation>
+    </message>
+    <message>
+        <source>The directory where the plugins are located.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Arakatu</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Izena</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished">Bertsioa</translation>
+    </message>
+    <message>
+        <source>Detect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plugin Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plugin location</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ProcessIndicator</name>
+    <message>
+        <source>Processing</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1243,6 +1368,10 @@ Not all image formats support the full range, JPEG does.</source>
         <translation>Jarri 0 konprimitutako fitxategi txikiak sortzeko, 100 konpresiorik gabeko fitxategiak sortzeko.
 Irudi formatu guztiek ez dute gama osoa onartzen, JPEG-ek bai.</translation>
     </message>
+    <message>
+        <source>Overwrite file with same name</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ScriptUploaderSettings</name>
@@ -1363,6 +1492,14 @@ Ez badago, dena kopiatzen da.</translation>
         <source>FTP Uploader</source>
         <translation>FTP kargatzailea</translation>
     </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search Settings...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1383,12 +1520,16 @@ Ez badago, dena kopiatzen da.</translation>
         <translation>Erabili gezi-teklak ALT sakatzen duzun bitartean beheko eskuineko heldulekua mugitzeko.</translation>
     </message>
     <message>
-        <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation>Berretsi hautamena SARTU sakatuta edo utzi ESC sakatuta.</translation>
-    </message>
-    <message>
         <source>This message can be disabled via settings.</source>
         <translation>Mezu hau ezarpenen bidez desgaitu daiteke.</translation>
+    </message>
+    <message>
+        <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Abort by pressing ESC.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1531,6 +1672,26 @@ kolorea ezartzen du.</translation>
 Smaller number is more transparent.</source>
         <translation>Argazki-areako hautatu gabeko zonaren Alpha.
 Zenbaki txikiagoak gardenagoa adierazten du.</translation>
+    </message>
+    <message>
+        <source>Enable Snipping Area offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will apply the configured
+offset to the Snipping Area position which
+is required when the position is not
+correctly calculated. This is sometimes
+required with screen scaling enabled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

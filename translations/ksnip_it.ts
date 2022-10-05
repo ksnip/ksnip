@@ -102,6 +102,15 @@
         <source>Hide Main Window</source>
         <translation>Nascondi finestra principale</translation>
     </message>
+    <message>
+        <source>Global</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will make the shortcut
+available even when ksnip has no focus.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ActionsSettings</name>
@@ -197,6 +206,15 @@ being created, allowing changing settings.</source>
         <translation>Con questa opzione abilitata l&apos;elemento viene selezionato dopo
 essere stato creato, consentendo la modifica delle impostazioni.</translation>
     </message>
+    <message>
+        <source>Show Controls Widget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The Controls Widget contains the Undo/Redo,
+Crop, Scale, Rotate and Modify Canvas buttons.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -285,16 +303,29 @@ Change requires ksnip restart to take effect.</source>
 La modifica richiede il riavvio di ksnip per avere effetto.</translation>
     </message>
     <message>
-        <source>Resize to content delay</source>
-        <translation>Ridimensiona al ritardo del contenuto</translation>
-    </message>
-    <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
         <translation>Il ridimensionamento al contenuto è un ritardo per consentire a Window Manager di ricevere
 il nuovo contenuto. Nel caso in cui la finestra principale non sia regolata correttamente
 al nuovo contenuto, aumentare questo ritardo potrebbe migliorare il comportamento.</translation>
+    </message>
+    <message>
+        <source>Resize delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Temp Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Temp directory used for storing temporary images that are
+going to be deleted after ksnip closes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Sfoglia</translation>
     </message>
 </context>
 <context>
@@ -705,6 +736,19 @@ quando la finestra principale era nascosta o ridotta a icona.</translation>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
         <translation>Schermate di Scale Generic Wayland (xdg-desktop-portal)</translation>
     </message>
+    <message>
+        <source>Implicit capture delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This delay is used when no delay was selected in
+the UI, it allows ksnip to hide before taking
+a screenshot. This value is not applied when
+ksnip was already minimized. Reducing this value
+can have the effect that ksnip&apos;s main window is
+visible on the screenshot.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImgurHistoryDialog</name>
@@ -823,6 +867,14 @@ La modifica richiede il riavvio.</translation>
     <message>
         <source>Clear Token</source>
         <translation>Cancella token</translation>
+    </message>
+    <message>
+        <source>Upload title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload description:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1060,6 +1112,22 @@ e cattura screenshot.</translation>
         <source>Image Files</source>
         <translation>File immagine</translation>
     </message>
+    <message>
+        <source>Save All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OCR</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1091,12 +1159,23 @@ e cattura screenshot.</translation>
         <source>Rename</source>
         <translation>Rinomina</translation>
     </message>
+    <message>
+        <source>Save All</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
         <translation>Cattura</translation>
+    </message>
+</context>
+<context>
+    <name>OcrWindowCreator</name>
+    <message>
+        <source>OCR Window %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1115,10 +1194,56 @@ e cattura screenshot.</translation>
     </message>
 </context>
 <context>
-    <name>PinWindowHandler</name>
+    <name>PinWindowCreator</name>
     <message>
-        <source>Pin Window %1</source>
-        <translation>Blocca Finestra %1</translation>
+        <source>OCR Window %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PluginsSettings</name>
+    <message>
+        <source>Search Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished">Predefinito</translation>
+    </message>
+    <message>
+        <source>The directory where the plugins are located.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Sfoglia</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nome</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished">Versione</translation>
+    </message>
+    <message>
+        <source>Detect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plugin Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plugin location</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ProcessIndicator</name>
+    <message>
+        <source>Processing</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1243,6 +1368,10 @@ Not all image formats support the full range, JPEG does.</source>
         <translation>Specificare 0 per ottenere file compressi di piccole dimensioni, 100 per file non compressi di grandi dimensioni.
 Non tutti i formati di immagine supportano l&apos;intera gamma, JPEG lo fa.</translation>
     </message>
+    <message>
+        <source>Overwrite file with same name</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ScriptUploaderSettings</name>
@@ -1363,6 +1492,14 @@ copiato negli appunti. Se non è definito alcun filtro, verranno copiate tutte l
         <source>FTP Uploader</source>
         <translation>Uploader FTP</translation>
     </message>
+    <message>
+        <source>Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search Settings...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1383,12 +1520,16 @@ copiato negli appunti. Se non è definito alcun filtro, verranno copiate tutte l
         <translation>Utilizzare i tasti freccia mentre si preme ALT per spostare la maniglia in basso a destra.</translation>
     </message>
     <message>
-        <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation>Confermare la selezione premendo ENTER/RETURN o interrompere premendo ESC.</translation>
-    </message>
-    <message>
         <source>This message can be disabled via settings.</source>
         <translation>Questo messaggio può essere disabilitato tramite le impostazioni.</translation>
+    </message>
+    <message>
+        <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Abort by pressing ESC.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1531,6 +1672,26 @@ ornamento sull&apos;area di cattura.</translation>
 Smaller number is more transparent.</source>
         <translation>Alfa per la regione non selezionata nell&apos;area di cattura.
 Il numero più piccolo è più trasparente.</translation>
+    </message>
+    <message>
+        <source>Enable Snipping Area offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will apply the configured
+offset to the Snipping Area position which
+is required when the position is not
+correctly calculated. This is sometimes
+required with screen scaling enabled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

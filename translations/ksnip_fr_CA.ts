@@ -870,11 +870,11 @@ La modifier nécessite un redémarrage.</translation>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Téléverser le titre&#xa0;:</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Téléverser la description&#xa0;:</translation>
     </message>
 </context>
 <context>
@@ -1114,19 +1114,19 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Tout enregistrer</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Fermer la fenêtre</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Couper</translation>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>ROC</translation>
     </message>
 </context>
 <context>
@@ -1161,7 +1161,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Tout enregistrer</translation>
     </message>
 </context>
 <context>
@@ -1175,7 +1175,7 @@ et la capture de l&apos;écran.</translation>
     <name>OcrWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fenêtre ROC %1</translation>
     </message>
 </context>
 <context>
@@ -1197,14 +1197,14 @@ et la capture de l&apos;écran.</translation>
     <name>PinWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fenêtre ROC %1</translation>
     </message>
 </context>
 <context>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Chemin de recherche</translation>
     </message>
     <message>
         <source>Default</source>

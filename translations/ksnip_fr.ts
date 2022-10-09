@@ -104,12 +104,13 @@
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>Global</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lorsqu&apos;il est activé, le raccourci sera
+disponible même lorsque ksnip n&apos;a pas le focus.</translation>
     </message>
 </context>
 <context>
@@ -208,12 +209,13 @@ avoir été créé, ce qui permet de modifier les paramètres.</translation>
     </message>
     <message>
         <source>Show Controls Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher le widget des contrôles</translation>
     </message>
     <message>
         <source>The Controls Widget contains the Undo/Redo,
 Crop, Scale, Rotate and Modify Canvas buttons.</source>
-        <translation type="unfinished"></translation>
+        <translation>Le Widget Controls contient les boutons Undo/Redo,
+les boutons Recadrage, Échelle, Rotation et Modifier le canevas.</translation>
     </message>
 </context>
 <context>
@@ -312,20 +314,21 @@ au nouveau contenu, l&apos;augmentation de ce délai peut améliorer le comporte
     </message>
     <message>
         <source>Resize delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Délai de redimensionnement</translation>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Répertoire temporaire</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
 going to be deleted after ksnip closes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Répertoire temporaire utilisé pour stocker les images temporaires qui
+seront supprimées après la fermeture de ksnip.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Parcourir</translation>
+        <translation>Parcourir</translation>
     </message>
 </context>
 <context>
@@ -738,7 +741,7 @@ lorsque la fenêtre principale a été masquée ou réduite.</translation>
     </message>
     <message>
         <source>Implicit capture delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Délai de capture implicite</translation>
     </message>
     <message>
         <source>This delay is used when no delay was selected in
@@ -747,7 +750,12 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ce délai est utilisé lorsqu&apos;aucun délai n&apos;a été sélectionné dans l&apos;interface utilisateur.
+l&apos;interface utilisateur, il permet à ksnip de se cacher avant de prendre
+une capture d&apos;écran. Cette valeur n&apos;est pas appliquée lorsque
+ksnip a déjà été minimisé. Réduire cette valeur
+peut avoir pour effet que la fenêtre principale de ksnip est
+visible sur la capture d&apos;écran.</translation>
     </message>
 </context>
 <context>
@@ -870,11 +878,11 @@ La modifier nécessite un redémarrage.</translation>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Téléverser le titre&#xa0;:</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Téléverser la description&#xa0;:</translation>
     </message>
 </context>
 <context>
@@ -1114,19 +1122,19 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Tout enregistrer</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Fermer la fenêtre</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Couper</translation>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>ROC</translation>
     </message>
 </context>
 <context>
@@ -1161,7 +1169,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Tout enregistrer</translation>
     </message>
 </context>
 <context>
@@ -1175,7 +1183,7 @@ et la capture de l&apos;écran.</translation>
     <name>OcrWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fenêtre ROC %1</translation>
     </message>
 </context>
 <context>
@@ -1197,53 +1205,53 @@ et la capture de l&apos;écran.</translation>
     <name>PinWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fenêtre ROC %1</translation>
     </message>
 </context>
 <context>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Chemin de recherche</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Par défaut</translation>
+        <translation>Par défaut</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
-        <translation type="unfinished"></translation>
+        <translation>Le répertoire où se trouvent les greffons.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Parcourir</translation>
+        <translation>Parcourir</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nom</translation>
+        <translation>Nom</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Version</translation>
+        <translation>Version</translation>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>Détecter</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres des greffons</translation>
     </message>
     <message>
         <source>Plugin location</source>
-        <translation type="unfinished"></translation>
+        <translation>Emplacement du greffon</translation>
     </message>
 </context>
 <context>
     <name>ProcessIndicator</name>
     <message>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>Traitement en cours</translation>
     </message>
 </context>
 <context>
@@ -1371,7 +1379,7 @@ entier comme c&apos;est le cas pour le JPEG.</translation>
     </message>
     <message>
         <source>Overwrite file with same name</source>
-        <translation type="unfinished"></translation>
+        <translation>Écraser le fichier avec le même nom</translation>
     </message>
 </context>
 <context>
@@ -1495,11 +1503,11 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Greffons</translation>
     </message>
     <message>
         <source>Search Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres de recherche…</translation>
     </message>
 </context>
 <context>
@@ -1526,11 +1534,11 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirmez la sélection en appuyant sur ENTRÉE/RETOUR ou en double-cliquant n&apos;importe où avec la souris.</translation>
     </message>
     <message>
         <source>Abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Abandonnez en appuyant sur Échap.</translation>
     </message>
 </context>
 <context>
@@ -1675,7 +1683,7 @@ Une petite valeur est plus transparente.</translation>
     </message>
     <message>
         <source>Enable Snipping Area offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer le décalage de la zone de découpe</translation>
     </message>
     <message>
         <source>When enabled will apply the configured
@@ -1683,15 +1691,19 @@ offset to the Snipping Area position which
 is required when the position is not
 correctly calculated. This is sometimes
 required with screen scaling enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lorsqu&apos;il est activé, il applique le décalage configuré
+à la position de la zone de découpe, ce qui
+est nécessaire lorsque la position n&apos;est pas
+correctement calculée. Ceci est parfois
+nécessaire lorsque la mise à l&apos;échelle de l&apos;écran est activée.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
 </context>
 <context>

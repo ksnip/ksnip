@@ -104,12 +104,13 @@
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>Global</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lorsqu&apos;il est activé, le raccourci sera
+disponible même lorsque ksnip n&apos;a pas le focus.</translation>
     </message>
 </context>
 <context>
@@ -208,7 +209,7 @@ après avoir été créé, ce qui permet de modifier les paramètres.</translati
     </message>
     <message>
         <source>Show Controls Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher le widget des contrôles</translation>
     </message>
     <message>
         <source>The Controls Widget contains the Undo/Redo,

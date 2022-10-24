@@ -214,7 +214,8 @@ après avoir été créé, ce qui permet de modifier les paramètres.</translati
     <message>
         <source>The Controls Widget contains the Undo/Redo,
 Crop, Scale, Rotate and Modify Canvas buttons.</source>
-        <translation type="unfinished"></translation>
+        <translation>Le Widget Controls contient les boutons Undo/Redo,
+les boutons Recadrage, Échelle, Rotation et Modifier le canevas.</translation>
     </message>
 </context>
 <context>
@@ -313,11 +314,11 @@ au nouveau contenu, l&apos;augmentation de ce délai peut améliorer le comporte
     </message>
     <message>
         <source>Resize delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Délai de redimensionnement</translation>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Répertoire temporaire</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
@@ -748,7 +749,12 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ce délai est utilisé lorsqu&apos;aucun délai n&apos;a été sélectionné dans l&apos;interface utilisateur.
+l&apos;interface utilisateur, il permet à ksnip de se cacher avant de prendre
+une capture d&apos;écran. Cette valeur n&apos;est pas appliquée lorsque
+ksnip a déjà été minimisé. Réduire cette valeur
+peut avoir pour effet que la fenêtre principale de ksnip est
+visible sur la capture d&apos;écran.</translation>
     </message>
 </context>
 <context>
@@ -1209,42 +1215,42 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Par défaut</translation>
+        <translation>Par défaut</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
-        <translation type="unfinished"></translation>
+        <translation>Le répertoire où se trouvent les greffons.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Parcourir</translation>
+        <translation>Parcourir</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nom</translation>
+        <translation>Nom</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Version</translation>
+        <translation>Version</translation>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>Détecter</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres des greffons</translation>
     </message>
     <message>
         <source>Plugin location</source>
-        <translation type="unfinished"></translation>
+        <translation>Emplacement du greffon</translation>
     </message>
 </context>
 <context>
     <name>ProcessIndicator</name>
     <message>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>Traitement en cours</translation>
     </message>
 </context>
 <context>
@@ -1496,7 +1502,7 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Greffons</translation>
     </message>
     <message>
         <source>Search Settings...</source>

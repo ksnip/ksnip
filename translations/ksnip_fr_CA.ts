@@ -323,11 +323,12 @@ au nouveau contenu, l&apos;augmentation de ce délai peut améliorer le comporte
     <message>
         <source>Temp directory used for storing temporary images that are
 going to be deleted after ksnip closes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Répertoire temporaire utilisé pour stocker les images temporaires qui
+seront supprimées après la fermeture de ksnip.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Parcourir</translation>
+        <translation>Parcourir</translation>
     </message>
 </context>
 <context>
@@ -740,7 +741,7 @@ lorsque la fenêtre principale a été masquée ou réduite.</translation>
     </message>
     <message>
         <source>Implicit capture delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Délai de capture implicite</translation>
     </message>
     <message>
         <source>This delay is used when no delay was selected in
@@ -1378,7 +1379,7 @@ entier comme c&apos;est le cas pour le JPEG.</translation>
     </message>
     <message>
         <source>Overwrite file with same name</source>
-        <translation type="unfinished"></translation>
+        <translation>Écraser le fichier avec le même nom</translation>
     </message>
 </context>
 <context>
@@ -1506,7 +1507,7 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
     </message>
     <message>
         <source>Search Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres de recherche…</translation>
     </message>
 </context>
 <context>
@@ -1533,11 +1534,11 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirmez la sélection en appuyant sur ENTRÉE/RETOUR ou en double-cliquant n&apos;importe où avec la souris.</translation>
     </message>
     <message>
         <source>Abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Abandonnez en appuyant sur Échap.</translation>
     </message>
 </context>
 <context>
@@ -1682,7 +1683,7 @@ Une petite valeur est plus transparente.</translation>
     </message>
     <message>
         <source>Enable Snipping Area offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer le décalage de la zone de découpe</translation>
     </message>
     <message>
         <source>When enabled will apply the configured
@@ -1690,15 +1691,19 @@ offset to the Snipping Area position which
 is required when the position is not
 correctly calculated. This is sometimes
 required with screen scaling enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lorsqu&apos;il est activé, il applique le décalage configuré
+à la position de la zone de découpe, ce qui
+est nécessaire lorsque la position n&apos;est pas
+correctement calculée. Ceci est parfois
+nécessaire lorsque la mise à l&apos;échelle de l&apos;écran est activée.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
 </context>
 <context>

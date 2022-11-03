@@ -104,12 +104,13 @@
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>Orokorra</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gaituta dagoenean lasterbidea egingo du
+eskuragarri ksnip-ek fokurik ez duenean ere.</translation>
     </message>
 </context>
 <context>
@@ -208,12 +209,13 @@ da sortu ondoren, hartara ezarpenak aldatu daitezke.</translation>
     </message>
     <message>
         <source>Show Controls Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Erakutsi kontrolen widgeta</translation>
     </message>
     <message>
         <source>The Controls Widget contains the Undo/Redo,
 Crop, Scale, Rotate and Modify Canvas buttons.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrolen widgetak du: Desegin/Berregin,
+Moztu, Eskalatu, Biratu eta Aldatu Canvas botoiak.</translation>
     </message>
 </context>
 <context>
@@ -312,20 +314,21 @@ atzerapen hori handitzeak portaera hobe dezake.</translation>
     </message>
     <message>
         <source>Resize delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Aldatu atzerapena</translation>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Temp direktorioa</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
 going to be deleted after ksnip closes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Temp direktorioa aldi baterako irudiak gordetzeko erabiltzen da,
+ksnip itxi ondoren ezabatu egingo da.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Arakatu</translation>
+        <translation>Arakatu</translation>
     </message>
 </context>
 <context>
@@ -738,7 +741,7 @@ leiho nagusia ezkutuan edo minimizatuta dagoenean.</translation>
     </message>
     <message>
         <source>Implicit capture delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapturaren atzerapen inplizitua</translation>
     </message>
     <message>
         <source>This delay is used when no delay was selected in
@@ -747,7 +750,12 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Atzerapen hau atzerapenik hautatu ez denean erabiltzen 
+da, Ksnip pantaila-argazki bat egin aurretik ezkutatzeko 
+aukera ematen du. Balio hau ez da aplikatzen Ksnip 
+dagoeneko minimizatuta badago. Balio hori murrizteak  
+eragin dezake Ksnip-en leiho nagusia pantaila-argazkian 
+agertzea.</translation>
     </message>
 </context>
 <context>
@@ -870,11 +878,11 @@ Aldatzeak berrabiaraztea eskatzen du.</translation>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kargatu izenburua:</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kargatu deskribapena:</translation>
     </message>
 </context>
 <context>
@@ -1114,19 +1122,19 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Gorde guztiak</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Itxi leihoa</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Moztu</translation>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR</translation>
     </message>
 </context>
 <context>
@@ -1161,7 +1169,7 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Gorde guztiak</translation>
     </message>
 </context>
 <context>
@@ -1175,7 +1183,7 @@ eta pantaila-argazkiaren artean.</translation>
     <name>OcrWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR leihoa %1</translation>
     </message>
 </context>
 <context>
@@ -1197,53 +1205,53 @@ eta pantaila-argazkiaren artean.</translation>
     <name>PinWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR leihoa %1</translation>
     </message>
 </context>
 <context>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilaketa-bidea</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Lehenetsia</translation>
+        <translation>Lehenetsia</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pluginak dauden direktorioa.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Arakatu</translation>
+        <translation>Arakatu</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Izena</translation>
+        <translation>Izena</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Bertsioa</translation>
+        <translation>Bertsioa</translation>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>Antzeman</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Plugin ezarpenak</translation>
     </message>
     <message>
         <source>Plugin location</source>
-        <translation type="unfinished"></translation>
+        <translation>Plugin kokapena</translation>
     </message>
 </context>
 <context>
     <name>ProcessIndicator</name>
     <message>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>Prozesatzen</translation>
     </message>
 </context>
 <context>
@@ -1370,7 +1378,7 @@ Irudi formatu guztiek ez dute gama osoa onartzen, JPEG-ek bai.</translation>
     </message>
     <message>
         <source>Overwrite file with same name</source>
-        <translation type="unfinished"></translation>
+        <translation>Gainidatzi fitxategia izen berdinarekin</translation>
     </message>
 </context>
 <context>
@@ -1494,11 +1502,11 @@ Ez badago, dena kopiatzen da.</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Pluginak</translation>
     </message>
     <message>
         <source>Search Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilaketa ezarpenak...</translation>
     </message>
 </context>
 <context>
@@ -1525,11 +1533,11 @@ Ez badago, dena kopiatzen da.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
-        <translation type="unfinished"></translation>
+        <translation>Berretsi hautapena SARTU sakatuz edo saguaren klik bikoitza egin edozein lekutan.</translation>
     </message>
     <message>
         <source>Abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Utzi ESC sakatuz.</translation>
     </message>
 </context>
 <context>
@@ -1675,7 +1683,7 @@ Zenbaki txikiagoak gardenagoa adierazten du.</translation>
     </message>
     <message>
         <source>Enable Snipping Area offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Gaitu ebakitzeko eremuaren desplazamendua</translation>
     </message>
     <message>
         <source>When enabled will apply the configured
@@ -1683,15 +1691,20 @@ offset to the Snipping Area position which
 is required when the position is not
 correctly calculated. This is sometimes
 required with screen scaling enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gaituta dagoenean konfiguratutako 
+desplazamendua aplikatuko zaio mozteko 
+areari posiziora kokapena behar bezala 
+kalkulatuta ez denean. Hau batzuetan 
+beharrezkoa da pantaila eskalatzea 
+gaituta dagoenean.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
 </context>
 <context>

@@ -115,7 +115,7 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
-          version: '5.12.7'
+          version: '5.9.7'
           host: 'linux'
           install-deps: 'true'
 

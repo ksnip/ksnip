@@ -325,7 +325,7 @@ going to be deleted after ksnip closes.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Обзор</translation>
+        <translation>Обзор</translation>
     </message>
 </context>
 <context>
@@ -1208,7 +1208,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">По умолчанию</translation>
+        <translation>По умолчанию</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
@@ -1216,15 +1216,15 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Обзор</translation>
+        <translation>Обзор</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Имя</translation>
+        <translation>Имя</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Версия</translation>
+        <translation>Версия</translation>
     </message>
     <message>
         <source>Detect</source>

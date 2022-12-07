@@ -109,7 +109,8 @@
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Włączenie tej opcji spowoduje, że skrót będzie
+dostępny nawet wtedy, gdy ksnip nie jest skupiony.</translation>
     </message>
 </context>
 <context>

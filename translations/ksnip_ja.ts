@@ -80,7 +80,7 @@
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation>画像を固定ウィンドウに表示</translation>
+        <translation>ピン留めした画像を表示</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
@@ -176,7 +176,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation>番号ツールの割り当てを変更するとすべての番号を更新</translation>
+        <translation>番号ツールのシードの割り当てを変更するとすべての番号を更新</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
@@ -214,7 +214,7 @@ being created, allowing changing settings.</source>
         <source>The Controls Widget contains the Undo/Redo,
 Crop, Scale, Rotate and Modify Canvas buttons.</source>
         <translation>操作ウィジットのボタンは、元に戻す/やり直し
-切り取り、縮尺、キャンバス修正です。</translation>
+切り抜き、拡大縮小、キャンバス修正です。</translation>
     </message>
 </context>
 <context>
@@ -668,8 +668,8 @@ Do you want to continue?</source>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
-        <translation type="unfinished">現在、ホットキーは Windows と X11 でのみ動作します。
-無効にすると、makes also the action shortcuts ksnip only.</translation>
+        <translation>現在、ホットキーは Windows と X11 でのみ動作します。
+無効にすると、アクションのショートカットキーも ksnip 用になります。</translation>
     </message>
 </context>
 <context>
@@ -736,7 +736,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
-        <translation>一般 Wayland (xdg-desktop-portal) スクリーンショットで処理</translation>
+        <translation>一般 Wayland (xdg-desktop-portal) のスクリーンショットで処理</translation>
     </message>
     <message>
         <source>Implicit capture delay</source>
@@ -1045,7 +1045,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>想定される画像の提供がありません。</translation>
     </message>
     <message>
         <source>Copy Path</source>
@@ -1129,11 +1129,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Cut</source>
-        <translation>切り取り</translation>
+        <translation>切り抜き削除</translation>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR</translation>
     </message>
 </context>
 <context>
@@ -1182,7 +1182,7 @@ and capturing screenshot.</source>
     <name>OcrWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR ウィンドウ %1</translation>
     </message>
 </context>
 <context>
@@ -1193,7 +1193,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Close Other</source>
-        <translation>他を閉じる</translation>
+        <translation>ほかを閉じる</translation>
     </message>
     <message>
         <source>Close All</source>
@@ -1204,7 +1204,7 @@ and capturing screenshot.</source>
     <name>PinWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR ウィンドウ %1</translation>
     </message>
 </context>
 <context>
@@ -1528,7 +1528,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation>このメッセージ設定から無効にできます。</translation>
+        <translation>このメッセージは設定から無効にできます。</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>

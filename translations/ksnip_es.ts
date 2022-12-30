@@ -104,12 +104,13 @@
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>Global</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuando se activa hará que el acceso directo
+disponible incluso cuando ksnip no tenga foco.</translation>
     </message>
 </context>
 <context>
@@ -208,12 +209,13 @@ después de ser creados, permitiendo cambiar la configuración.</translation>
     </message>
     <message>
         <source>Show Controls Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar controles del Widget</translation>
     </message>
     <message>
         <source>The Controls Widget contains the Undo/Redo,
 Crop, Scale, Rotate and Modify Canvas buttons.</source>
-        <translation type="unfinished"></translation>
+        <translation>Los controles del Widget contiene los botones Deshacer/Rehacer,
+Recortar, Escalar, Rotar y Modificar lienzo.</translation>
     </message>
 </context>
 <context>
@@ -312,20 +314,21 @@ al nuevo contenido, aumentar este retraso podría mejorar el comportamiento.</tr
     </message>
     <message>
         <source>Resize delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Retraso en el cambio del tamaño</translation>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Directorio temporal</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
 going to be deleted after ksnip closes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Directorio temporal utilizado para almacenar imágenes temporales que
+se eliminará después de que se cierre ksnip.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Examinar</translation>
+        <translation>Navegar</translation>
     </message>
 </context>
 <context>
@@ -738,7 +741,7 @@ cuando la ventana principal estaba oculta o minimizada.</translation>
     </message>
     <message>
         <source>Implicit capture delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Retraso implícito de la captura</translation>
     </message>
     <message>
         <source>This delay is used when no delay was selected in
@@ -747,7 +750,12 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Este retraso se utiliza cuando no se seleccionó ningún retraso en
+la interfaz del usuario, permite que ksnip se oculte antes de tomar
+una captura de pantalla. Este valor no se aplica cuando
+ksnip ya estaba minimizado. Reduciendo este valor
+puede tener el efecto de que la ventana principal de ksnip es
+visible en la captura de pantalla.</translation>
     </message>
 </context>
 <context>
@@ -870,11 +878,11 @@ Cambiarlo requiere reiniciar.</translation>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargar el título:</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargar la descripción:</translation>
     </message>
 </context>
 <context>
@@ -1114,19 +1122,19 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardar todo</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerrar la ventana</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Cortar</translation>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>Reconocimiento óptico de caracteres (OCR)</translation>
     </message>
 </context>
 <context>
@@ -1161,7 +1169,7 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardar todo</translation>
     </message>
 </context>
 <context>
@@ -1175,7 +1183,7 @@ y la captura de pantalla.</translation>
     <name>OcrWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ventana OCR %1</translation>
     </message>
 </context>
 <context>
@@ -1197,53 +1205,53 @@ y la captura de pantalla.</translation>
     <name>PinWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ventana OCR %1</translation>
     </message>
 </context>
 <context>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruta de la búsqueda</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Predeterminado</translation>
+        <translation>Por defecto</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
-        <translation type="unfinished"></translation>
+        <translation>El directorio donde se encuentran los complementos.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Examinar</translation>
+        <translation>Navegar</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nombre</translation>
+        <translation>Nombre</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Versión</translation>
+        <translation>Versión</translation>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>Detectar</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración del complemento</translation>
     </message>
     <message>
         <source>Plugin location</source>
-        <translation type="unfinished"></translation>
+        <translation>Ubicación del complemento</translation>
     </message>
 </context>
 <context>
     <name>ProcessIndicator</name>
     <message>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>Procesando</translation>
     </message>
 </context>
 <context>
@@ -1370,7 +1378,7 @@ No todos los formatos de imagen son compatibles con la gama completa, JPEG sí l
     </message>
     <message>
         <source>Overwrite file with same name</source>
-        <translation type="unfinished"></translation>
+        <translation>Sobrescribir archivo con el mismo nombre</translation>
     </message>
 </context>
 <context>
@@ -1494,11 +1502,11 @@ Cuando se omite, se copia todo.</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Complementos</translation>
     </message>
     <message>
         <source>Search Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>Opciones de la búsqueda...</translation>
     </message>
 </context>
 <context>
@@ -1525,11 +1533,11 @@ Cuando se omite, se copia todo.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirme la selección presionando ENTER/RETURN o haciendo doble clic en cualquier lugar con el ratón.</translation>
     </message>
     <message>
         <source>Abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancele presionando la tecla ESC.</translation>
     </message>
 </context>
 <context>
@@ -1675,7 +1683,7 @@ El número más pequeño es más transparente.</translation>
     </message>
     <message>
         <source>Enable Snipping Area offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar la compensación del área de la captura</translation>
     </message>
     <message>
         <source>When enabled will apply the configured
@@ -1683,15 +1691,19 @@ offset to the Snipping Area position which
 is required when the position is not
 correctly calculated. This is sometimes
 required with screen scaling enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si se activa, se aplicará el desplazamiento
+a la posición del área de recorte
+cuando la posición no se
+calculada correctamente. Esto es a veces
+con el escalado de pantalla activado.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
 </context>
 <context>

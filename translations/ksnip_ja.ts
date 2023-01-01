@@ -414,7 +414,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation>スクリーンショットの取得に Screenshot Portal を使用します</translation>
+        <translation>スクリーンショットの取得にスクリーンショット用ポータルを使用します</translation>
     </message>
 </context>
 <context>
@@ -530,7 +530,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished">Screenshot Portal</translation>
+        <translation>スクリーンショット用ポータル</translation>
     </message>
 </context>
 <context>
@@ -732,7 +732,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation>強制的な一般 Wayland (xdg-desktop-portal) のスクリーンショット</translation>
+        <translation>一般 Wayland (xdg-desktop-portal) のスクリーンショットを強制的に使用</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
@@ -1577,7 +1577,14 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is shown and with the option disabled
+the delay happens after the snipping area is shown.
+この機能は Wayland では常に無効化、MacOSでは
+常に有効化されます。</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>

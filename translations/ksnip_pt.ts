@@ -104,12 +104,13 @@
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>Global</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando ativado fará o atalho disponível
+mesmo quando ksnip não tem o foco.</translation>
     </message>
 </context>
 <context>
@@ -208,7 +209,7 @@ ser criado, permitindo alterar as configurações.</translation>
     </message>
     <message>
         <source>Show Controls Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar widget de controles</translation>
     </message>
     <message>
         <source>The Controls Widget contains the Undo/Redo,
@@ -1208,7 +1209,7 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Padrão</translation>
+        <translation>Padrão</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
@@ -1216,15 +1217,15 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Selecionar</translation>
+        <translation>Selecionar</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nome</translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Versão</translation>
+        <translation>Versão</translation>
     </message>
     <message>
         <source>Detect</source>
@@ -1243,7 +1244,7 @@ e captura de ecrã.</translation>
     <name>ProcessIndicator</name>
     <message>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>A processar</translation>
     </message>
 </context>
 <context>
@@ -1687,11 +1688,11 @@ required with screen scaling enabled.</source>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Z</translation>
     </message>
 </context>
 <context>

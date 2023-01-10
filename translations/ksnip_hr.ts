@@ -750,7 +750,12 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ova se odgoda koristi kad u korisničkom sučelju
+odgoda nije odabrana. Time se omogućuje skrivanje
+ksnipa prije snimanja ekrana. Ova se vrijednost ne
+primjenjuje kada je ksnip već skriven u programsku
+traku. Smanjenje ove vrijednosti može imati učinak
+da glavni prozor ksnipa bude vidljiv na snimci ekrana.</translation>
     </message>
 </context>
 <context>

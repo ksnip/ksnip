@@ -209,12 +209,13 @@ utworzeniu, co pozwala na zmianę ustawień.</translation>
     </message>
     <message>
         <source>Show Controls Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż widżet Sterowanie</translation>
     </message>
     <message>
         <source>The Controls Widget contains the Undo/Redo,
 Crop, Scale, Rotate and Modify Canvas buttons.</source>
-        <translation type="unfinished"></translation>
+        <translation>Widżet Sterowanie zawiera opcje Cofnij/Ponów,
+Przyciski Kadruj, Skaluj, Obróć i Modyfikuj obszar roboczy.</translation>
     </message>
 </context>
 <context>

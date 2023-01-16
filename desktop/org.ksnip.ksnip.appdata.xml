@@ -89,6 +89,7 @@
             <description>
                 <ul>
                     <li>Fixed: DragAndDrop not working with snaps.</li>
+                    <li>Fixed: Loading image from stdin single instance client runner side doesn't work.</li>
                     <li>Fixed kImageAnnotator: Fix for unnecessary scrollbars when a screenshot has a smaller size than the previous one.</li>
                     <li>Fixed kImageAnnotator: Add KDE support for scale factor.</li>
                     <li>Fixed kImageAnnotator: Show tab tooltips on initial tabs.</li>

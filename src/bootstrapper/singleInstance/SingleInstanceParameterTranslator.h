@@ -35,20 +35,21 @@ public:
 	SingleInstanceParameter translate(const QByteArray &byteArray) const;
 
 private:
-	QByteArray getStartParameter() const;
-	QByteArray getEditParameters(const QString &path) const;
-	QByteArray getCaptureParameters(CaptureModes captureModes, bool save, const QString &savePath, bool captureCursor, int delay) const;
-	QByteArray getSeparator() const;
-	QByteArray getPathParameter(const QString &path) const;
-	QByteArray getCaptureModeParameter(const CaptureModes &captureModes) const;
-	QByteArray getBooleanString(bool value) const;
-	QByteArray getCaptureCursorParameter(bool captureCursor) const;
-	QByteArray getDelayParameter(int delay) const;
-	QByteArray getEditParameter() const;
-	QByteArray getCaptureParameter() const;
-	CaptureModes getCaptureMode(const QByteArray &captureMode) const;
-	bool getBoolean(const QByteArray &value) const;
+	static QByteArray getStartParameter();
+	static QByteArray getEditPathParameters(const QString &path);
+	static QByteArray getEditImageParameters(const QByteArray &image);
+	static QByteArray getCaptureParameters(CaptureModes captureModes, bool save, const QString &savePath, bool captureCursor, int delay);
+	static QByteArray getSeparator();
+	static QByteArray getPathParameter(const QString &path);
+	static QByteArray getCaptureModeParameter(const CaptureModes &captureModes);
+	static QByteArray getBooleanString(bool value);
+	static QByteArray getCaptureCursorParameter(bool captureCursor);
+	static QByteArray getDelayParameter(int delay);
+	static QByteArray getEditPathParameter();
+	static QByteArray getEditImageParameter();
+	static QByteArray getCaptureParameter();
+	static CaptureModes getCaptureMode(const QByteArray &captureMode);
+	static bool getBoolean(const QByteArray &value);
 };
-
 
 #endif //KSNIP_SINGLEINSTANCEPARAMETERTRANSLATOR_H

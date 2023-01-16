@@ -44,16 +44,26 @@ void SingleInstanceServerBootstrapper::startServer() const
 
 void SingleInstanceServerBootstrapper::processData(const QByteArray &data)
 {
-	mLogger->log(QLatin1String("Single instance server received data from client."));
+	mLogger->log(QLatin1String("Single instance server received data from client"));
 	auto parameter = mParameterTranslator.translate(data);
 	switch (parameter.startupMode) {
 		case SingleInstanceStartupModes::Start:
+            mLogger->log(QLatin1String("Start triggered."));
 			show();
 			break;
 		case SingleInstanceStartupModes::Edit:
-			processImage(parameter.imagePath);
+            if(parameter.isImageAsByteArraySet()) {
+                mLogger->log(QLatin1String("Edit triggered with image received as byte array"));
+                QPixmap pixmap;
+                pixmap.loadFromData(parameter.imageAsByteArray);
+                mMainWindow->processCapture(CaptureDto(pixmap));
+            } else {
+                mLogger->log(QLatin1String("Edit triggered with image received as image path"));
+                processImage(parameter.imagePath);
+            }
 			break;
 		case SingleInstanceStartupModes::Capture:
+            mLogger->log(QLatin1String("Capture triggered"));
 			capture(parameter);
 			break;
 	}
@@ -61,13 +71,13 @@ void SingleInstanceServerBootstrapper::processData(const QByteArray &data)
 
 void SingleInstanceServerBootstrapper::capture(const SingleInstanceParameter &parameter) const
 {
-	mLogger->log(QLatin1String("Single instance server was request to take screenshot."));
+	mLogger->log(QLatin1String("Single instance server was request to take screenshot"));
 	mMainWindow->captureScreenshot(parameter.captureMode, parameter.captureCursor, parameter.delay);
 }
 
 void SingleInstanceServerBootstrapper::show() const
 {
-	mLogger->log(QLatin1String("Single instance server was request to show main window."));
+	mLogger->log(QLatin1String("Single instance server was request to show main window"));
 	mMainWindow->show();
 }
 

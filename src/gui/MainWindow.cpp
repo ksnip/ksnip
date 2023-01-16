@@ -20,8 +20,6 @@
 
 #include "MainWindow.h"
 
-#include <QDebug>
-
 MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	QMainWindow(),
 	mDependencyInjector(dependencyInjector),

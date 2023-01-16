@@ -24,6 +24,7 @@
 
 #include "src/bootstrapper/StandAloneBootstrapper.h"
 #include "src/bootstrapper/IBootstrapper.h"
+#include "src/bootstrapper/IImageFromStdInputReader.h"
 #include "src/bootstrapper/singleInstance/SingleInstanceConstants.h"
 #include "src/bootstrapper/singleInstance/SingleInstanceParameterTranslator.h"
 #include "src/backend/ipc/IpcClient.h"
@@ -39,8 +40,9 @@ public:
 private:
 	IpcClient *mIpcClient;
 	SingleInstanceParameterTranslator mParameterTranslator;
+    QSharedPointer<IImageFromStdInputReader> mImageFromStdInputReader;
 
-	bool isImagePathValid(const QString &imagePath) const;
+	static bool isImagePathValid(const QString &imagePath);
 	int notifyServer() const;
 };
 

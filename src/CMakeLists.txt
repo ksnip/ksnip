@@ -35,6 +35,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/ipc/IpcClient.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/BootstrapperFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/StandAloneBootstrapper.cpp
+	${CMAKE_SOURCE_DIR}/src/bootstrapper/ImageFromStdInputReader.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/InstanceLock.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/SingleInstanceClientBootstrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/SingleInstanceServerBootstrapper.cpp

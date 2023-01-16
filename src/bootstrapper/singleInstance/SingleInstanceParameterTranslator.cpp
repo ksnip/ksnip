@@ -23,7 +23,11 @@ QByteArray SingleInstanceParameterTranslator::translate(const SingleInstancePara
 {
 	switch (parameter.startupMode) {
 		case SingleInstanceStartupModes::Edit:
-			return getEditParameters(parameter.imagePath);
+            if(parameter.isImageAsByteArraySet()) {
+                return getEditImageParameters(parameter.imageAsByteArray);
+            } else {
+                return getEditPathParameters(parameter.imagePath);
+            }
 		case SingleInstanceStartupModes::Capture:
 			return getCaptureParameters(parameter.captureMode, parameter.save, parameter.savePath, parameter.captureCursor, parameter.delay);
 		default:
@@ -37,12 +41,16 @@ SingleInstanceParameter SingleInstanceParameterTranslator::translate(const QByte
 
 	if(parameters.empty()) {
 		qCritical("Startup mode must be provided.");
-		return SingleInstanceParameter();
+		return {};
 	}
 
 	auto startupMode = parameters[0];
-	if (startupMode == getEditParameter() && parameters.count() == 2) {
-		return SingleInstanceParameter(parameters[1]);
+	if (startupMode == getEditPathParameter() && parameters.count() == 2) {
+        auto pathToImage = QString(parameters[1]);
+        return SingleInstanceParameter(pathToImage);
+    } else if (startupMode == getEditImageParameter() && parameters.count() == 2) {
+        auto imageAsByteArray = QByteArray::fromBase64(parameters[1]);
+        return SingleInstanceParameter(imageAsByteArray);
 	} else if (startupMode == getCaptureParameter() && parameters.count() == 6){
 		auto captureMode = getCaptureMode(parameters[1]);
 		auto save = getBoolean(parameters[2]);
@@ -51,11 +59,11 @@ SingleInstanceParameter SingleInstanceParameterTranslator::translate(const QByte
 		auto delay = parameters[5].toInt();
 		return SingleInstanceParameter(captureMode, save, savePath, captureCursor, delay);
 	} else {
-		return SingleInstanceParameter();
+		return {};
 	}
 }
 
-CaptureModes SingleInstanceParameterTranslator::getCaptureMode(const QByteArray &captureMode) const
+CaptureModes SingleInstanceParameterTranslator::getCaptureMode(const QByteArray &captureMode)
 {
 	if (captureMode == QByteArray("rectArea")) {
 		return CaptureModes::RectArea;
@@ -74,22 +82,32 @@ CaptureModes SingleInstanceParameterTranslator::getCaptureMode(const QByteArray 
 	}
 }
 
-QByteArray SingleInstanceParameterTranslator::getStartParameter() const
+QByteArray SingleInstanceParameterTranslator::getStartParameter()
 {
-	return QByteArray("start");
+	return {"start"};
 }
 
-QByteArray SingleInstanceParameterTranslator::getEditParameters(const QString &path) const
+QByteArray SingleInstanceParameterTranslator::getEditPathParameters(const QString &path)
 {
-	return getEditParameter() + getSeparator() + getPathParameter(path);
+	return getEditPathParameter() + getSeparator() + getPathParameter(path);
 }
 
-QByteArray SingleInstanceParameterTranslator::getEditParameter() const
+QByteArray SingleInstanceParameterTranslator::getEditImageParameters(const QByteArray &image)
+{
+    return getEditImageParameter() + getSeparator() + image;
+}
+
+QByteArray SingleInstanceParameterTranslator::getEditPathParameter()
 { 
-	return QByteArray("edit"); 
+	return {"edit-path"};
 }
 
-QByteArray SingleInstanceParameterTranslator::getCaptureParameters(CaptureModes captureModes, bool save, const QString &savePath, bool captureCursor, int delay) const
+QByteArray SingleInstanceParameterTranslator::getEditImageParameter()
+{
+    return {"edit-image"};
+}
+
+QByteArray SingleInstanceParameterTranslator::getCaptureParameters(CaptureModes captureModes, bool save, const QString &savePath, bool captureCursor, int delay)
 {
 	return getCaptureParameter() +
 		getSeparator() + getCaptureModeParameter(captureModes) +
@@ -99,57 +117,57 @@ QByteArray SingleInstanceParameterTranslator::getCaptureParameters(CaptureModes 
 		getSeparator() + getDelayParameter(delay);
 }
 
-QByteArray SingleInstanceParameterTranslator::getCaptureParameter() const
+QByteArray SingleInstanceParameterTranslator::getCaptureParameter()
 { 
-	return QByteArray("capture"); 
+	return {"capture"};
 }
 
-QByteArray SingleInstanceParameterTranslator::getCaptureModeParameter(const CaptureModes &captureModes) const
+QByteArray SingleInstanceParameterTranslator::getCaptureModeParameter(const CaptureModes &captureModes)
 {
 	switch (captureModes) {
 		case CaptureModes::LastRectArea:
-			return QByteArray("lastRectArea");
+			return {"lastRectArea"};
 		case CaptureModes::FullScreen:
-			return QByteArray("fullScreen");
+			return {"fullScreen"};
 		case CaptureModes::CurrentScreen:
-			return QByteArray("currentScreen");
+			return {"currentScreen"};
 		case CaptureModes::ActiveWindow:
-			return QByteArray("activeWindow");
+			return {"activeWindow"};
 		case CaptureModes::WindowUnderCursor:
-			return QByteArray("windowUnderCursor");
+			return {"windowUnderCursor"};
         case CaptureModes::Portal:
-            return QByteArray("portal");
+            return {"portal"};
 		default:
-			return QByteArray("rectArea");
+			return {"rectArea"};
 	}
 }
 
-QByteArray SingleInstanceParameterTranslator::getSeparator() const
+QByteArray SingleInstanceParameterTranslator::getSeparator()
 {
-	return QByteArray(";");
+	return {";"};
 }
 
-QByteArray SingleInstanceParameterTranslator::getPathParameter(const QString &path) const
+QByteArray SingleInstanceParameterTranslator::getPathParameter(const QString &path)
 {
 	return path.toLatin1();
 }
 
-QByteArray SingleInstanceParameterTranslator::getBooleanString(bool value) const
+QByteArray SingleInstanceParameterTranslator::getBooleanString(bool value)
 {
 	return value ? QByteArray("true") : QByteArray("false");
 }
 
-QByteArray SingleInstanceParameterTranslator::getCaptureCursorParameter(bool captureCursor) const
+QByteArray SingleInstanceParameterTranslator::getCaptureCursorParameter(bool captureCursor)
 {
 	return getBooleanString(captureCursor);
 }
 
-QByteArray SingleInstanceParameterTranslator::getDelayParameter(int delay) const
+QByteArray SingleInstanceParameterTranslator::getDelayParameter(int delay)
 {
 	return QString::number(delay).toLatin1();
 }
 
-bool SingleInstanceParameterTranslator::getBoolean(const QByteArray &value) const
+bool SingleInstanceParameterTranslator::getBoolean(const QByteArray &value)
 {
 	return value == QByteArray("true");
 }

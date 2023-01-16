@@ -34,6 +34,7 @@ struct SingleInstanceParameter
 	bool captureCursor{};
 	int delay{};
 	QString savePath;
+	QByteArray imageAsByteArray;
 
 	SingleInstanceParameter() {
 		this->startupMode = SingleInstanceStartupModes::Start;
@@ -44,6 +45,11 @@ struct SingleInstanceParameter
 		this->imagePath = path;
 	}
 
+	explicit SingleInstanceParameter(const QByteArray &imageAsByteArray) {
+		this->startupMode = SingleInstanceStartupModes::Edit;
+		this->imageAsByteArray = imageAsByteArray;
+	}
+
 	SingleInstanceParameter(CaptureModes captureMode, bool save, const QString &savePath, bool captureCursor, int delay) {
 		this->startupMode = SingleInstanceStartupModes::Capture;
 		this->captureMode = captureMode;
@@ -51,6 +57,10 @@ struct SingleInstanceParameter
 		this->captureCursor = captureCursor;
 		this->savePath = savePath;
 		this->delay = delay;
+	}
+
+	bool isImageAsByteArraySet() const {
+		return !this->imageAsByteArray.isNull() && !this->imageAsByteArray.isEmpty();
 	}
 };
 

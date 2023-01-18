@@ -1200,7 +1200,7 @@ and capturing screenshot.</source>
     <name>PinWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Окно распознавания текста %1</translation>
     </message>
 </context>
 <context>
@@ -1231,7 +1231,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>Определить</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
@@ -1690,11 +1690,11 @@ required with screen scaling enabled.</source>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
 </context>
 <context>

@@ -66,7 +66,7 @@ SaveResultDto SaveOperation::execute()
 
 	if(!mIsInstantSave){
 		auto title = tr("Save As");
-		auto filter = tr("Image Files") + FileDialogFilters::ImageFiles + tr("All Files") + FileDialogFilters::AllFiles;
+		auto filter = tr("Image Files") + FileDialogFilterHelper::ImageFilesExport() + tr("All Files") + FileDialogFilterHelper::AllFiles();
 		auto selectedSavePath = mFileDialogService->getSavePath(mParent, title, path, filter);
 
 		if (selectedSavePath.isNull()) {

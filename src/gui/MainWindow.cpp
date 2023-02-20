@@ -636,7 +636,7 @@ void MainWindow::showOpenImageDialog()
 {
 	auto title = tr("Open Images");
 	auto directory = mSavePathProvider->saveDirectory();
-	auto filter = tr("Image Files") + FileDialogFilters::ImageFiles;
+	auto filter = tr("Image Files") + FileDialogFilterHelper::ImageFilesImport();
 	auto pathList = mFileDialogService->getOpenFileNames(this, title, directory, filter);
 
 	for (const auto &path : pathList) {

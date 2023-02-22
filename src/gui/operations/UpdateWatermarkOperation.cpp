@@ -27,7 +27,7 @@ UpdateWatermarkOperation::UpdateWatermarkOperation(QWidget *parent)
 bool UpdateWatermarkOperation::execute()
 {
 	auto title = tr("Select Image");
-	auto filter = tr("Image Files") + FileDialogFilters::ImageFiles;
+	auto filter = tr("Image Files") + FileDialogFilterHelper::ImageFilesImport();
 	QFileDialog dialog(mParent, title, QString(), filter);
 	dialog.setAcceptMode(QFileDialog::AcceptOpen);
 

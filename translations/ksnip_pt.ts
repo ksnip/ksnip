@@ -326,7 +326,7 @@ going to be deleted after ksnip closes.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Selecionar</translation>
+        <translation>Selecionar</translation>
     </message>
 </context>
 <context>
@@ -871,11 +871,11 @@ Mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ficheiro do envio</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Descrição do envio</translation>
     </message>
 </context>
 <context>
@@ -1115,11 +1115,11 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Gravar tudo</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Fechar janela</translation>
     </message>
     <message>
         <source>Cut</source>
@@ -1162,7 +1162,7 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Gravar tudo</translation>
     </message>
 </context>
 <context>
@@ -1229,7 +1229,7 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>Detetar</translation>
     </message>
     <message>
         <source>Plugin Settings</source>

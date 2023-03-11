@@ -750,7 +750,11 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Эта задержка используется при отсутствии обычной,
+что позволяет ksnip скрыться до выполнения снимка.
+Не используется, если окно ksnip свёрнуто.
+Уменьшение значения может привести к отображению
+основного окна ksnip на снимке.</translation>
     </message>
 </context>
 <context>
@@ -1207,7 +1211,7 @@ and capturing screenshot.</source>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Путь поиска</translation>
     </message>
     <message>
         <source>Default</source>
@@ -1501,7 +1505,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Search Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>Поиск в настройках...</translation>
     </message>
 </context>
 <context>
@@ -1678,7 +1682,7 @@ Smaller number is more transparent.</source>
     </message>
     <message>
         <source>Enable Snipping Area offset</source>
-        <translation>Включить смещение области обрезки</translation>
+        <translation>Включить смещение зоны обрезки</translation>
     </message>
     <message>
         <source>When enabled will apply the configured
@@ -1686,7 +1690,11 @@ offset to the Snipping Area position which
 is required when the position is not
 correctly calculated. This is sometimes
 required with screen scaling enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Если включено, заданное смещение
+будет применяться к позиции зоны
+обрезки. Используйте, если позиция
+определяется некорректно, например
+при активном масштабировании экрана.</translation>
     </message>
     <message>
         <source>X</source>

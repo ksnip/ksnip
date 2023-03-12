@@ -261,7 +261,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>הסתרת טאבים אוטומטית</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
@@ -310,7 +310,7 @@ going to be deleted after ksnip closes.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Durchsuchen</translation>
+        <translation>לדפדף</translation>
     </message>
 </context>
 <context>
@@ -321,42 +321,42 @@ going to be deleted after ksnip closes.</source>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>תרגום לספרדית</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>תרגום להולנדית</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>תרגום לרוסית</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>תרגום לנורווגית</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>תרגום לצרפתית</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>תרגום לפולנית</translation>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>תמיכת Snap &amp; Flatpak</translation>
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>המחברים:</translation>
     </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
     <message>
         <source>Warning - </source>
-        <translation type="unfinished"></translation>
+        <translation>אזהרה - </translation>
     </message>
     <message>
         <source>The capture %1%2%3 has been modified.
@@ -1178,7 +1178,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Standard</translation>
+        <translation>ברירת מחדל</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
@@ -1186,15 +1186,15 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Durchsuchen</translation>
+        <translation>לדפדף</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Name</translation>
+        <translation>שם</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Version</translation>
+        <translation>גרסה</translation>
     </message>
     <message>
         <source>Detect</source>

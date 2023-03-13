@@ -15,6 +15,7 @@ set(KSNIP_LANG_TS
 	ksnip_fr.ts
 	ksnip_fr_CA.ts
 	ksnip_gl.ts
+	ksnip_he.ts
 	ksnip_hr.ts
 	ksnip_hu.ts
 	ksnip_id.ts

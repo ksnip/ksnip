@@ -328,6 +328,8 @@ ksnip is a non-profitable copylefted libre software project, and still has some 
 If you want to help or just want to appreciate the work being done by treating developers to a beer or coffee,
 you can do that [here](https://www.paypal.me/damirporobic), donations are always welcome :)
 
+In order to improve our MacOS support, we are trying to collect some money to buy a MacBook, you can donate [here](https://www.gofundme.com/f/buy-a-macbook-for-ksnips-cross-platform-support).
+
 Also in crypto:  
 BTC: `bc1q6cke457fk8qhxxacl4nu5q2keudtdukrqe2gx0`  
 ETH: `0xbde87a83427D61072055596e7a746CeC5316253C`  

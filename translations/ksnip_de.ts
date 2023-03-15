@@ -188,7 +188,7 @@ Die Deaktivierung dieser Option ermöglicht das Vorhandensein von doppelten Numm
     </message>
     <message>
         <source>Canvas Color</source>
-        <translation>Canvas-Farbe</translation>
+        <translation>Leinwandfarbe</translation>
     </message>
     <message>
         <source>Default Canvas background color for annotation area.
@@ -208,7 +208,7 @@ ausgewählt, was eine Änderung der Einstellungen erlaubt.</translation>
     </message>
     <message>
         <source>Show Controls Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Steuerelemente-Widget anzeigen</translation>
     </message>
     <message>
         <source>The Controls Widget contains the Undo/Redo,
@@ -1083,7 +1083,7 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
-        <translation>Canvas anpassen</translation>
+        <translation>Leinwand ändern</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
@@ -1371,7 +1371,7 @@ Nicht alle Bildformate unterstützen die gesamte Bandbreite, JPEG schon.</transl
     </message>
     <message>
         <source>Overwrite file with same name</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei mit gleichem Namen überschreiben</translation>
     </message>
 </context>
 <context>
@@ -1451,7 +1451,7 @@ Falls leer, wird alles kopiert.</translation>
     </message>
     <message>
         <source>Annotator</source>
-        <translation>Annotator</translation>
+        <translation>Beschriftung</translation>
     </message>
     <message>
         <source>HotKeys</source>
@@ -1530,7 +1530,7 @@ Falls leer, wird alles kopiert.</translation>
     </message>
     <message>
         <source>Abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mit ESC-Taste abbrechen.</translation>
     </message>
 </context>
 <context>

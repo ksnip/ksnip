@@ -85,7 +85,7 @@
     <update_contact>damir.porobic@gmx.com</update_contact>
     <content_rating type="oars-1.0" />
     <releases>
-        <release type="stable" version="1.10.1" date="2022-08-01T00:00:00Z">
+        <release type="stable" version="1.10.1" date="2023-03-15T00:00:00Z">
             <description>
                 <ul>
                     <li>Fixed: DragAndDrop not working with snaps.</li>

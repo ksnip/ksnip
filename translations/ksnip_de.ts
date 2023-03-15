@@ -316,12 +316,13 @@ ausgerichtet sind, kann eine Erhöhung dieser Verzögerung jenes Verhalten verbe
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Temp-Verzeichnis</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
 going to be deleted after ksnip closes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Temp-Verzeichnis, in dem Bilder temporär gespeichert werden,
+die nach dem Beenden von ksnip gelöscht werden.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -870,11 +871,11 @@ Changing requires restart.</source>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Upload-Titel:</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Upload-Beschreibung:</translation>
     </message>
 </context>
 <context>
@@ -1114,19 +1115,19 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle speichern</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Fenster schließen</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Ausschneiden</translation>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR</translation>
     </message>
 </context>
 <context>
@@ -1161,7 +1162,7 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle speichern</translation>
     </message>
 </context>
 <context>
@@ -1175,7 +1176,7 @@ und der Aufnahme des Bildschirmfotos.</translation>
     <name>OcrWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR-Fenster %1</translation>
     </message>
 </context>
 <context>
@@ -1197,14 +1198,14 @@ und der Aufnahme des Bildschirmfotos.</translation>
     <name>PinWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR-Fenster %1</translation>
     </message>
 </context>
 <context>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Such-Pfad</translation>
     </message>
     <message>
         <source>Default</source>
@@ -1212,7 +1213,7 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
-        <translation type="unfinished"></translation>
+        <translation>Speicherort in dem sich die Plugins befinden.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1228,15 +1229,15 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>Ermitteln</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Plugin-Einstellungen</translation>
     </message>
     <message>
         <source>Plugin location</source>
-        <translation type="unfinished"></translation>
+        <translation>Plugin-Ordner</translation>
     </message>
 </context>
 <context>
@@ -1494,11 +1495,11 @@ Falls leer, wird alles kopiert.</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Plugins</translation>
     </message>
     <message>
         <source>Search Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>Einstellungen durchsuchen...</translation>
     </message>
 </context>
 <context>
@@ -1675,7 +1676,7 @@ Kleinere Werte bedeuten mehr Transparenz.</translation>
     </message>
     <message>
         <source>Enable Snipping Area offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Offset für Aufnahmebereich verwenden</translation>
     </message>
     <message>
         <source>When enabled will apply the configured

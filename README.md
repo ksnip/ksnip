@@ -4,7 +4,7 @@
 [![IRC: #ksnip on libera.chat][libera-badge]][libera-badge-url]
 [![GitHub license](https://img.shields.io/github/license/ksnip/ksnip?color=lightgrey)](https://github.com/ksnip/ksnip/blob/master/LICENSE.txt)
 
-Version v1.10.1
+Version v1.11.0
 
 Ksnip is a Qt-based cross-platform screenshot tool that provides many annotation features
 for your screenshots.

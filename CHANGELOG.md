@@ -1,5 +1,8 @@
 # Change log
 
+## Release 1.11.0
+* New kImageAnnotator: Allow copying items between tabs. ([#318](https://github.com/ksnip/kImageAnnotator/issues/318))
+
 ## Release 1.10.1
 * Fixed: DragAndDrop not working with snaps. ([#898](https://github.com/ksnip/ksnip/issues/898))
 * Fixed: Loading image from stdin single instance client runner side doesn't work. ([#741](https://github.com/ksnip/ksnip/issues/741))

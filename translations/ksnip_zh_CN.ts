@@ -72,7 +72,7 @@
     <message>
         <source>s</source>
         <extracomment>The small letter s stands for seconds.</extracomment>
-        <translation>s</translation>
+        <translation>秒</translation>
     </message>
     <message>
         <source>Capture Mode</source>
@@ -104,12 +104,13 @@
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>全局</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>启用后将创建快捷方式
+即使 ksnip 没有焦点也可用。</translation>
     </message>
 </context>
 <context>
@@ -208,12 +209,13 @@ being created, allowing changing settings.</source>
     </message>
     <message>
         <source>Show Controls Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>显示控件小部件</translation>
     </message>
     <message>
         <source>The Controls Widget contains the Undo/Redo,
 Crop, Scale, Rotate and Modify Canvas buttons.</source>
-        <translation type="unfinished"></translation>
+        <translation>控件小部件包含撤消/重做，
+裁剪、缩放、旋转和修改画布按钮。</translation>
     </message>
 </context>
 <context>
@@ -229,8 +231,8 @@ Crop, Scale, Rotate and Modify Canvas buttons.</source>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation>设置定义GUI外观的应用程序样式。
-更改要求ksnip重新启动才能生效。</translation>
+        <translation>设置定义 GUI 外观的应用程序样式。
+更改要求 ksnip 重新启动才能生效。</translation>
     </message>
     <message>
         <source>Application Settings</source>
@@ -276,13 +278,13 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation>自动隐藏 Docks</translation>
+        <translation>自动隐藏停靠</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
         <translation>在启动时隐藏工具栏和注释器，
-可以按下 Tab 键显示 Dock。</translation>
+可以按下 Tab 键显示停靠。</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
@@ -312,16 +314,17 @@ to the new content, increasing this delay might improve the behavior.</source>
     </message>
     <message>
         <source>Resize delay</source>
-        <translation type="unfinished"></translation>
+        <translation>调整延迟</translation>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>临时目录</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
 going to be deleted after ksnip closes.</source>
-        <translation type="unfinished"></translation>
+        <translation>用于存储临时图像的 Temp 目录
+ksnip 关闭后将被删除。</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -738,7 +741,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Implicit capture delay</source>
-        <translation type="unfinished"></translation>
+        <translation>隐式捕获延迟</translation>
     </message>
     <message>
         <source>This delay is used when no delay was selected in
@@ -747,7 +750,9 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>当在 UI 中没有选择延迟时使用此延迟，它允许 ksnip 在截屏之前隐藏。
+当 ksnip 已经最小化时，不应用此值。
+减小这个值可以使 ksnip 的主窗口在屏幕截图上可见。</translation>
     </message>
 </context>
 <context>
@@ -870,11 +875,11 @@ Changing requires restart.</source>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation type="unfinished"></translation>
+        <translation>上传标题：</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation type="unfinished"></translation>
+        <translation>上传描述:</translation>
     </message>
 </context>
 <context>
@@ -1078,7 +1083,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation>打开 &amp; 最近</translation>
+        <translation>打开最近文档( &amp;R)</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
@@ -1114,19 +1119,19 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>保存全部</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭窗口</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>剪切</translation>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR</translation>
     </message>
 </context>
 <context>
@@ -1161,7 +1166,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>保存全部</translation>
     </message>
 </context>
 <context>
@@ -1175,7 +1180,7 @@ and capturing screenshot.</source>
     <name>OcrWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR 窗口 %1</translation>
     </message>
 </context>
 <context>
@@ -1197,14 +1202,14 @@ and capturing screenshot.</source>
     <name>PinWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR 窗口 %1</translation>
     </message>
 </context>
 <context>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished"></translation>
+        <translation>搜索路径</translation>
     </message>
     <message>
         <source>Default</source>
@@ -1212,7 +1217,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
-        <translation type="unfinished"></translation>
+        <translation>插件所在的目录。</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1228,22 +1233,22 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>检测</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>插件设置</translation>
     </message>
     <message>
         <source>Plugin location</source>
-        <translation type="unfinished"></translation>
+        <translation>插件位置</translation>
     </message>
 </context>
 <context>
     <name>ProcessIndicator</name>
     <message>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>处理中</translation>
     </message>
 </context>
 <context>
@@ -1370,7 +1375,7 @@ Not all image formats support the full range, JPEG does.</source>
     </message>
     <message>
         <source>Overwrite file with same name</source>
-        <translation type="unfinished"></translation>
+        <translation>覆盖同名文件</translation>
     </message>
 </context>
 <context>
@@ -1494,11 +1499,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>插件</translation>
     </message>
     <message>
         <source>Search Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>搜索设置...</translation>
     </message>
 </context>
 <context>
@@ -1525,11 +1530,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
-        <translation type="unfinished"></translation>
+        <translation>通过按 ENTER/RETURN 或鼠标双击任意位置来确认选择。</translation>
     </message>
     <message>
         <source>Abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>按 ESC 键中止。</translation>
     </message>
 </context>
 <context>
@@ -1675,7 +1680,7 @@ Smaller number is more transparent.</source>
     </message>
     <message>
         <source>Enable Snipping Area offset</source>
-        <translation type="unfinished"></translation>
+        <translation>启用截图区域偏移</translation>
     </message>
     <message>
         <source>When enabled will apply the configured
@@ -1683,15 +1688,16 @@ offset to the Snipping Area position which
 is required when the position is not
 correctly calculated. This is sometimes
 required with screen scaling enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>启用后会将配置的偏移量应用于未正确计算位置时所需的截图区域位置。
+有时需要启用屏幕缩放。</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
 </context>
 <context>

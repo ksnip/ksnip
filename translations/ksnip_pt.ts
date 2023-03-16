@@ -317,7 +317,7 @@ um novo conteúdo, caso a janela principal não esteja ajustada corretamente
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Diretório temporário</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
@@ -1123,7 +1123,7 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Cortar</translation>
     </message>
     <message>
         <source>OCR</source>
@@ -1233,7 +1233,7 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Preferências de Plug-in</translation>
     </message>
     <message>
         <source>Plugin location</source>
@@ -1495,11 +1495,11 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Plug-ins</translation>
     </message>
     <message>
         <source>Search Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar Preferências...</translation>
     </message>
 </context>
 <context>
@@ -1530,7 +1530,7 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>Abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancelar ao pressionar ESC.</translation>
     </message>
 </context>
 <context>

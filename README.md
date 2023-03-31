@@ -4,7 +4,7 @@
 [![IRC: #ksnip on libera.chat][libera-badge]][libera-badge-url]
 [![GitHub license](https://img.shields.io/github/license/ksnip/ksnip?color=lightgrey)](https://github.com/ksnip/ksnip/blob/master/LICENSE.txt)
 
-Version v1.10.1
+Version v1.11.0
 
 Ksnip is a Qt-based cross-platform screenshot tool that provides many annotation features
 for your screenshots.
@@ -327,6 +327,8 @@ All other bugs or feature requests can be reported on the [ksnip](https://github
 ksnip is a non-profitable copylefted libre software project, and still has some costs that need to be covered, like domain costs or hardware costs for cross-platform support.
 If you want to help or just want to appreciate the work being done by treating developers to a beer or coffee,
 you can do that [here](https://www.paypal.me/damirporobic), donations are always welcome :)
+
+In order to improve our MacOS support, we are trying to collect some money to buy a MacBook, you can donate [here](https://www.gofundme.com/f/buy-a-macbook-for-ksnips-cross-platform-support).
 
 Also in crypto:  
 BTC: `bc1q6cke457fk8qhxxacl4nu5q2keudtdukrqe2gx0`  

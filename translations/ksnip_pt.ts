@@ -104,12 +104,13 @@
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>Global</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando ativado fará o atalho disponível
+mesmo quando ksnip não tem o foco.</translation>
     </message>
 </context>
 <context>
@@ -208,7 +209,7 @@ ser criado, permitindo alterar as configurações.</translation>
     </message>
     <message>
         <source>Show Controls Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar widget de controles</translation>
     </message>
     <message>
         <source>The Controls Widget contains the Undo/Redo,
@@ -316,7 +317,7 @@ um novo conteúdo, caso a janela principal não esteja ajustada corretamente
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Diretório temporário</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
@@ -325,7 +326,7 @@ going to be deleted after ksnip closes.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Selecionar</translation>
+        <translation>Selecionar</translation>
     </message>
 </context>
 <context>
@@ -870,11 +871,11 @@ Mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ficheiro do envio</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Descrição do envio</translation>
     </message>
 </context>
 <context>
@@ -1114,15 +1115,15 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Gravar tudo</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Fechar janela</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Cortar</translation>
     </message>
     <message>
         <source>OCR</source>
@@ -1161,7 +1162,7 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Gravar tudo</translation>
     </message>
 </context>
 <context>
@@ -1208,7 +1209,7 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Padrão</translation>
+        <translation>Padrão</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
@@ -1216,23 +1217,23 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Selecionar</translation>
+        <translation>Selecionar</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nome</translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Versão</translation>
+        <translation>Versão</translation>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>Detetar</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Preferências de Plug-in</translation>
     </message>
     <message>
         <source>Plugin location</source>
@@ -1243,7 +1244,7 @@ e captura de ecrã.</translation>
     <name>ProcessIndicator</name>
     <message>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>A processar</translation>
     </message>
 </context>
 <context>
@@ -1494,11 +1495,11 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Plug-ins</translation>
     </message>
     <message>
         <source>Search Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar Preferências...</translation>
     </message>
 </context>
 <context>
@@ -1529,7 +1530,7 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>Abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancelar ao pressionar ESC.</translation>
     </message>
 </context>
 <context>
@@ -1687,11 +1688,11 @@ required with screen scaling enabled.</source>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Z</translation>
     </message>
 </context>
 <context>

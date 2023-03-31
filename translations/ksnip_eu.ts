@@ -753,7 +753,7 @@ visible on the screenshot.</source>
         <translation>Atzerapen hau atzerapenik hautatu ez denean erabiltzen 
 da, Ksnip pantaila-argazki bat egin aurretik ezkutatzeko 
 aukera ematen du. Balio hau ez da aplikatzen Ksnip 
-dagoeneko minimizatuta badago. Balio hori murrizteak  
+dagoeneko minimizatuta badago. Balio hori murrizteak 
 eragin dezake Ksnip-en leiho nagusia pantaila-argazkian 
 agertzea.</translation>
     </message>

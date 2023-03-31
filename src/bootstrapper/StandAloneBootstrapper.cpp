@@ -24,6 +24,7 @@ StandAloneBootstrapper::StandAloneBootstrapper(DependencyInjector *dependencyInj
 	mMainWindow(nullptr),
 	mCommandLineCaptureHandler(nullptr),
 	mLogger(dependencyInjector->get<ILogger>()),
+    mImageFromStdInputReader(dependencyInjector->get<IImageFromStdInputReader>()),
 	mDependencyInjector(dependencyInjector)
 {
 
@@ -176,7 +177,7 @@ int StandAloneBootstrapper::startKsnipAndEditImage(const QApplication &app)
 	}
 }
 
-QPixmap StandAloneBootstrapper::getPixmapFromCorrectSource(const QString &pathToImage)
+QPixmap StandAloneBootstrapper::getPixmapFromCorrectSource(const QString &pathToImage) const
 {
 	if (PathHelper::isPipePath(pathToImage)) {
 		qInfo("Reading image from stdin.");
@@ -186,17 +187,11 @@ QPixmap StandAloneBootstrapper::getPixmapFromCorrectSource(const QString &pathTo
 	}
 }
 
-QPixmap StandAloneBootstrapper::getPixmapFromStdin()
+QPixmap StandAloneBootstrapper::getPixmapFromStdin() const
 {
-	QByteArray stdinImage;
-	while (!std::cin.eof()) {
-		char string[1024];
-		std::cin.read(string, sizeof(string));
-		auto length = std::cin.gcount();
-		stdinImage.append(string, length);
-	}
+	auto imageAsByteArray = mImageFromStdInputReader->read();
 	QPixmap pixmap;
-	pixmap.loadFromData(stdinImage);
+	pixmap.loadFromData(imageAsByteArray);
 	return pixmap;
 }
 

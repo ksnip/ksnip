@@ -92,7 +92,7 @@
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation>Открыть содержащую изображение директорию</translation>
+        <translation>Открыть содержащий изображение каталог</translation>
     </message>
     <message>
         <source>Save image</source>
@@ -104,12 +104,13 @@
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>Общее</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>При включении сделает горячие клавиши
+доступными, даже если ksnip не в фокусе.</translation>
     </message>
 </context>
 <context>
@@ -208,12 +209,13 @@ being created, allowing changing settings.</source>
     </message>
     <message>
         <source>Show Controls Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать панель управления</translation>
     </message>
     <message>
         <source>The Controls Widget contains the Undo/Redo,
 Crop, Scale, Rotate and Modify Canvas buttons.</source>
-        <translation type="unfinished"></translation>
+        <translation>Панель управления содержит кнопки Назад/Вперед,
+Обрезать, Масштабировать, Повернуть и Изменить полотно.</translation>
     </message>
 </context>
 <context>
@@ -312,16 +314,17 @@ to the new content, increasing this delay might improve the behavior.</source>
     </message>
     <message>
         <source>Resize delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Задержка изменения размера</translation>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Временный каталог</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
 going to be deleted after ksnip closes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Временный каталог используется для хранения временных изображений,
+которые будут удалены после закрытия ksnip.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -705,10 +708,10 @@ Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
         <translation>GNOME и KDE Plasma поддерживают собственные методы получения
-скриншотов в Wayland и базовый метод через XDG-DESKTOP-PORTAL.
+скриншотов в Wayland и Generic XDG-DESKTOP-PORTAL.
 Включение этой опции заставит KDE Plasma и GNOME
-использовать базовый метод XDG-DESKTOP-PORTAL.
-Изменение этого параметра требует перезапуска ksnip.</translation>
+использовать скриншоты метода XDG-DESKTOP-PORTAL.
+Изменение этой опции требует перезапуска ksnip.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
@@ -738,7 +741,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Implicit capture delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрытая задержка захвата</translation>
     </message>
     <message>
         <source>This delay is used when no delay was selected in
@@ -747,7 +750,11 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Эта задержка используется при отсутствии обычной,
+что позволяет ksnip скрыться до выполнения снимка.
+Не используется, если окно ksnip свёрнуто.
+Уменьшение значения может привести к отображению
+основного окна ksnip на снимке.</translation>
     </message>
 </context>
 <context>
@@ -870,11 +877,11 @@ Changing requires restart.</source>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Название загруженного:</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Описание загруженного:</translation>
     </message>
 </context>
 <context>
@@ -1046,7 +1053,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation>Открыть папку с файлом</translation>
+        <translation>Открыть каталог файла</translation>
     </message>
     <message>
         <source>&amp;View</source>
@@ -1114,19 +1121,19 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить все</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыть окно</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Вырезать</translation>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>Распознавание символов</translation>
     </message>
 </context>
 <context>
@@ -1161,7 +1168,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить все</translation>
     </message>
 </context>
 <context>
@@ -1175,7 +1182,7 @@ and capturing screenshot.</source>
     <name>OcrWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Окно распознавание символов %1</translation>
     </message>
 </context>
 <context>
@@ -1197,14 +1204,14 @@ and capturing screenshot.</source>
     <name>PinWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Окно распознавания текста %1</translation>
     </message>
 </context>
 <context>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Путь поиска</translation>
     </message>
     <message>
         <source>Default</source>
@@ -1212,7 +1219,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
-        <translation type="unfinished"></translation>
+        <translation>Каталог, в котором расположены плагины.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1228,22 +1235,22 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>Определить</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки плагина</translation>
     </message>
     <message>
         <source>Plugin location</source>
-        <translation type="unfinished"></translation>
+        <translation>Расположение плагина</translation>
     </message>
 </context>
 <context>
     <name>ProcessIndicator</name>
     <message>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>Обработка</translation>
     </message>
 </context>
 <context>
@@ -1316,7 +1323,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation>Запоминать последнюю папку для сохранения</translation>
+        <translation>Запоминать последний каталог сохранения</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
@@ -1370,7 +1377,7 @@ Not all image formats support the full range, JPEG does.</source>
     </message>
     <message>
         <source>Overwrite file with same name</source>
-        <translation type="unfinished"></translation>
+        <translation>Перезаписать файл с тем же именем</translation>
     </message>
 </context>
 <context>
@@ -1494,11 +1501,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Плагины</translation>
     </message>
     <message>
         <source>Search Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>Поиск в настройках...</translation>
     </message>
 </context>
 <context>
@@ -1525,11 +1532,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
-        <translation type="unfinished"></translation>
+        <translation>Подтвердите выбор, нажав ENTER/RETURN или дважды нажав мышью в любом месте.</translation>
     </message>
     <message>
         <source>Abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Можно прервать, нажав ESC.</translation>
     </message>
 </context>
 <context>
@@ -1573,11 +1580,11 @@ enabled for MacOs.</source>
         <translation>При включении задний фон блокируется от изменений
 в процессе выделения области захвата.
 Также меняется поведение снимков экрана с задержкой,
-при включенной опции задержка
-включается до захвата области
-выбора, при выключенной - после.
-Эта опция всегда отключена для Wayland
-и всегда включена для macOS.</translation>
+при включенной опции задержка включается до
+захвата области обрезки, а при выключенной опции
+задержка происходит после захвата области.
+Эта опция всегда отключена для Wayland и
+всегда включена для macOS.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
@@ -1675,7 +1682,7 @@ Smaller number is more transparent.</source>
     </message>
     <message>
         <source>Enable Snipping Area offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Включить смещение зоны обрезки</translation>
     </message>
     <message>
         <source>When enabled will apply the configured
@@ -1683,15 +1690,19 @@ offset to the Snipping Area position which
 is required when the position is not
 correctly calculated. This is sometimes
 required with screen scaling enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Если включено, заданное смещение
+будет применяться к позиции зоны
+обрезки. Используйте, если позиция
+определяется некорректно, например
+при активном масштабировании экрана.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
 </context>
 <context>
@@ -1814,7 +1825,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation>Пожалуйста, добавьте скрипт выгрузки через Опции &gt; Настройки &gt; Выгрузка через скрипт &gt; Скрипт</translation>
+        <translation>Пожалуйста, добавьте скрипт выгрузки через Опции &gt; Настройки &gt; Выгрузка через скрипт</translation>
     </message>
     <message>
         <source>Capture Upload</source>

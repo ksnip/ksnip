@@ -22,10 +22,11 @@
 
 #include <QApplication>
 
-#include <iostream>
+
 
 #include "BuildConfig.h"
 #include "src/bootstrapper/IBootstrapper.h"
+#include "src/bootstrapper/IImageFromStdInputReader.h"
 #include "src/gui/MainWindow.h"
 #include "src/backend/TranslationLoader.h"
 #include "src/backend/commandLine/CommandLine.h"
@@ -62,14 +63,15 @@ private:
 	DependencyInjector *mDependencyInjector;
 	CommandLine *mCommandLine;
 	QSharedPointer<ICommandLineCaptureHandler> mCommandLineCaptureHandler;
+    QSharedPointer<IImageFromStdInputReader> mImageFromStdInputReader;
 
 	void loadTranslations(const QApplication &app);
 	virtual void createMainWindow();
 	int startKsnip(const QApplication &app);
 	int startKsnipAndEditImage(const QApplication &app);
 	int takeCaptureAndStartKsnip(const QApplication &app);
-	static QPixmap getPixmapFromCorrectSource(const QString &pathToImage);
-	static QPixmap getPixmapFromStdin();
+	QPixmap getPixmapFromCorrectSource(const QString &pathToImage) const;
+	QPixmap getPixmapFromStdin() const;
 	bool isCommandLineCaptureRequested() const;
 	int takeCaptureAndProcess(const QApplication &app);
 	bool getIsSave() const;

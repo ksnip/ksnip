@@ -209,12 +209,13 @@ utworzeniu, co pozwala na zmianę ustawień.</translation>
     </message>
     <message>
         <source>Show Controls Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż widżet Sterowanie</translation>
     </message>
     <message>
         <source>The Controls Widget contains the Undo/Redo,
 Crop, Scale, Rotate and Modify Canvas buttons.</source>
-        <translation type="unfinished"></translation>
+        <translation>Widżet Sterowanie zawiera opcje Cofnij/Ponów,
+Przyciski Kadruj, Skaluj, Obróć i Modyfikuj obszar roboczy.</translation>
     </message>
 </context>
 <context>
@@ -313,20 +314,21 @@ do nowej zawartości, zwiększenie tego opóźnienia może poprawić zachowanie.
     </message>
     <message>
         <source>Resize delay</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zmiana rozmiaru opóźnienia</translation>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Katalog Temp</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
 going to be deleted after ksnip closes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Katalog Temp służy do przechowywania tymczasowych obrazów, które
+zostaną usunięte po zamknięciu ksnipa.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Przeglądaj</translation>
+        <translation>Przeglądaj</translation>
     </message>
 </context>
 <context>
@@ -739,7 +741,7 @@ kiedy główne okno było ukryte lub zminimalizowane.</translation>
     </message>
     <message>
         <source>Implicit capture delay</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Opóźnienie przechwytywania niejawnego</translation>
     </message>
     <message>
         <source>This delay is used when no delay was selected in
@@ -748,7 +750,12 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Opóźnienie jest używane, gdy nie wybrano opóźnienia w
+interfejsie użytkownika, pozwala ksnip ukryć się przed podjęciem
+zrzut ekranu. Ta wartość nie jest stosowana, gdy
+KSNIP był już zminimalizowany. Zmniejszenie tej wartości
+może mieć taki efekt, że głównym oknem KSNIP jest
+widoczne na zrzucie ekranu.</translation>
     </message>
 </context>
 <context>
@@ -1115,19 +1122,19 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapisz wszystko</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Zamknij okno</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Przytnij</translation>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR</translation>
     </message>
 </context>
 <context>
@@ -1162,7 +1169,7 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapisz wszystko</translation>
     </message>
 </context>
 <context>
@@ -1176,7 +1183,7 @@ i wykonaniem zrzutu ekranu.</translation>
     <name>OcrWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Okno OCR %1</translation>
     </message>
 </context>
 <context>
@@ -1198,53 +1205,53 @@ i wykonaniem zrzutu ekranu.</translation>
     <name>PinWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Okno OCR %1</translation>
     </message>
 </context>
 <context>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wyszukaj ścieżkę</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Domyślna</translation>
+        <translation>Domyślnie</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
-        <translation type="unfinished"></translation>
+        <translation>Katalog, w którym znajdują się wtyczki.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Przeglądaj</translation>
+        <translation>Przeglądaj</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nazwa</translation>
+        <translation>Nazwa</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Wersja</translation>
+        <translation>Wersja</translation>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>Wykryj</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawienia wtyczki</translation>
     </message>
     <message>
         <source>Plugin location</source>
-        <translation type="unfinished"></translation>
+        <translation>Lokalizacja wtyczki</translation>
     </message>
 </context>
 <context>
     <name>ProcessIndicator</name>
     <message>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>Przetwarzanie</translation>
     </message>
 </context>
 <context>
@@ -1371,7 +1378,7 @@ Nie wszystkie formaty obrazów obsługują pełny zakres, JPEG obsługuje pełny
     </message>
     <message>
         <source>Overwrite file with same name</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastąp plik o tej samej nazwie</translation>
     </message>
 </context>
 <context>
@@ -1495,11 +1502,11 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Wtyczki</translation>
     </message>
     <message>
         <source>Search Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawienia wyszukiwania...</translation>
     </message>
 </context>
 <context>
@@ -1526,11 +1533,11 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
-        <translation type="unfinished"></translation>
+        <translation>Potwierdź wybór, naciskając ENTER/RETURN lub klikając dwukrotnie myszką w dowolnym miejscu.</translation>
     </message>
     <message>
         <source>Abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Przerwij, naciskając ESC.</translation>
     </message>
 </context>
 <context>
@@ -1676,7 +1683,7 @@ Im mniejsza liczba, tym obszar bardziej przezroczysty.</translation>
     </message>
     <message>
         <source>Enable Snipping Area offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Włącz przesunięcie obszaru wycinania</translation>
     </message>
     <message>
         <source>When enabled will apply the configured
@@ -1684,15 +1691,19 @@ offset to the Snipping Area position which
 is required when the position is not
 correctly calculated. This is sometimes
 required with screen scaling enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Po włączeniu zostanie zastosowane skonfigurowane
+przesunięcie do pozycji Obszar wycinania, który
+jest wymagany, gdy pozycja nie jest
+poprawnie obliczona. Czasami jest to
+wymagane przy włączonym skalowaniu ekranu.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
 </context>
 <context>

@@ -30,6 +30,7 @@
 #include "src/backend/recentImages/ImagePathStorage.h"
 #include "src/backend/saver/SavePathProvider.h"
 #include "src/backend/saver/ImageSaver.h"
+#include "src/bootstrapper/ImageFromStdInputReader.h"
 #include "src/gui/fileService/FileService.h"
 #include "src/gui/directoryService/DirectoryService.h"
 #include "src/gui/clipboard/ClipboardAdapter.h"
@@ -90,6 +91,7 @@ void DependencyInjectorBootstrapper::BootstrapCore(DependencyInjector *dependenc
 	injectConfig(dependencyInjector);
 	injectLogger(dependencyInjector);
 	dependencyInjector->registerInstance<ITranslationLoader, TranslationLoader, ILogger>();
+	dependencyInjector->registerInstance<IImageFromStdInputReader, ImageFromStdInputReader>();
 }
 
 void DependencyInjectorBootstrapper::BootstrapCommandLine(DependencyInjector *dependencyInjector)

@@ -21,7 +21,8 @@
 
 SingleInstanceClientBootstrapper::SingleInstanceClientBootstrapper(DependencyInjector *dependencyInjector) :
 	StandAloneBootstrapper(dependencyInjector),
-	mIpcClient(new IpcClient)
+	mIpcClient(new IpcClient),
+    mImageFromStdInputReader(dependencyInjector->get<IImageFromStdInputReader>())
 {
 	mIpcClient->connectTo(SingleInstance::ServerName);
 }
@@ -42,25 +43,31 @@ int SingleInstanceClientBootstrapper::start(const QApplication &app)
 	}
 }
 
-bool SingleInstanceClientBootstrapper::isImagePathValid(const QString &imagePath) const
+bool SingleInstanceClientBootstrapper::isImagePathValid(const QString &imagePath)
 {
 	QPixmap pixmap(imagePath);
-	return pixmap.isNull();
+	return !pixmap.isNull();
 }
 
 int SingleInstanceClientBootstrapper::notifyServer() const
 {
 	SingleInstanceParameter parameter;
 	if (isStartedWithoutArguments()) {
+        mLogger->log(QLatin1String("Starting without arguments"));
 		parameter = SingleInstanceParameter();
 	} else if (isEditRequested()) {
 		auto imagePath = getImagePath();
-		if (isImagePathValid(imagePath)) {
-			qWarning("Unable to open image file %s.", qPrintable(imagePath));
-			return 1;
-		}
-
-		parameter = SingleInstanceParameter(imagePath);
+        if (PathHelper::isPipePath(imagePath)) {
+            mLogger->log(QLatin1String("Edit image from stdin"));
+            auto imageAsByteArray = mImageFromStdInputReader->read();
+            parameter = SingleInstanceParameter(imageAsByteArray.toBase64());
+        } else if (isImagePathValid(imagePath)) {
+            mLogger->log(QLatin1String("Edit image from file path"));
+            parameter = SingleInstanceParameter(imagePath);
+		} else {
+            qWarning("Unable to open image file %s.", qPrintable(imagePath));
+            return 1;
+        }
 	} else {
 		parameter = SingleInstanceParameter(getCaptureMode(), getSave(), getSavePath(), getCaptureCursor(), getDelay());
 	}

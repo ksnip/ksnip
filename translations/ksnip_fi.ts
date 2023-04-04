@@ -104,12 +104,13 @@
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>Yleinen</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kun käytössä, pikanäppäin on käytettävissä
+vaikka ksnip ei ole tarkentunut.</translation>
     </message>
 </context>
 <context>
@@ -208,12 +209,13 @@ jolloin asetuksia voidaan muuttaa.</translation>
     </message>
     <message>
         <source>Show Controls Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä säätimet</translation>
     </message>
     <message>
         <source>The Controls Widget contains the Undo/Redo,
 Crop, Scale, Rotate and Modify Canvas buttons.</source>
-        <translation type="unfinished"></translation>
+        <translation>Säätimet sisältää painikkeet Kumoa/Uudelleen,
+Rajaus, Skaalaus, Kierrä ja Muokkaa.</translation>
     </message>
 </context>
 <context>
@@ -312,20 +314,21 @@ viiveen lisääminen saattaa parantaa toimintaa.</translation>
     </message>
     <message>
         <source>Resize delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Muutos viiveellä</translation>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Temp-hakemisto</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
 going to be deleted after ksnip closes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Temp-hakemistoa käytetään tilapäisten kuvien tallentamiseen
+ja ne poistetaan kun ksnip suljetaan.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Selaa</translation>
+        <translation>Selaa</translation>
     </message>
 </context>
 <context>
@@ -738,7 +741,7 @@ pääikkuna oli piilotettu tai minimoitu.</translation>
     </message>
     <message>
         <source>Implicit capture delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Laskennallinen kaappausviive</translation>
     </message>
     <message>
         <source>This delay is used when no delay was selected in
@@ -747,7 +750,12 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Viivettä käytetään, jos sitä ei ole valittu käyttö-
+liittymässä ja sen avulla ksnip voi piiloutua ennen
+kaappausta.
+Tätä arvoa ei käytetä, jos ksnip oli jo minimoitu.
+Arvon pienentäminen voi vaikuttaa ksnipin
+pääikkunan näkymiseen kaappatussa kuvassa.</translation>
     </message>
 </context>
 <context>
@@ -870,11 +878,11 @@ Muuttaminen vaatii ohjelman käynnistyksen uudelleen.</translation>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Latauksen otsikko:</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Latauksen kuvaus:</translation>
     </message>
 </context>
 <context>
@@ -1114,19 +1122,19 @@ ottamisen välillä.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Tallenna kaikki</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Sulje ikkuna</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Leikkaa</translation>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR</translation>
     </message>
 </context>
 <context>
@@ -1161,7 +1169,7 @@ ottamisen välillä.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Tallenna kaikki</translation>
     </message>
 </context>
 <context>
@@ -1175,7 +1183,7 @@ ottamisen välillä.</translation>
     <name>OcrWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR-ikkuna %1</translation>
     </message>
 </context>
 <context>
@@ -1197,53 +1205,53 @@ ottamisen välillä.</translation>
     <name>PinWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR-ikkuna %1</translation>
     </message>
 </context>
 <context>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Hakupolku</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Oletus</translation>
+        <translation>Oletus</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hakemisto, jossa laajennukset sijaitsevat.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Selaa</translation>
+        <translation>Selaa</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nimi</translation>
+        <translation>Nimi</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Versio</translation>
+        <translation>Versio</translation>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>Tunnista</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Laajennuksen asetukset</translation>
     </message>
     <message>
         <source>Plugin location</source>
-        <translation type="unfinished"></translation>
+        <translation>Laajennuksen sijainti</translation>
     </message>
 </context>
 <context>
     <name>ProcessIndicator</name>
     <message>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>Käsittely</translation>
     </message>
 </context>
 <context>
@@ -1370,7 +1378,7 @@ tiedostoille. Kaikki kuvamuodot eivät tue täyttä aluetta, mutta JPEG tukee.</
     </message>
     <message>
         <source>Overwrite file with same name</source>
-        <translation type="unfinished"></translation>
+        <translation>Korvaa tiedosto jolla on sama nimi</translation>
     </message>
 </context>
 <context>
@@ -1494,11 +1502,11 @@ Kun kaikki jätetään pois, kaikki kopioidaan.</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Laajennukset</translation>
     </message>
     <message>
         <source>Search Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>Hakuasetukset...</translation>
     </message>
 </context>
 <context>
@@ -1525,11 +1533,11 @@ Kun kaikki jätetään pois, kaikki kopioidaan.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vahvista valinta näppäimellä ENTER tai painamalla kahdesti hiirellä missä tahansa.</translation>
     </message>
     <message>
         <source>Abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Keskeytä painamalla ESC.</translation>
     </message>
 </context>
 <context>
@@ -1675,7 +1683,7 @@ Pienempi numero on läpinäkyvämpi.</translation>
     </message>
     <message>
         <source>Enable Snipping Area offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Ota leikkausalueen siirto käyttöön</translation>
     </message>
     <message>
         <source>When enabled will apply the configured
@@ -1683,15 +1691,19 @@ offset to the Snipping Area position which
 is required when the position is not
 correctly calculated. This is sometimes
 required with screen scaling enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kun käytössä, määritys otetaan käyttöön
+leikkausalueen aseman siirtoon.
+Tarvitaan, jos asemaa ei ole laskettu
+oikein. Tämä on joskus tarpeellinen kun
+näytön skaalaus on käytössä.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
 </context>
 <context>

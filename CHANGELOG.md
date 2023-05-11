@@ -2,6 +2,13 @@
 
 ## Release 1.11.0
 * New kImageAnnotator: Allow copying items between tabs. ([#318](https://github.com/ksnip/kImageAnnotator/issues/318))
+* New kImageAnnotator: CTRL + A does not select all text typed. ([#198](https://github.com/ksnip/kImageAnnotator/issues/198))
+* New kImageAnnotator: Open text edit mode when double-click on textbox figure in Text tool. ([#180](https://github.com/ksnip/kImageAnnotator/issues/180))
+* New kImageAnnotator: Add reflowing capability to the text tool. ([#129](https://github.com/ksnip/kImageAnnotator/issues/129))
+* New kImageAnnotator: Editing text, no mouse cursor edit functions. ([#297](https://github.com/ksnip/kImageAnnotator/issues/297))
+* New kImageAnnotator: Mouse click within a text box for setting specific editing position and selecting text. ([#273](https://github.com/ksnip/kImageAnnotator/issues/273))
+* Fixed kImageAnnotator: Text isn't reflowed the next line within the box and text overlaps when resizing box. ([#271](https://github.com/ksnip/kImageAnnotator/issues/271))
+* Fixed kImageAnnotator: Can't wrap long text line when I resize Text box area. ([#211](https://github.com/ksnip/kImageAnnotator/issues/211))
 
 ## Release 1.10.1
 * Fixed: DragAndDrop not working with snaps. ([#898](https://github.com/ksnip/ksnip/issues/898))

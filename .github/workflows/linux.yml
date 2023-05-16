@@ -91,7 +91,13 @@ jobs:
         working-directory: ${{github.workspace}}
         run: bash ./.github/scripts/linux/build_appImage.sh
 
-      - name: Upload files
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ksnip.AppImage
+          path: ksnip*.AppImage*
+
+      - name: Upload Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -137,7 +143,13 @@ jobs:
       - name: Package rpm
         run: bash ./.github/scripts/linux/rpm/build_rpm.sh
 
-      - name: Upload files
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ksnip.rpm
+          path: ksnip-*.rpm
+
+      - name: Upload Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -183,7 +195,13 @@ jobs:
       - name: Package deb
         run: bash ./.github/scripts/linux/deb/build_deb.sh
 
-      - name: Upload files
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ksnip.deb
+          path: ksnip-*.deb
+
+      - name: Upload Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

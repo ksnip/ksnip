@@ -112,7 +112,7 @@ jobs:
         name: ksnip-windows.zip
         path: ksnip-*.zip
 
-    - name: Release files
+    - name: Upload Release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
@@ -172,7 +172,13 @@ jobs:
           MICROSOFT_CERT_PFX_PASS: ${{ secrets.MICROSOFT_CERT_PFX_PASS }}
         run: powershell ./.github/scripts/windows/msi/sign_msi_package.ps1
 
-      - name: Upload files
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ksnip-windows.msi
+          path: ksnip-*.msi
+
+      - name: Upload Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

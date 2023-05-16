@@ -96,7 +96,13 @@ jobs:
           APPLE_DEV_USER: ${{ secrets.APPLE_DEV_USER }}
         run: bash ./.github/scripts/macos/notarize_osx_dmg_package.sh
 
-      - name: Upload files
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ksnip-macos.dmg
+          path: ksnip-*.dmg
+
+      - name: Upload Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

@@ -105,8 +105,14 @@ jobs:
 
     - name: Package exe
       run: bash ./.github/scripts/windows/package_exe.sh
+      
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ksnip-windows.zip
+        path: ksnip-*.zip
 
-    - name: Upload files
+    - name: Release files
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |

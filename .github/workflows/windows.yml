@@ -123,10 +123,10 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: ksnip-${{ env.VERSION }}.zip
-        asset_name: ksnip-${{ env.VERSION }}.zip
+        file: ksnip-${{ env.VERSION }}-windows.zip
+        asset_name: ksnip-${{ env.VERSION }}-windows.zip
         tag: ${{ github.ref }}
-        overwrite: true
+        overwrite: false
         release_name: "Continuous build"
         body: ${{ env.UPLOADTOOL_BODY }}
         prerelease: true
@@ -204,7 +204,7 @@ jobs:
           file: ksnip-${{ env.VERSION }}.msi
           asset_name: ksnip-${{ env.VERSION }}.msi
           tag: ${{ github.ref }}
-          overwrite: true
+          overwrite: false
           release_name: "Continuous build"
           body: ${{ env.UPLOADTOOL_BODY }}
           prerelease: true

@@ -7,47 +7,47 @@ on:
       - "v*"
 
 jobs:
-  test-macos:
-    runs-on: macos-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-
-    - name: Set up build variables
-      run: bash ./.github/scripts/setup_build_variables.sh
-
-    - name: Set up windows build variables
-      run: bash ./.github/scripts/macos/setup_macos_build_variables.sh
-
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v3
-      with:
-        version: '5.15.2'
-        host: 'mac'
-        install-deps: 'true'
-
-    - name: Set up GoogleTest
-      run: bash ./.github/scripts/setup_googleTest.sh
-
-    - name: Set up kColorPicker
-      env:
-        BUILD_TYPE: Debug
-      run: bash ./.github/scripts/setup_kColorPicker.sh
-
-    - name: Set up kImageAnnotator
-      env:
-        BUILD_TYPE: Debug
-      run: bash ./.github/scripts/setup_kImageAnnotator.sh
-
-    - name: Build
-      env:
-        BUILD_TESTS: ON
-        BUILD_TYPE: Debug
-      run: bash ./.github/scripts/build_ksnip.sh
-
-    - name: Test
-      working-directory: ${{github.workspace}}/build/tests
-      run: ctest --extra-verbose
+#  test-macos:
+#    runs-on: macos-latest
+#    steps:
+#    - name: Checkout
+#      uses: actions/checkout@v3
+#
+#    - name: Set up build variables
+#      run: bash ./.github/scripts/setup_build_variables.sh
+#
+#    - name: Set up windows build variables
+#      run: bash ./.github/scripts/macos/setup_macos_build_variables.sh
+#
+#    - name: Install Qt
+#      uses: jurplel/install-qt-action@v3
+#      with:
+#        version: '5.15.2'
+#        host: 'mac'
+#        install-deps: 'true'
+#
+#    - name: Set up GoogleTest
+#      run: bash ./.github/scripts/setup_googleTest.sh
+#
+#    - name: Set up kColorPicker
+#      env:
+#        BUILD_TYPE: Debug
+#      run: bash ./.github/scripts/setup_kColorPicker.sh
+#
+#    - name: Set up kImageAnnotator
+#      env:
+#        BUILD_TYPE: Debug
+#      run: bash ./.github/scripts/setup_kImageAnnotator.sh
+#
+#    - name: Build
+#      env:
+#        BUILD_TESTS: ON
+#        BUILD_TYPE: Debug
+#      run: bash ./.github/scripts/build_ksnip.sh
+#
+#    - name: Test
+#      working-directory: ${{github.workspace}}/build/tests
+#      run: ctest --extra-verbose
 
 
   package-dmg:

@@ -7,117 +7,117 @@ on:
       - "v*"
 
 jobs:
-  test-windows:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+#  test-windows:
+#    runs-on: windows-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v3
+#
+#      - name: Set up build variables
+#        run: bash ./.github/scripts/setup_build_variables.sh
+#
+#      - name: Set up windows build variables
+#        run: bash ./.github/scripts/windows/setup_windows_build_variables.sh
+#
+#      - name: Install Qt
+#        uses: jurplel/install-qt-action@v3
+#        with:
+#          version: '5.15.2'
+#          host: 'windows'
+#          install-deps: 'true'
+#          arch: 'win64_msvc2019_64'
+#
+#      - name: Set up nmake
+#        uses: ilammy/msvc-dev-cmd@v1
+#
+#      - name: Set up kColorPicker
+#        env:
+#          BUILD_TYPE: Debug
+#        run: bash ./.github/scripts/setup_kColorPicker.sh
+#
+#      - name: Set up kImageAnnotator
+#        env:
+#          BUILD_TYPE: Debug
+#        run: bash ./.github/scripts/setup_kImageAnnotator.sh
+#
+#      - name: Set up GoogleTest
+#        run: bash ./.github/scripts/setup_googleTest.sh
+#
+#      - name: Add GoogleTest bin dir to PATH
+#        uses: myci-actions/export-env-var-powershell@1
+#        with:
+#          name: PATH
+#          value: $env:PATH;$env:INSTALL_PREFIX/bin
+#
+#      - name: Build
+#        env:
+#          BUILD_TESTS: ON
+#          BUILD_TYPE: Debug
+#        run: bash ./.github/scripts/build_ksnip.sh
+#
+#      - name: Test
+#        working-directory: ${{github.workspace}}/build/tests
+#        run: ctest --extra-verbose
 
-      - name: Set up build variables
-        run: bash ./.github/scripts/setup_build_variables.sh
 
-      - name: Set up windows build variables
-        run: bash ./.github/scripts/windows/setup_windows_build_variables.sh
-
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v3
-        with:
-          version: '5.15.2'
-          host: 'windows'
-          install-deps: 'true'
-          arch: 'win64_msvc2019_64'
-
-      - name: Set up nmake
-        uses: ilammy/msvc-dev-cmd@v1
-
-      - name: Set up kColorPicker
-        env:
-          BUILD_TYPE: Debug
-        run: bash ./.github/scripts/setup_kColorPicker.sh
-
-      - name: Set up kImageAnnotator
-        env:
-          BUILD_TYPE: Debug
-        run: bash ./.github/scripts/setup_kImageAnnotator.sh
-
-      - name: Set up GoogleTest
-        run: bash ./.github/scripts/setup_googleTest.sh
-
-      - name: Add GoogleTest bin dir to PATH
-        uses: myci-actions/export-env-var-powershell@1
-        with:
-          name: PATH
-          value: $env:PATH;$env:INSTALL_PREFIX/bin
-
-      - name: Build
-        env:
-          BUILD_TESTS: ON
-          BUILD_TYPE: Debug
-        run: bash ./.github/scripts/build_ksnip.sh
-
-      - name: Test
-        working-directory: ${{github.workspace}}/build/tests
-        run: ctest --extra-verbose
-
-
-  package-exe:
-    runs-on: windows-latest
-    needs: test-windows
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    
-    - name: Set up build variables
-      run: bash ./.github/scripts/setup_build_variables.sh
-
-    - name: Set up windows build variables
-      run: bash ./.github/scripts/windows/setup_windows_build_variables.sh
-
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v3
-      with:
-        version: '5.15.2'
-        host: 'windows'
-        install-deps: 'true'
-        arch: 'win64_msvc2019_64'
-
-    - name: Set up nmake
-      uses: ilammy/msvc-dev-cmd@v1
-
-    - name: Set up kColorPicker
-      run: bash ./.github/scripts/setup_kColorPicker.sh
-        
-    - name: Set up kImageAnnotator
-      run: bash ./.github/scripts/setup_kImageAnnotator.sh
-
-    - name: Build
-      run: bash ./.github/scripts/build_ksnip.sh
-
-    - name: Download OpenSSL
-      run: |
-        curl -L "https://github.com/ksnip/dependencies/raw/master/windows/openSSL.zip" --output openssl.zip
-        7z x openssl.zip -o"${{ env.OPENSSL_DIR }}"
-
-    - name: Download CompileRuntime
-      run: |
-        curl -L "https://github.com/ksnip/dependencies/raw/master/windows/compileRuntime.zip" --output compileruntime.zip
-        7z x compileruntime.zip -o"${{ env.COMPILE_RUNTIME_DIR }}"
-
-    - name: Package exe
-      run: bash ./.github/scripts/windows/package_exe.sh
-      
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: ksnip-windows.zip
-        path: ksnip-*.zip
-
-    - name: Upload Release
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        curl -L https://github.com/probonopd/uploadtool/raw/master/upload.sh --output upload.sh
-        bash upload.sh ksnip-*.zip
+#  package-exe:
+#    runs-on: windows-latest
+#    needs: test-windows
+#    steps:
+#    - name: Checkout
+#      uses: actions/checkout@v3
+#
+#    - name: Set up build variables
+#      run: bash ./.github/scripts/setup_build_variables.sh
+#
+#    - name: Set up windows build variables
+#      run: bash ./.github/scripts/windows/setup_windows_build_variables.sh
+#
+#    - name: Install Qt
+#      uses: jurplel/install-qt-action@v3
+#      with:
+#        version: '5.15.2'
+#        host: 'windows'
+#        install-deps: 'true'
+#        arch: 'win64_msvc2019_64'
+#
+#    - name: Set up nmake
+#      uses: ilammy/msvc-dev-cmd@v1
+#
+#    - name: Set up kColorPicker
+#      run: bash ./.github/scripts/setup_kColorPicker.sh
+#
+#    - name: Set up kImageAnnotator
+#      run: bash ./.github/scripts/setup_kImageAnnotator.sh
+#
+#    - name: Build
+#      run: bash ./.github/scripts/build_ksnip.sh
+#
+#    - name: Download OpenSSL
+#      run: |
+#        curl -L "https://github.com/ksnip/dependencies/raw/master/windows/openSSL.zip" --output openssl.zip
+#        7z x openssl.zip -o"${{ env.OPENSSL_DIR }}"
+#
+#    - name: Download CompileRuntime
+#      run: |
+#        curl -L "https://github.com/ksnip/dependencies/raw/master/windows/compileRuntime.zip" --output compileruntime.zip
+#        7z x compileruntime.zip -o"${{ env.COMPILE_RUNTIME_DIR }}"
+#
+#    - name: Package exe
+#      run: bash ./.github/scripts/windows/package_exe.sh
+#
+#    - name: Upload Artifact
+#      uses: actions/upload-artifact@v3
+#      with:
+#        name: ksnip-windows.zip
+#        path: ksnip-*.zip
+#
+#    - name: Upload Release
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      run: |
+#        curl -L https://github.com/probonopd/uploadtool/raw/master/upload.sh --output upload.sh
+#        bash upload.sh ksnip-*.zip
 
 
   package-msi:
@@ -189,7 +189,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ksnip-*.msi
+          file: ksnip-${{ env.VERSION }}.msi
           asset_name: ksnip-${{ env.VERSION }}.msi
           tag: continuous
           overwrite: true

@@ -44,6 +44,5 @@ fi
 # Message show on the release page
 ACTION_LINK_TEXT="Build logs: https://github.com/ksnip/ksnip/actions"
 BUILD_TIME_TEXT="Build Time: $(date +"%a, %d %b %Y %T")"
-UPLOADTOOL_BODY="${ACTION_LINK_TEXT}
-                 ${BUILD_TIME_TEXT}"
+UPLOADTOOL_BODY="${ACTION_LINK_TEXT} %0A ${BUILD_TIME_TEXT}"
 echo "UPLOADTOOL_BODY=$UPLOADTOOL_BODY" >> $GITHUB_ENV

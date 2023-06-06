@@ -191,6 +191,8 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ksnip-${{ env.VERSION }}.msi
           asset_name: ksnip-${{ env.VERSION }}.msi
-          tag: continuous
+          tag: ${{ github.ref }}
           overwrite: true
+          release_name: "Continuous build"
           body: ${{ env.UPLOADTOOL_BODY }}
+          prerelease: true

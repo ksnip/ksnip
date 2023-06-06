@@ -53,56 +53,68 @@ jobs:
 #      run: xvfb-run --auto-servernum --server-num=1 --server-args="-screen 0 1024x768x24" ctest --extra-verbose
 
 
-#  package-appImage:
-#    runs-on: ubuntu-20.04
+  package-appImage:
+    runs-on: ubuntu-20.04
 #    needs: test-linux
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v3
-#
-#      - name: Set up build variables
-#        run: bash ./.github/scripts/setup_build_variables.sh
-#
-#      - name: Set up windows build variables
-#        run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
-#
-#      - name: Install Qt
-#        uses: jurplel/install-qt-action@v3
-#        with:
-#          version: '5.15.2'
-#          host: 'linux'
-#          install-deps: 'true'
-#
-#      - name: Install dependencies
-#        run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev libssl-dev
-#
-#      - name: Set up kColorPicker
-#        run: bash ./.github/scripts/setup_kColorPicker.sh
-#
-#      - name: Set up kImageAnnotator
-#        run: bash ./.github/scripts/setup_kImageAnnotator.sh
-#
-#      - name: Download deploy tool
-#        run: |
-#          wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
-#          chmod a+x linuxdeployqt-continuous-x86_64.AppImage
-#
-#      - name: Package AppImage
-#        working-directory: ${{github.workspace}}
-#        run: bash ./.github/scripts/linux/build_appImage.sh
-#
-#      - name: Upload Artifact
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: ksnip.AppImage
-#          path: ksnip*.AppImage*
-#
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up build variables
+        run: bash ./.github/scripts/setup_build_variables.sh
+
+      - name: Set up windows build variables
+        run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: '5.15.2'
+          host: 'linux'
+          install-deps: 'true'
+
+      - name: Install dependencies
+        run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev libssl-dev
+
+      - name: Set up kColorPicker
+        run: bash ./.github/scripts/setup_kColorPicker.sh
+
+      - name: Set up kImageAnnotator
+        run: bash ./.github/scripts/setup_kImageAnnotator.sh
+
+      - name: Download deploy tool
+        run: |
+          wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
+          chmod a+x linuxdeployqt-continuous-x86_64.AppImage
+
+      - name: Package AppImage
+        working-directory: ${{github.workspace}}
+        run: bash ./.github/scripts/linux/build_appImage.sh
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ksnip.AppImage
+          path: ksnip*.AppImage*
+
 #      - name: Upload Release
 #        env:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #        run: |
 #          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
 #          bash upload.sh ksnip*.AppImage*
+
+      - name: Upload Release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ksnip-${{ env.VERSION }}-x86_64.AppImage
+          asset_name: ksnip-${{ env.VERSION }}-x86_64.AppImage
+          tag: ${{ github.ref }}
+          overwrite: true
+          release_name: "Continuous build"
+          body: ${{ env.UPLOADTOOL_BODY }}
+          prerelease: true
 
 
 #  package-rpm:

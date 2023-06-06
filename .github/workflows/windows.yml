@@ -60,64 +60,76 @@ jobs:
 #        run: ctest --extra-verbose
 
 
-#  package-exe:
-#    runs-on: windows-latest
+  package-exe:
+    runs-on: windows-latest
 #    needs: test-windows
-#    steps:
-#    - name: Checkout
-#      uses: actions/checkout@v3
-#
-#    - name: Set up build variables
-#      run: bash ./.github/scripts/setup_build_variables.sh
-#
-#    - name: Set up windows build variables
-#      run: bash ./.github/scripts/windows/setup_windows_build_variables.sh
-#
-#    - name: Install Qt
-#      uses: jurplel/install-qt-action@v3
-#      with:
-#        version: '5.15.2'
-#        host: 'windows'
-#        install-deps: 'true'
-#        arch: 'win64_msvc2019_64'
-#
-#    - name: Set up nmake
-#      uses: ilammy/msvc-dev-cmd@v1
-#
-#    - name: Set up kColorPicker
-#      run: bash ./.github/scripts/setup_kColorPicker.sh
-#
-#    - name: Set up kImageAnnotator
-#      run: bash ./.github/scripts/setup_kImageAnnotator.sh
-#
-#    - name: Build
-#      run: bash ./.github/scripts/build_ksnip.sh
-#
-#    - name: Download OpenSSL
-#      run: |
-#        curl -L "https://github.com/ksnip/dependencies/raw/master/windows/openSSL.zip" --output openssl.zip
-#        7z x openssl.zip -o"${{ env.OPENSSL_DIR }}"
-#
-#    - name: Download CompileRuntime
-#      run: |
-#        curl -L "https://github.com/ksnip/dependencies/raw/master/windows/compileRuntime.zip" --output compileruntime.zip
-#        7z x compileruntime.zip -o"${{ env.COMPILE_RUNTIME_DIR }}"
-#
-#    - name: Package exe
-#      run: bash ./.github/scripts/windows/package_exe.sh
-#
-#    - name: Upload Artifact
-#      uses: actions/upload-artifact@v3
-#      with:
-#        name: ksnip-windows.zip
-#        path: ksnip-*.zip
-#
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Set up build variables
+      run: bash ./.github/scripts/setup_build_variables.sh
+
+    - name: Set up windows build variables
+      run: bash ./.github/scripts/windows/setup_windows_build_variables.sh
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '5.15.2'
+        host: 'windows'
+        install-deps: 'true'
+        arch: 'win64_msvc2019_64'
+
+    - name: Set up nmake
+      uses: ilammy/msvc-dev-cmd@v1
+
+    - name: Set up kColorPicker
+      run: bash ./.github/scripts/setup_kColorPicker.sh
+
+    - name: Set up kImageAnnotator
+      run: bash ./.github/scripts/setup_kImageAnnotator.sh
+
+    - name: Build
+      run: bash ./.github/scripts/build_ksnip.sh
+
+    - name: Download OpenSSL
+      run: |
+        curl -L "https://github.com/ksnip/dependencies/raw/master/windows/openSSL.zip" --output openssl.zip
+        7z x openssl.zip -o"${{ env.OPENSSL_DIR }}"
+
+    - name: Download CompileRuntime
+      run: |
+        curl -L "https://github.com/ksnip/dependencies/raw/master/windows/compileRuntime.zip" --output compileruntime.zip
+        7z x compileruntime.zip -o"${{ env.COMPILE_RUNTIME_DIR }}"
+
+    - name: Package exe
+      run: bash ./.github/scripts/windows/package_exe.sh
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ksnip-windows.zip
+        path: ksnip-*.zip
+
 #    - name: Upload Release
 #      env:
 #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #      run: |
 #        curl -L https://github.com/probonopd/uploadtool/raw/master/upload.sh --output upload.sh
 #        bash upload.sh ksnip-*.zip
+
+    - name: Upload Release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: ksnip-${{ env.VERSION }}.zip
+        asset_name: ksnip-${{ env.VERSION }}.zip
+        tag: ${{ github.ref }}
+        overwrite: true
+        release_name: "Continuous build"
+        body: ${{ env.UPLOADTOOL_BODY }}
+        prerelease: true
 
 
   package-msi:

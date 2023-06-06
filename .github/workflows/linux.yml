@@ -117,50 +117,50 @@ jobs:
           prerelease: true
 
 
-#  package-rpm:
-#    runs-on: ubuntu-latest
+  package-rpm:
+    runs-on: ubuntu-latest
 #    needs: test-linux
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v3
-#
-#      - name: Set up build variables
-#        run: bash ./.github/scripts/setup_build_variables.sh
-#
-#      - name: Set up windows build variables
-#        run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
-#
-#      - name: Install Qt
-#        uses: jurplel/install-qt-action@v3
-#        with:
-#          version: '5.12.7'
-#          host: 'linux'
-#          install-deps: 'true'
-#
-#      - name: Install dependencies
-#        run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev libssl-dev rpm
-#
-#      - name: Set up kColorPicker
-#        run: bash ./.github/scripts/setup_kColorPicker.sh
-#
-#      - name: Set up kImageAnnotator
-#        run: bash ./.github/scripts/setup_kImageAnnotator.sh
-#
-#      - name: Set up spec file
-#        run: bash ./.github/scripts/linux/rpm/setup_spec_file.sh
-#
-#      - name: Set up directory structure
-#        run: bash ./.github/scripts/linux/rpm/setup_rpm_directory_structure.sh
-#
-#      - name: Package rpm
-#        run: bash ./.github/scripts/linux/rpm/build_rpm.sh
-#
-#      - name: Upload Artifact
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: ksnip.rpm
-#          path: ksnip-*.rpm
-#
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up build variables
+        run: bash ./.github/scripts/setup_build_variables.sh
+
+      - name: Set up windows build variables
+        run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: '5.12.7'
+          host: 'linux'
+          install-deps: 'true'
+
+      - name: Install dependencies
+        run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev libssl-dev rpm
+
+      - name: Set up kColorPicker
+        run: bash ./.github/scripts/setup_kColorPicker.sh
+
+      - name: Set up kImageAnnotator
+        run: bash ./.github/scripts/setup_kImageAnnotator.sh
+
+      - name: Set up spec file
+        run: bash ./.github/scripts/linux/rpm/setup_spec_file.sh
+
+      - name: Set up directory structure
+        run: bash ./.github/scripts/linux/rpm/setup_rpm_directory_structure.sh
+
+      - name: Package rpm
+        run: bash ./.github/scripts/linux/rpm/build_rpm.sh
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ksnip.rpm
+          path: ksnip-*.rpm
+
 #      - name: Upload Release
 #        env:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -168,55 +168,79 @@ jobs:
 #          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
 #          bash upload.sh ksnip-*.rpm
 
+      - name: Upload Release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ksnip-${{ env.VERSION }}.rpm
+          asset_name: ksnip-${{ env.VERSION }}.rpm
+          tag: ${{ github.ref }}
+          overwrite: true
+          release_name: "Continuous build"
+          body: ${{ env.UPLOADTOOL_BODY }}
+          prerelease: true
 
-#  package-deb:
-#    runs-on: ubuntu-latest
+
+  package-deb:
+    runs-on: ubuntu-latest
 #    needs: test-linux
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v3
-#
-#      - name: Set up build variables
-#        run: bash ./.github/scripts/setup_build_variables.sh
-#
-#      - name: Set up windows build variables
-#        run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
-#
-#      - name: Install Qt
-#        uses: jurplel/install-qt-action@v3
-#        with:
-#          version: '5.12.7'
-#          host: 'linux'
-#          install-deps: 'true'
-#
-#      - name: Install dependencies
-#        run: sudo apt-get install cmake extra-cmake-modules libxcb-xfixes0-dev libssl-dev devscripts debhelper
-#
-#      - name: Set up kColorPicker
-#        run: bash ./.github/scripts/setup_kColorPicker.sh
-#
-#      - name: Set up kImageAnnotator
-#        run: bash ./.github/scripts/setup_kImageAnnotator.sh
-#
-#      - name: Set up directory structure
-#        run: bash ./.github/scripts/linux/deb/setup_deb_directory_structure.sh
-#
-#      - name: Set up changelog
-#        run: bash ./.github/scripts/linux/deb/setup_changelog_file.sh
-#
-#      - name: Package deb
-#        run: bash ./.github/scripts/linux/deb/build_deb.sh
-#
-#      - name: Upload Artifact
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: ksnip.deb
-#          path: ksnip-*.deb
-#
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up build variables
+        run: bash ./.github/scripts/setup_build_variables.sh
+
+      - name: Set up windows build variables
+        run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: '5.12.7'
+          host: 'linux'
+          install-deps: 'true'
+
+      - name: Install dependencies
+        run: sudo apt-get install cmake extra-cmake-modules libxcb-xfixes0-dev libssl-dev devscripts debhelper
+
+      - name: Set up kColorPicker
+        run: bash ./.github/scripts/setup_kColorPicker.sh
+
+      - name: Set up kImageAnnotator
+        run: bash ./.github/scripts/setup_kImageAnnotator.sh
+
+      - name: Set up directory structure
+        run: bash ./.github/scripts/linux/deb/setup_deb_directory_structure.sh
+
+      - name: Set up changelog
+        run: bash ./.github/scripts/linux/deb/setup_changelog_file.sh
+
+      - name: Package deb
+        run: bash ./.github/scripts/linux/deb/build_deb.sh
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ksnip.deb
+          path: ksnip-*.deb
+
 #      - name: Upload Release
 #        env:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #        run: |
 #          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
 #          bash upload.sh ksnip-*.deb
+
+      - name: Upload Release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ksnip-${{ env.VERSION }}.deb
+          asset_name: ksnip-${{ env.VERSION }}.deb
+          tag: ${{ github.ref }}
+          overwrite: true
+          release_name: "Continuous build"
+          body: ${{ env.UPLOADTOOL_BODY }}
+          prerelease: true
 

@@ -52,7 +52,7 @@ jobs:
 
   package-dmg:
     runs-on: macos-latest
-    needs: test-macos
+#    needs: test-macos
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -102,9 +102,21 @@ jobs:
           name: ksnip-macos.dmg
           path: ksnip-*.dmg
 
+#      - name: Upload Release
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        run: |
+#          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+#          bash upload.sh ksnip-*.dmg
+
       - name: Upload Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-          bash upload.sh ksnip-*.dmg
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ksnip-${{ env.VERSION }}.dmg
+          asset_name: ksnip-${{ env.VERSION }}.dmg
+          tag: ${{ github.ref }}
+          overwrite: true
+          release_name: "Continuous build"
+          body: ${{ env.UPLOADTOOL_BODY }}
+          prerelease: true

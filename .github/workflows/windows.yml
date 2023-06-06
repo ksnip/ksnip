@@ -178,9 +178,19 @@ jobs:
           name: ksnip-windows.msi
           path: ksnip-*.msi
 
+#      - name: Upload Release
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        run: |
+#          curl -L https://github.com/probonopd/uploadtool/raw/master/upload.sh --output upload.sh
+#          bash upload.sh ksnip-*.msi
+
       - name: Upload Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          curl -L https://github.com/probonopd/uploadtool/raw/master/upload.sh --output upload.sh
-          bash upload.sh ksnip-*.msi
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ksnip-*.msi
+          asset_name: ksnip-${{ env.VERSION }}.msi
+          tag: continuous
+          overwrite: true
+          body: ${{ env.UPLOADTOOL_BODY }}

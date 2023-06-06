@@ -157,54 +157,54 @@ jobs:
 #          bash upload.sh ksnip-*.rpm
 
 
-  package-deb:
-    runs-on: ubuntu-latest
-    needs: test-linux
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Set up build variables
-        run: bash ./.github/scripts/setup_build_variables.sh
-
-      - name: Set up windows build variables
-        run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
-
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v3
-        with:
-          version: '5.12.7'
-          host: 'linux'
-          install-deps: 'true'
-
-      - name: Install dependencies
-        run: sudo apt-get install cmake extra-cmake-modules libxcb-xfixes0-dev libssl-dev devscripts debhelper
-
-      - name: Set up kColorPicker
-        run: bash ./.github/scripts/setup_kColorPicker.sh
-
-      - name: Set up kImageAnnotator
-        run: bash ./.github/scripts/setup_kImageAnnotator.sh
-
-      - name: Set up directory structure
-        run: bash ./.github/scripts/linux/deb/setup_deb_directory_structure.sh
-
-      - name: Set up changelog
-        run: bash ./.github/scripts/linux/deb/setup_changelog_file.sh
-
-      - name: Package deb
-        run: bash ./.github/scripts/linux/deb/build_deb.sh
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: ksnip.deb
-          path: ksnip-*.deb
-
-      - name: Upload Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-          bash upload.sh ksnip-*.deb
+#  package-deb:
+#    runs-on: ubuntu-latest
+#    needs: test-linux
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v3
+#
+#      - name: Set up build variables
+#        run: bash ./.github/scripts/setup_build_variables.sh
+#
+#      - name: Set up windows build variables
+#        run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
+#
+#      - name: Install Qt
+#        uses: jurplel/install-qt-action@v3
+#        with:
+#          version: '5.12.7'
+#          host: 'linux'
+#          install-deps: 'true'
+#
+#      - name: Install dependencies
+#        run: sudo apt-get install cmake extra-cmake-modules libxcb-xfixes0-dev libssl-dev devscripts debhelper
+#
+#      - name: Set up kColorPicker
+#        run: bash ./.github/scripts/setup_kColorPicker.sh
+#
+#      - name: Set up kImageAnnotator
+#        run: bash ./.github/scripts/setup_kImageAnnotator.sh
+#
+#      - name: Set up directory structure
+#        run: bash ./.github/scripts/linux/deb/setup_deb_directory_structure.sh
+#
+#      - name: Set up changelog
+#        run: bash ./.github/scripts/linux/deb/setup_changelog_file.sh
+#
+#      - name: Package deb
+#        run: bash ./.github/scripts/linux/deb/build_deb.sh
+#
+#      - name: Upload Artifact
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: ksnip.deb
+#          path: ksnip-*.deb
+#
+#      - name: Upload Release
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        run: |
+#          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+#          bash upload.sh ksnip-*.deb
 

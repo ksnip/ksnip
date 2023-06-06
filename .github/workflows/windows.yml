@@ -126,10 +126,10 @@ jobs:
         file: ksnip-${{ env.VERSION }}-windows.zip
         asset_name: ksnip-${{ env.VERSION }}-windows.zip
         tag: ${{ github.ref }}
-        overwrite: false
-        release_name: "Continuous build"
+        overwrite: true
+        release_name: ${{ env.RELEASE_NAME }}
         body: ${{ env.UPLOADTOOL_BODY }}
-        prerelease: true
+        prerelease: ${{ env.IS_PRERELASE }}
 
 
   package-msi:
@@ -204,7 +204,7 @@ jobs:
           file: ksnip-${{ env.VERSION }}.msi
           asset_name: ksnip-${{ env.VERSION }}.msi
           tag: ${{ github.ref }}
-          overwrite: false
-          release_name: "Continuous build"
+          overwrite: true
+          release_name: ${{ env.RELEASE_NAME }}
           body: ${{ env.UPLOADTOOL_BODY }}
-          prerelease: true
+          prerelease: ${{ env.IS_PRERELASE }}

@@ -111,10 +111,10 @@ jobs:
           file: ksnip-${{ env.VERSION }}-x86_64.AppImage
           asset_name: ksnip-${{ env.VERSION }}-x86_64.AppImage
           tag: ${{ github.ref }}
-          overwrite: false
-          release_name: "Continuous build"
+          overwrite: true
+          release_name: ${{ env.RELEASE_NAME }}
           body: ${{ env.UPLOADTOOL_BODY }}
-          prerelease: true
+          prerelease: ${{ env.IS_PRERELASE }}
 
 
   package-rpm:
@@ -175,10 +175,10 @@ jobs:
           file: ksnip-${{ env.VERSION }}.rpm
           asset_name: ksnip-${{ env.VERSION }}.rpm
           tag: ${{ github.ref }}
-          overwrite: false
-          release_name: "Continuous build"
+          overwrite: true
+          release_name: ${{ env.RELEASE_NAME }}
           body: ${{ env.UPLOADTOOL_BODY }}
-          prerelease: true
+          prerelease: ${{ env.IS_PRERELASE }}
 
 
   package-deb:
@@ -239,8 +239,8 @@ jobs:
           file: ksnip-${{ env.VERSION }}.deb
           asset_name: ksnip-${{ env.VERSION }}.deb
           tag: ${{ github.ref }}
-          overwrite: false
-          release_name: "Continuous build"
+          overwrite: true
+          release_name: ${{ env.RELEASE_NAME }}
           body: ${{ env.UPLOADTOOL_BODY }}
-          prerelease: true
+          prerelease: ${{ env.IS_PRERELASE }}
 

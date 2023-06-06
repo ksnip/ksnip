@@ -20,7 +20,7 @@ jobs:
       run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
 
     - name: Install Qt
-      uses: jurplel/install-qt-action@v2
+      uses: jurplel/install-qt-action@v3
       with:
         version: '5.15.2'
         host: 'linux'
@@ -67,7 +67,7 @@ jobs:
         run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v3
         with:
           version: '5.15.2'
           host: 'linux'
@@ -119,7 +119,7 @@ jobs:
         run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v3
         with:
           version: '5.12.7'
           host: 'linux'
@@ -171,7 +171,7 @@ jobs:
         run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v3
         with:
           version: '5.12.7'
           host: 'linux'

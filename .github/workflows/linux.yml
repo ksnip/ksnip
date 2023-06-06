@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     
     - name: Set up build variables
       run: bash ./.github/scripts/setup_build_variables.sh
@@ -58,7 +58,7 @@ jobs:
     needs: test-linux
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up build variables
         run: bash ./.github/scripts/setup_build_variables.sh
@@ -110,7 +110,7 @@ jobs:
     needs: test-linux
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up build variables
         run: bash ./.github/scripts/setup_build_variables.sh
@@ -162,7 +162,7 @@ jobs:
     needs: test-linux
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up build variables
         run: bash ./.github/scripts/setup_build_variables.sh

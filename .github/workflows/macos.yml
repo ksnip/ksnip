@@ -11,7 +11,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up build variables
       run: bash ./.github/scripts/setup_build_variables.sh
@@ -55,7 +55,7 @@ jobs:
     needs: test-macos
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up build variables
         run: bash ./.github/scripts/setup_build_variables.sh

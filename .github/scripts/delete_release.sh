@@ -22,12 +22,23 @@ if [ "${GIT_COMMIT}" != "${target_commit_sha}" ] ; then
   echo "GIT_COMMIT != target_commit_sha, hence deleting release for tag ${RELEASE_TAG}..."
 
   if [ -n "${release_id}" ]; then
-    delete_url="https://api.github.com/repos/${GIT_REPO_SLUG}/releases/${release_id}"
+    delete_release_url="https://api.github.com/repos/${GIT_REPO_SLUG}/releases/${release_id}"
     echo "Delete the release..."
-    echo "delete_url: ${delete_url}"
+    echo "delete_url: ${delete_release_url}"
     curl -XDELETE \
         --header "Authorization: token ${GITHUB_TOKEN}" \
-        "${delete_url}"
+        "${delete_release_url}"
   fi
 
-fi # if [ "$GIT_COMMIT" != "$tag_sha" ]
+  if [ "${RELEASE_TAG}" == "continuous" ] ; then
+    # if this is a continuous build tag, then delete the old tag
+    # in preparation for the new release
+    echo "Delete the tag..."
+    delete_tag_url="https://api.github.com/repos/${GIT_REPO_SLUG}/git/refs/tags/${RELEASE_TAG}"
+    echo "delete_url: ${delete_tag_url}"
+    curl -XDELETE \
+        --header "Authorization: token ${GITHUB_TOKEN}" \
+        "${delete_tag_url}"
+  fi
+
+fi

@@ -112,13 +112,6 @@ jobs:
         name: ksnip-windows.zip
         path: ksnip-*.zip
 
-#    - name: Upload Release
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      run: |
-#        curl -L https://github.com/probonopd/uploadtool/raw/master/upload.sh --output upload.sh
-#        bash upload.sh ksnip-*.zip
-
     - name: Delete existing release with same name
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -194,13 +187,6 @@ jobs:
         with:
           name: ksnip-windows.msi
           path: ksnip-*.msi
-
-#      - name: Upload Release
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        run: |
-#          curl -L https://github.com/probonopd/uploadtool/raw/master/upload.sh --output upload.sh
-#          bash upload.sh ksnip-*.msi
 
       - name: Delete existing release with same name
         env:

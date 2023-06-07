@@ -97,13 +97,6 @@ jobs:
           name: ksnip.AppImage
           path: ksnip*.AppImage*
 
-#      - name: Upload Release
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        run: |
-#          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-#          bash upload.sh ksnip*.AppImage*
-
       - name: Delete existing release with same name
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -166,13 +159,6 @@ jobs:
           name: ksnip.rpm
           path: ksnip-*.rpm
 
-#      - name: Upload Release
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        run: |
-#          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-#          bash upload.sh ksnip-*.rpm
-
       - name: Delete existing release with same name
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -234,13 +220,6 @@ jobs:
         with:
           name: ksnip.deb
           path: ksnip-*.deb
-
-#      - name: Upload Release
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        run: |
-#          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-#          bash upload.sh ksnip-*.deb
 
       - name: Delete existing release with same name
         env:

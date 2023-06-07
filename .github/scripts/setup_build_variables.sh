@@ -41,9 +41,9 @@ else
     echo "Build is tagged this is not a continues build"
     echo "Building ksnip version ${VERSION_NUMBER}"
     echo "VERSION=${VERSION_NUMBER}" >> $GITHUB_ENV
-    echo "RELEASE_NAME=v${VERSION_NUMBER}" >> $GITHUB_ENV
+    echo "RELEASE_NAME=${GITHUB_TAG}" >> $GITHUB_ENV
     echo "IS_PRERELASE=false" >> $GITHUB_ENV
-    echo "RELEASE_TAG=$GITHUB_TAG" >> $GITHUB_ENV
+    echo "RELEASE_TAG=${GITHUB_TAG}" >> $GITHUB_ENV
 fi
 
 

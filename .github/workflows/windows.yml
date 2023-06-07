@@ -7,62 +7,62 @@ on:
       - "v*"
 
 jobs:
-#  test-windows:
-#    runs-on: windows-latest
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v3
-#
-#      - name: Set up build variables
-#        run: bash ./.github/scripts/setup_build_variables.sh
-#
-#      - name: Set up windows build variables
-#        run: bash ./.github/scripts/windows/setup_windows_build_variables.sh
-#
-#      - name: Install Qt
-#        uses: jurplel/install-qt-action@v3
-#        with:
-#          version: '5.15.2'
-#          host: 'windows'
-#          install-deps: 'true'
-#          arch: 'win64_msvc2019_64'
-#
-#      - name: Set up nmake
-#        uses: ilammy/msvc-dev-cmd@v1
-#
-#      - name: Set up kColorPicker
-#        env:
-#          BUILD_TYPE: Debug
-#        run: bash ./.github/scripts/setup_kColorPicker.sh
-#
-#      - name: Set up kImageAnnotator
-#        env:
-#          BUILD_TYPE: Debug
-#        run: bash ./.github/scripts/setup_kImageAnnotator.sh
-#
-#      - name: Set up GoogleTest
-#        run: bash ./.github/scripts/setup_googleTest.sh
-#
-#      - name: Add GoogleTest bin dir to PATH
-#        uses: myci-actions/export-env-var-powershell@1
-#        with:
-#          name: PATH
-#          value: $env:PATH;$env:INSTALL_PREFIX/bin
-#
-#      - name: Build
-#        env:
-#          BUILD_TESTS: ON
-#          BUILD_TYPE: Debug
-#        run: bash ./.github/scripts/build_ksnip.sh
-#
-#      - name: Test
-#        working-directory: ${{github.workspace}}/build/tests
-#        run: ctest --extra-verbose
+  test-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up build variables
+        run: bash ./.github/scripts/setup_build_variables.sh
+
+      - name: Set up windows build variables
+        run: bash ./.github/scripts/windows/setup_windows_build_variables.sh
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: '5.15.2'
+          host: 'windows'
+          install-deps: 'true'
+          arch: 'win64_msvc2019_64'
+
+      - name: Set up nmake
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Set up kColorPicker
+        env:
+          BUILD_TYPE: Debug
+        run: bash ./.github/scripts/setup_kColorPicker.sh
+
+      - name: Set up kImageAnnotator
+        env:
+          BUILD_TYPE: Debug
+        run: bash ./.github/scripts/setup_kImageAnnotator.sh
+
+      - name: Set up GoogleTest
+        run: bash ./.github/scripts/setup_googleTest.sh
+
+      - name: Add GoogleTest bin dir to PATH
+        uses: myci-actions/export-env-var-powershell@1
+        with:
+          name: PATH
+          value: $env:PATH;$env:INSTALL_PREFIX/bin
+
+      - name: Build
+        env:
+          BUILD_TESTS: ON
+          BUILD_TYPE: Debug
+        run: bash ./.github/scripts/build_ksnip.sh
+
+      - name: Test
+        working-directory: ${{github.workspace}}/build/tests
+        run: ctest --extra-verbose
 
 
   package-exe:
     runs-on: windows-latest
-#    needs: test-windows
+    needs: test-windows
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -132,7 +132,7 @@ jobs:
 
   package-msi:
     runs-on: windows-latest
-#    needs: test-windows
+    needs: test-windows
     steps:
       - name: Checkout
         uses: actions/checkout@v3

@@ -7,55 +7,55 @@ on:
       - "v*"
 
 jobs:
-#  test-linux:
-#    runs-on: ubuntu-latest
-#    steps:
-#    - name: Checkout
-#      uses: actions/checkout@v3
-#
-#    - name: Set up build variables
-#      run: bash ./.github/scripts/setup_build_variables.sh
-#
-#    - name: Set up linux build variables
-#      run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
-#
-#    - name: Install Qt
-#      uses: jurplel/install-qt-action@v3
-#      with:
-#        version: '5.15.2'
-#        host: 'linux'
-#        install-deps: 'true'
-#
-#    - name: Install dependencies
-#      run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev xvfb
-#
-#    - name: Set up GoogleTest
-#      run: bash ./.github/scripts/setup_googleTest.sh
-#
-#    - name: Set up kColorPicker
-#      env:
-#        BUILD_TYPE: Debug
-#      run: bash ./.github/scripts/setup_kColorPicker.sh
-#
-#    - name: Set up kImageAnnotator
-#      env:
-#        BUILD_TYPE: Debug
-#      run: bash ./.github/scripts/setup_kImageAnnotator.sh
-#
-#    - name: Build
-#      env:
-#        BUILD_TESTS: ON
-#        BUILD_TYPE: Debug
-#      run: bash ./.github/scripts/build_ksnip.sh
-#
-#    - name: Test
-#      working-directory: ${{github.workspace}}/build/tests
-#      run: xvfb-run --auto-servernum --server-num=1 --server-args="-screen 0 1024x768x24" ctest --extra-verbose
+  test-linux:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Set up build variables
+      run: bash ./.github/scripts/setup_build_variables.sh
+
+    - name: Set up linux build variables
+      run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '5.15.2'
+        host: 'linux'
+        install-deps: 'true'
+
+    - name: Install dependencies
+      run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev xvfb
+
+    - name: Set up GoogleTest
+      run: bash ./.github/scripts/setup_googleTest.sh
+
+    - name: Set up kColorPicker
+      env:
+        BUILD_TYPE: Debug
+      run: bash ./.github/scripts/setup_kColorPicker.sh
+
+    - name: Set up kImageAnnotator
+      env:
+        BUILD_TYPE: Debug
+      run: bash ./.github/scripts/setup_kImageAnnotator.sh
+
+    - name: Build
+      env:
+        BUILD_TESTS: ON
+        BUILD_TYPE: Debug
+      run: bash ./.github/scripts/build_ksnip.sh
+
+    - name: Test
+      working-directory: ${{github.workspace}}/build/tests
+      run: xvfb-run --auto-servernum --server-num=1 --server-args="-screen 0 1024x768x24" ctest --extra-verbose
 
 
   package-appImage:
     runs-on: ubuntu-20.04
-#    needs: test-linux
+    needs: test-linux
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -117,7 +117,7 @@ jobs:
 
   package-rpm:
     runs-on: ubuntu-latest
-#    needs: test-linux
+    needs: test-linux
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -179,7 +179,7 @@ jobs:
 
   package-deb:
     runs-on: ubuntu-latest
-#    needs: test-linux
+    needs: test-linux
     steps:
       - name: Checkout
         uses: actions/checkout@v3

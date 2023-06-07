@@ -19,7 +19,7 @@ echo "GIT_COMMIT: ${GIT_COMMIT}"
 
 if [ "${GIT_COMMIT}" != "${target_commit_sha}" ] ; then
 
-  echo "GIT_COMMIT != target_commit_sha, hence deleting release for tag ${RELEASE_TAG}..."
+  echo "GIT_COMMIT != target_commit_sha, hence deleting tag and release for '${RELEASE_TAG}'..."
 
   if [ -n "${release_id}" ]; then
     delete_release_url="https://api.github.com/repos/${GIT_REPO_SLUG}/releases/${release_id}"

@@ -120,6 +120,8 @@ jobs:
 #        bash upload.sh ksnip-*.zip
 
     - name: Delete existing release with same name
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: bash ./.github/scripts/delete_release.sh
 
     - name: Upload Release
@@ -201,6 +203,8 @@ jobs:
 #          bash upload.sh ksnip-*.msi
 
       - name: Delete existing release with same name
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bash ./.github/scripts/delete_release.sh
 
       - name: Upload Release

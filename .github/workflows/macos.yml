@@ -110,6 +110,8 @@ jobs:
 #          bash upload.sh ksnip-*.dmg
 
       - name: Delete existing release with same name
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bash ./.github/scripts/delete_release.sh
 
       - name: Upload Release

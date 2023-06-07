@@ -119,6 +119,9 @@ jobs:
 #        curl -L https://github.com/probonopd/uploadtool/raw/master/upload.sh --output upload.sh
 #        bash upload.sh ksnip-*.zip
 
+    - name: Delete existing release with same name
+      run: bash ./.github/scripts/delete_release.sh
+
     - name: Upload Release
       uses: svenstaro/upload-release-action@v2
       with:
@@ -196,6 +199,9 @@ jobs:
 #        run: |
 #          curl -L https://github.com/probonopd/uploadtool/raw/master/upload.sh --output upload.sh
 #          bash upload.sh ksnip-*.msi
+
+      - name: Delete existing release with same name
+        run: bash ./.github/scripts/delete_release.sh
 
       - name: Upload Release
         uses: svenstaro/upload-release-action@v2

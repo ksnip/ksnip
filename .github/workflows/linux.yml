@@ -104,6 +104,9 @@ jobs:
 #          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
 #          bash upload.sh ksnip*.AppImage*
 
+      - name: Delete existing release with same name
+        run: bash ./.github/scripts/delete_release.sh
+
       - name: Upload Release
         uses: svenstaro/upload-release-action@v2
         with:
@@ -168,6 +171,9 @@ jobs:
 #          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
 #          bash upload.sh ksnip-*.rpm
 
+      - name: Delete existing release with same name
+        run: bash ./.github/scripts/delete_release.sh
+
       - name: Upload Release
         uses: svenstaro/upload-release-action@v2
         with:
@@ -231,6 +237,9 @@ jobs:
 #        run: |
 #          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
 #          bash upload.sh ksnip-*.deb
+
+      - name: Delete existing release with same name
+        run: bash ./.github/scripts/delete_release.sh
 
       - name: Upload Release
         uses: svenstaro/upload-release-action@v2

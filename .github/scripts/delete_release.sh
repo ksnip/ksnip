@@ -13,13 +13,15 @@ echo "release ID: ${release_id}"
 target_commit_sha=$(echo "${release_infos}" | grep '"target_commitish":' | head -n 1 | cut -d '"' -f 4 | cut -d '{' -f 1)
 echo "target_commit_sha: ${target_commit_sha}"
 
-if [ "$GIT_COMMIT" != "${target_commit_sha}" ] ; then
+existingReleaseCommit=$(git rev-list -n 1 "${RELEASE_TAG}")
 
-  echo "GITHUB_REF: ${GITHUB_REF}"
-  echo "GIT_COMMIT: ${GIT_COMMIT}"
-  echo "target_commit_sha: ${target_commit_sha}"
-  echo "Commit of tag: $(git show "${RELEASE_TAG}" | head -1)"
-  echo "GIT_COMMIT != target_commit_sha, hence deleting release for tag ${RELEASE_TAG}..."
+echo "GITHUB_REF: ${GITHUB_REF}"
+echo "GIT_COMMIT: ${GIT_COMMIT}"
+echo "target_commit_sha: ${target_commit_sha}"
+echo "Commit of tag: ${existingReleaseCommit}"
+echo "GIT_COMMIT != target_commit_sha, hence deleting release for tag ${RELEASE_TAG}..."
+
+if [ "$GIT_COMMIT" != "${existingReleaseCommit}" ] ; then
 
   if [ ! -z "${release_id}" ]; then
     delete_url="https://api.github.com/repos/${GIT_REPO_SLUG}/releases/${release_id}"

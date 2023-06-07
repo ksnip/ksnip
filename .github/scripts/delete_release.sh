@@ -13,6 +13,10 @@ echo "release ID: ${release_id}"
 target_commit_sha=$(echo "${release_infos}" | grep '"target_commitish":' | head -n 1 | cut -d '"' -f 4 | cut -d '{' -f 1)
 echo "target_commit_sha: ${target_commit_sha}"
 
+git fetch --tags origin
+
+git tag
+
 existingReleaseCommit=$(git rev-list -n 1 "${RELEASE_TAG}")
 
 echo "GITHUB_REF: ${GITHUB_REF}"

@@ -1,32 +1,35 @@
 
-GIT_COMMIT="$GITHUB_SHA"
-GIT_REPO_SLUG="$GITHUB_REPOSITORY"
-if [[ "$GITHUB_REF" == "refs/tags/"* ]] ; then
+GIT_COMMIT="${GITHUB_SHA}"
+GIT_REPO_SLUG="${GITHUB_REPOSITORY}"
+if [[ "${GITHUB_REF}" == "refs/tags/"* ]] ; then
   GIT_TAG="${GITHUB_REF#refs/tags/}"
 fi
 
-release_url="https://api.github.com/repos/$GIT_REPO_SLUG/releases/tags/$RELEASE_NAME"
+release_url="https://api.github.com/repos/${GIT_REPO_SLUG}/releases/tags/${RELEASE_TAG}"
 echo "Getting the release ID..."
-echo "release_url: $release_url"
+echo "release_url: ${release_url}"
+
 release_infos=$(curl -XGET --header "Authorization: token ${GITHUB_TOKEN}" "${release_url}")
-echo "release_infos: $release_infos"
-release_id=$(echo "$release_infos" | grep "\"id\":" | head -n 1 | tr -s " " | cut -f 3 -d" " | cut -f 1 -d ",")
-echo "release ID: $release_id"
-upload_url=$(echo "$release_infos" | grep '"upload_url":' | head -n 1 | cut -d '"' -f 4 | cut -d '{' -f 1)
-echo "upload_url: $upload_url"
-release_url=$(echo "$release_infos" | grep '"url":' | head -n 1 | cut -d '"' -f 4 | cut -d '{' -f 1)
-echo "release_url: $release_url"
-target_commit_sha=$(echo "$release_infos" | grep '"target_commitish":' | head -n 1 | cut -d '"' -f 4 | cut -d '{' -f 1)
-echo "target_commit_sha: $target_commit_sha"
+echo "release_infos: ${release_infos}"
+release_id=$(echo "${release_infos}" | grep "\"id\":" | head -n 1 | tr -s " " | cut -f 3 -d" " | cut -f 1 -d ",")
+echo "release ID: ${release_id}"
+upload_url=$(echo "${release_infos}" | grep '"upload_url":' | head -n 1 | cut -d '"' -f 4 | cut -d '{' -f 1)
+echo "upload_url: ${upload_url}"
+release_url=$(echo "${release_infos}" | grep '"url":' | head -n 1 | cut -d '"' -f 4 | cut -d '{' -f 1)
+echo "release_url: ${release_url}"
+target_commit_sha=$(echo "${release_infos}" | grep '"target_commitish":' | head -n 1 | cut -d '"' -f 4 | cut -d '{' -f 1)
+echo "target_commit_sha: ${target_commit_sha}"
 
-if [ "$GIT_COMMIT" != "$target_commit_sha" ] ; then
+if [ "$GIT_COMMIT" != "${target_commit_sha}" ] ; then
 
-  echo "GIT_COMMIT != target_commit_sha, hence deleting $RELEASE_NAME..."
+  echo "GIT_COMMIT: ${GIT_COMMIT}"
+  echo "target_commit_sha: ${target_commit_sha}"
+  echo "GIT_COMMIT != target_commit_sha, hence deleting release for tag ${RELEASE_TAG}..."
 
-  if [ ! -z "$release_id" ]; then
-    delete_url="https://api.github.com/repos/$GIT_REPO_SLUG/releases/$release_id"
+  if [ ! -z "${release_id}" ]; then
+    delete_url="https://api.github.com/repos/${GIT_REPO_SLUG}/releases/${release_id}"
     echo "Delete the release..."
-    echo "delete_url: $delete_url"
+    echo "delete_url: ${delete_url}"
 #    curl -XDELETE \
 #        --header "Authorization: token ${GITHUB_TOKEN}" \
 #        "${delete_url}"

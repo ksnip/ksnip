@@ -130,7 +130,7 @@ jobs:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: ksnip-${{ env.VERSION }}-windows.zip
         asset_name: ksnip-${{ env.VERSION }}-windows.zip
-        tag: ${{ github.sha }}
+        tag: ${{ env.RELEASE_TAG }}
         overwrite: true
         release_name: ${{ env.RELEASE_NAME }}
         body: ${{ env.UPLOADTOOL_BODY }}
@@ -213,7 +213,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ksnip-${{ env.VERSION }}.msi
           asset_name: ksnip-${{ env.VERSION }}.msi
-          tag: ${{ github.sha }}
+          tag: ${{ env.RELEASE_TAG }}
           overwrite: true
           release_name: ${{ env.RELEASE_NAME }}
           body: ${{ env.UPLOADTOOL_BODY }}

@@ -120,7 +120,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ksnip-${{ env.VERSION }}.dmg
           asset_name: ksnip-${{ env.VERSION }}.dmg
-          tag: ${{ github.sha }}
+          tag: ${{ env.RELEASE_TAG }}
           overwrite: true
           release_name: ${{ env.RELEASE_NAME }}
           body: ${{ env.UPLOADTOOL_BODY }}

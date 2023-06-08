@@ -96,6 +96,7 @@
                     <li>New kImageAnnotator: Mouse click within a text box for setting specific editing position and selecting text.</li>
                     <li>Fixed kImageAnnotator: Text isn't reflowed the next line within the box and text overlaps when resizing box.</li>
                     <li>Fixed kImageAnnotator: Can't wrap long text line when I resize Text box area.</li>
+                    <li>Fixed kImageAnnotator: Key press operations affect items across different tabs.</li>
                 </ul>
             </description>
         </release>

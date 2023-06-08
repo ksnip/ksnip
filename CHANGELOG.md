@@ -9,6 +9,7 @@
 * New kImageAnnotator: Mouse click within a text box for setting specific editing position and selecting text. ([#273](https://github.com/ksnip/kImageAnnotator/issues/273))
 * Fixed kImageAnnotator: Text isn't reflowed the next line within the box and text overlaps when resizing box. ([#271](https://github.com/ksnip/kImageAnnotator/issues/271))
 * Fixed kImageAnnotator: Can't wrap long text line when resizing text box. ([#211](https://github.com/ksnip/kImageAnnotator/issues/211))
+* Fixed kImageAnnotator: Key press operations affect items across different tabs. ([#319](https://github.com/ksnip/kImageAnnotator/issues/319))
 
 ## Release 1.10.1
 * Fixed: DragAndDrop not working with snaps. ([#898](https://github.com/ksnip/ksnip/issues/898))

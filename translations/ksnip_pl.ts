@@ -104,7 +104,7 @@
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Globalny</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
@@ -878,11 +878,11 @@ Zmiana wymaga ponownego uruchomienia.</translation>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Prześlij tytuł:</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Prześlij opis:</translation>
     </message>
 </context>
 <context>

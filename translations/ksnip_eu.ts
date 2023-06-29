@@ -656,7 +656,7 @@ Jarraitu nahi duzu?</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
-        <translation>Laster-teklak</translation>
+        <translation>Laster-tekla orokorrak</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -1002,7 +1002,7 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation>Honi buruz</translation>
+        <translation>&amp;Honi buruz</translation>
     </message>
     <message>
         <source>Open</source>

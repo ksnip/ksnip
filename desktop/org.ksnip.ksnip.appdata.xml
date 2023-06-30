@@ -97,6 +97,7 @@
                     <li>Fixed kImageAnnotator: Text isn't reflowed the next line within the box and text overlaps when resizing box.</li>
                     <li>Fixed kImageAnnotator: Can't wrap long text line when I resize Text box area.</li>
                     <li>Fixed kImageAnnotator: Key press operations affect items across different tabs.</li>
+                    <li>Fixed kImageAnnotator: Clipboard cleared when new tab added.</li>
                 </ul>
             </description>
         </release>

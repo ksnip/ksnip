@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation>Zrzut ekranu i narzędzie adnotacji</translation>
+        <translation>Zrzuty ekranu i narzędzie adnotacji</translation>
     </message>
 </context>
 <context>
@@ -104,13 +104,13 @@
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished">Globalny</translation>
+        <translation>Globalne</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished">Włączenie tej opcji spowoduje, że skrót będzie
-dostępny nawet wtedy, gdy ksnip nie jest skupiony.</translation>
+        <translation>Włączenie tej opcji spowoduje, że skrót będzie
+dostępny nawet wtedy, gdy ksnip nie ma ostrości.</translation>
     </message>
 </context>
 <context>
@@ -136,7 +136,7 @@ dostępny nawet wtedy, gdy ksnip nie jest skupiony.</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation>Dodaj obraz znaku wodnego, wybierając Opcje &gt; Ustawienia &gt; Komentarz &gt; Aktualizuj</translation>
+        <translation>Dodaj obraz znaku wodnego, wybierając Opcje &gt; Ustawienia &gt; Adnotacje &gt; Aktualizuj</translation>
     </message>
 </context>
 <context>
@@ -165,7 +165,7 @@ ale uczyni je bardziej gładkimi.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation>Ustawienia komentarza</translation>
+        <translation>Ustawienia adnotacji</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
@@ -177,7 +177,7 @@ ale uczyni je bardziej gładkimi.</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation>Narzędzie numeracji Zmiana numeru aktualizuje wszystkie ponumerowane pozycje</translation>
+        <translation>Narzędzie Zmiana Numeracji aktualizuje wszystkie ponumerowane pozycje</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
@@ -204,8 +204,8 @@ Zmiana koloru wpływa tylko na nowe obszary adnotacji.</translation>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation>Po włączeniu tej opcji element jest zaznaczany po
-utworzeniu, co pozwala na zmianę ustawień.</translation>
+        <translation>Po włączeniu tej opcji element jest zaznaczany po utworzeniu,
+co pozwala na zmianę ustawień.</translation>
     </message>
     <message>
         <source>Show Controls Widget</source>
@@ -222,7 +222,7 @@ Przyciski Kadruj, Skaluj, Obróć i Modyfikuj obszar roboczy.</translation>
     <name>ApplicationSettings</name>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation>Przechwytuj zrzut ekranu przy uruchamianiu w trybie domyślnym</translation>
+        <translation>Przechwyć zrzut ekranu przy uruchamianiu w trybie domyślnym</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -264,8 +264,8 @@ all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
         <translation>Włączenie tej opcji pozwoli na uruchomienie tylko jednej instancji ksnip,
-wszystkie inne instancje uruchomione po pierwszym przekażą ich
-argumenty do pierwszego i zostaną zamknięte. Zmiana tej opcji wymaga
+wszystkie inne instancje uruchomione po pierwszym uruchomieniu przekażą ich
+argumenty do pierwszego uruchomienia i zostaną zamknięte. Zmiana tej opcji wymaga
 ponownego uruchomienia wszystkich instancji.</translation>
     </message>
     <message>
@@ -284,7 +284,7 @@ ponownego uruchomienia wszystkich instancji.</translation>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
         <translation>Po uruchomieniu ukryj pasek narzędzi i ustawienia adnotacji.
-Widoczność doków można przełączać za pomocą klawisza Tab.</translation>
+widoczność Doków można przełączać za pomocą klawisza Tab.</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
@@ -302,7 +302,7 @@ Widoczność doków można przełączać za pomocą klawisza Tab.</translation>
         <source>Enables debug output written to the console.
 Change requires ksnip restart to take effect.</source>
         <translation>Włącza debugowanie danych wyjściowych zapisanych w konsoli.
-Zmiana wymaga ponownego uruchomienia ksnip.</translation>
+Zmiana wymaga ponownego uruchomienia programu ksnip.</translation>
     </message>
     <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
@@ -314,7 +314,7 @@ do nowej zawartości, zwiększenie tego opóźnienia może poprawić zachowanie.
     </message>
     <message>
         <source>Resize delay</source>
-        <translation type="unfinished">Zmiana rozmiaru opóźnienia</translation>
+        <translation>Zmiana rozmiaru opóźnienia</translation>
     </message>
     <message>
         <source>Temp Directory</source>
@@ -324,7 +324,7 @@ do nowej zawartości, zwiększenie tego opóźnienia może poprawić zachowanie.
         <source>Temp directory used for storing temporary images that are
 going to be deleted after ksnip closes.</source>
         <translation>Katalog Temp służy do przechowywania tymczasowych obrazów, które
-zostaną usunięte po zamknięciu ksnipa.</translation>
+zostaną usunięte po zamknięciu programu ksnip.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -430,7 +430,7 @@ Chcesz go zapisać?</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation>Jeśli masz ogólne pytania, pomysły lub po prostu chcesz porozmawiać o ksnip,&lt;br/&gt;dołącz do naszego serwera %1 lub %2.</translation>
+        <translation>Jeśli masz ogólne pytania, pomysły lub po prostu chcesz porozmawiać o programie ksnip,&lt;br/&gt;dołącz do naszego serwisu %1 lub %2.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
@@ -485,7 +485,7 @@ Czy chcesz kontynuować?</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation>Jeśli chcesz pomóc lub po prostu chcesz docenić wykonywaną pracę&lt;br/&gt;, częstując programistów piwem lub kawą, możesz to zrobić %1tutaj%2.</translation>
+        <translation>Jeśli chcesz pomóc lub po prostu chcesz docenić wykonywaną pracę częstując programistów&lt;br/&gt; piwem lub kawą, możesz to zrobić %1tutaj%2.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
@@ -500,7 +500,7 @@ Czy chcesz kontynuować?</translation>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation>Dodaj nowe akcje, naciskając przycisk &quot;Dodaj&quot;.</translation>
+        <translation>Dodaj nowe działania, naciskając przycisk &quot;Dodaj&quot;.</translation>
     </message>
 </context>
 <context>
@@ -554,7 +554,7 @@ Czy chcesz kontynuować?</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation>Przesyłanie FTP</translation>
+        <translation>Przesyłanie protokołem FTP</translation>
     </message>
 </context>
 <context>
@@ -601,7 +601,7 @@ Czy chcesz kontynuować?</translation>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
-        <translation>Przesyłanie FTP zakończyło się pomyślnie.</translation>
+        <translation>Przesyłanie protokołem FTP zakończyło się pomyślnie.</translation>
     </message>
     <message>
         <source>Unknown error.</source>
@@ -670,7 +670,7 @@ Czy chcesz kontynuować?</translation>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
         <translation>Skróty klawiszowe są obecnie obsługiwane tylko dla systemów Windows i X11.
-Wyłączenie tej opcji spowoduje, że skróty akcji będą obsługiwane tylko przez ksnip.</translation>
+Wyłączenie tej opcji spowoduje, że skróty akcji będą obsługiwane tylko przez program ksnip.</translation>
     </message>
 </context>
 <context>
@@ -682,7 +682,7 @@ Wyłączenie tej opcji spowoduje, że skróty akcji będą obsługiwane tylko pr
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation>Czy kursor myszy powinien być widoczny
+        <translation>Jesli kursor myszy powinien być widoczny
 na zrzutach ekranu.</translation>
     </message>
     <message>
@@ -741,7 +741,7 @@ kiedy główne okno było ukryte lub zminimalizowane.</translation>
     </message>
     <message>
         <source>Implicit capture delay</source>
-        <translation type="unfinished">Opóźnienie przechwytywania niejawnego</translation>
+        <translation>Opóźnienie przechwytywania niejawnego</translation>
     </message>
     <message>
         <source>This delay is used when no delay was selected in
@@ -750,12 +750,12 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation type="unfinished">Opóźnienie jest używane, gdy nie wybrano opóźnienia w
-interfejsie użytkownika, pozwala ksnip ukryć się przed podjęciem
-zrzut ekranu. Ta wartość nie jest stosowana, gdy
-KSNIP był już zminimalizowany. Zmniejszenie tej wartości
-może mieć taki efekt, że głównym oknem KSNIP jest
-widoczne na zrzucie ekranu.</translation>
+        <translation>Opóźnienie jest używane, gdy w interfejsie użytkownika
+nie wybrano żadnego opóźnienia. Pozwala to ksnip ukryć się przed
+wykonaniem zrzutu. Wartość ta nie jest stosowana,
+gdy ksnip został już zminimalizowany. Zmniejszenie tej wartości
+może spowodować, że główne okno ksnip
+będzie widoczne na zrzucie ekranu.</translation>
     </message>
 </context>
 <context>
@@ -860,17 +860,17 @@ widoczne na zrzucie ekranu.</translation>
     </message>
     <message>
         <source>Link directly to image</source>
-        <translation>Link bezpośrednio do obrazu</translation>
+        <translation>Bezpośredni link do obrazu</translation>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation>Podstawowy adres URL:</translation>
+        <translation>Bazowy adres URL:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation>Podstawowy adres URL, który będzie używany do komunikacji z Imgur.
-Zmiana wymaga ponownego uruchomienia.</translation>
+        <translation>Bazowy adres URL, który będzie używany do komunikacji z Imgur.
+Zmiana adresu wymaga ponownego uruchomienia.</translation>
     </message>
     <message>
         <source>Clear Token</source>
@@ -878,11 +878,11 @@ Zmiana wymaga ponownego uruchomienia.</translation>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation>Prześlij tytuł:</translation>
+        <translation>Tytuł przesyłanego zrzutu:</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation>Prześlij opis:</translation>
+        <translation>Opis przesyłanego zrzutu:</translation>
     </message>
 </context>
 <context>
@@ -1046,7 +1046,7 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation>Nie dostarczono żadnego obrazu, ale oczekiwano jednego.</translation>
+        <translation>Nie dostarczono żadnego obrazu, ale można się było go spodziewać.</translation>
     </message>
     <message>
         <source>Copy Path</source>
@@ -1086,7 +1086,7 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation>Ostatnio &amp;Otwierane</translation>
+        <translation>Ostatnio &amp;otwierane</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
@@ -1176,7 +1176,7 @@ i wykonaniem zrzutu ekranu.</translation>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation>Zrzut z ekranu</translation>
+        <translation>Zrzut ekranu</translation>
     </message>
 </context>
 <context>
@@ -1212,7 +1212,7 @@ i wykonaniem zrzutu ekranu.</translation>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished">Wyszukaj ścieżkę</translation>
+        <translation>Szukaj ścieżki</translation>
     </message>
     <message>
         <source>Default</source>
@@ -1258,7 +1258,7 @@ i wykonaniem zrzutu ekranu.</translation>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation>Zmieniono nazwę obrazu</translation>
+        <translation>Zmiana nazwy obrazu</translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
@@ -1344,7 +1344,7 @@ Filename can contain following wildcards:
         <translation>Obsługiwane formaty to JPG, PNG i BMP. Jeśli format nie zostanie podany, domyślnie zostanie użyty format PNG.
 Nazwa pliku może zawierać następujące symbole wieloznaczne:
 - $Y, $M, $D dla daty, $h, $m, $s dla czasu lub $T dla czasu w formacie ggmmss.
-- Wiele kolejnych zaków # dla licznika. #### da w wyniku 0001, następne przechwycenie to 0002.</translation>
+- Wiele kolejnych znaków # dla licznika. #### da w wyniku 0001, następne przechwycenie to 0002.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1403,7 +1403,7 @@ ze ścieżką do tymczasowego pliku png jako pojedynczym argumentem.</translatio
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation>Przesyłanie skryptów</translation>
+        <translation>Przesyłanie z użyciem skryptu</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
@@ -1411,7 +1411,7 @@ ze ścieżką do tymczasowego pliku png jako pojedynczym argumentem.</translatio
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation>Zatrzymaj się przy zapisie skryptu na StdErr</translation>
+        <translation>Zatrzymaj skrypt i użyj stderr, aby zapisać wszystkie komunikaty o błędach</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
@@ -1458,7 +1458,7 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
     </message>
     <message>
         <source>Annotator</source>
-        <translation>Komentator</translation>
+        <translation>Adnotacje</translation>
     </message>
     <message>
         <source>HotKeys</source>
@@ -1470,7 +1470,7 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation>Przesyłanie skryptów</translation>
+        <translation>Przesyłanie z użyciem skryptu</translation>
     </message>
     <message>
         <source>Saver</source>
@@ -1498,7 +1498,7 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation>Program do przesyłania FTP</translation>
+        <translation>Prześlij protokołem FTP</translation>
     </message>
     <message>
         <source>Plugins</source>
@@ -1710,11 +1710,11 @@ wymagane przy włączonym skalowaniu ekranu.</translation>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation>W górę</translation>
+        <translation>Przesuń w górę</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation>W dół</translation>
+        <translation>Przesuń w dół</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
@@ -1778,7 +1778,7 @@ Zmiana wymaga ponownego uruchomienia.</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation>Zrzut z ekranu</translation>
+        <translation>Zrzut ekranu</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
@@ -1826,7 +1826,7 @@ jeśli taka istnieje. Zmiana wymaga ponownego uruchomienia, aby zaczęła obowi�
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation>Aby przesłać skrypt należy wybrać Opcje &gt; Ustawienia &gt; Przesyłanie skryptów</translation>
+        <translation>Aby przesłać wykorzystując skrypt należy wybrać Opcje &gt; Ustawienia &gt; Przesyłanie z użyciem skryptu</translation>
     </message>
     <message>
         <source>Capture Upload</source>

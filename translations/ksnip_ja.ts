@@ -1543,7 +1543,7 @@ When omitted, everything is copied.</source>
     <name>SnippingAreaSelectorInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation>クリックしドラッグで矩形範囲を選択するか、ESC キーで終了。</translation>
+        <translation>クリックしドラッグで切り取り範囲を選択するか、ESC キーで終了。</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
@@ -1566,7 +1566,7 @@ When omitted, everything is copied.</source>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">範囲選択画面で画像を固定</translation>
+        <translation>範囲選択画面を画像としてフリーズ</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1577,14 +1577,14 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished">When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is shown and with the option disabled
-the delay happens after the snipping area is shown.
-この機能は Wayland では常に無効化、MacOSでは
-常に有効化されます。</translation>
+        <translation>有効にすると、切り取り範囲の選択中に
+その背景は画像としてフリーズします。
+またスクリーンショットの遅延動作も
+変更されます。このオプションが有効なら、
+切り取り範囲が表示される前に遅延が発生。
+無効なら、切り取り範囲の表示後に遅延が発生。
+この機能は Wayland では常に無効化、
+MacOSでは常に有効化されます。</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>

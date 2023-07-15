@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Author</source>
-        <translation>කතෘ</translation>
+        <translation>කර්තෘ</translation>
     </message>
     <message>
         <source>Close</source>

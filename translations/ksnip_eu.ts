@@ -585,7 +585,7 @@ Jarraitu nahi duzu?</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation>Prozesuaren irakurketa errorea.</translation>
+        <translation>Prozesuaren idazketa errorea.</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>

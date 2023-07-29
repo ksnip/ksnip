@@ -29,18 +29,18 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapcsolat</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>License: </source>
-        <translation>Licenc </translation>
+        <translation>Licenc: </translation>
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Képernyőkép és megjegyzéskészítő eszköz</translation>
     </message>
 </context>
 <context>
@@ -100,16 +100,17 @@
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Főablak elrejtése</translation>
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>Teljes</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha engedélyezve van, a parancsikon
+akkor is elérhetővé teszi, ha a ksnip nem fókuszál.</translation>
     </message>
 </context>
 <context>
@@ -168,7 +169,7 @@ de simábbá teszi.</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Emlékezzen a megjegyzéskészítő eszköz kiválasztására és betöltése indításkor</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>

@@ -310,7 +310,7 @@ going to be deleted after ksnip closes.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">පිරික්සන්න</translation>
+        <translation>පිරික්සන්න</translation>
     </message>
 </context>
 <context>
@@ -1178,7 +1178,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">පෙරනිමි</translation>
+        <translation>පෙරනිමි</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
@@ -1186,15 +1186,15 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">පිරික්සන්න</translation>
+        <translation>පිරික්සන්න</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">නම</translation>
+        <translation>නම</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">අනුවාදය</translation>
+        <translation>අනුවාදය</translation>
     </message>
     <message>
         <source>Detect</source>

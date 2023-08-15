@@ -59,11 +59,11 @@
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>ග්‍රහණය කරන්න</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>ඊතලය සහිතව</translation>
     </message>
     <message>
         <source>Delay</source>
@@ -76,7 +76,7 @@
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>ග්‍රහණ ප්‍රකාරය</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
@@ -104,7 +104,7 @@
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>ගෝලීය</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
@@ -282,7 +282,7 @@ Docks visibility can be toggled with the Tab Key.</source>
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>නිදොස්කරණය සබල කරන්න</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
@@ -301,7 +301,7 @@ to the new content, increasing this delay might improve the behavior.</source>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>තාවකාලික නාමාවලිය</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
@@ -407,7 +407,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Bug Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>දෝෂ වාර්තා</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
@@ -430,7 +430,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>පසුරුපුවරුවට පිටපත් විය</translation>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
@@ -526,7 +526,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Username</source>
-        <translation>පරිශීලක නාමය</translation>
+        <translation>පරිශ්‍රීලක නාමය</translation>
     </message>
     <message>
         <source>Password</source>
@@ -585,7 +585,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation type="unfinished"></translation>
+        <translation>නොදන්නා දෝෂයකි.</translation>
     </message>
     <message>
         <source>Connection Error.</source>
@@ -608,7 +608,7 @@ Do you want to continue?</source>
     <name>HotKeySettings</name>
     <message>
         <source>Enable Global HotKeys</source>
-        <translation>ගෝලීය උණුසුම්යතුර සබල කරන්න</translation>
+        <translation>ගෝලීය උණුසුම් යතුර සබල කරන්න</translation>
     </message>
     <message>
         <source>Capture Rect Area</source>
@@ -616,15 +616,15 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Capture Full Screen</source>
-        <translation>ගෝලීය උණුසුම් යතුරු</translation>
+        <translation>පූර්ණ තිරය ග්‍රහණය</translation>
     </message>
     <message>
         <source>Capture current Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>වත්මන් තිරය ග්‍රහණය</translation>
     </message>
     <message>
         <source>Capture active Window</source>
-        <translation type="unfinished"></translation>
+        <translation>සක්‍රිය කවුළුව ග්‍රහණය</translation>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
@@ -632,7 +632,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Global HotKeys</source>
-        <translation>ගෝලීය උණුසුම්යතුරු</translation>
+        <translation>ගෝලීය උණුසුම් යතුරු</translation>
     </message>
     <message>
         <source>Capture Last Rect Area</source>
@@ -644,7 +644,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>ද්වාරය භාවිතයෙන් ග්‍රහණය</translation>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
@@ -804,7 +804,7 @@ visible on the screenshot.</source>
     </message>
     <message>
         <source>Username</source>
-        <translation>පරිශීලක නාමය</translation>
+        <translation>පරිශ්‍රීලක නාමය</translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
@@ -885,7 +885,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy</source>
-        <translation>පිටපත්</translation>
+        <translation>පිටපතක්</translation>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
@@ -940,7 +940,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished"></translation>
+        <translation>පරිමාණනය</translation>
     </message>
     <message>
         <source>Quit</source>
@@ -956,7 +956,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Open</source>
-        <translation>විවෘත කරන්න</translation>
+        <translation>අරින්න</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
@@ -972,7 +972,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation>දිය සලකුණ එකතුකරන්න</translation>
+        <translation>දිය සලකුණ යොදන්න</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
@@ -988,7 +988,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>ලෙස සුරකින්න...</translation>
+        <translation>මෙලෙස සුරකින්න...</translation>
     </message>
     <message>
         <source>Paste</source>
@@ -996,11 +996,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation>එබ්බවූ අලවන්න</translation>
+        <translation>කාවැද්දීම අලවන්න</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>අමුණන්න</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
@@ -1012,11 +1012,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation>මාර්ගය පිටපත් කරන්න</translation>
+        <translation>මාර්ගයේ පිටපතක්</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation>නාමාවලිය විවෘත කරන්න</translation>
+        <translation>නාමාවලිය අරින්න</translation>
     </message>
     <message>
         <source>&amp;View</source>
@@ -1032,7 +1032,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Open Images</source>
-        <translation>අනුරූ විවෘත කරන්න</translation>
+        <translation>අනුරූප අරින්න</translation>
     </message>
     <message>
         <source>Show Docks</source>
@@ -1044,11 +1044,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation>දත්ත ඒ.ස.හ.(URI) ලෙස පිටපත් කරන්න</translation>
+        <translation>දත්ත ඒ.ස.හ. (URI) ලෙස පිටපතක්</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation>&amp;මෑත දෑ විවෘත කරන්න</translation>
+        <translation>මෑත දෑ අරින්න</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
@@ -1064,7 +1064,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>අනුරුව පරිමානණය</translation>
     </message>
     <message>
         <source>Rotate</source>
@@ -1084,15 +1084,15 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>සියල්ල සුරකින්න</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>කවුළුව වසන්න</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>කපන්න</translation>
     </message>
     <message>
         <source>OCR</source>
@@ -1107,11 +1107,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save As</source>
-        <translation>ලෙස සුරකින්න</translation>
+        <translation>මෙලෙස සුරකින්න</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation>නාමාවලිය විවෘත කරන්න</translation>
+        <translation>නාමාවලිය අරින්න</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -1119,7 +1119,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation>මාර්ගය පිටපත් කරන්න</translation>
+        <translation>මාර්ගයේ පිටපතක්</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1131,14 +1131,14 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>සියල්ල සුරකින්න</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>ග්‍රහණය</translation>
     </message>
 </context>
 <context>
@@ -1167,14 +1167,14 @@ and capturing screenshot.</source>
     <name>PinWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR කවුළු %1</translation>
     </message>
 </context>
 <context>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished"></translation>
+        <translation>සොයන මාර්ගය</translation>
     </message>
     <message>
         <source>Default</source>
@@ -1182,7 +1182,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
-        <translation type="unfinished"></translation>
+        <translation>පේනු තිබෙන නාමාවලිය.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1198,15 +1198,15 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>අනාවරණය</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>පේනු සැකසුම්</translation>
     </message>
     <message>
         <source>Plugin location</source>
-        <translation type="unfinished"></translation>
+        <translation>පේනුවේ ස්ථානය</translation>
     </message>
 </context>
 <context>
@@ -1220,11 +1220,11 @@ and capturing screenshot.</source>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>අනුරුව නම් කෙරිණි</translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>අනුරුව නම් කිරීමට අසමත් විය</translation>
     </message>
     <message>
         <source>Rename image</source>
@@ -1232,7 +1232,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>New filename:</source>
-        <translation>නව ගොනුනාමය:</translation>
+        <translation>ගොනුවේ නව නාමය:</translation>
     </message>
     <message>
         <source>Successfully renamed image to %1</source>
@@ -1247,11 +1247,11 @@ and capturing screenshot.</source>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
-        <translation>ලෙස සුරකින්න</translation>
+        <translation>මෙලෙස සුරකින්න</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation>සියලුම ගොනු</translation>
+        <translation>සියළුම ගොනු</translation>
     </message>
     <message>
         <source>Image Saved</source>
@@ -1278,7 +1278,7 @@ and capturing screenshot.</source>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
+        <translation>නව තිරසේයා ස්වයංක්‍රියව පෙරනිමි ස්ථානයේ සුරකින්න</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
@@ -1295,7 +1295,7 @@ with the latest save directory, for every save.</source>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished"></translation>
+        <translation>තිරසේයා සුරැකෙන ස්ථානය හා ගොනුවේ නම</translation>
     </message>
     <message>
         <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
@@ -1314,7 +1314,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished"></translation>
+        <translation>තිරසේයා සුරැකෙන ස්ථානය</translation>
     </message>
     <message>
         <source>Default</source>
@@ -1326,7 +1326,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Save Quality</source>
-        <translation>සුරැකීමේ ගුණාත්මභාවය</translation>
+        <translation>සුරැකෙන ගුණත්‍වය</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
@@ -1432,7 +1432,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>ඇඳිරූප</translation>
     </message>
     <message>
         <source>Snipping Area</source>
@@ -1456,11 +1456,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>පේනු</translation>
     </message>
     <message>
         <source>Search Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>සැකසුම් සොයන්න...</translation>
     </message>
 </context>
 <context>
@@ -1642,19 +1642,19 @@ required with screen scaling enabled.</source>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>ඉහළට</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>පහළට</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>පෙරනිමි ඇඳිරූප යොදාගන්න</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>ඇඳිරූප සැකසුම්</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
@@ -1670,7 +1670,7 @@ required with screen scaling enabled.</source>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>ඇඳිරූප එක් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -1709,7 +1709,7 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>ග්‍රහණය</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
@@ -1741,11 +1741,11 @@ service when such exists. Change requires restart to take effect.</source>
     <name>UpdateWatermarkOperation</name>
     <message>
         <source>Select Image</source>
-        <translation type="unfinished"></translation>
+        <translation>අනුරුවක් තෝරන්න</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished">අනුරූ ගොනු</translation>
+        <translation>අනුරූ ගොනු</translation>
     </message>
 </context>
 <context>
@@ -1802,7 +1802,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished"></translation>
+        <translation>තැනීම</translation>
     </message>
     <message>
         <source>Using:</source>

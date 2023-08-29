@@ -605,7 +605,7 @@ Jarraitu nahi duzu?</translation>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation>Errore ezezaguna</translation>
+        <translation>Errore ezezaguna.</translation>
     </message>
     <message>
         <source>Connection Error.</source>
@@ -1130,7 +1130,7 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation>Moztu</translation>
+        <translation>Ebaki</translation>
     </message>
     <message>
         <source>OCR</source>
@@ -1691,11 +1691,10 @@ offset to the Snipping Area position which
 is required when the position is not
 correctly calculated. This is sometimes
 required with screen scaling enabled.</source>
-        <translation>Gaituta dagoenean konfiguratutako 
-desplazamendua aplikatuko zaio mozteko 
-areari posiziora kokapena behar bezala 
-kalkulatuta ez denean. Hau batzuetan 
-beharrezkoa da pantaila eskalatzea 
+        <translation>Gaituta dagoenean konfiguratutako desplazamendua 
+aplikatuko zaio mozteko areari posiziora 
+kokapena behar bezala kalkulatuta ez denean. 
+Hau batzuetan beharrezkoa da pantaila eskalatzea 
 gaituta dagoenean.</translation>
     </message>
     <message>

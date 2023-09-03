@@ -485,7 +485,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation type="unfinished">&lt;br/&gt;如果你想通过请开发者喝啤酒或咖啡提供帮助或只是想赞赏所做的工作，欢迎看看%1这里%2。</translation>
+        <translation>&lt;br/&gt;如果你想通过请开发者喝啤酒或咖啡提供帮助或只是想赞赏所做的工作，欢迎看看%1这里%2。</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
@@ -805,7 +805,7 @@ visible on the screenshot.</source>
     </message>
     <message>
         <source>Client ID</source>
-        <translation type="unfinished">客户端 ID</translation>
+        <translation>客户端 ID</translation>
     </message>
     <message>
         <source>Client Secret</source>

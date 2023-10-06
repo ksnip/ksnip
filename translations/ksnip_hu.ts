@@ -173,7 +173,7 @@ de simábbá teszi.</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Váltson a Kiválasztó eszközre az elem rajzolása után</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>

@@ -652,7 +652,7 @@ Haluatko jatkaa?</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
-        <translation>Pikanäppäimet</translation>
+        <translation>Yleiset pikanäppäimet</translation>
     </message>
     <message>
         <source>Capture Last Rect Area</source>
@@ -982,7 +982,7 @@ ottamisen välillä.</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation>Sulje</translation>
+        <translation>Lopeta</translation>
     </message>
     <message>
         <source>Settings</source>

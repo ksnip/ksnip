@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=ksnip
+Exec=/usr/bin/ksnip
 Icon=ksnip
 Terminal=false
 StartupNotify=false

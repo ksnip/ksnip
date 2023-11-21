@@ -132,7 +132,7 @@ Please enable `bullseye-backports` and `buster-backports` repo for Debian 10 and
 <details>
   <summary>ArchLinux</summary>
 
-Ksnip is in the [Community repository](https://archlinux.org/packages/community/x86_64/ksnip/), so you can install it directly via pacman.
+Ksnip is in the [Extra repository](https://archlinux.org/packages/extra/x86_64/ksnip/), so you can install it directly via pacman.
 ```
 $ sudo pacman -S ksnip
 ```

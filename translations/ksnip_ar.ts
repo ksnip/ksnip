@@ -953,7 +953,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>اﻹعدادات</translation>
     </message>
     <message>
         <source>&amp;About</source>
@@ -1393,7 +1393,7 @@ When omitted, everything is copied.</source>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>الإعدادات</translation>
     </message>
     <message>
         <source>OK</source>

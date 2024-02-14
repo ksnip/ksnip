@@ -160,7 +160,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх 
+ліній, залишених пером чи маркером, але зробить їх&#x2028;
 плавнішими.</translation>
     </message>
     <message>
@@ -983,7 +983,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Quit</source>
-        <translation>Закрити</translation>
+        <translation>Вийти</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -1754,7 +1754,7 @@ required with screen scaling enabled.</source>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation>Піктограма у лотку</translation>
+        <translation>Показувати піктограму у лотку</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.

@@ -1,6 +1,7 @@
 name: linux
 
 on:
+  workflow_dispatch:
   push:
     branches: [ master ]
     tags:
@@ -131,7 +132,7 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          version: '5.12.7'
+          version: '5.9.7'
           host: 'linux'
           install-deps: 'true'
 

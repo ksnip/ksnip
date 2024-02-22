@@ -34,14 +34,13 @@ CopyAsDataUriOperation::CopyAsDataUriOperation(
 bool CopyAsDataUriOperation::execute()
 {
 	QByteArray byteArray;
-
 	QBuffer buffer(&byteArray);
 	buffer.open(QIODevice::WriteOnly);
-	auto saved = mImage.save(&buffer, "PNG");
+	auto isSaved = mImage.save(&buffer, mConfig->saveFormat().toLatin1());
 	buffer.close();
 
-	if (saved) {
-		QByteArray output = "data:image/png;base64,";
+	if (isSaved) {
+		QByteArray output = "data:image/" + mConfig->saveFormat().toLatin1() +";base64,";
 		output.append(byteArray.toBase64());
 		mClipboardService->setText(output);
 		notifySuccess();
@@ -49,7 +48,7 @@ bool CopyAsDataUriOperation::execute()
 		notifyFailure();
 	}
 
-	return saved;
+	return isSaved;
 }
 
 void CopyAsDataUriOperation::notifyFailure() const

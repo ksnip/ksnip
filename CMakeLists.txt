@@ -44,6 +44,14 @@ endif ()
 set(QT_COMPONENTS Core Widgets Network Xml PrintSupport DBus Svg)
 set(QT_MIN_VERSION 5.9.4)
 
+option(BUILD_WITH_QT6 "Build against Qt6" OFF)
+
+if (BUILD_WITH_QT6)
+	set(QT_MAJOR_VERSION 6)
+else()
+	set(QT_MAJOR_VERSION 5)
+endif()
+
 if (UNIX AND NOT APPLE)
 	list(APPEND QT_COMPONENTS Concurrent)
 endif()
@@ -58,13 +66,13 @@ if (BUILD_TESTS)
 	list(APPEND QT_COMPONENTS Test)
 endif()
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED ${QT_COMPONENTS})
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED ${QT_COMPONENTS})
 
-set(KIMAGEANNOTATOR_MIN_VERSION 0.6.1)
-find_package(kImageAnnotator ${KIMAGEANNOTATOR_MIN_VERSION} REQUIRED)
+set(KIMAGEANNOTATOR_MIN_VERSION 0.7.0)
+find_package(kImageAnnotator-Qt${QT_MAJOR_VERSION} ${KIMAGEANNOTATOR_MIN_VERSION} REQUIRED)
 
-set(KCOLORPICKER_MIN_VERSION 0.2.0)
-find_package(kColorPicker ${KCOLORPICKER_MIN_VERSION} REQUIRED)
+set(KCOLORPICKER_MIN_VERSION 0.3.0)
+find_package(kColorPicker-Qt${QT_MAJOR_VERSION} ${KCOLORPICKER_MIN_VERSION} REQUIRED)
 
 set(BASEPATH "${CMAKE_SOURCE_DIR}")
 include_directories("${BASEPATH}")

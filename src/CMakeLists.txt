@@ -293,7 +293,7 @@ elseif (UNIX)
 elseif (WIN32)
         list(APPEND DEPENDENCY_LIBRARIES
                 Qt5::WinExtras
-                kImageAnnotator
+				kImageAnnotator::kImageAnnotator
                 kColorPicker
                 Dwmapi
                 )

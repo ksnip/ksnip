@@ -1,6 +1,7 @@
 # Change log
 
 ## Release 1.11.0
+* Fixed: Cannot compile from source, kImageAnnotatorConfig not found despite being built and installed. ([#1027](https://github.com/ksnip/ksnip/issues/1027))
 * New kImageAnnotator: Allow copying items between tabs. ([#318](https://github.com/ksnip/kImageAnnotator/issues/318))
 * New kImageAnnotator: CTRL + A does not select all text typed. ([#198](https://github.com/ksnip/kImageAnnotator/issues/198))
 * New kImageAnnotator: Open text edit mode when double-click on textbox figure in Text tool. ([#180](https://github.com/ksnip/kImageAnnotator/issues/180))
@@ -11,7 +12,7 @@
 * Fixed kImageAnnotator: Can't wrap long text line when resizing text box. ([#211](https://github.com/ksnip/kImageAnnotator/issues/211))
 * Fixed kImageAnnotator: Key press operations affect items across different tabs. ([#319](https://github.com/ksnip/kImageAnnotator/issues/319))
 * Fixed kImageAnnotator: Clipboard cleared when new tab added. ([#321](https://github.com/ksnip/kImageAnnotator/issues/321))
-* Fixed kImageAnnotator: Crash after pressing key when no tab exists or closing last tab. ([#271](https://github.com/ksnip/kImageAnnotator/issues/334))
+* Fixed kImageAnnotator: Crash after pressing key when no tab exists or closing last tab. ([#334](https://github.com/ksnip/kImageAnnotator/issues/334))
 
 ## Release 1.10.1
 * Fixed: DragAndDrop not working with snaps. ([#898](https://github.com/ksnip/ksnip/issues/898))

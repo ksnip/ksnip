@@ -88,6 +88,7 @@
         <release type="stable" version="1.11.0" date="2024-03-01T00:00:00Z">
             <description>
                 <ul>
+                    <li>Fixed: Cannot compile from source, kImageAnnotatorConfig not found despite being built and installed.</li>
                     <li>New kImageAnnotator: Allow copying items between tabs.</li>
                     <li>New kImageAnnotator: CTRL + A does not select all text typed.</li>
                     <li>New kImageAnnotator: Open text edit mode when double-click on textbox figure in Text tool.</li>

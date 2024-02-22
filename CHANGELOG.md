@@ -11,6 +11,7 @@
 * Fixed kImageAnnotator: Can't wrap long text line when resizing text box. ([#211](https://github.com/ksnip/kImageAnnotator/issues/211))
 * Fixed kImageAnnotator: Key press operations affect items across different tabs. ([#319](https://github.com/ksnip/kImageAnnotator/issues/319))
 * Fixed kImageAnnotator: Clipboard cleared when new tab added. ([#321](https://github.com/ksnip/kImageAnnotator/issues/321))
+* Fixed kImageAnnotator: Crash after pressing key when no tab exists or closing last tab. ([#271](https://github.com/ksnip/kImageAnnotator/issues/334))
 
 ## Release 1.10.1
 * Fixed: DragAndDrop not working with snaps. ([#898](https://github.com/ksnip/ksnip/issues/898))

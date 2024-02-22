@@ -85,7 +85,7 @@
     <update_contact>damir.porobic@gmx.com</update_contact>
     <content_rating type="oars-1.0" />
     <releases>
-        <release type="stable" version="1.11.0" date="2023-05-01T00:00:00Z">
+        <release type="stable" version="1.11.0" date="2024-03-01T00:00:00Z">
             <description>
                 <ul>
                     <li>New kImageAnnotator: Allow copying items between tabs.</li>
@@ -98,6 +98,7 @@
                     <li>Fixed kImageAnnotator: Can't wrap long text line when I resize Text box area.</li>
                     <li>Fixed kImageAnnotator: Key press operations affect items across different tabs.</li>
                     <li>Fixed kImageAnnotator: Clipboard cleared when new tab added.</li>
+                    <li>Fixed kImageAnnotator: Crash after pressing key when no tab exists or closing last tab.</li>
                 </ul>
             </description>
         </release>

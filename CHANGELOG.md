@@ -13,6 +13,7 @@
 * Fixed kImageAnnotator: Key press operations affect items across different tabs. ([#319](https://github.com/ksnip/kImageAnnotator/issues/319))
 * Fixed kImageAnnotator: Clipboard cleared when new tab added. ([#321](https://github.com/ksnip/kImageAnnotator/issues/321))
 * Fixed kImageAnnotator: Crash after pressing key when no tab exists or closing last tab. ([#334](https://github.com/ksnip/kImageAnnotator/issues/334))
+* Fixed kImageAnnotator: KeyInputHelperTest failed with QT_QPA_PLATFORM=offscreen. ([#335](https://github.com/ksnip/kImageAnnotator/issues/335))
 
 ## Release 1.10.1
 * Fixed: DragAndDrop not working with snaps. ([#898](https://github.com/ksnip/ksnip/issues/898))

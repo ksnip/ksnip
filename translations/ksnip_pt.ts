@@ -1011,7 +1011,7 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation>&amp;Arquivo</translation>
+        <translation>&amp;Ficheiro</translation>
     </message>
     <message>
         <source>Unable to show image</source>
@@ -1335,7 +1335,7 @@ Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
         <translation>Os formatos suportados são JPG, PNG e BMP. Se nenhum formato for fornecido, o PNG será usado como padrão.
-O nome do arquivo pode conter os seguintes curingas:
+O nome do ficheiro pode conter os seguintes curingas:
 - $Y, $M, $D para data, $h, $m, $s para hora ou $T para hora no formato hhmmss.
 - # múltiplos consecutivos para contador. #### resultará em 0001, a próxima captura será 0002.</translation>
     </message>

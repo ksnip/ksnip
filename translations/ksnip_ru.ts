@@ -136,7 +136,7 @@ available even when ksnip has no focus.</source>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation>Пожалуйста, добавьте изображение водяного знака через Опции &gt; Настройки &gt; Параметры рисования &gt; Установить водяной знак/логотип</translation>
+        <translation>Пожалуйста, добавьте изображение водяного знака через Опции &gt; Настройки &gt; Параметры рисования &gt; Установить водяной знак</translation>
     </message>
 </context>
 <context>
@@ -445,7 +445,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
-        <translation>Не удалось скопировать изображение в буфер обмена в виде base64-кода.</translation>
+        <translation>Не удалось скопировать в буфер обмена изображение с кодировкой base64.</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
@@ -481,7 +481,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation>ksnip&amp;nbsp;&amp;mdash; это некоммерческий проект с открытым исходным кодом, но&lt;br/&gt;проект всё равно требует покрытия некоторых затрат,&lt;br/&gt;таких как оплата домена или инструментов кросс-платформенной поддержки.</translation>
+        <translation>ksnip — это некоммерческий проект с лицензией копилефт, но&lt;br/&gt;проект всё равно требует покрытия некоторых затрат,&lt;br/&gt;таких как оплата домена или инструментов кросс-платформенной поддержки.</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
@@ -750,11 +750,12 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation>Эта задержка используется при отсутствии обычной,
-что позволяет ksnip скрыться до выполнения снимка.
-Не используется, если окно ksnip свёрнуто.
-Уменьшение значения может привести к отображению
-основного окна ksnip на снимке.</translation>
+        <translation>Эта задержка используется, когда в пользовательском
+интерфейсе не выбрана задержка, это позволяет ksnip
+скрыться перед созданием скриншота. Это значение
+не применяется, если ksnip уже свёрнут. Уменьшение этого
+значения может привести к тому, что на снимке экрана
+будет видно главное окно ksnip.</translation>
     </message>
 </context>
 <context>
@@ -922,7 +923,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy</source>
-        <translation>Копировать</translation>
+        <translation>Скопировать</translation>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
@@ -1152,7 +1153,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy</source>
-        <translation>Копировать</translation>
+        <translation>Скопировать</translation>
     </message>
     <message>
         <source>Copy Path</source>

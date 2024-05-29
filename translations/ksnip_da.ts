@@ -109,7 +109,8 @@
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hvis slået til, vil genvejen være tilgængelig
+også når ksnip ikke har fokus.</translation>
     </message>
 </context>
 <context>
@@ -135,14 +136,14 @@ available even when ksnip has no focus.</source>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation>Vær sød at tilføje vandmærket billede via Valg &gt; Indstillinger &gt; Annotator &gt; Opdateringer</translation>
+        <translation>Tilføj et vandmærke billede via Værktøjer &gt; Indstillinger &gt; Annotator &gt; Vandmærke</translation>
     </message>
 </context>
 <context>
     <name>AnnotationSettings</name>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation type="unfinished">Jævn malede stier</translation>
+        <translation>Udjævn malede streger</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and
@@ -152,7 +153,7 @@ jævner blyant og markørs linier ud.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation>Udjævningsfaktor</translation>
+        <translation>Udjævnings-faktor</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
@@ -207,12 +208,13 @@ lige efter det er blevet tegnet, hvilket gør det muligt at ændre indstillinger
     </message>
     <message>
         <source>Show Controls Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis Kontrol Widget</translation>
     </message>
     <message>
         <source>The Controls Widget contains the Undo/Redo,
 Crop, Scale, Rotate and Modify Canvas buttons.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrol Widget indeholder Fortryd/Gentag,
+Beskær, Skalér, Rotér og Redigér Kanvas knapper.</translation>
     </message>
 </context>
 <context>
@@ -260,8 +262,8 @@ den overordnede grafiske brugergrænseflade. For at få ændringerne til at træ
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished">Aktivering af denne valgmulighed vil lade kun et Ksnip instans at køre,
-alle andre instanser der starter bagefter vil overføre deres argumenter til det første, og derefter lukke.</translation>
+        <translation>Aktivering af denne valgmulighed vil tillade kun én Ksnip instans.
+Alle efterfølgende instanser der starter, overfører deres argumenter til første og lukker derefter.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
@@ -303,20 +305,23 @@ Change requires ksnip restart to take effect.</source>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
-        <translation type="unfinished">???</translation>
+        <translation>Tilpas størrelsen til indhold forsinkes for at lade Window Manager modtage
+det nye indhold. I tilfældet at Hovedvinduet ikke er tilpasset korrekt til indholdet,
+kan en forøgelse af forsinkelsen muligvis forbedre oplevelsen.</translation>
     </message>
     <message>
         <source>Resize delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Tilpas størrelse forsinkelse</translation>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Midlertidig Mappe</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
 going to be deleted after ksnip closes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Midlertidig mappe til at gemme midlertidige
+billeder der slettes efter ksnip lukker.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -407,7 +412,7 @@ Vil du gemme ændringerne?</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished">Bruger skærmbilledsportal</translation>
+        <translation>Bruger skærmbilledsportal til at tage skærmbillede</translation>
     </message>
 </context>
 <context>
@@ -688,7 +693,11 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Generisk Wayland implementation der bruger
+XDG-DESKTOP-PORTAL håndterer skærm skalering
+forskelligt. Aktivering af denne indstilling vil
+bestemme den nuværende skærm skalering og
+tilføje denne til skærmbilledet i ksnip.</translation>
     </message>
     <message>
         <source>GNOME and KDE Plasma support their own Wayland
@@ -696,7 +705,12 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>GNOME og KDE Plasma understøtter deres egne Wayland
+og generiske XDG-DESKTOP-PORTAL skærmbilleder.
+Aktivering af denne indstilling tvinger GNOME og
+KDE Plasma til at bruge XDG-DESKTOP-PORTAL
+skærmbilleder.
+Ændring af denne indstilling kræver genstart af ksnip.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
@@ -726,7 +740,7 @@ når hovedvindue var skjult eller minimeret.</translation>
     </message>
     <message>
         <source>Implicit capture delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Implicit forsinkelse</translation>
     </message>
     <message>
         <source>This delay is used when no delay was selected in
@@ -735,7 +749,12 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Forsinkelsen bruges når der ikke er valgt nogen 
+forsinkelse i UI, hvilket giver mulighed for at skjule
+knsip inden skærmbilledet tages. Denne værdi
+bruges ikke hvis ksnip allerede er minimeret.
+Lavere værdi kan have den effekt at ksnips
+hovedvindue er synligt i skærmbilledet.</translation>
     </message>
 </context>
 <context>
@@ -858,11 +877,11 @@ Changing requires restart.</source>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Upload titel:</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Upload beskrivelse:</translation>
     </message>
 </context>
 <context>
@@ -1026,7 +1045,7 @@ tagning af skærmbillede.</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished">Ingen tilgængelige billeder, men et er forventet</translation>
+        <translation>Intet billede tilgængeligt, men et er forventet.</translation>
     </message>
     <message>
         <source>Copy Path</source>
@@ -1074,11 +1093,11 @@ tagning af skærmbillede.</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Upload optagelse til ekstern kilde</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier optagelse til udklipsholder</translation>
     </message>
     <message>
         <source>Scale Image</source>
@@ -1102,19 +1121,19 @@ tagning af skærmbillede.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Gem Alle</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Luk Vindue</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Klip</translation>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR</translation>
     </message>
 </context>
 <context>
@@ -1149,7 +1168,7 @@ tagning af skærmbillede.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Gem Alle</translation>
     </message>
 </context>
 <context>
@@ -1163,7 +1182,7 @@ tagning af skærmbillede.</translation>
     <name>OcrWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR Vindue %1</translation>
     </message>
 </context>
 <context>
@@ -1185,14 +1204,14 @@ tagning af skærmbillede.</translation>
     <name>PinWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR Vindue %1</translation>
     </message>
 </context>
 <context>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Søgesti</translation>
     </message>
     <message>
         <source>Default</source>
@@ -1200,11 +1219,11 @@ tagning af skærmbillede.</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mappen hvor plugins er placeret.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Gennemse</translation>
+        <translation>Gennemse</translation>
     </message>
     <message>
         <source>Name</source>
@@ -1216,22 +1235,22 @@ tagning af skærmbillede.</translation>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>Detekter</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Plugin Indstillinger</translation>
     </message>
     <message>
         <source>Plugin location</source>
-        <translation type="unfinished"></translation>
+        <translation>Plugin placering</translation>
     </message>
 </context>
 <context>
     <name>ProcessIndicator</name>
     <message>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>Arbejder</translation>
     </message>
 </context>
 <context>
@@ -1300,7 +1319,7 @@ tagning af skærmbillede.</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Spørg om at gemme inden ikke-gemte ændringer kasseres</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
@@ -1309,7 +1328,8 @@ tagning af skærmbillede.</translation>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hvis aktiveret vil dette overskrive gem mappen, gemt i indstillinger,
+med senest gemte mappe, for hver gang der gemmes.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
@@ -1320,7 +1340,10 @@ with the latest save directory, for every save.</source>
 Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
-        <translation type="unfinished"></translation>
+        <translation>Understøttede formater er JPG, PNG og BMP. Hvis der ikke er valgt format, bruges PNG som standard.
+Filnavn kan indeholde følgende wildcards:
+- $Y, $M, $D for dato, $h, $m, $s for tid, eller $T for tid i hhmmss format.
+- Gentagne # for en tæller. #### resulterer i 0001, næste skærmbillede vil da være 0002.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1332,7 +1355,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Capture save location</source>
-        <translation>Gemmeplacering</translation>
+        <translation>Skærmbillede placering</translation>
     </message>
     <message>
         <source>Default</source>
@@ -1349,18 +1372,19 @@ Filename can contain following wildcards:
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>Angiv 0 for at gemme små komprimerede filer, 100 for store ukomprimerede filer.
+Ikke alle billedformater understøtter den fulde skala, JPEG gør.</translation>
     </message>
     <message>
         <source>Overwrite file with same name</source>
-        <translation type="unfinished"></translation>
+        <translation>Overskriv fil med samme navn</translation>
     </message>
 </context>
 <context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation>Kopier scriptuddata til udklipsholder</translation>
+        <translation>Kopier script output til udklipsholder</translation>
     </message>
     <message>
         <source>Script:</source>
@@ -1369,7 +1393,8 @@ Not all image formats support the full range, JPEG does.</source>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sti til scriptet der bliver kaldt for at overføre. Under overførsel bliver scriptet kaldt
+med stien til en midlertidig png fil som et enkelt argument.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1381,16 +1406,17 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation>Valg overførselsscript</translation>
+        <translation>Vælg overførselsscript</translation>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation type="unfinished"></translation>
+        <translation>Stop når overførselsscript skriver i StdErr</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Markerer overførsel som fejlet når scriptet skriver til StdErr.
+Uden denne indstilling vil fejl i scriptet forblive skjult.</translation>
     </message>
     <message>
         <source>Filter:</source>
@@ -1399,7 +1425,8 @@ Without this setting errors in the script will be unnoticed.</source>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>RegEx udtryk. Kopier kun det der matcher RegEx udtrykket til udklipsholderen.
+Hvis udeladt, bliver alt kopieret.</translation>
     </message>
 </context>
 <context>
@@ -1414,15 +1441,15 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Fortryd</translation>
+        <translation>Annuller</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation>Program</translation>
+        <translation>Applikation</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation>Billedgriberen</translation>
+        <translation>Billedtager</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
@@ -1438,27 +1465,27 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation>Overfører</translation>
+        <translation>Overførsel</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation>Scriptoverførselsværktøj</translation>
+        <translation>Script Overførsel</translation>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished">???</translation>
+        <translation>Gemmer</translation>
     </message>
     <message>
         <source>Stickers</source>
-        <translation>Klistemærker</translation>
+        <translation>Klistermærker</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation>Afklipningsområde</translation>
+        <translation>Klippeområde</translation>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation>Statusfeltikon</translation>
+        <translation>Statuslinjeikon</translation>
     </message>
     <message>
         <source>Watermark</source>
@@ -1474,61 +1501,61 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Plugins</translation>
     </message>
     <message>
         <source>Search Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>Søg Indstillinger...</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
     <message>
         <source>Resize selected rect using the handles or move it by dragging the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ændre størrelsen på rektanglen ved at bruge håndtagene eller flyt den ved at trække det valgte område.</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Brug piletasterne til at flytte det markere område.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Brug piletasterne mens CTRL holdes nede for at flytte øverste venstre håndtag.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Brug piletasterne mens ALT holdes nede for at flytte nederste højre håndtag.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished">Denne meddelelse kan deaktiveres i indstillingerne.</translation>
+        <translation>Denne meddelelse kan deaktiveres i indstillinger.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bekræft markeringen ved at trykke ENTER/RETURN eller dobbeltklik med musen et vilkårligt sted.</translation>
     </message>
     <message>
         <source>Abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbryd ved at trykke ESC.</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Klik og Træk for at vælge et rektangulært område eller tryk ESC for at afslutte.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hold CTRL nede for at ændre størrelsen på markeringen efter område er markeret.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
-        <translation>Tryk og hold CTRL nede for at undgå størrelsesændring efter markering.</translation>
+        <translation>Hold CTRL nede for at undgå størrelsesændring efter markering.</translation>
     </message>
     <message>
         <source>Operation will be canceled after 60 sec when no selection made.</source>
-        <translation type="unfinished"></translation>
+        <translation>Handling vil blive afbrudt efter 60 sek hvis intet område markeres.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
@@ -1539,7 +1566,7 @@ When omitted, everything is copied.</source>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation>Frys billede under afklipning</translation>
+        <translation>Frys billede under markering</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1550,11 +1577,18 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hvis aktiveret vil baggrunden fryses imens et
+rektangulært område markeres. Det ændrer også
+hvordan forsinkede skærmbilleder tages. Med denne
+indstilling slået til vil forsinkelsen ske før det
+klippe-område vises og med indstillingen slået
+fra, vil forsinkelsen ske efter klippe-området vises.
+Denne indstilling er altid slået fra for Wayland og
+altid slået til for MacOS.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis forstørrelsesglas på klippe-område</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into

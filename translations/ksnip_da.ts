@@ -183,8 +183,9 @@ gør dem mere jævne.</translation>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation>Deaktivering af dette her valg betyder at nummereringsværktøjet påvirker kun de nye elementer, og ikke de gamle.
-Deaktivering lader dig anvende dubletnumre.</translation>
+        <translation>Deaktivering af denne indstilling betyder at nummereringsværktøjets
+udgangspunkt kun påvirker de nye elementer men ikke gamle.
+Deaktivering tillader dubletter af numre.</translation>
     </message>
     <message>
         <source>Canvas Color</source>
@@ -263,7 +264,9 @@ all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
         <translation>Aktivering af denne valgmulighed vil tillade kun én Ksnip instans.
-Alle efterfølgende instanser der starter, overfører deres argumenter til første og lukker derefter.</translation>
+Alle efterfølgende instanser der starter, overfører deres argumenter
+til første instans og lukker derefter sig selv. Ændring af denne indstilling
+kræver en genstart af alle instanser.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
@@ -281,7 +284,7 @@ Alle efterfølgende instanser der starter, overfører deres argumenter til førs
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
         <translation>Ved opstart, skjul værktøjslinjen og annoteringsindstillingerne.
-Dockens synlighed kan slås til og fra med Tab tasten</translation>
+Dockens synlighed kan slås til og fra med Tab tasten.</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
@@ -325,7 +328,7 @@ billeder der slettes efter ksnip lukker.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Gennemse</translation>
+        <translation>Gennemse</translation>
     </message>
 </context>
 <context>
@@ -427,8 +430,7 @@ Vil du gemme ændringerne?</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation>Har du nogle generelle spørgsmål, ideer, eller hvis du vil bare snakke om Ksnip,&lt;br/&gt;
-være sød at slutte dig til vores %1 eller %2 server.</translation>
+        <translation>Har du nogle generelle spørgsmål, ideer, eller hvis du vil bare snakke om Ksnip,&lt;br/&gt;bedes du venligst slutte dig til vores %1 eller %2 server.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
@@ -536,7 +538,7 @@ Vil du fortsætte?</translation>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation>Tving anonym overførsel</translation>
+        <translation>Tving anonym overførsel.</translation>
     </message>
     <message>
         <source>Url</source>
@@ -708,8 +710,7 @@ Change in this option require a ksnip restart.</source>
         <translation>GNOME og KDE Plasma understøtter deres egne Wayland
 og generiske XDG-DESKTOP-PORTAL skærmbilleder.
 Aktivering af denne indstilling tvinger GNOME og
-KDE Plasma til at bruge XDG-DESKTOP-PORTAL
-skærmbilleder.
+KDE Plasma til at bruge XDG-DESKTOP-PORTAL skærmbilleder.
 Ændring af denne indstilling kræver genstart af ksnip.</translation>
     </message>
     <message>
@@ -1017,7 +1018,7 @@ tagning af skærmbillede.</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation>&amp;Valgmuligheder</translation>
+        <translation>&amp;Værktøjer</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -1085,7 +1086,7 @@ tagning af skærmbillede.</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation type="unfinished">Åbn &amp;Senest</translation>
+        <translation>Åbn &amp;Seneste</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
@@ -1215,7 +1216,7 @@ tagning af skærmbillede.</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Standard</translation>
+        <translation>Standard</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
@@ -1227,11 +1228,11 @@ tagning af skærmbillede.</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Navn</translation>
+        <translation>Navn</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Version</translation>
+        <translation>Version</translation>
     </message>
     <message>
         <source>Detect</source>
@@ -1406,7 +1407,7 @@ med stien til en midlertidig png fil som et enkelt argument.</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation>Vælg overførselsscript</translation>
+        <translation>Vælg Overførselsscript</translation>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
@@ -1594,84 +1595,93 @@ altid slået til for MacOS.</translation>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis et forstørrelsesglas der zoomer ind på
+baggrundsbilledet. Denne indstilling virker kun
+når &quot;Frys billede under markering&quot; er slået til.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis linealer på Klippeområde</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Horisontale og vertikale linjer fra skrivebordets
+kanter til markøren på klippeområdet.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis info om position og størrelse på Klippeområde</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Når venstre museknap ikke trykkes vises positionen,
+når museknappen trykkes ned vises størrelsen på
+det markerede område øverst til højre for området.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation>Som standardindstilling tillad størrelsesændring af firkantet område</translation>
+        <translation>Tillad ændring af størrelsen på firkantet område som standard</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hvis aktiveret vil det være muligt, efter markering
+af et område, at ændre størrelsen området. Når
+ændring er færdig kan området bekræftes ved at
+trykke på ENTER/RETURN.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis Klippeområde info tekst</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished"></translation>
+        <translation>Markør farve til Klippeområde</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sætter farven på markøren til Klippeområdet.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished"></translation>
+        <translation>Markør tykkelse til Klippeområde</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sætter tykkelsen på markøren til Klippeområdet.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation>Afklipningsområde</translation>
+        <translation>Klippeområde</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation>Kantfarve på Klippeområde</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sætter farven på alle kanter af Klippeområdet.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation>Afklipningsområdes gennemsigtighed</translation>
+        <translation>Klippeområdets gennemsigtighed</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alpha-værdi for ikke-markeret område.
+Lavere værdi betyder mere gennemsigtighed.</translation>
     </message>
     <message>
         <source>Enable Snipping Area offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktiver Klippeområde offset</translation>
     </message>
     <message>
         <source>When enabled will apply the configured
@@ -1679,15 +1689,19 @@ offset to the Snipping Area position which
 is required when the position is not
 correctly calculated. This is sometimes
 required with screen scaling enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hvis aktiveret vil det indstillede offset blive
+tilføjet til Klippeområdets position der kan
+være nødvendigt hvis positionen ikke er
+beregnet korrekt. Dette er indimellem
+nødvendigt hvis skærm skalering er slået til.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
 </context>
 <context>
@@ -1702,15 +1716,15 @@ required with screen scaling enabled.</source>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation>Brug standardklistemærker</translation>
+        <translation>Brug standardklistermærker</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation>Klistemærkeindstillinger</translation>
+        <translation>Klistermærkeindstillinger</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation>Vektorbilledfiler (*.svg)</translation>
+        <translation>Vektor Grafik Filer (*.svg)</translation>
     </message>
     <message>
         <source>Add</source>
@@ -1722,7 +1736,7 @@ required with screen scaling enabled.</source>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation>Tilføj klistemærker</translation>
+        <translation>Tilføj klistermærker</translation>
     </message>
 </context>
 <context>
@@ -1741,7 +1755,8 @@ required with screen scaling enabled.</source>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hvis aktiveret vil et ikon blive tilføjet til proceslinjen hvis OS vinduesmanageren understøtter det.
+Ændring vil kræve en genstart af programmet.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
@@ -1765,35 +1780,36 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation>Standard statusfeltsikonhandling</translation>
+        <translation>Standard handling for proceslinje-ikon</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Standard handling der udføres ved venstreklik på proceslinje-ikon.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation>Statusfeltikon indstillinger</translation>
+        <translation>Proceslinje-ikon indstillinger</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation type="unfinished"></translation>
+        <translation>Brug platform specifik notifikationsservice</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hvis aktiveret vil den platform specifikke notifikationsservice
+benyttes hvis en sådan eksisterer. Ændring kræver genstart af programmet.</translation>
     </message>
     <message>
         <source>Display Tray Icon notifications</source>
-        <translation>Vis statusfeltikonsnotifikationer</translation>
+        <translation>Vis notifikationer på Proceslinje-ikon</translation>
     </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
     <message>
         <source>Select Image</source>
-        <translation>Valg billede</translation>
+        <translation>Vælg billede</translation>
     </message>
     <message>
         <source>Image Files</source>
@@ -1808,7 +1824,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Tilføj venligst et overførselsscript via Værktøjer &gt; Indstillinger &gt; Overførselsscript</translation>
     </message>
     <message>
         <source>Capture Upload</source>
@@ -1816,14 +1832,14 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>Du er ved at overføre billedet til en ekstern destination, vil du fortsætte?</translation>
     </message>
 </context>
 <context>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished"></translation>
+        <translation>Spørg efter bekræftelse før overførsel</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
@@ -1854,7 +1870,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished">Version</translation>
+        <translation>Build</translation>
     </message>
     <message>
         <source>Using:</source>
@@ -1877,7 +1893,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished"></translation>
+        <translation>Hvis aktiveret, vil et vandmærke blive tilføjet med en rotation på 45°</translation>
     </message>
     <message>
         <source>Watermark Settings</source>

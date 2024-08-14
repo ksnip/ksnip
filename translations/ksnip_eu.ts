@@ -1643,27 +1643,27 @@ sakatuta.</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation>Argazki-arearen kurtsorearen kolorea</translation>
+        <translation>Ebakitzeko eremuaren kurtsorearen kolorea</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation>Argazki-arearen kurtsorearen kolorea ezartzen du.</translation>
+        <translation>Ezartzen du ebakitzeko eremuaren kurtsorearen kolorea.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation>Argazki-arearen kurtsorearen zabalera</translation>
+        <translation>Ebakitzeko arearen kurtsorearen zabalera</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation>Argazki-arearen kurtsorearen lodiera ezartzen du.</translation>
+        <translation>Ebakitzeko arearen kurtsorearen lodiera ezartzen du.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation>Argazki-area</translation>
+        <translation>Ebakitzeko area</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation>Argazki-arearen dekorazioaren kolorea</translation>
+        <translation>Ebakitzeko eremuaren markoaren kolorea</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements

@@ -21,6 +21,7 @@
 #define KSNIP_SNIPPINGAREASELECTOR_H
 
 #include <QPainter>
+#include <QKeyEvent>
 
 #include "SnippingAreaAdorner.h"
 #include "src/backend/config/Config.h"
@@ -39,6 +40,7 @@ public:
 	void handleMousePress(const QPointF &pos);
 	void handleMouseRelease();
 	void handleMouseMove(const QPointF &pos);
+	void handleKeyPress(QKeyEvent *event);
 	void setBackgroundImage(const QPixmap *background);
 
 signals:
@@ -55,6 +57,7 @@ private:
 	QRectF mSnippingAreaGeometry;
 	QColor mAdornerColor;
 	QColor mCursorColor;
+	QCursor mMouseCursor;
 
 	void setupAdorner();
 	void setIsMouseDown(bool isMouseDown);

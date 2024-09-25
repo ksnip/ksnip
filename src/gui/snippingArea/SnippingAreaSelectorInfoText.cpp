@@ -32,6 +32,7 @@ void SnippingAreaSelectorInfoText::updateInfoText()
 
 	QStringList infoTextLines = {
 			tr("Click and Drag to select a rectangular area or press ESC to quit."),
+			tr("Use the arrow keys to make fine adjustments."),
 			mIsResizingDefault ? dontResizeAfterSelection : resizeAfterSelection,
 			tr("Operation will be canceled after 60 sec when no selection made."),
 			tr("This message can be disabled via settings.")

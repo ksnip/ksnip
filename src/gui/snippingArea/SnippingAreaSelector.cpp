@@ -23,7 +23,8 @@ SnippingAreaSelector::SnippingAreaSelector(const QSharedPointer<IConfig> &config
 	QObject(parent),
 	mIsActive(false),
 	mConfig(config),
-	mIsMouseDown(false)
+	mIsMouseDown(false),
+	mMouseCursor()
 {
 
 }
@@ -95,6 +96,29 @@ void SnippingAreaSelector::handleMouseMove(const QPointF &pos)
 		}
 
 		updateAdorner(pos);
+	}
+}
+
+void SnippingAreaSelector::handleKeyPress(QKeyEvent *event)
+{
+	if (mIsActive) {
+		// Get the current mouse cursor position and move it.
+		// This triggers the mouse move event
+		const QPoint mouseCursorPosition = mMouseCursor.pos();
+		switch (event->key()) {
+		case Qt::Key_Up:
+			mMouseCursor.setPos(mouseCursorPosition + QPoint(0, -1));
+			break;
+		case Qt::Key_Down:
+			mMouseCursor.setPos(mouseCursorPosition + QPoint(0, 1));
+			break;
+		case Qt::Key_Left:
+			mMouseCursor.setPos(mouseCursorPosition + QPoint(-1, 0));
+			break;
+		case Qt::Key_Right:
+			mMouseCursor.setPos(mouseCursorPosition + QPoint(1, 0));
+			break;
+		}
 	}
 }
 

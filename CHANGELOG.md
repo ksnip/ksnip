@@ -1,6 +1,7 @@
 # Change log
 
 ## Release 1.11.0
+* New: Allow pixel based adjustments via arrow keys when capturing an area. ([#646](https://github.com/ksnip/ksnip/issues/646), [#816](https://github.com/ksnip/ksnip/issues/816), [#887](https://github.com/ksnip/ksnip/issues/887), [#1002](https://github.com/ksnip/ksnip/issues/1002))
 * Fixed: Cannot compile from source, kImageAnnotatorConfig not found despite being built and installed. ([#1027](https://github.com/ksnip/ksnip/issues/1027))
 * New kImageAnnotator: Allow copying items between tabs. ([#318](https://github.com/ksnip/kImageAnnotator/issues/318))
 * New kImageAnnotator: CTRL + A does not select all text typed. ([#198](https://github.com/ksnip/kImageAnnotator/issues/198))

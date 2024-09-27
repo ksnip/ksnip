@@ -232,6 +232,7 @@ void AbstractSnippingArea::keyPressEvent(QKeyEvent *event)
 		mIsSwitchPressed = true;
 	}
 
+	mSelector->handleKeyPress(event);
     mResizer->handleKeyPress(event);
 	update();
 

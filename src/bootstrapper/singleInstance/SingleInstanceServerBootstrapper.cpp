@@ -38,7 +38,7 @@ int SingleInstanceServerBootstrapper::start(const QApplication &app)
 
 void SingleInstanceServerBootstrapper::startServer() const
 {
-	mIpcServer->listen(SingleInstance::ServerName);
+    mIpcServer->listen(SingleInstance::ServerName());
 	connect(mIpcServer, &IpcServer::received, this, &SingleInstanceServerBootstrapper::processData);
 }
 

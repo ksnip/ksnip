@@ -19,6 +19,8 @@
 
 #include "IpcServer.h"
 
+#include <iostream>
+
 IpcServer::IpcServer() :
 	mLocalServer(new QLocalServer())
 {

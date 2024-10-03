@@ -28,6 +28,7 @@
 #include "src/bootstrapper/singleInstance/InstanceLock.h"
 #include "src/dependencyInjector/DependencyInjector.h"
 
+#include <iostream>
 
 class BootstrapperFactory
 {

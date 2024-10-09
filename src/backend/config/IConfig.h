@@ -99,6 +99,12 @@ public:
 	virtual bool useTrayIcon() const = 0;
 	virtual void setUseTrayIcon(bool enabled) = 0;
 
+	virtual bool useCustomTrayIconImage() const = 0;
+	virtual void setCustomTrayIconImage(bool enabled) = 0;
+
+	virtual QString customTrayIconImageFile() const = 0;
+	virtual void setCustomTrayIconImageFile(const QString &filename) = 0;
+
 	virtual bool minimizeToTray() const = 0;
 	virtual void setMinimizeToTray(bool enabled) = 0;
 

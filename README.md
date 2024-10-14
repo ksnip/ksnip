@@ -54,7 +54,7 @@ Latest ksnip version contains following features:
 | Windows             | X         | X              | X           | X              | X             |                     | X                    |                   |
 | macOS               | X         | X              | X           | X              |               |                     |                      |                   |
 
-&ast; xdg-desktop-portal screenshots are screenshots taken by the compositor and passed to ksnip, you will see a popup dialog that required additional confirmation,
+&ast; xdg-desktop-portal screenshots are screenshots taken by the compositor and passed to ksnip, you will see a popup dialog that requires additional confirmation,
     the implementation can vary depending on the compositor. Currently, Snaps and Gnome Wayland `>= 41` only support xdg-desktop-portal screenshots, this is a
     limitation coming from the Gnome and Snaps, non-native screenshot tools are not allowed to take screenshots in any other way except through the xdg-desktop-portal.
     
@@ -76,7 +76,7 @@ so use them with caution.
 <details>
   <summary>AppImage</summary>
 
-To use AppImages, make them executable and run them, no installation required.
+To use AppImages, make them executable and run them, no installation is required.
 ```
 $ chmod a+x ksnip*.AppImage
 $ ./ksnip*.AppImage
@@ -199,7 +199,7 @@ The MSI installer installs ksnip on your system and is the preferred way for ins
 <details>
   <summary>EXE</summary>
 
-The EXE file with all required dependencies comes in a zipped package, which just need to be unzipped
+The EXE file with all required dependencies comes in a zipped package, which just needs to be unzipped
 with your favorite unpacking tool. Ksnip can then be started by just double-clicking ksnip.exe.
 </details>
 
@@ -300,7 +300,7 @@ the Snipping Area position or offset can be configured so that it's placed corre
 
 ### Snap
 1. Drag and Drop might not be working when ksnip or the application that you drag and drop from/to is installed as snap.
-the reason being that the image is shared via the temp directory which in case of snaps are restricted and every 
+the reason is that the image is shared via the temp directory which in case of snaps are restricted and every 
 application can only see their own files or files of the user. The workaround for this is to change the temp directory 
 location to a user owned directory like home, document or download directory via `Options > Settings > Application > 
 Temp Directory`.

@@ -90,6 +90,7 @@
                 <ul>
                     <li>New: Allow pixel based adjustments via arrow keys when capturing an area.</li>
                     <li>Fixed: Cannot compile from source, kImageAnnotatorConfig not found despite being built and installed.</li>
+                    <li>Fixed: Impossible to use by multiple users on the same machine.</li>
                     <li>New kImageAnnotator: Allow copying items between tabs.</li>
                     <li>New kImageAnnotator: CTRL + A does not select all text typed.</li>
                     <li>New kImageAnnotator: Open text edit mode when double-click on textbox figure in Text tool.</li>

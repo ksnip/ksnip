@@ -34,16 +34,14 @@ InstanceLock::~InstanceLock()
 
 bool InstanceLock::lock()
 {
-    if(this->create())
-        return true;
-
-    return false;
+    return create();
 }
 
 bool InstanceLock::create()
 {
-    if(mSingular->attach())
-        mSingular->detach();
+	if(mSingular->attach()) {
+		mSingular->detach();
+	}
 
     return mSingular->create(1);
 }

@@ -47,15 +47,15 @@
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>სახელი</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>მალმხმობი</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>გაწმენდა</translation>
     </message>
     <message>
         <source>Take Capture</source>
@@ -67,16 +67,16 @@
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>შეყოვნება</translation>
     </message>
     <message>
         <source>s</source>
         <extracomment>The small letter s stands for seconds.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>წმ</translation>
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩაჭერის რეჟიმი</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
@@ -88,7 +88,7 @@
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>გამოსახულების ატვირთვა</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
@@ -96,15 +96,15 @@
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>გამოსახულების შენახვა</translation>
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>მთავარი ფანჯრის დამალვა</translation>
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>გლობალური</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
@@ -116,7 +116,7 @@ available even when ksnip has no focus.</source>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>დამატება</translation>
     </message>
     <message>
         <source>Actions Settings</source>
@@ -124,7 +124,7 @@ available even when ksnip has no focus.</source>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>პარამეტრები</translation>
     </message>
 </context>
 <context>
@@ -217,7 +217,7 @@ Crop, Scale, Rotate and Modify Canvas buttons.</source>
     </message>
     <message>
         <source>Application Style</source>
-        <translation type="unfinished"></translation>
+        <translation>აპლიკაციის სტილი</translation>
     </message>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
@@ -226,7 +226,7 @@ Change requires ksnip restart to take effect.</source>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>აპლიკაციის მორგება</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
@@ -282,7 +282,7 @@ Docks visibility can be toggled with the Tab Key.</source>
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>შეცდომების პოვნის ჩართვა</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
@@ -301,7 +301,7 @@ to the new content, increasing this delay might improve the behavior.</source>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>დროებითი საქაღალდე</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
@@ -310,14 +310,14 @@ going to be deleted after ksnip closes.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Durchsuchen</translation>
+        <translation>პოვნა</translation>
     </message>
 </context>
 <context>
     <name>AuthorTab</name>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished"></translation>
+        <translation>მოხალისეები:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
@@ -341,7 +341,7 @@ going to be deleted after ksnip closes.</source>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>პოლონური თარგმანი</translation>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
@@ -368,7 +368,7 @@ Do you want to save it?</source>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>ახალი</translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
@@ -403,7 +403,7 @@ Do you want to save it?</source>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>საზოგადოება</translation>
     </message>
     <message>
         <source>Bug Reports</source>
@@ -422,7 +422,7 @@ Do you want to save it?</source>
     <name>CopyAsDataUriOperation</name>
     <message>
         <source>Failed to copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>ბუფერში კოპირების შეცდომა</translation>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
@@ -430,7 +430,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>დაკოპირდა გაცვლის ბაფერში</translation>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
@@ -441,7 +441,7 @@ Do you want to save it?</source>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>გამოსახულების წაშლა</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
@@ -495,19 +495,19 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished"></translation>
+        <translation>მთელ ეკრანზე (ყველა მონიტორი)</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>მიმდინარე ეკრანი</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished"></translation>
+        <translation>აქტიური ფანჯარა</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>კურსორის ქვეშ მდებარე ფანჯარა</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
@@ -522,15 +522,15 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>Url</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>მომხმარებლის სახელი</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>პაროლი</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
@@ -553,7 +553,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Process crashed</source>
-        <translation type="unfinished"></translation>
+        <translation>პროცესი ავარიულად დასრულდა</translation>
     </message>
     <message>
         <source>Process timed out.</source>
@@ -573,7 +573,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>ატვირთვის შეცდომა</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
@@ -585,11 +585,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation type="unfinished"></translation>
+        <translation>უცნობი შეცდომა.</translation>
     </message>
     <message>
         <source>Connection Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>კავშირის შეცდომა.</translation>
     </message>
     <message>
         <source>Permission Error.</source>
@@ -616,7 +616,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Capture Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>მთელი ეკრანი</translation>
     </message>
     <message>
         <source>Capture current Screen</source>
@@ -640,7 +640,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>გაწმენდა</translation>
     </message>
     <message>
         <source>Capture using Portal</source>
@@ -730,7 +730,7 @@ visible on the screenshot.</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>დახურვა</translation>
     </message>
     <message>
         <source>Time Stamp</source>
@@ -738,7 +738,7 @@ visible on the screenshot.</source>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>ბმული</translation>
     </message>
     <message>
         <source>Delete Link</source>
@@ -772,15 +772,15 @@ visible on the screenshot.</source>
     </message>
     <message>
         <source>Client ID</source>
-        <translation type="unfinished"></translation>
+        <translation>კლიენტის ID</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation type="unfinished"></translation>
+        <translation>კლიენტის საიდუმლო</translation>
     </message>
     <message>
         <source>PIN</source>
-        <translation type="unfinished"></translation>
+        <translation>PIN კოდი</translation>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
@@ -804,7 +804,7 @@ visible on the screenshot.</source>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>მომხმარებლის სახელი</translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
@@ -863,7 +863,7 @@ Changing requires restart.</source>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>ახალი</translation>
     </message>
     <message>
         <source>Delay in seconds between triggering
@@ -873,11 +873,11 @@ and capturing screenshot.</source>
     <message>
         <source>s</source>
         <extracomment>The small letter s stands for seconds.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>წმ</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>შენახვა</translation>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
@@ -885,7 +885,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>კოპირება</translation>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
@@ -893,19 +893,19 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>ხელსაწყოები</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>დაბრუნება</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>გამეორება</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation type="unfinished"></translation>
+        <translation>ამოჭრა</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
@@ -916,15 +916,15 @@ and capturing screenshot.</source>
     <name>MainWindow</name>
     <message>
         <source>Unsaved</source>
-        <translation type="unfinished"></translation>
+        <translation>შეუნახავი</translation>
     </message>
     <message>
         <source>Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>ატვირთვა</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>ბეჭდვა</translation>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
@@ -932,7 +932,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Print Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>დასაბეჭდის გადახედვა</translation>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
@@ -940,39 +940,39 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished"></translation>
+        <translation>მაშტაბი</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>გასვლა</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>მორგება</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;შესახებ</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>გახსნა</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;ჩასწორება</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;მორგება</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;დახმარება</translation>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>ჭვირნიშნის დამატება</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
@@ -980,7 +980,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;ფაილი</translation>
     </message>
     <message>
         <source>Unable to show image</source>
@@ -988,11 +988,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>შეინახვა &amp;როგორც...</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩასმა</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
@@ -1000,7 +1000,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>მიმაგრება</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
@@ -1012,27 +1012,27 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>ბილიკის კოპირება</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>საქაღალდის გახსნა</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;ნახვა</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>წაშლა</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>სახელის გადარქმევა</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>გამოსახულების გახსნა</translation>
     </message>
     <message>
         <source>Show Docks</source>
@@ -1048,7 +1048,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>ბოლოს გახსნილი ფაილების გახსნა</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
@@ -1064,81 +1064,81 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>გამოსახულების მასშტაბირება</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>დატრიალება</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>გამოსახულების შემობრუნება</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>ქმედებები</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>ასლის ფაილები</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>ყველას შენახვა</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>ფანჯრის დახურვა</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>ამოჭრა</translation>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR</translation>
     </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>შენახვა</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished"></translation>
+        <translation>შენახვა, როგორც</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>საქაღალდის გახსნა</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>კოპირება</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>ბილიკის კოპირება</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>წაშლა</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>სახელის გადარქმევა</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>ყველას შენახვა</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩაჭერა</translation>
     </message>
 </context>
 <context>
@@ -1152,15 +1152,15 @@ and capturing screenshot.</source>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>დახურვა</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>სხვების დახურვა</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>ყველას დახურვა</translation>
     </message>
 </context>
 <context>
@@ -1174,11 +1174,11 @@ and capturing screenshot.</source>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished"></translation>
+        <translation>ძებნის ბილიკი</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Standard</translation>
+        <translation>ნაგულისხმევი</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
@@ -1186,23 +1186,23 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Durchsuchen</translation>
+        <translation>პოვნა</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Name</translation>
+        <translation>სახელი</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Version</translation>
+        <translation>ვერსია</translation>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>აღმოჩენა</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>მოდულის პარამეტრები</translation>
     </message>
     <message>
         <source>Plugin location</source>
@@ -1213,7 +1213,7 @@ and capturing screenshot.</source>
     <name>ProcessIndicator</name>
     <message>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>დამუშავება</translation>
     </message>
 </context>
 <context>
@@ -1247,11 +1247,11 @@ and capturing screenshot.</source>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
-        <translation type="unfinished"></translation>
+        <translation>შენახვა, როგორც</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished"></translation>
+        <translation>ყველა ფაილი</translation>
     </message>
     <message>
         <source>Image Saved</source>
@@ -1263,7 +1263,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>ასლის ფაილები</translation>
     </message>
     <message>
         <source>Saved to %1</source>
@@ -1271,7 +1271,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Failed to save image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>სურათის %1-ზე დამახსოვრების შეცდომა</translation>
     </message>
 </context>
 <context>
@@ -1306,7 +1306,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>პოვნა</translation>
     </message>
     <message>
         <source>Saver Settings</source>
@@ -1318,11 +1318,11 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>ნაგულისხმევი</translation>
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>ფაქტორი</translation>
     </message>
     <message>
         <source>Save Quality</source>
@@ -1346,7 +1346,7 @@ Not all image formats support the full range, JPEG does.</source>
     </message>
     <message>
         <source>Script:</source>
-        <translation type="unfinished"></translation>
+        <translation>სკრიპტი:</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
@@ -1355,7 +1355,7 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>პოვნა</translation>
     </message>
     <message>
         <source>Script Uploader</source>
@@ -1376,7 +1376,7 @@ Without this setting errors in the script will be unnoticed.</source>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>ფილტრი:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
@@ -1388,15 +1388,15 @@ When omitted, everything is copied.</source>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>მორგება</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>დიახ</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>გაუქმება</translation>
     </message>
     <message>
         <source>Image Grabber</source>
@@ -1408,11 +1408,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>პროგრამა</translation>
     </message>
     <message>
         <source>Annotator</source>
-        <translation type="unfinished"></translation>
+        <translation>ანოტატორი</translation>
     </message>
     <message>
         <source>HotKeys</source>
@@ -1432,7 +1432,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>სტიკერები</translation>
     </message>
     <message>
         <source>Snipping Area</source>
@@ -1444,11 +1444,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>ჭვირნიშანი</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>ქმედებები</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
@@ -1456,7 +1456,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>დამატებები</translation>
     </message>
     <message>
         <source>Search Settings...</source>
@@ -1631,22 +1631,22 @@ required with screen scaling enabled.</source>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>წ</translation>
     </message>
 </context>
 <context>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩართული</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>ქვემოთ</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
@@ -1662,11 +1662,11 @@ required with screen scaling enabled.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>დამატება</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>წაშლა</translation>
     </message>
     <message>
         <source>Add Stickers</source>
@@ -1677,7 +1677,7 @@ required with screen scaling enabled.</source>
     <name>TrayIcon</name>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>რედაქტორის ჩვენება</translation>
     </message>
 </context>
 <context>
@@ -1701,15 +1701,15 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>სისტემური პანელის ხატულაში ჩახურვა</translation>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>რედაქტორის ჩვენება</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩაჭერა</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
@@ -1741,11 +1741,11 @@ service when such exists. Change requires restart to take effect.</source>
     <name>UpdateWatermarkOperation</name>
     <message>
         <source>Select Image</source>
-        <translation type="unfinished"></translation>
+        <translation>აირჩიეთ დისკის ასლის ფაილი</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>ასლის ფაილები</translation>
     </message>
 </context>
 <context>
@@ -1779,11 +1779,11 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>სკრიპტი</translation>
     </message>
     <message>
         <source>Uploader</source>
@@ -1791,22 +1791,22 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>FTP</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP</translation>
     </message>
 </context>
 <context>
     <name>VersionTab</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>ვერსია</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished"></translation>
+        <translation>აგება</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished"></translation>
+        <translation>გამოყენებით:</translation>
     </message>
 </context>
 <context>
@@ -1817,7 +1817,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>განახლება</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>

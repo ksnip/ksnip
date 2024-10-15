@@ -21,7 +21,8 @@
 
 InstanceLock::InstanceLock()
 {
-	mSingular = new QSharedMemory(QLatin1String("KsnipInstanceLock"), this);
+    QString key = QString("KsnipInstanceLock_%1").arg(getuid());
+    mSingular = new QSharedMemory(key, this);
 }
 
 InstanceLock::~InstanceLock()
@@ -33,22 +34,18 @@ InstanceLock::~InstanceLock()
 
 bool InstanceLock::lock()
 {
-	if (create()) {
-		return true;
-	} else {
-		attachDetach();
-		return create();
-	}
+    if(this->create())
+        return true;
+
+    return false;
 }
 
 bool InstanceLock::create()
 {
-	if (mSingular->create(1)) {
-		mSingular->lock();
-		mSingular->unlock();
-		return true;
-	}
-	return false;
+    if(mSingular->attach())
+        mSingular->detach();
+
+    return mSingular->create(1);
 }
 
 bool InstanceLock::attachDetach()

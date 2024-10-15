@@ -21,6 +21,16 @@
 #define KSNIP_INSTANCELOCK_H
 
 #include <QSharedMemory>
+#include <QCoreApplication>
+
+#include <unistd.h>
+#include <sys/types.h>
+
+#include <iostream>
+
+#include <iostream>
+#include <unistd.h>
+#include <sys/types.h>
 
 class InstanceLock : public QObject
 {

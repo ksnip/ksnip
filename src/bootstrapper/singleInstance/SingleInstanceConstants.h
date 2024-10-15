@@ -22,9 +22,14 @@
 
 #include <QString>
 
+#include <unistd.h>
+#include <sys/types.h>
+
 inline namespace SingleInstance {
 
-const QString ServerName(QStringLiteral("org.ksnip.ksnip.singleInstanceServer"));
+    static const QString ServerName() {
+        return QString("org.ksnip.ksnip.singleInstanceServer_%1").arg(getuid());
+    }
 
 } // namespace SingleInstance
 

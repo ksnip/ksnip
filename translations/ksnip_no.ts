@@ -47,11 +47,11 @@
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Navn</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Snarvei</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -63,11 +63,11 @@
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Inkluder peker</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Forsinkelse</translation>
     </message>
     <message>
         <source>s</source>
@@ -84,7 +84,7 @@
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier bilde til utklippstavle</translation>
     </message>
     <message>
         <source>Upload image</source>
@@ -96,11 +96,11 @@
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagre bilde</translation>
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Skjul hovedvindu</translation>
     </message>
     <message>
         <source>Global</source>
@@ -116,26 +116,26 @@ available even when ksnip has no focus.</source>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Legg til</translation>
+        <translation>Legg til</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Handlingsinnstillinger</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Handling</translation>
     </message>
 </context>
 <context>
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation>Vannmerkingsbilde kreves</translation>
+        <translation>Vannmerkebilde kreves</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation>Legg til et vannmerkingsbilde via Valg → Innstillinger → Undertekster → Oppdater</translation>
+        <translation>Legg til et vannmerkebilde via Valg → Innstillinger → Anmerkninger → Oppdater</translation>
     </message>
 </context>
 <context>
@@ -152,19 +152,19 @@ utført tegning.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished">Utmykiningsfaktor</translation>
+        <translation>Utjevningsfaktor</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished">Økning av utmykingsfaktoren vil senke
+        <translation>Økning av utjevningsfaktoren vil minske
 nøyaktigheten for penn og markør, men
-vil gjøre dem mykere.</translation>
+vil gjøre dem jevnere.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation type="unfinished">Undertekstingsinnstillinger</translation>
+        <translation>Anmerkningsinnstillinger</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
@@ -186,7 +186,7 @@ Disabling this option allows having duplicate numbers.</source>
     </message>
     <message>
         <source>Canvas Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Kanvasfarge</translation>
     </message>
     <message>
         <source>Default Canvas background color for annotation area.
@@ -314,7 +314,7 @@ going to be deleted after ksnip closes.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Utforsk</translation>
+        <translation>Bla gjennom</translation>
     </message>
 </context>
 <context>
@@ -496,7 +496,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Siste rektangulære område</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
@@ -504,7 +504,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Nåværende skjerm</translation>
+        <translation>Gjeldende skjerm</translation>
     </message>
     <message>
         <source>Active Window</source>
@@ -691,15 +691,15 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis hovedvindu etter å ha tatt skjermbilde</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Skjul hovedvindu mens det tas skjermbilde</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Skjul hovedvindu når det tas et nytt skjermbilde.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
@@ -736,7 +736,7 @@ visible on the screenshot.</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Lukk</translation>
+        <translation>Lukk</translation>
     </message>
     <message>
         <source>Time Stamp</source>
@@ -884,7 +884,7 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Lagre</translation>
+        <translation>Lagre</translation>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
@@ -908,7 +908,7 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Gjenta</translation>
+        <translation>Gjør om</translation>
     </message>
     <message>
         <source>Crop</source>
@@ -943,7 +943,7 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
-        <translation>Åpner utskriftsforhåndsvisningsdialogvindu der sideretning kan endres</translation>
+        <translation>Åpner utskriftforhåndsvisning der bilderetningen kan endres</translation>
     </message>
     <message>
         <source>Scale</source>
@@ -1055,11 +1055,11 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Åpne &amp;nylige</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifiser kanvas</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
@@ -1075,15 +1075,15 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Roter</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Roter bilde</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Handlinger</translation>
     </message>
     <message>
         <source>Image Files</source>
@@ -1091,11 +1091,11 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagre alle</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Lukk vindu</translation>
     </message>
     <message>
         <source>Cut</source>
@@ -1110,11 +1110,11 @@ og avbildning av skjerm.</translation>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Lagre</translation>
+        <translation>Lagre</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Lagre som</translation>
+        <translation>Lagre som</translation>
     </message>
     <message>
         <source>Open Directory</source>
@@ -1138,7 +1138,7 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagre alle</translation>
     </message>
 </context>
 <context>
@@ -1159,11 +1159,11 @@ og avbildning av skjerm.</translation>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Lukk</translation>
+        <translation>Lukk</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Lukk andre</translation>
     </message>
     <message>
         <source>Close All</source>
@@ -1193,7 +1193,7 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Utforsk</translation>
+        <translation>Bla gjennom</translation>
     </message>
     <message>
         <source>Name</source>
@@ -1254,11 +1254,11 @@ og avbildning av skjerm.</translation>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Lagre som</translation>
+        <translation>Lagre som</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Alle filer</translation>
+        <translation>Alle filer</translation>
     </message>
     <message>
         <source>Image Saved</source>
@@ -1270,11 +1270,11 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildefiler</translation>
     </message>
     <message>
         <source>Saved to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagret til %1</translation>
     </message>
     <message>
         <source>Failed to save image to %1</source>
@@ -1293,7 +1293,7 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Husk siste lagringsmappe</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
@@ -1313,11 +1313,11 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Utforsk</translation>
+        <translation>Bla gjennom</translation>
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagringsinnstillinger</translation>
     </message>
     <message>
         <source>Capture save location</source>
@@ -1329,11 +1329,11 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Faktor</translation>
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagringskvalitet</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
@@ -1362,7 +1362,7 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Utforsk</translation>
+        <translation>Bla gjennom</translation>
     </message>
     <message>
         <source>Script Uploader</source>
@@ -1419,7 +1419,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Annotator</source>
-        <translation type="unfinished">Undertekster</translation>
+        <translation>Anmerkninger</translation>
     </message>
     <message>
         <source>HotKeys</source>
@@ -1435,7 +1435,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagring</translation>
     </message>
     <message>
         <source>Stickers</source>
@@ -1451,11 +1451,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Vannmerke</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Handlinger</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
@@ -1755,7 +1755,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildefiler</translation>
     </message>
 </context>
 <context>
@@ -1823,23 +1823,23 @@ service when such exists. Change requires restart to take effect.</source>
     <name>WatermarkSettings</name>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished">Vannmerkingsbilde</translation>
+        <translation>Vannmerkebilde</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Oppdater</translation>
+        <translation>Oppdater</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished">Roter vannmerke</translation>
+        <translation>Roter vannmerke</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished">Legger til vannmere rotert 45°</translation>
+        <translation>Når aktivert, legges det til vannmerke rotert 45°</translation>
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Vannmerkeinnstillinger</translation>
     </message>
 </context>
 </TS>

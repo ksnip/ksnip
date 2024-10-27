@@ -21,7 +21,8 @@
 
 SingleInstanceServerBootstrapper::SingleInstanceServerBootstrapper(DependencyInjector *dependencyInjector) :
 	StandAloneBootstrapper(dependencyInjector),
-	mIpcServer(new IpcServer)
+	mIpcServer(new IpcServer),
+	mUsernameProvider(dependencyInjector->get<IUsernameProvider>())
 {
 }
 
@@ -38,7 +39,7 @@ int SingleInstanceServerBootstrapper::start(const QApplication &app)
 
 void SingleInstanceServerBootstrapper::startServer() const
 {
-    mIpcServer->listen(SingleInstance::ServerName());
+    mIpcServer->listen(SingleInstance::ServerName.arg(mUsernameProvider->getUsername()));
 	connect(mIpcServer, &IpcServer::received, this, &SingleInstanceServerBootstrapper::processData);
 }
 

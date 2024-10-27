@@ -24,6 +24,7 @@
 #include "src/bootstrapper/singleInstance/SingleInstanceConstants.h"
 #include "src/bootstrapper/singleInstance/SingleInstanceParameterTranslator.h"
 #include "src/backend/ipc/IpcServer.h"
+#include "src/common/provider/IUsernameProvider.h"
 
 class SingleInstanceServerBootstrapper : public StandAloneBootstrapper
 {
@@ -36,6 +37,7 @@ public:
 private:
 	IpcServer *mIpcServer;
 	SingleInstanceParameterTranslator mParameterTranslator;
+	QSharedPointer<IUsernameProvider> mUsernameProvider;
 
 	void show() const;
 	void processImage(const QString &imagePath);

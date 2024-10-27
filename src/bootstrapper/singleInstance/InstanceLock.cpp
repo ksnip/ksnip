@@ -19,9 +19,10 @@
 
 #include "InstanceLock.h"
 
-InstanceLock::InstanceLock()
+InstanceLock::InstanceLock(const QSharedPointer<IUsernameProvider> &usernameProvider)
 {
-    QString key = QString("KsnipInstanceLock_%1").arg(getuid());
+    auto key = SingleInstance::InstanceLockName.arg(usernameProvider->getUsername());
+
     mSingular = new QSharedMemory(key, this);
 }
 
@@ -44,13 +45,4 @@ bool InstanceLock::create()
 	}
 
     return mSingular->create(1);
-}
-
-bool InstanceLock::attachDetach()
-{
-	if (mSingular->attach(QSharedMemory::ReadOnly)) {
-		mSingular->detach();
-		return true;
-	}
-	return false;
 }

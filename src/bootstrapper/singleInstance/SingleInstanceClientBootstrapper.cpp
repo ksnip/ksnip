@@ -24,7 +24,8 @@ SingleInstanceClientBootstrapper::SingleInstanceClientBootstrapper(DependencyInj
 	mIpcClient(new IpcClient),
     mImageFromStdInputReader(dependencyInjector->get<IImageFromStdInputReader>())
 {
-    mIpcClient->connectTo(SingleInstance::ServerName());
+	auto usernameProvider = dependencyInjector->get<IUsernameProvider>();
+    mIpcClient->connectTo(SingleInstance::ServerName.arg(usernameProvider->getUsername()));
 }
 
 SingleInstanceClientBootstrapper::~SingleInstanceClientBootstrapper()

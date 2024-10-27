@@ -55,6 +55,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/common/provider/PathFromCaptureProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/scaledSizeProvider/ScaledSizeProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/TempFileProvider.cpp
+	${CMAKE_SOURCE_DIR}/src/common/provider/UsernameProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/platform/HdpiScaler.cpp
 	${CMAKE_SOURCE_DIR}/src/common/platform/PlatformChecker.cpp
 	${CMAKE_SOURCE_DIR}/src/common/platform/CommandRunner.cpp

@@ -17,28 +17,16 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_BOOTSTRAPPERFACTORY_H
-#define KSNIP_BOOTSTRAPPERFACTORY_H
+#ifndef KSNIP_IINSTANCELOCK_H
+#define KSNIP_IINSTANCELOCK_H
 
-#include <QApplication>
-#include <QSharedPointer>
-
-#include "src/bootstrapper/singleInstance/SingleInstanceServerBootstrapper.h"
-#include "src/bootstrapper/singleInstance/SingleInstanceClientBootstrapper.h"
-#include "src/bootstrapper/singleInstance/InstanceLock.h"
-#include "src/dependencyInjector/DependencyInjector.h"
-
-#include <iostream>
-
-class BootstrapperFactory
+class IInstanceLock : public QObject
 {
 public:
-	BootstrapperFactory() = default;
-	~BootstrapperFactory() = default;
-	QSharedPointer<IBootstrapper> create(DependencyInjector *dependencyInjector);
+	IInstanceLock() = default;
+	~IInstanceLock() override = default;
 
-private:
-	QSharedPointer<IInstanceLock> mInstanceLock;
+	virtual bool lock() = 0;
 };
 
-#endif //KSNIP_BOOTSTRAPPERFACTORY_H
+#endif //KSNIP_IINSTANCELOCK_H

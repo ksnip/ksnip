@@ -20,27 +20,27 @@
 #ifndef KSNIP_INSTANCELOCK_H
 #define KSNIP_INSTANCELOCK_H
 
+#include <QSharedPointer>
 #include <QSharedMemory>
 #include <QCoreApplication>
 
-#include <iostream>
-#include <unistd.h>
-#include <sys/types.h>
+#include "IInstanceLock.h"
+#include "SingleInstanceConstants.h"
+#include "src/common/provider/IUsernameProvider.h"
 
-class InstanceLock : public QObject
+class InstanceLock : public IInstanceLock
 {
 	Q_OBJECT
 public:
-	InstanceLock();
+	explicit InstanceLock(const QSharedPointer<IUsernameProvider> &usernameProvider);
 	~InstanceLock() override;
 
-	bool lock();
+	bool lock() override;
 
 private:
 	QSharedMemory *mSingular;
 
 	bool create();
-	bool attachDetach();
 };
 
 

@@ -23,9 +23,10 @@ QSharedPointer<IBootstrapper> BootstrapperFactory::create(DependencyInjector *de
 {
 	auto logger = dependencyInjector->get<ILogger>();
 	auto config = dependencyInjector->get<IConfig>();
+	mInstanceLock = dependencyInjector->get<IInstanceLock>();
 
 	if(config->useSingleInstance()) {
-		if (mInstanceLock.lock()) {
+		if (mInstanceLock->lock()) {
 			logger->log(QLatin1String("SingleInstance mode detected, we are the server"));
 			return QSharedPointer<IBootstrapper>(new SingleInstanceServerBootstrapper(dependencyInjector));
 		} else {

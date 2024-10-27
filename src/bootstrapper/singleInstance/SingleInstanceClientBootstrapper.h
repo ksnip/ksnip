@@ -28,6 +28,7 @@
 #include "src/bootstrapper/singleInstance/SingleInstanceConstants.h"
 #include "src/bootstrapper/singleInstance/SingleInstanceParameterTranslator.h"
 #include "src/backend/ipc/IpcClient.h"
+#include "src/common/provider/IUsernameProvider.h"
 
 class SingleInstanceClientBootstrapper : public StandAloneBootstrapper
 {

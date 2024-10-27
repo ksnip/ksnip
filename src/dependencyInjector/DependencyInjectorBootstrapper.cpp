@@ -31,6 +31,7 @@
 #include "src/backend/saver/SavePathProvider.h"
 #include "src/backend/saver/ImageSaver.h"
 #include "src/bootstrapper/ImageFromStdInputReader.h"
+#include "src/bootstrapper/singleInstance/InstanceLock.h"
 #include "src/gui/fileService/FileService.h"
 #include "src/gui/directoryService/DirectoryService.h"
 #include "src/gui/clipboard/ClipboardAdapter.h"
@@ -48,6 +49,7 @@
 #include "src/common/platform/PlatformChecker.h"
 #include "src/common/provider/directoryPathProvider/DirectoryPathProvider.h"
 #include "src/common/provider/scaledSizeProvider/ScaledSizeProvider.h"
+#include "src/common/provider/UserNameProvider.h"
 #include "src/common/handler/DelayHandler.h"
 #include "src/plugins/PluginManager.h"
 #include "src/plugins/PluginLoader.h"
@@ -87,6 +89,8 @@ void DependencyInjectorBootstrapper::BootstrapCore(DependencyInjector *dependenc
 {
 	dependencyInjector->registerInstance<ICommandRunner, CommandRunner>();
 	dependencyInjector->registerInstance<IPlatformChecker, PlatformChecker, ICommandRunner>();
+	dependencyInjector->registerInstance<IUsernameProvider, UsernameProvider>();
+	dependencyInjector->registerInstance<IInstanceLock, InstanceLock, IUsernameProvider>();
 	injectDirectoryPathProvider(dependencyInjector);
 	injectConfig(dependencyInjector);
 	injectLogger(dependencyInjector);

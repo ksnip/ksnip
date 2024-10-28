@@ -50,7 +50,7 @@ jobs:
       run: |
         brew install zlib
         brew link zlib
-        
+
     - name: Build
       env:
         BUILD_TESTS: ON

@@ -39,18 +39,6 @@ jobs:
         BUILD_TYPE: Debug
       run: bash ./.github/scripts/setup_kImageAnnotator.sh
 
-    - name: Check arch
-      env:
-        BUILD_TYPE: Debug
-      run: file $(brew --prefix qt)/lib/QtCore.framework/QtCore
-
-    - name: Install zlib
-      env:
-        BUILD_TYPE: Debug
-      run: |
-        brew install zlib
-        brew link zlib
-
     - name: Build
       env:
         BUILD_TESTS: ON

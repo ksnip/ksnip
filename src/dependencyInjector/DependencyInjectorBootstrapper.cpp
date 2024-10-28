@@ -49,7 +49,7 @@
 #include "src/common/platform/PlatformChecker.h"
 #include "src/common/provider/directoryPathProvider/DirectoryPathProvider.h"
 #include "src/common/provider/scaledSizeProvider/ScaledSizeProvider.h"
-#include "src/common/provider/UserNameProvider.h"
+#include "src/common/provider/UsernameProvider.h"
 #include "src/common/handler/DelayHandler.h"
 #include "src/plugins/PluginManager.h"
 #include "src/plugins/PluginLoader.h"
@@ -89,7 +89,7 @@ void DependencyInjectorBootstrapper::BootstrapCore(DependencyInjector *dependenc
 {
 	dependencyInjector->registerInstance<ICommandRunner, CommandRunner>();
 	dependencyInjector->registerInstance<IPlatformChecker, PlatformChecker, ICommandRunner>();
-	dependencyInjector->registerInstance<IUsernameProvider, UsernameProvider>();
+	dependencyInjector->registerInstance<IUsernameProvider, UsernameProvider, ICommandRunner>();
 	dependencyInjector->registerInstance<IInstanceLock, InstanceLock, IUsernameProvider>();
 	injectDirectoryPathProvider(dependencyInjector);
 	injectConfig(dependencyInjector);

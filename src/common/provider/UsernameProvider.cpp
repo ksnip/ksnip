@@ -19,10 +19,21 @@
 
 #include "UsernameProvider.h"
 
+UsernameProvider::UsernameProvider(const QSharedPointer<ICommandRunner>& commandRunner) :
+	mCommandRunner(commandRunner)
+{
+
+}
+
 QString UsernameProvider::getUsername()
 {
-	QString name = qgetenv("USER");
-	if (name.isEmpty())
-		name = qgetenv("USERNAME");
-	return name;
+#if defined(_WIN32)
+	return mCommandRunner->getEnvironmentVariable(QLatin1String("USERNAME"));
+#endif
+
+#if defined(UNIX_X11) || defined(__APPLE__)
+	return mCommandRunner->getEnvironmentVariable(QLatin1String("USER"));
+#endif
 }
+
+

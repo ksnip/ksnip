@@ -20,15 +20,23 @@
 #ifndef KSNIP_USERNAMEPROVIDER_H
 #define KSNIP_USERNAMEPROVIDER_H
 
-#include "IUserNameProvider.h"
+#include <QSharedPointer>
+
+#include "IUsernameProvider.h"
+#include "src/common/platform/ICommandRunner.h"
+
 
 #include <QString>
 
 class UsernameProvider : public IUsernameProvider
 {
 public:
-	QString getUsername() override;
-};
+	explicit UsernameProvider(const QSharedPointer<ICommandRunner>& commandRunner);
 
+	QString getUsername() override;
+
+private:
+	QSharedPointer<ICommandRunner> mCommandRunner;
+};
 
 #endif //KSNIP_USERNAMEPROVIDER_H

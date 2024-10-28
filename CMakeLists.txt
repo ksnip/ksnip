@@ -41,6 +41,10 @@ if (UNIX AND NOT APPLE)
 	find_package(XCB COMPONENTS XFIXES)
 endif ()
 
+if (APPLE)
+	find_package(ZLIB REQUIRED)
+endif ()
+
 set(QT_COMPONENTS Core Widgets Network Xml PrintSupport DBus Svg)
 set(QT_MIN_VERSION 5.15.2)
 

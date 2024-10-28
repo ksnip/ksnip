@@ -268,7 +268,6 @@ if (APPLE)
                 kImageAnnotator::kImageAnnotator
                 kColorPicker::kColorPicker
                 "-framework CoreGraphics -framework AppKit"
-				ZLIB::ZLIB
                 )
 elseif (UNIX)
         list(APPEND DEPENDENCY_LIBRARIES

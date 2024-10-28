@@ -16,7 +16,7 @@ jobs:
     - name: Set up build variables
       run: bash ./.github/scripts/setup_build_variables.sh
 
-    - name: Set up windows build variables
+    - name: Set up macos build variables
       run: bash ./.github/scripts/macos/setup_macos_build_variables.sh
 
     - name: Install Qt
@@ -39,6 +39,18 @@ jobs:
         BUILD_TYPE: Debug
       run: bash ./.github/scripts/setup_kImageAnnotator.sh
 
+    - name: Check arch
+      env:
+        BUILD_TYPE: Debug
+      run: file $(brew --prefix qt)/lib/QtCore.framework/QtCore
+
+    - name: Install zlib
+      env:
+        BUILD_TYPE: Debug
+      run: |
+        brew install zlib
+        brew link zlib
+        
     - name: Build
       env:
         BUILD_TESTS: ON

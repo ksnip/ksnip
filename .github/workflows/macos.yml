@@ -90,11 +90,14 @@ jobs:
           APPLE_DEV_IDENTITY: ${{ secrets.APPLE_DEV_IDENTITY }}
         run: bash ./.github/scripts/macos/package_dmg.sh
 
-      - name: Notarize dmg package
-        env:
-          APPLE_DEV_PASS: ${{ secrets.APPLE_DEV_PASS }}
-          APPLE_DEV_USER: ${{ secrets.APPLE_DEV_USER }}
-        run: bash ./.github/scripts/macos/notarize_osx_dmg_package.sh
+# As we don't have an active apple developer account membership the
+# notarization fails, so we skip it for now.
+#
+#      - name: Notarize dmg package
+#        env:
+#          APPLE_DEV_PASS: ${{ secrets.APPLE_DEV_PASS }}
+#          APPLE_DEV_USER: ${{ secrets.APPLE_DEV_USER }}
+#        run: bash ./.github/scripts/macos/notarize_osx_dmg_package.sh
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3

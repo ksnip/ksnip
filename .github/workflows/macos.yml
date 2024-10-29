@@ -8,7 +8,7 @@ on:
 
 jobs:
   test-macos:
-    runs-on: macos-latest
+    runs-on: macos-12
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -51,7 +51,7 @@ jobs:
 
 
   package-dmg:
-    runs-on: macos-latest
+    runs-on: macos-12
     needs: test-macos
     steps:
       - name: Checkout

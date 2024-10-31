@@ -201,7 +201,7 @@ Changing color affects only new annotation areas.</source>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation type="unfinished">啟用此選項後，項目在建立後會被選取，允許更改設定。</translation>
+        <translation type="unfinished">啟用此選項後，項目在建立後會自動被選取，方便進行設定更改。</translation>
     </message>
     <message>
         <source>Show Controls Widget</source>

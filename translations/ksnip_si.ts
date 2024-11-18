@@ -5,11 +5,11 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation>පිළිබඳව </translation>
+        <translation>පිළිබඳ </translation>
     </message>
     <message>
         <source>About</source>
-        <translation>පිළිබඳව</translation>
+        <translation>පිළිබඳ</translation>
     </message>
     <message>
         <source>Version</source>
@@ -265,7 +265,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>තටාක ස්වයං සැඟවීම</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
@@ -852,11 +852,11 @@ Changing requires restart.</source>
     <name>LoadImageFromFileOperation</name>
     <message>
         <source>Unable to open image</source>
-        <translation>අනුරුව විවෘත කිරීමට නොහැකියි</translation>
+        <translation>අනුරුව ඇරීමට නොහැකියි</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
-        <translation>%1 මාර්ගයෙන් අනුරුව විවෘත කිරීමට නොහැකියි</translation>
+        <translation>%1 පෙත හි අනුරුව ඇරීමට නොහැකියි</translation>
     </message>
 </context>
 <context>
@@ -952,7 +952,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation>&amp;පිළිබඳව</translation>
+        <translation>පිළිබඳ</translation>
     </message>
     <message>
         <source>Open</source>
@@ -960,11 +960,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>&amp;සංස්කරණය</translation>
+        <translation>සංස්කරණය</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation>&amp;විකල්ප</translation>
+        <translation>විකල්ප</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -980,7 +980,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation>&amp;ගොනුව</translation>
+        <translation>ගොනුව</translation>
     </message>
     <message>
         <source>Unable to show image</source>
@@ -1020,7 +1020,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation>&amp;දැක්ම</translation>
+        <translation>දැක්ම</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1040,7 +1040,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>තටාක සඟවන්න</translation>
     </message>
     <message>
         <source>Copy as data URI</source>
@@ -1096,7 +1096,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR</translation>
     </message>
 </context>
 <context>
@@ -1145,7 +1145,7 @@ and capturing screenshot.</source>
     <name>OcrWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR කවුළුව %1</translation>
     </message>
 </context>
 <context>
@@ -1213,7 +1213,7 @@ and capturing screenshot.</source>
     <name>ProcessIndicator</name>
     <message>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>සකසමින්</translation>
     </message>
 </context>
 <context>
@@ -1779,11 +1779,11 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>අත්පත</translation>
     </message>
     <message>
         <source>Uploader</source>
@@ -1791,14 +1791,14 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>FTP</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP</translation>
     </message>
 </context>
 <context>
     <name>VersionTab</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished">අනුවාදය</translation>
+        <translation>අනුවාදය</translation>
     </message>
     <message>
         <source>Build</source>

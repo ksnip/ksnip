@@ -18,6 +18,7 @@
  */
 
 #include "X11SnippingArea.h"
+#include <QGuiApplication>
 
 X11SnippingArea::X11SnippingArea(const QSharedPointer<IConfig> &config) :
 	AbstractSnippingArea(config),
@@ -44,7 +45,7 @@ QRect X11SnippingArea::selectedRectArea() const
 
 void X11SnippingArea::setFullScreen()
 {
-    setFixedSize(QDesktopWidget().size());
+    setFixedSize(QGuiApplication::primaryScreen()->size());
     QWidget::showFullScreen();
 }
 

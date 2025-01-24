@@ -37,21 +37,20 @@ set(TESTUTILS_SRC
 add_library(KSNIP_STATIC ${KSNIP_SRCS})
 
 target_link_libraries(KSNIP_STATIC
-	Qt5::Widgets
-	Qt5::Network
-	Qt5::Xml
-	Qt5::PrintSupport
+	Qt${QT_MAJOR_VERSION}::Widgets
+	Qt${QT_MAJOR_VERSION}::Network
+	Qt${QT_MAJOR_VERSION}::Xml
+	Qt${QT_MAJOR_VERSION}::PrintSupport
 	kImageAnnotator::kImageAnnotator
 	kColorPicker::kColorPicker
-	Qt5::Svg
+	Qt${QT_MAJOR_VERSION}::Svg
 	)
 
 if (APPLE)
 	target_link_libraries(KSNIP_STATIC "-framework CoreGraphics")
 elseif (UNIX)
 	target_link_libraries(KSNIP_STATIC
-		Qt5::DBus
-		Qt5::X11Extras
+		Qt${QT_MAJOR_VERSION}::DBus
 		XCB::XFIXES
 		)
 
@@ -65,7 +64,7 @@ elseif (UNIX)
 	target_compile_definitions(KSNIP_STATIC PUBLIC UNIX_X11)
 elseif(WIN32)
 	target_link_libraries(KSNIP_STATIC
-		Qt5::WinExtras
+		Qt${QT_MAJOR_VERSION}::WinExtras
 		Dwmapi
 		)
 endif ()

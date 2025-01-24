@@ -37,7 +37,7 @@ QString IconLoader::getThemePrefix()
 
 double IconLoader::getThemeLuma()
 {
-    auto color = QApplication::palette().background().color();
+    auto color = QApplication::palette().window().color();
     return 0.2126 * color.redF() + 0.7152 * color.greenF() + 0.0722 * color.blueF();
 }
 

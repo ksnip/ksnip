@@ -19,6 +19,12 @@
 
 #include "KeySequenceToX11KeyCodeTranslator.h"
 
+#include <QtVersionChecks>
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <QtGui/private/qtx11extras_p.h>
+#else
+#include <QX11Info>
+#endif
 #include <X11/Xutil.h>
 
 KeySequenceToX11KeyCodeTranslator::KeySequenceToX11KeyCodeTranslator()

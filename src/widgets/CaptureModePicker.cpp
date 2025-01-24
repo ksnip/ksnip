@@ -53,7 +53,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes, const QSha
 				tr("Draw a rectangular area with your mouse"),
 				iconLoader->loadForTheme(QLatin1String("drawRect.svg")),
 				CaptureModes::RectArea,
-				QKeySequence(Qt::SHIFT + Qt::Key_R));
+				QKeySequence(Qt::SHIFT | Qt::Key_R));
         menu->addAction(action);
     }
 
@@ -63,7 +63,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes, const QSha
 			tr("Capture a screenshot of the last selected rectangular area"),
 				iconLoader->loadForTheme(QLatin1String("lastRect.svg")),
 			CaptureModes::LastRectArea,
-			QKeySequence(Qt::SHIFT + Qt::Key_L));
+			QKeySequence(Qt::SHIFT | Qt::Key_L));
 		menu->addAction(action);
 	}
 
@@ -73,7 +73,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes, const QSha
 				tr("Capture full screen including all monitors"),
 				iconLoader->loadForTheme(QLatin1String("fullScreen.svg")),
 				CaptureModes::FullScreen,
-				QKeySequence(Qt::SHIFT + Qt::Key_F));
+				QKeySequence(Qt::SHIFT | Qt::Key_F));
         menu->addAction(action);
     }
 
@@ -83,7 +83,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes, const QSha
 	    		tr("Capture screen where the mouse is located"),
 				iconLoader->loadForTheme(QLatin1String("currentScreen.svg")),
 	    		CaptureModes::CurrentScreen,
-				QKeySequence(Qt::SHIFT + Qt::Key_M));
+				QKeySequence(Qt::SHIFT | Qt::Key_M));
         menu->addAction(action);
     }
 
@@ -93,7 +93,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes, const QSha
 	    		tr("Capture window that currently has focus"),
 				iconLoader->loadForTheme(QLatin1String("activeWindow.svg")),
 	    		CaptureModes::ActiveWindow,
-				QKeySequence(Qt::SHIFT + Qt::Key_A));
+				QKeySequence(Qt::SHIFT | Qt::Key_A));
         menu->addAction(action);
     }
 
@@ -103,7 +103,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes, const QSha
 				tr("Capture that is currently under the mouse cursor"),
 				iconLoader->loadForTheme(QLatin1String("windowUnderCursor.svg")),
 				CaptureModes::WindowUnderCursor,
-				QKeySequence(Qt::SHIFT + Qt::Key_U));
+				QKeySequence(Qt::SHIFT | Qt::Key_U));
         menu->addAction(action);
     }
 
@@ -113,7 +113,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes, const QSha
                 tr("Uses the screenshot Portal for taking screenshot"),
 				iconLoader->loadForTheme(QLatin1String("wayland.svg")),
                 CaptureModes::Portal,
-                QKeySequence(Qt::SHIFT + Qt::Key_T));
+                QKeySequence(Qt::SHIFT | Qt::Key_T));
         menu->addAction(action);
     }
 

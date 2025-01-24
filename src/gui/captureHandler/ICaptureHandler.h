@@ -20,6 +20,7 @@
 #ifndef KSNIP_ICAPTUREHANDLER_H
 #define KSNIP_ICAPTUREHANDLER_H
 
+#include <QObject>
 #include "src/gui/captureHandler/ICaptureChangeListener.h"
 #include "src/common/dtos/CaptureDto.h"
 

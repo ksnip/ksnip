@@ -32,7 +32,7 @@ OcrWindow::OcrWindow(const QPixmap &pixmap, const QString &title, const QSharedP
 
 	setProcessingVisible(true);
 
-	auto ocrProcessingFuture = QtConcurrent::run(this, &OcrWindow::process, pixmap, pluginManager);
+	auto ocrProcessingFuture = QtConcurrent::run([=]() { return this->process(pixmap, pluginManager); });
 
 	connect(&mOcrProcessFutureWatcher, &QFutureWatcher<QString>::finished, this, &OcrWindow::processingFinished);
 	mOcrProcessFutureWatcher.setFuture(ocrProcessingFuture);

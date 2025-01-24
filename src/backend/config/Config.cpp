@@ -1238,7 +1238,7 @@ void Config::setGlobalHotKeysEnabled(bool enabled)
 
 QKeySequence Config::rectAreaHotKey() const
 {
-	return loadValue(ConfigOptions::rectAreaHotKeyString(), QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_R)).value<QKeySequence>();
+	return loadValue(ConfigOptions::rectAreaHotKeyString(), QKeySequence(Qt::ALT | Qt::SHIFT | Qt::Key_R)).value<QKeySequence>();
 }
 
 void Config::setRectAreaHotKey(const QKeySequence &keySequence)
@@ -1253,7 +1253,7 @@ void Config::setRectAreaHotKey(const QKeySequence &keySequence)
 
 QKeySequence Config::lastRectAreaHotKey() const
 {
-	return loadValue(ConfigOptions::lastRectAreaHotKeyString(), QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_L)).value<QKeySequence>();
+	return loadValue(ConfigOptions::lastRectAreaHotKeyString(), QKeySequence(Qt::ALT | Qt::SHIFT | Qt::Key_L)).value<QKeySequence>();
 }
 
 void Config::setLastRectAreaHotKey(const QKeySequence &keySequence)
@@ -1267,7 +1267,7 @@ void Config::setLastRectAreaHotKey(const QKeySequence &keySequence)
 
 QKeySequence Config::fullScreenHotKey() const
 {
-	return loadValue(ConfigOptions::fullScreenHotKeyString(), QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_F)).value<QKeySequence>();
+	return loadValue(ConfigOptions::fullScreenHotKeyString(), QKeySequence(Qt::ALT | Qt::SHIFT | Qt::Key_F)).value<QKeySequence>();
 }
 
 void Config::setFullScreenHotKey(const QKeySequence &keySequence)
@@ -1281,7 +1281,7 @@ void Config::setFullScreenHotKey(const QKeySequence &keySequence)
 
 QKeySequence Config::currentScreenHotKey() const
 {
-	return loadValue(ConfigOptions::currentScreenHotKeyString(), QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_C)).value<QKeySequence>();
+	return loadValue(ConfigOptions::currentScreenHotKeyString(), QKeySequence(Qt::ALT | Qt::SHIFT | Qt::Key_C)).value<QKeySequence>();
 }
 
 void Config::setCurrentScreenHotKey(const QKeySequence &keySequence)
@@ -1295,7 +1295,7 @@ void Config::setCurrentScreenHotKey(const QKeySequence &keySequence)
 
 QKeySequence Config::activeWindowHotKey() const
 {
-	return loadValue(ConfigOptions::activeWindowHotKeyString(), QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_A)).value<QKeySequence>();
+	return loadValue(ConfigOptions::activeWindowHotKeyString(), QKeySequence(Qt::ALT | Qt::SHIFT | Qt::Key_A)).value<QKeySequence>();
 }
 
 void Config::setActiveWindowHotKey(const QKeySequence &keySequence)
@@ -1309,7 +1309,7 @@ void Config::setActiveWindowHotKey(const QKeySequence &keySequence)
 
 QKeySequence Config::windowUnderCursorHotKey() const
 {
-	return loadValue(ConfigOptions::windowUnderCursorHotKeyString(), QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_U)).value<QKeySequence>();
+	return loadValue(ConfigOptions::windowUnderCursorHotKeyString(), QKeySequence(Qt::ALT | Qt::SHIFT | Qt::Key_U)).value<QKeySequence>();
 }
 
 void Config::setWindowUnderCursorHotKey(const QKeySequence &keySequence)
@@ -1323,7 +1323,7 @@ void Config::setWindowUnderCursorHotKey(const QKeySequence &keySequence)
 
 QKeySequence Config::portalHotKey() const
 {
-	return loadValue(ConfigOptions::portalHotKeyString(), QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_T)).value<QKeySequence>();
+	return loadValue(ConfigOptions::portalHotKeyString(), QKeySequence(Qt::ALT | Qt::SHIFT | Qt::Key_T)).value<QKeySequence>();
 }
 
 void Config::setPortalHotKey(const QKeySequence &keySequence)

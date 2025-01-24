@@ -20,7 +20,6 @@
 #ifndef KSNIP_X11KEYHANDLER_H
 #define KSNIP_X11KEYHANDLER_H
 
-#include <QX11Info>
 #include <QVector>
 
 #include <xcb/xcb.h>
@@ -44,8 +43,8 @@ private:
 
 	void unregisterKey() const;
 
-	void GrabKey(Display *display, unsigned int fixedModifier) const;
-	void UngrabKey(Display *display, unsigned int fixedModifier) const;
+	void GrabKey(void *display, unsigned int fixedModifier) const;
+	void UngrabKey(void *display, unsigned int fixedModifier) const;
 	bool isMatching(const xcb_key_press_event_t *keyEvent, unsigned int fixedModifier) const;
 };
 

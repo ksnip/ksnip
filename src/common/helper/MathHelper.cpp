@@ -18,6 +18,7 @@
  */
 
 #include "MathHelper.h"
+#include <QRandomGenerator>
 
 int MathHelper::divideIntByReal(int integer, qreal real)
 {
@@ -31,6 +32,6 @@ int MathHelper::multiplyIntWithReal(int integer, qreal real)
 
 int MathHelper::randomInt()
 {
-	return qrand();
+	return QRandomGenerator::global()->generate();
 }
 

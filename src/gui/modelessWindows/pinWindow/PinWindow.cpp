@@ -107,7 +107,7 @@ void PinWindow::contextMenuEvent(QContextMenuEvent *event)
 	menu.exec(event->globalPos());
 }
 
-void PinWindow::enterEvent(QEvent *event)
+void PinWindow::enterEvent(QEnterEvent *event)
 {
 	mDropShadowEffect->setBlurRadius(mDropShadowEffect->blurRadius() + 4);
 	QWidget::enterEvent(event);
@@ -121,7 +121,7 @@ void PinWindow::leaveEvent(QEvent *event)
 
 void PinWindow::wheelEvent(QWheelEvent *event)
 {
-	auto delta = event->delta() / 10;
+	auto delta = event->pixelDelta().y() / 10;
 	auto scaledSize = QSize(mCentralWidget->width() + delta, mCentralWidget->height() + delta);
 
 	if(scaledSize.width() > mMinSize && scaledSize.height() > mMinSize) {

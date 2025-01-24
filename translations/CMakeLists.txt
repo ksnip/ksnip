@@ -1,4 +1,4 @@
-find_package(Qt5LinguistTools)
+find_package(Qt${QT_MAJOR_VERSION}LinguistTools)
 
 set(KSNIP_LANG_TS
 	ksnip_ar.ts
@@ -38,9 +38,17 @@ set(KSNIP_LANG_TS
 	ksnip_zh_Hant.ts)
 
 if (DEFINED UPDATE_TS_FILES)
-	qt5_create_translation(KSNIP_LANG_QM ${CMAKE_SOURCE_DIR}/translations ${KSNIP_SRCS} ${KSNIP_LANG_TS} OPTIONS "-no-obsolete")
+	if (BUILD_WITH_QT6)
+		qt6_create_translation(KSNIP_LANG_QM ${CMAKE_SOURCE_DIR}/translations ${KSNIP_SRCS} ${KSNIP_LANG_TS} OPTIONS "-no-obsolete")
+	else ()
+		qt5_create_translation(KSNIP_LANG_QM ${CMAKE_SOURCE_DIR}/translations ${KSNIP_SRCS} ${KSNIP_LANG_TS} OPTIONS "-no-obsolete")
+	endif ()
 else ()
-	qt5_add_translation(KSNIP_LANG_QM ${KSNIP_LANG_TS})
+	if (BUILD_WITH_QT6)
+		qt6_add_translation(KSNIP_LANG_QM ${KSNIP_LANG_TS})
+	else ()
+		qt5_add_translation(KSNIP_LANG_QM ${KSNIP_LANG_TS})
+	endif ()
 endif ()
 
 add_custom_target(translations ALL DEPENDS ${KSNIP_LANG_QM})

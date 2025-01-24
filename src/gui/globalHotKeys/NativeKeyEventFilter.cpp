@@ -24,7 +24,14 @@ NativeKeyEventFilter::NativeKeyEventFilter(const QSharedPointer<IKeyHandler> &ke
 {
 }
 
-bool NativeKeyEventFilter::nativeEventFilter(const QByteArray &eventType, void *message, long *result)
+bool NativeKeyEventFilter::nativeEventFilter(const QByteArray &eventType,
+                                             void *message,
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+                                             qintptr
+#else
+                                             long
+#endif
+                                                  *result)
 {
 	Q_UNUSED(eventType)
 	Q_UNUSED(result)

@@ -33,7 +33,13 @@ public:
     explicit NativeKeyEventFilter(const QSharedPointer<IKeyHandler> &keyHandler);
     ~NativeKeyEventFilter() override = default;
 
-    bool nativeEventFilter(const QByteArray&, void* message, long*) override;
+    bool nativeEventFilter(const QByteArray &, void *message,
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+                           qintptr
+#else
+                           long
+#endif
+                               *) override;
 
 signals:
     void triggered() const;

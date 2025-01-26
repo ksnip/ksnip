@@ -52,16 +52,11 @@ void AbstractRectAreaImageGrabber::grabImage(CaptureModes captureMode, bool capt
  */
 QRect AbstractRectAreaImageGrabber::currentScreenRect() const
 {
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 10, 0))
     auto screen = QGuiApplication::screenAt(QCursor::pos());
     if (screen == nullptr) {
         screen = QGuiApplication::primaryScreen();
     }
     return screen->geometry();
-#else
-    auto screen = QApplication::desktop()->screenNumber(QCursor::pos());
-    return QApplication::desktop()->screenGeometry(screen);
-#endif
 }
 
 QRect AbstractRectAreaImageGrabber::lastRectArea() const

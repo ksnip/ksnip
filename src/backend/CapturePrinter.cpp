@@ -40,11 +40,13 @@ void CapturePrinter::printCapture(const QImage &image, QPrinter *p)
 {
     QPainter painter;
     painter.begin(p);
-    auto xScale = p->pageRect().width() / double(image.width());
-    auto yScale = p->pageRect().height() / double(image.height());
+    auto rect = p->pageLayout().paintRectPixels(p->resolution());
+    auto paperRect = p->pageLayout().fullRectPixels(p->resolution());
+    auto xScale = rect.width() / double(image.width());
+    auto yScale = rect.height() / double(image.height());
     auto scale = qMin(xScale, yScale);
-    painter.translate(p->paperRect().x() + p->pageRect().width() / 2,
-                      p->paperRect().y() + p->pageRect().height() / 2);
+    painter.translate(paperRect.x() + rect.width() / 2,
+                      paperRect.y() + rect.height() / 2);
     painter.scale(scale, scale);
     painter.translate(-image.width() / 2, -image.height() / 2);
     painter.drawImage(QPoint(0, 0), image);

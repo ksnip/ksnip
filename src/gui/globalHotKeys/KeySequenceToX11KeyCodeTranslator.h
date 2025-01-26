@@ -21,7 +21,6 @@
 #define KSNIP_KEYSEQUENCETOX11KEYCODETRANSLATOR_H
 
 #include <QKeySequence>
-#include <QX11Info>
 
 #include "KeyCodeCombo.h"
 #include "HotKeyMap.h"

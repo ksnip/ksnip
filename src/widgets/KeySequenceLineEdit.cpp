@@ -45,7 +45,7 @@ Qt::Key KeySequenceLineEdit::getAllowedKey(const QKeyEvent *event) const
 
 void KeySequenceLineEdit::updateKeySequence()
 {
-	mKeySequence = mKey == Qt::Key_unknown ? QKeySequence(mModifiers) : QKeySequence(mModifiers + mKey);
+	mKeySequence = mKey == Qt::Key_unknown ? QKeySequence(mModifiers) : QKeySequence(mModifiers | mKey);
 	updateText();
 }
 
@@ -107,13 +107,13 @@ void KeySequenceLineEdit::keyPressed(Qt::Key key)
 void KeySequenceLineEdit::setupSpecialKeyHandling()
 {
 	addSpecialKeyHandler(Qt::Key_Print, Qt::Key_Print);
-	addSpecialKeyHandler(Qt::CTRL + Qt::Key_Print, Qt::Key_Print);
-	addSpecialKeyHandler(Qt::ALT + Qt::Key_Print, Qt::Key_Print);
-	addSpecialKeyHandler(Qt::SHIFT + Qt::Key_Print, Qt::Key_Print);
-	addSpecialKeyHandler(Qt::CTRL + Qt::ALT + Qt::Key_Print, Qt::Key_Print);
-	addSpecialKeyHandler(Qt::CTRL + Qt::SHIFT + Qt::Key_Print, Qt::Key_Print);
-	addSpecialKeyHandler(Qt::ALT + Qt::SHIFT + Qt::Key_Print, Qt::Key_Print);
-	addSpecialKeyHandler(Qt::CTRL + Qt::ALT + Qt::SHIFT + Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::CTRL | Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::ALT | Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::SHIFT | Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::CTRL | Qt::ALT | Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::CTRL | Qt::SHIFT | Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::ALT | Qt::SHIFT | Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::CTRL | Qt::ALT | Qt::SHIFT | Qt::Key_Print, Qt::Key_Print);
 }
 
 void KeySequenceLineEdit::addSpecialKeyHandler(const QKeySequence &keySequence, Qt::Key key)

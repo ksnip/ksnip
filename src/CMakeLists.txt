@@ -256,12 +256,16 @@ else ()
 endif ()
 
 set(DEPENDENCY_LIBRARIES
-        Qt5::Widgets
-        Qt5::Network
-        Qt5::Xml
-        Qt5::PrintSupport
-        Qt5::Svg
+        Qt${QT_MAJOR_VERSION}::Widgets
+        Qt${QT_MAJOR_VERSION}::Network
+        Qt${QT_MAJOR_VERSION}::Xml
+        Qt${QT_MAJOR_VERSION}::PrintSupport
+        Qt${QT_MAJOR_VERSION}::Svg
         )
+
+if (BUILD_WITH_QT6)
+        list(APPEND DEPENDENCY_LIBRARIES Qt6::GuiPrivate)
+endif ()
 
 if (APPLE)
         list(APPEND DEPENDENCY_LIBRARIES
@@ -271,8 +275,7 @@ if (APPLE)
                 )
 elseif (UNIX)
         list(APPEND DEPENDENCY_LIBRARIES
-                Qt5::DBus
-                Qt5::X11Extras
+                Qt${QT_MAJOR_VERSION}::DBus
                 kImageAnnotator::kImageAnnotator
                 kColorPicker::kColorPicker
                 XCB::XFIXES
@@ -293,7 +296,7 @@ elseif (UNIX)
         target_compile_definitions(ksnip PRIVATE UNIX_X11)
 elseif (WIN32)
         list(APPEND DEPENDENCY_LIBRARIES
-                Qt5::WinExtras
+                Qt${QT_MAJOR_VERSION}::WinExtras
 				kImageAnnotator::kImageAnnotator
                 kColorPicker
                 Dwmapi

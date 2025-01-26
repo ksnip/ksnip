@@ -22,7 +22,6 @@
 
 #include <QWidget>
 #include <QMouseEvent>
-#include <QDesktopWidget>
 #include <QApplication>
 #include <QTimer>
 

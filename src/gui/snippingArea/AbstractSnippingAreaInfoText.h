@@ -20,6 +20,7 @@
 #ifndef KSNIP_ABSTRACTSNIPPINGAREAINFOTEXT_H
 #define KSNIP_ABSTRACTSNIPPINGAREAINFOTEXT_H
 
+#include <QObject>
 #include <QPainter>
 
 class AbstractSnippingAreaInfoText : public QObject

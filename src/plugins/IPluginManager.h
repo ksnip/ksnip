@@ -20,6 +20,7 @@
 #ifndef KSNIP_IPLUGINMANAGER_H
 #define KSNIP_IPLUGINMANAGER_H
 
+#include <QObject>
 #include "src/common/enum/PluginType.h"
 
 class IPluginManager : public QObject

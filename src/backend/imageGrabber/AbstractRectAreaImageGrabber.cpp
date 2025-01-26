@@ -99,7 +99,11 @@ QPixmap AbstractRectAreaImageGrabber::snippingAreaBackground() const
 QPixmap AbstractRectAreaImageGrabber::getScreenshotFromRect(const QRect &rect) const
 {
 	auto screen = QGuiApplication::primaryScreen();
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+	auto windowId = 0;
+#else
 	auto windowId = QApplication::desktop()->winId();
+#endif
 	auto rectPosition = rect.topLeft();
 	return screen->grabWindow(windowId, rectPosition.x(), rectPosition.y(), rect.width(), rect.height());
 }

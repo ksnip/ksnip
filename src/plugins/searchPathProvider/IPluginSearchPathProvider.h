@@ -20,7 +20,7 @@
 #ifndef KSNIP_IPLUGINSEARCHPATHPROVIDER_H
 #define KSNIP_IPLUGINSEARCHPATHPROVIDER_H
 
-class QStringList;
+#include <QStringList>
 
 class IPluginSearchPathProvider
 {

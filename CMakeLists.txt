@@ -56,7 +56,7 @@ if (UNIX AND NOT APPLE)
 	list(APPEND QT_COMPONENTS Concurrent)
 endif()
 
-if (X11_FOUND)
+if (X11_FOUND AND NOT BUILD_WITH_QT6)
 	list(APPEND QT_COMPONENTS X11Extras)
 elseif (WIN32)
 	list(APPEND QT_COMPONENTS WinExtras)
@@ -86,3 +86,4 @@ if (BUILD_TESTS)
 
 	add_subdirectory(tests)
 endif (BUILD_TESTS)
+

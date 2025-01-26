@@ -175,7 +175,7 @@ void SettingsDialog::initGui()
 	mTreeWidget->addTopLevelItem(actions);
 	mTreeWidget->addTopLevelItem(plugins);
 	mTreeWidget->setHeaderHidden(true);
-	mTreeWidget->setItemSelected(mNavigatorItems[0], true);
+	mNavigatorItems[0]->setSelected(true);
 	mTreeWidget->setFixedWidth(mTreeWidget->minimumSizeHint().width() + mScaledSizeProvider->scaledWidth(100));
 	mTreeWidget->expandAll();
 

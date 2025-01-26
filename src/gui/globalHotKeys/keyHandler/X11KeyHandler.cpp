@@ -21,6 +21,13 @@
  * Inspired by Skycoder42`s QHotKey implementation https://github.com/Skycoder42/QHotkey/blob/master/QHotkey/qhotkey_x11.cpp
  */
 
+#include <QtVersionChecks>
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <QtGui/private/qtx11extras_p.h>
+#else
+#include <QX11Info>
+#endif
+
 #include "X11KeyHandler.h"
 
 #include "src/gui/globalHotKeys/X11ErrorLogger.h"
@@ -87,12 +94,12 @@ void X11KeyHandler::unregisterKey() const
 	XSync(display, False);
 }
 
-void X11KeyHandler::GrabKey(Display *display, unsigned int fixedModifier) const
+void X11KeyHandler::GrabKey(void *display, unsigned int fixedModifier) const
 {
-	XGrabKey(display, mKeyCodeCombo.key, mKeyCodeCombo.modifier | fixedModifier, DefaultRootWindow(display), true, GrabModeAsync, GrabModeAsync);
+	XGrabKey((Display*)display, mKeyCodeCombo.key, mKeyCodeCombo.modifier | fixedModifier, DefaultRootWindow((Display*)display), true, GrabModeAsync, GrabModeAsync);
 }
 
-void X11KeyHandler::UngrabKey(Display *display, unsigned int fixedModifier) const
+void X11KeyHandler::UngrabKey(void *display, unsigned int fixedModifier) const
 {
-	XUngrabKey(display, mKeyCodeCombo.key, mKeyCodeCombo.modifier | fixedModifier, DefaultRootWindow(display));
+	XUngrabKey((Display*)display, mKeyCodeCombo.key, mKeyCodeCombo.modifier | fixedModifier, DefaultRootWindow((Display*)display));
 }

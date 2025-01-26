@@ -42,7 +42,7 @@ void ImgurResponseLogger::writeLogEntry(const QString &logEntry) const
     auto fileOpened = file.open(QIODevice::ReadWrite | QIODevice::Append | QIODevice::Text);
     if(fileOpened) {
         QTextStream stream(&file);
-        stream << logEntry << endl;
+        stream << logEntry << Qt::endl;
     }
 }
 

@@ -143,7 +143,7 @@ void MainWindow::handleGuiStartup()
 void MainWindow::setPosition()
 {
 	auto position = mConfig->windowPosition();
-	auto desktopGeometry = QApplication::desktop()->geometry();
+	auto desktopGeometry = QApplication::primaryScreen()->geometry();
 
 	if(!desktopGeometry.contains(position)) {
 		auto screenCenter = desktopGeometry.center();
@@ -412,7 +412,7 @@ void MainWindow::initGui()
 	connect(mToolBar, &MainToolBar::cropActionTriggered, mImageAnnotator, &IImageAnnotator::showCropper);
 
 	mSaveAsAction->setText(tr("Save As..."));
-	mSaveAsAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_S);
+	mSaveAsAction->setShortcut(Qt::CTRL | Qt::SHIFT | Qt::Key_S);
 	mSaveAsAction->setIcon(iconLoader->loadForTheme(QLatin1String("saveAs")));
 	connect(mSaveAsAction, &QAction::triggered, this, &MainWindow::saveAsClicked);
 
@@ -422,7 +422,7 @@ void MainWindow::initGui()
 
 	mUploadAction->setText(tr("Upload"));
 	mUploadAction->setToolTip(tr("Upload triggerCapture to external source"));
-	mUploadAction->setShortcut(Qt::SHIFT + Qt::Key_U);
+	mUploadAction->setShortcut(Qt::SHIFT | Qt::Key_U);
 	connect(mUploadAction, &QAction::triggered, this, &MainWindow::upload);
 
 	mCopyAsDataUriAction->setText(tr("Copy as data URI"));
@@ -431,7 +431,7 @@ void MainWindow::initGui()
 
 	mPrintAction->setText(tr("Print"));
 	mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image"));
-	mPrintAction->setShortcut(Qt::CTRL + Qt::Key_P);
+	mPrintAction->setShortcut(Qt::CTRL | Qt::Key_P);
 	mPrintAction->setIcon(QIcon::fromTheme(QLatin1String("document-print")));
 	connect(mPrintAction, &QAction::triggered, this, &MainWindow::printClicked);
 
@@ -443,26 +443,26 @@ void MainWindow::initGui()
 
 	mScaleAction->setText(tr("Scale"));
 	mScaleAction->setToolTip(tr("Scale Image"));
-	mScaleAction->setShortcut(Qt::SHIFT + Qt::Key_S);
+	mScaleAction->setShortcut(Qt::SHIFT | Qt::Key_S);
 	connect(mScaleAction, &QAction::triggered, this, &MainWindow::showScaleDialog);
 
 	mRotateAction->setText(tr("Rotate"));
 	mRotateAction->setToolTip(tr("Rotate Image"));
-	mRotateAction->setShortcut(Qt::SHIFT + Qt::Key_O);
+	mRotateAction->setShortcut(Qt::SHIFT | Qt::Key_O);
 	connect(mRotateAction, &QAction::triggered, this, &MainWindow::showRotateDialog);
 
 	mAddWatermarkAction->setText(tr("Add Watermark"));
 	mAddWatermarkAction->setToolTip(tr("Add Watermark to captured image. Multiple watermarks can be added."));
-	mAddWatermarkAction->setShortcut(Qt::SHIFT + Qt::Key_W);
+	mAddWatermarkAction->setShortcut(Qt::SHIFT | Qt::Key_W);
 	connect(mAddWatermarkAction, &QAction::triggered, this, &MainWindow::addWatermark);
 
 	mQuitAction->setText(tr("Quit"));
-	mQuitAction->setShortcut(Qt::CTRL + Qt::Key_Q);
+	mQuitAction->setShortcut(Qt::CTRL | Qt::Key_Q);
 	mQuitAction->setIcon(QIcon::fromTheme(QLatin1String("application-exit")));
 	connect(mQuitAction, &QAction::triggered, this, &MainWindow::quit);
 
 	mCloseWindowAction->setText(tr("Close Window"));
-	mCloseWindowAction->setShortcut(Qt::SHIFT + Qt::Key_Escape);
+	mCloseWindowAction->setShortcut(Qt::SHIFT | Qt::Key_Escape);
 	mCloseWindowAction->setIcon(QIcon::fromTheme(QLatin1String("window-close")));
 	connect(mCloseWindowAction, &QAction::triggered, this, &MainWindow::close);
 
@@ -482,7 +482,7 @@ void MainWindow::initGui()
 
 	mSettingsAction->setText(tr("Settings"));
 	mSettingsAction->setIcon(QIcon::fromTheme(QLatin1String("emblem-system")));
-	mSettingsAction->setShortcut(Qt::ALT + Qt::Key_F7);
+	mSettingsAction->setShortcut(Qt::ALT | Qt::Key_F7);
 	connect(mSettingsAction, &QAction::triggered, this, &MainWindow::showSettingsDialog);
 
 	mAboutAction->setText(tr("&About"));
@@ -491,7 +491,7 @@ void MainWindow::initGui()
 
 	mOpenImageAction->setText(tr("Open"));
 	mOpenImageAction->setIcon(QIcon::fromTheme(QLatin1String("document-open")));
-	mOpenImageAction->setShortcut(Qt::CTRL + Qt::Key_O);
+	mOpenImageAction->setShortcut(Qt::CTRL | Qt::Key_O);
 	connect(mOpenImageAction, &QAction::triggered, this, &MainWindow::showOpenImageDialog);
 
 	mRecentImagesMenu->setTitle(tr("Open &Recent"));
@@ -499,21 +499,21 @@ void MainWindow::initGui()
 
 	mPasteAction->setText(tr("Paste"));
 	mPasteAction->setIcon(iconLoader->loadForTheme(QLatin1String("paste")));
-	mPasteAction->setShortcut(Qt::CTRL + Qt::Key_V);
+	mPasteAction->setShortcut(Qt::CTRL | Qt::Key_V);
 	mPasteAction->setEnabled(mClipboard->isPixmap());
 	connect(mPasteAction, &QAction::triggered, this, &MainWindow::pasteFromClipboard);
 	connect(mClipboard.data(), &IClipboard::changed, mPasteAction, &QAction::setEnabled);
 
 	mPasteEmbeddedAction->setText(tr("Paste Embedded"));
 	mPasteEmbeddedAction->setIcon(iconLoader->loadForTheme(QLatin1String("pasteEmbedded")));
-	mPasteEmbeddedAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_V);
+	mPasteEmbeddedAction->setShortcut(Qt::CTRL | Qt::SHIFT | Qt::Key_V);
 	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
 	connect(mPasteEmbeddedAction, &QAction::triggered, this, &MainWindow::pasteEmbeddedFromClipboard);
 	connect(mClipboard.data(), &IClipboard::changed, [this] (bool isPixmap){ mPasteEmbeddedAction->setEnabled(isPixmap && mImageAnnotator->isVisible()); });
 
 	mPinAction->setText(tr("Pin"));
 	mPinAction->setToolTip(tr("Pin screenshot to foreground in frameless window"));
-	mPinAction->setShortcut(Qt::SHIFT + Qt::Key_P);
+	mPinAction->setShortcut(Qt::SHIFT | Qt::Key_P);
 	mPinAction->setIcon(iconLoader->loadForTheme(QLatin1String("pin")));
 	connect(mPinAction, &QAction::triggered, this, &MainWindow::showPinWindow);
 
@@ -525,7 +525,7 @@ void MainWindow::initGui()
 	connect(mModifyCanvasAction, &QAction::triggered, mImageAnnotator, &IImageAnnotator::showCanvasModifier);
 
 	mCutAction->setText(tr("Cut"));
-	mCutAction->setShortcut(Qt::SHIFT + Qt::Key_T);
+	mCutAction->setShortcut(Qt::SHIFT | Qt::Key_T);
 	connect(mCutAction, &QAction::triggered, mImageAnnotator, &IImageAnnotator::showCutter);
 
 	mActionsMenu->setTitle(tr("Actions"));

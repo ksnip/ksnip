@@ -18,6 +18,7 @@
  */
 
 #include "WinSnippingArea.h"
+#include <QDesktopWidget>
 
 WinSnippingArea::WinSnippingArea(const QSharedPointer<IConfig> &config) :
     AbstractSnippingArea(config),
@@ -89,7 +90,7 @@ void WinSnippingArea::setupScalingVariables()
     auto screens = QApplication::screens();
     for (auto screen : screens) {
         auto screenGeometry = screen->geometry();
-        
+
         if(screen->devicePixelRatio() > 1) {
             scaledScreens++;
         }

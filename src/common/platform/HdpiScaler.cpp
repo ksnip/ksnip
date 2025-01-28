@@ -18,6 +18,9 @@
  */
 
 #include "HdpiScaler.h"
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#include <QDesktopWidget>
+#endif
 
 QRect HdpiScaler::unscale(const QRect &rect) const
 {

@@ -5,6 +5,7 @@ on:
     branches: [ master ]
     tags:
       - "v*"
+  pull_request:
 
 jobs:
   test-linux:

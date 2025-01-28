@@ -20,8 +20,6 @@ elseif (UNIX)
 	set(KIMAGEANNOTATOR_LANG_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATAROOTDIR}/kImageAnnotator/translations")
 endif ()
 
-configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/src/BuildConfig.h)
-
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -45,6 +43,8 @@ set(QT_COMPONENTS Core Widgets Network Xml PrintSupport DBus Svg)
 set(QT_MIN_VERSION 5.15.2)
 
 option(BUILD_WITH_QT6 "Build against Qt6" OFF)
+
+configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/src/BuildConfig.h)
 
 if (BUILD_WITH_QT6)
 	set(QT_MAJOR_VERSION 6)

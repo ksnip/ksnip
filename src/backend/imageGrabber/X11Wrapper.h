@@ -21,8 +21,12 @@
 #define X11WRAPPER_H
 
 #include <xcb/xfixes.h>
-#include <QtVersionChecks>
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+
+// Can't include <QtGlobal> for QT_VERSION_CHECK because it includes too much,
+// and symbols conflict with X11. Can't include <QtVersionChecks> because it
+// doesn't exist in Qt 5.
+#include "BuildConfig.h"
+#if KSNIP_QT6
 #include <QtGui/private/qtx11extras_p.h>
 #else
 #include <QX11Info>

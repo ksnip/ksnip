@@ -11,6 +11,7 @@ jobs:
   test-linux:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         qtversion: ['5.15.2', '6.8.1']
     steps:

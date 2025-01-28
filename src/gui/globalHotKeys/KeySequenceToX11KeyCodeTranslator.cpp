@@ -19,12 +19,17 @@
 
 #include "KeySequenceToX11KeyCodeTranslator.h"
 
-#include <QtVersionChecks>
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-#include <QtGui/private/qtx11extras_p.h>
-#else
+// Can't include <QtGlobal> for QT_VERSION_CHECK because it includes too much,
+// and symbols conflict with X11. Can't include <QtVersionChecks> because it
+// doesn't exist in Qt 5.
+#if __has_include(<QX11Info>)
+// Qt 5
 #include <QX11Info>
+#else
+// Qt 6
+#include <QtGui/private/qtx11extras_p.h>
 #endif
+
 #include <X11/Xutil.h>
 
 KeySequenceToX11KeyCodeTranslator::KeySequenceToX11KeyCodeTranslator()

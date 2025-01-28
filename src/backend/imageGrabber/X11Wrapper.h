@@ -21,7 +21,7 @@
 #define X11WRAPPER_H
 
 #include <xcb/xfixes.h>
-#include <QtVersionChecks>
+#include <QtGlobal>
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 #include <QtGui/private/qtx11extras_p.h>
 #else

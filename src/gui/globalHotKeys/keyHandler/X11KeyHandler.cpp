@@ -21,7 +21,7 @@
  * Inspired by Skycoder42`s QHotKey implementation https://github.com/Skycoder42/QHotkey/blob/master/QHotkey/qhotkey_x11.cpp
  */
 
-#include <QtVersionChecks>
+#include <QtGlobal>
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 #include <QtGui/private/qtx11extras_p.h>
 #else

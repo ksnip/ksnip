@@ -52,3 +52,10 @@ ACTION_LINK_TEXT="Build logs: https://github.com/ksnip/ksnip/actions"
 BUILD_TIME_TEXT="Build Time: $(TZ=CET date +"%d.%m.%Y %T %Z")"
 UPLOADTOOL_BODY="${ACTION_LINK_TEXT} %0A ${BUILD_TIME_TEXT}"
 echo "UPLOADTOOL_BODY=$UPLOADTOOL_BODY" >> $GITHUB_ENV
+
+
+if [[ "$QT_VERSION" == 6* ]]; then
+	echo "USE_QT6=yes" >> $GITHUB_ENV
+else
+	echo "USE_QT6=no" >> $GITHUB_ENV
+fi

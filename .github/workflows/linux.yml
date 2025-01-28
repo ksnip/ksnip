@@ -10,11 +10,16 @@ on:
 jobs:
   test-linux:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        qtversion: ['5.15.2', '6.8.1']
     steps:
     - name: Checkout
       uses: actions/checkout@v3
 
     - name: Set up build variables
+      env:
+        QT_VERSION: ${{ matrix.qtversion }}
       run: bash ./.github/scripts/setup_build_variables.sh
 
     - name: Set up linux build variables
@@ -23,7 +28,7 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
       with:
-        version: '5.15.2'
+        version: ${{ matrix.qtversion }}
         host: 'linux'
         install-deps: 'true'
 

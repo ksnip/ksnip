@@ -55,7 +55,7 @@ elseif (UNIX)
 		)
 	if (BUILD_WITH_QT6)
 		target_link_libraries(KSNIP_STATIC Qt6::GuiPrivate)
-	else()
+	elseif (UNIX AND NOT APPLE)
 		target_link_libraries(KSNIP_STATIC Qt5::X11Extras)
 	endif()
 

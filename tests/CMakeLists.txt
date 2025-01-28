@@ -53,6 +53,11 @@ elseif (UNIX)
 		Qt${QT_MAJOR_VERSION}::DBus
 		XCB::XFIXES
 		)
+	if (BUILD_WITH_QT6)
+		target_link_libraries(KSNIP_STATIC Qt6::GuiPrivate)
+	else()
+		target_link_libraries(KSNIP_STATIC Qt5::X11Extras)
+	endif()
 
 	# X11::X11 imported target only available with sufficiently new CMake
 	if (CMAKE_VERSION VERSION_GREATER_EQUAL 3.14.0)

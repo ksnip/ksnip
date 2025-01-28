@@ -265,6 +265,8 @@ set(DEPENDENCY_LIBRARIES
 
 if (BUILD_WITH_QT6)
         list(APPEND DEPENDENCY_LIBRARIES Qt6::GuiPrivate)
+else()
+        list(APPEND DEPENDENCY_LIBRARIES Qt5::X11Extras)
 endif ()
 
 if (APPLE)

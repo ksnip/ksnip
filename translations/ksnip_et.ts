@@ -132,11 +132,11 @@ kiirklahvi ka siis, kui ksnip pole fookuses.</translation>
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Vesimärgi pilt on vajalik</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Palun lisa vesimärgi pilt valides Eelistused &gt; Seadistused &gt; Annoteerija &gt; Uuenda</translation>
     </message>
 </context>
 <context>
@@ -1799,38 +1799,38 @@ service when such exists. Change requires restart to take effect.</source>
     <name>VersionTab</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Versioon</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished"></translation>
+        <translation>Kompileerimisjärk</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kasutades:</translation>
     </message>
 </context>
 <context>
     <name>WatermarkSettings</name>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Vesimärgi pilt</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Uuenda</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Pööra vesimärki</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished"></translation>
+        <translation>Kui see valik on kasutusel, siis lisatud vesimärk on pööratud 45-kraadise nurga all</translation>
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Vesimärgi seadistused</translation>
     </message>
 </context>
 </TS>

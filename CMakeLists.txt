@@ -44,6 +44,7 @@ set(QT_MIN_VERSION 5.15.2)
 
 option(BUILD_WITH_QT6 "Build against Qt6" OFF)
 
+set(KSNIP_QT6 ${BUILD_WITH_QT6})
 configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/src/BuildConfig.h)
 
 if (BUILD_WITH_QT6)

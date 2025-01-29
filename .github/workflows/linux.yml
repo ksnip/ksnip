@@ -10,11 +10,17 @@ on:
 jobs:
   test-linux:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        qtversion: ['5.15.2', '6.8.1']
     steps:
     - name: Checkout
       uses: actions/checkout@v3
 
     - name: Set up build variables
+      env:
+        QT_VERSION: ${{ matrix.qtversion }}
       run: bash ./.github/scripts/setup_build_variables.sh
 
     - name: Set up linux build variables
@@ -23,12 +29,16 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
       with:
-        version: '5.15.2'
+        version: ${{ matrix.qtversion }}
         host: 'linux'
         install-deps: 'true'
 
     - name: Install dependencies
       run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev xvfb
+
+    - name: Install Qt6 dependencies
+      # https://stackoverflow.com/questions/77725761/from-6-5-0-xcb-cursor0-or-libxcb-cursor0-is-needed-to-load-the-qt-xcb-platform
+      run: sudo apt-get install libxcb-cursor-dev
 
     - name: Set up GoogleTest
       run: bash ./.github/scripts/setup_googleTest.sh
@@ -55,6 +65,7 @@ jobs:
 
 
   package-appImage:
+    if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-20.04
     needs: test-linux
     steps:
@@ -76,6 +87,10 @@ jobs:
 
       - name: Install dependencies
         run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev libssl-dev
+
+      - name: Install Qt6 dependencies
+        # https://stackoverflow.com/questions/77725761/from-6-5-0-xcb-cursor0-or-libxcb-cursor0-is-needed-to-load-the-qt-xcb-platform
+        run: sudo apt-get install libxcb-cursor-dev
 
       - name: Set up kColorPicker
         run: bash ./.github/scripts/setup_kColorPicker.sh
@@ -117,6 +132,7 @@ jobs:
 
 
   package-rpm:
+    if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-latest
     needs: test-linux
     steps:
@@ -138,6 +154,10 @@ jobs:
 
       - name: Install dependencies
         run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev libssl-dev rpm
+
+      - name: Install Qt6 dependencies
+        # https://stackoverflow.com/questions/77725761/from-6-5-0-xcb-cursor0-or-libxcb-cursor0-is-needed-to-load-the-qt-xcb-platform
+        run: sudo apt-get install libxcb-cursor-dev
 
       - name: Set up kColorPicker
         run: bash ./.github/scripts/setup_kColorPicker.sh
@@ -179,6 +199,7 @@ jobs:
 
 
   package-deb:
+    if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-latest
     needs: test-linux
     steps:
@@ -200,6 +221,10 @@ jobs:
 
       - name: Install dependencies
         run: sudo apt-get install cmake extra-cmake-modules libxcb-xfixes0-dev libssl-dev devscripts debhelper
+
+      - name: Install Qt6 dependencies
+        # https://stackoverflow.com/questions/77725761/from-6-5-0-xcb-cursor0-or-libxcb-cursor0-is-needed-to-load-the-qt-xcb-platform
+        run: sudo apt-get install libxcb-cursor-dev
 
       - name: Set up kColorPicker
         run: bash ./.github/scripts/setup_kColorPicker.sh

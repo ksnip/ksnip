@@ -86,7 +86,7 @@ void PathHelperTests::IsPipePath_Should_ReturnFalse_When_PathIsNull()
 void PathHelperTests::IsPipePath_Should_ReturnFalse_When_PathIsEmpty()
 {
 	// arrange
-	auto input = QLatin1Literal("");
+	auto input = QStringLiteral("");
 
 	// act
 	auto result = PathHelper::isPipePath(input);

@@ -148,7 +148,7 @@ void MultiCaptureHandlerTests::CopyToClipboardTab_Should_FetchCorrectImageFromAn
 
 	// act & assert
 	for(auto action : parameterActions) {
-		if(action->text() == QLatin1Literal("Copy")) {
+		if(action->text() == QStringLiteral("Copy")) {
 			action->setData(index);
 			action->trigger();
 		}
@@ -213,7 +213,7 @@ void MultiCaptureHandlerTests::CopyPathToClipboardTab_Should_FetchCorrectPathFro
 
 	// act & assert
 	for(auto action : parameterActions) {
-		if(action->text() == QLatin1Literal("Copy Path")) {
+		if(action->text() == QStringLiteral("Copy Path")) {
 			action->setData(index);
 			action->trigger();
 		}
@@ -279,7 +279,7 @@ void MultiCaptureHandlerTests::OpenDirectory_Should_FetchCorrectPathFromTabState
 
 	// act & assert
 	for(auto action : parameterActions) {
-		if(action->text() == QLatin1Literal("Open Directory")) {
+		if(action->text() == QStringLiteral("Open Directory")) {
 			action->setData(index);
 			action->trigger();
 		}
@@ -350,22 +350,22 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetAllActionThatR
 	QAction *copyPathToClipboardContextMenuAction = nullptr;
 	QAction *copyToClipboardContextMenuAction = nullptr;
 	for(auto action : parameterActions) {
-		if(action->text() == QLatin1Literal("Save")) {
+		if(action->text() == QStringLiteral("Save")) {
 			saveContextMenuAction = action;
 		}
-		if(action->text() == QLatin1Literal("Save As")) {
+		if(action->text() == QStringLiteral("Save As")) {
 			saveAsContextMenuAction = action;
 		}
-		if(action->text() == QLatin1Literal("Save All")) {
+		if(action->text() == QStringLiteral("Save All")) {
 			saveAllContextMenuAction = action;
 		}
-		if(action->text() == QLatin1Literal("Open Directory")) {
+		if(action->text() == QStringLiteral("Open Directory")) {
 			openDirectoryContextMenuAction = action;
 		}
-		if(action->text() ==QLatin1Literal("Copy Path")) {
+		if(action->text() ==QStringLiteral("Copy Path")) {
 			copyPathToClipboardContextMenuAction = action;
 		}
-		if(action->text() == QLatin1Literal("Copy")) {
+		if(action->text() == QStringLiteral("Copy")) {
 			copyToClipboardContextMenuAction = action;
 		}
 	}
@@ -442,22 +442,22 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetAllActionThatR
 	QAction *copyPathToClipboardContextMenuAction = nullptr;
 	QAction *copyToClipboardContextMenuAction = nullptr;
 	for(auto action : parameterActions) {
-		if(action->text() == QLatin1Literal("Save")) {
+		if(action->text() == QStringLiteral("Save")) {
 			saveContextMenuAction = action;
 		}
-		if(action->text() == QLatin1Literal("Save As")) {
+		if(action->text() == QStringLiteral("Save As")) {
 			saveAsContextMenuAction = action;
 		}
-		if(action->text() == QLatin1Literal("Save All")) {
+		if(action->text() == QStringLiteral("Save All")) {
 			saveAllContextMenuAction = action;
 		}
-		if(action->text() == QLatin1Literal("Open Directory")) {
+		if(action->text() == QStringLiteral("Open Directory")) {
 			openDirectoryContextMenuAction = action;
 		}
-		if(action->text() ==QLatin1Literal("Copy Path")) {
+		if(action->text() ==QStringLiteral("Copy Path")) {
 			copyPathToClipboardContextMenuAction = action;
 		}
-		if(action->text() == QLatin1Literal("Copy")) {
+		if(action->text() == QStringLiteral("Copy")) {
 			copyToClipboardContextMenuAction = action;
 		}
 	}
@@ -528,7 +528,7 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetSaveActionToDi
 	// arrange
 	QAction *saveContextMenuAction = nullptr;
 	for(auto action : parameterActions) {
-		if(action->text() == QLatin1Literal("Save")) {
+		if(action->text() == QStringLiteral("Save")) {
 			saveContextMenuAction = action;
 		}
 	}
@@ -594,7 +594,7 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetSaveActionToEn
 	// arrange
 	QAction *saveContextMenuAction = nullptr;
 	for(auto action : parameterActions) {
-		if(action->text() == QLatin1Literal("Save")) {
+		if(action->text() == QStringLiteral("Save")) {
 			saveContextMenuAction = action;
 		}
 	}

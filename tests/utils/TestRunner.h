@@ -69,9 +69,6 @@ class GoogleTestEventListener : public ::testing::EmptyTestEventListener {
 #endif
 
 #define TEST_MAIN(TestObject) \
-QT_BEGIN_NAMESPACE \
-QTEST_ADD_GPU_BLACKLIST_SUPPORT_DEFS \
-QT_END_NAMESPACE \
 int main(int argc, char *argv[]) \
 {   \
     INIT_GOOGLE_MOCKS (argc, argv); \
@@ -79,7 +76,6 @@ int main(int argc, char *argv[]) \
     QApplication app(argc, argv); \
     app.setAttribute(Qt::AA_Use96Dpi, true); \
     QTEST_DISABLE_KEYPAD_NAVIGATION \
-    QTEST_ADD_GPU_BLACKLIST_SUPPORT \
     TestObject tc; \
     QTEST_SET_MAIN_SOURCE_PATH \
     return QTest::qExec(&tc, argc, argv); \
@@ -90,16 +86,12 @@ int main(int argc, char *argv[]) \
 #include <QtTest/qtest_gui.h>
 
 #define TEST_MAIN(TestObject) \
-QT_BEGIN_NAMESPACE \
-QTEST_ADD_GPU_BLACKLIST_SUPPORT_DEFS \
-QT_END_NAMESPACE \
 int main(int argc, char *argv[]) \
 {   \
     INIT_GOOGLE_MOCKS (argc, argv); \
     \
     QGuiApplication app(argc, argv); \
     app.setAttribute(Qt::AA_Use96Dpi, true); \
-    QTEST_ADD_GPU_BLACKLIST_SUPPORT \
     TestObject tc; \
     QTEST_SET_MAIN_SOURCE_PATH \
     return QTest::qExec(&tc, argc, argv); \

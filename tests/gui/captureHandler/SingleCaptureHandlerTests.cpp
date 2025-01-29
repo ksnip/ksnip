@@ -72,7 +72,7 @@ void SingleCaptureHandlerTests::RemoveImage_Should_CleanupAnnotationData_When_Im
 			nullptr,
 			nullptr);
 
-	auto capture = CaptureFromFileDto(QPixmap(), QLatin1Literal("lala"));
+	auto capture = CaptureFromFileDto(QPixmap(), QStringLiteral("lala"));
 	captureHandler.load(capture);
 
 	// act
@@ -117,7 +117,7 @@ void SingleCaptureHandlerTests::RemoveImage_Should_NotCleanupAnnotationData_When
 			nullptr,
 			nullptr,
 			nullptr);
-	auto capture = CaptureFromFileDto(QPixmap(), QLatin1Literal("lala"));
+	auto capture = CaptureFromFileDto(QPixmap(), QStringLiteral("lala"));
 	captureHandler.load(capture);
 
 	// act
@@ -156,7 +156,7 @@ void SingleCaptureHandlerTests::Load_Should_SetPathAndIsSavedToValuesFromCapture
 			nullptr,
 			nullptr);
 
-	auto capture = CaptureFromFileDto(QPixmap(), QLatin1Literal("lala"));
+	auto capture = CaptureFromFileDto(QPixmap(), QStringLiteral("lala"));
 
 	// act
 	captureHandler.load(capture);

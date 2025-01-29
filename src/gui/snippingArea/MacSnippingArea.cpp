@@ -18,6 +18,7 @@
  */
 
 #include "MacSnippingArea.h"
+#include <QDesktopWidget>
 
 MacSnippingArea::MacSnippingArea(const QSharedPointer<IConfig> &config) : AbstractSnippingArea(config)
 {

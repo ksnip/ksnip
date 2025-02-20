@@ -214,7 +214,8 @@ ser criado, permitindo alterar as configurações.</translation>
     <message>
         <source>The Controls Widget contains the Undo/Redo,
 Crop, Scale, Rotate and Modify Canvas buttons.</source>
-        <translation type="unfinished"></translation>
+        <translation>os widgets de controle tem o Desfazer/Refazer,
+Cortar aumentar,Rotacionar e modificar os botões do canvas.</translation>
     </message>
 </context>
 <context>
@@ -295,7 +296,7 @@ A visibilidade das Docks pode ser alternada com a tecla Tab.</translation>
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation>Ativar depuração</translation>
+        <translation>Habilitar Depuração</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
@@ -313,7 +314,7 @@ um novo conteúdo, caso a janela principal não esteja ajustada corretamente
     </message>
     <message>
         <source>Resize delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Redimensionar O delay</translation>
     </message>
     <message>
         <source>Temp Directory</source>
@@ -322,7 +323,8 @@ um novo conteúdo, caso a janela principal não esteja ajustada corretamente
     <message>
         <source>Temp directory used for storing temporary images that are
 going to be deleted after ksnip closes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pasta temporária utilizada para armazenar imagens provisórias que
+serão eliminadas depois de encerrar o ksnip.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -739,7 +741,7 @@ quando a Janela Principal foi escondida ou minimizada.</translation>
     </message>
     <message>
         <source>Implicit capture delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Atraso de captura implícito</translation>
     </message>
     <message>
         <source>This delay is used when no delay was selected in
@@ -748,7 +750,12 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Este atraso é utilizado quando não se selecionou
+qualquer atraso na interface do utilizador, permitindo
+que o ksnip se oculte antes de fazer uma captura de ecrã.
+Este valor não é aplicado quando o ksnip já foi minimizado.
+Reduzir este valor pode fazer com que a janela principal
+do ksnip fique visível na captura de ecrã.</translation>
     </message>
 </context>
 <context>
@@ -871,11 +878,11 @@ Mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation>Ficheiro do envio</translation>
+        <translation>Título do upload:</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation>Descrição do envio</translation>
+        <translation>Descrição do upload:</translation>
     </message>
 </context>
 <context>
@@ -1127,7 +1134,7 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR (reconhecimento ótico de caracteres)</translation>
     </message>
 </context>
 <context>
@@ -1176,7 +1183,7 @@ e captura de ecrã.</translation>
     <name>OcrWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Janela OCR %1</translation>
     </message>
 </context>
 <context>
@@ -1198,14 +1205,14 @@ e captura de ecrã.</translation>
     <name>PinWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Janela OCR %1</translation>
     </message>
 </context>
 <context>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Pasta para plugins</translation>
     </message>
     <message>
         <source>Default</source>
@@ -1213,7 +1220,7 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
-        <translation type="unfinished"></translation>
+        <translation>A pasta donde se encontram os arquivos dos plugins.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1237,7 +1244,7 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>Plugin location</source>
-        <translation type="unfinished"></translation>
+        <translation>Localização do plugin</translation>
     </message>
 </context>
 <context>
@@ -1371,7 +1378,7 @@ Nem todos os formatos de imagem têm suporte a todos os intervalos, o JPEG supor
     </message>
     <message>
         <source>Overwrite file with same name</source>
-        <translation type="unfinished"></translation>
+        <translation>Substituir o arquivo com o mesmo nome</translation>
     </message>
 </context>
 <context>
@@ -1526,7 +1533,7 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirme a seleção pressionando ENTER/RETURN ou fazendo duplo clique com o rato.</translation>
     </message>
     <message>
         <source>Abort by pressing ESC.</source>
@@ -1676,7 +1683,7 @@ O número menor é mais transparente.</translation>
     </message>
     <message>
         <source>Enable Snipping Area offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Ativar compensação da área de captura</translation>
     </message>
     <message>
         <source>When enabled will apply the configured
@@ -1684,7 +1691,11 @@ offset to the Snipping Area position which
 is required when the position is not
 correctly calculated. This is sometimes
 required with screen scaling enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando ativado, aplicará o valor de compensação
+para a posição da área de recorte, sendo
+necessário sempre que a posição não for
+corretamente calculada. Isto pode ocorrer
+quando a escala de tela se encontra ativada.</translation>
     </message>
     <message>
         <source>X</source>
@@ -1838,7 +1849,7 @@ quando tal existir. A mudança requer reinicialização para ter efeito.</transl
     </message>
     <message>
         <source>Imgur</source>
-        <translation>Imgur</translation>
+        <translation>Serviço Imgur.com</translation>
     </message>
     <message>
         <source>Script</source>

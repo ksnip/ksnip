@@ -104,12 +104,13 @@
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>Globální</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Když povolíte, ksnip bude mít aktivní klávesovou zkratku
+i když nebude mít okno fokus.</translation>
     </message>
 </context>
 <context>
@@ -208,12 +209,13 @@ co je vytvořen. A zpřístupní možnost editace prvku.</translation>
     </message>
     <message>
         <source>Show Controls Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraz ovládací prvky</translation>
     </message>
     <message>
         <source>The Controls Widget contains the Undo/Redo,
 Crop, Scale, Rotate and Modify Canvas buttons.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ovládací prvky obsahují Zpět/Znova,
+Ořez, Zmenší, Otoč a Modifikační tlačítka pro plátna.</translation>
     </message>
 </context>
 <context>

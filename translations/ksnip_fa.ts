@@ -72,7 +72,7 @@
     <message>
         <source>s</source>
         <extracomment>The small letter s stands for seconds.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Capture Mode</source>
@@ -80,7 +80,7 @@
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>نمایش تصویر در پنجره سنجاق شده</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>

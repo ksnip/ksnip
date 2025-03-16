@@ -5,11 +5,11 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation>אודות. </translation>
+        <translation>על </translation>
     </message>
     <message>
         <source>About</source>
-        <translation>אודות</translation>
+        <translation>על אודות</translation>
     </message>
     <message>
         <source>Version</source>
@@ -17,11 +17,11 @@
     </message>
     <message>
         <source>Author</source>
-        <translation>מחבר</translation>
+        <translation>יוצר</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>סגור</translation>
+        <translation>סגירה</translation>
     </message>
     <message>
         <source>Donate</source>
@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation>צור קשר</translation>
+        <translation>יצירת קשר</translation>
     </message>
 </context>
 <context>
@@ -55,15 +55,15 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>פינוי</translation>
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>צילום</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation>כלול סמן</translation>
+        <translation>עם סמן העכבר</translation>
     </message>
     <message>
         <source>Delay</source>
@@ -72,7 +72,7 @@
     <message>
         <source>s</source>
         <extracomment>The small letter s stands for seconds.</extracomment>
-        <translation>ש</translation>
+        <translation>שנ׳</translation>
     </message>
     <message>
         <source>Capture Mode</source>
@@ -80,15 +80,15 @@
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>הצגת תמונה בחלון נעיצה</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation>העתק תמונה ללוח</translation>
+        <translation>העתקת תמונה ללוח הגזירים</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation>העלה תמונה</translation>
+        <translation>העלאת תמונה</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
@@ -96,27 +96,28 @@
     </message>
     <message>
         <source>Save image</source>
-        <translation>שמור תמונה</translation>
+        <translation>שמירת תמונה</translation>
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation>הסתר חלון ראשי</translation>
+        <translation>הסתרת חלון ראשי</translation>
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>כללי</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>כשהאפשרות פעילה קיצור המקשים יישאר
+זמין כשהמיקוד אינו על ksnip.</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation>הוסף</translation>
+        <translation>הוספה</translation>
     </message>
     <message>
         <source>Actions Settings</source>
@@ -135,7 +136,7 @@ available even when ksnip has no focus.</source>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished"></translation>
+        <translation>נא להוסיף תמונת סימן מים דרך אפשרויות &gt; הגדרות &gt; מסמן &gt; עדכון</translation>
     </message>
 </context>
 <context>
@@ -151,7 +152,7 @@ marker paths after finished drawing.</source>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>מקדם החלקה</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
@@ -161,7 +162,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>הגדרות מסמן</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>

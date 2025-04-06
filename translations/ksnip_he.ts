@@ -148,7 +148,8 @@ available even when ksnip has no focus.</source>
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation type="unfinished"></translation>
+        <translation>כשהאפשרות פעילה נתיבי העטים
+והמדגישים יוחלקו לאחר סיום הציור.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>

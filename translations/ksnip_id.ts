@@ -104,12 +104,12 @@
     </message>
     <message>
         <source>Global</source>
-        <translation type="unfinished"></translation>
+        <translation>Global</translation>
     </message>
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ketika diaktifkan, akan membuat tombol pintas tersedia meski ksnip tidak terfokus</translation>
     </message>
 </context>
 <context>
@@ -208,12 +208,12 @@ dibuat, mengizinkan adanya perubahan pengaturan.</translation>
     </message>
     <message>
         <source>Show Controls Widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan Alat Kontrol</translation>
     </message>
     <message>
         <source>The Controls Widget contains the Undo/Redo,
 Crop, Scale, Rotate and Modify Canvas buttons.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilah Kontrol mengandung tombol Batal, Potong, Skala, Rotasi, dan Modifikasi Kanvas</translation>
     </message>
 </context>
 <context>
@@ -312,16 +312,16 @@ ke konten baru, meningkatkan penundaan ini dapat meningkatkan perilaku.</transla
     </message>
     <message>
         <source>Resize delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Waktu tunda ubah ukuran</translation>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Direktori Sementara</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
 going to be deleted after ksnip closes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Direktori sementara akan digunakan untuk menyimpan gambar sementara yang akan dihapus setelah ksnip ditutup.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -738,7 +738,7 @@ ketika Jendela Utama disembunyikan atau diminimalkan.</translation>
     </message>
     <message>
         <source>Implicit capture delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Waktu tunda pengambilan langsung</translation>
     </message>
     <message>
         <source>This delay is used when no delay was selected in
@@ -747,7 +747,7 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Waktu tunda ini digunakan ketika tidak ada waktu tunda yang dipilih di antarmuka, ini membuat ksnip bisa bersembunyi sebelum tangkapan layar diambil. Angka ini tidak akan diaplikasikan ketika ksnip sudah dikecilkan. Mengurangi angka ini bisa berakibat jendela ksnip terlihat di tangkapan layar.</translation>
     </message>
 </context>
 <context>
@@ -870,11 +870,11 @@ Perubahan membutuhkan mulai ulang.</translation>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Judul unggahan:</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Deskripsi unggahan:</translation>
     </message>
 </context>
 <context>
@@ -1114,19 +1114,19 @@ citra dalam detik.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Simpan Semua</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Tutup Jendela</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Potong</translation>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR</translation>
     </message>
 </context>
 <context>
@@ -1161,7 +1161,7 @@ citra dalam detik.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Simpan Semua</translation>
     </message>
 </context>
 <context>
@@ -1175,7 +1175,7 @@ citra dalam detik.</translation>
     <name>OcrWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Jendela OCR %1</translation>
     </message>
 </context>
 <context>
@@ -1197,53 +1197,53 @@ citra dalam detik.</translation>
     <name>PinWindowCreator</name>
     <message>
         <source>OCR Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Jendela OCR %1</translation>
     </message>
 </context>
 <context>
     <name>PluginsSettings</name>
     <message>
         <source>Search Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Jalur Pencarian</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Baku</translation>
+        <translation>Baku</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Direktori dimana plugin berada</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Telusuri</translation>
+        <translation>Telusuri</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nama</translation>
+        <translation>Nama</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Versi</translation>
+        <translation>Versi</translation>
     </message>
     <message>
         <source>Detect</source>
-        <translation type="unfinished"></translation>
+        <translation>Deteksi</translation>
     </message>
     <message>
         <source>Plugin Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Pengaturan Plugin</translation>
     </message>
     <message>
         <source>Plugin location</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lokasi Plugin</translation>
     </message>
 </context>
 <context>
     <name>ProcessIndicator</name>
     <message>
         <source>Processing</source>
-        <translation type="unfinished"></translation>
+        <translation>Memproses</translation>
     </message>
 </context>
 <context>
@@ -1370,7 +1370,7 @@ Tidak semua format citra mendukung rentang penuh, sedangkan JPEG mendukungnya.</
     </message>
     <message>
         <source>Overwrite file with same name</source>
-        <translation type="unfinished"></translation>
+        <translation>Timpa berkas dengan nama yang sama</translation>
     </message>
 </context>
 <context>
@@ -1494,11 +1494,11 @@ Ketika dihilangkan, semuanya akan disalin.</translation>
     </message>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Plugin</translation>
     </message>
     <message>
         <source>Search Settings...</source>
-        <translation type="unfinished"></translation>
+        <translation>Pengaturan Pencarian</translation>
     </message>
 </context>
 <context>
@@ -1525,11 +1525,11 @@ Ketika dihilangkan, semuanya akan disalin.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfirmasi pemilihan dengan menekan ENTER/RETURN atau klik dua kali tetikus di mana saja.</translation>
     </message>
     <message>
         <source>Abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Batalkan dengan menekan ESC.</translation>
     </message>
 </context>
 <context>
@@ -1559,7 +1559,7 @@ Ketika dihilangkan, semuanya akan disalin.</translation>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Bekukan gambar saat memotong</translation>
+        <translation>Bekukan gambar saat pemotongan</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1581,29 +1581,29 @@ selalu diaktifkan untuk macOS.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Tampilkan kaca pembesar pada area snipping</translation>
+        <translation>Tampilkan kaca pembesar pada area pemotongan</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">Menampilkan kaca pembesar yang akan membesarkan
+        <translation>Menampilkan kaca pembesar yang akan membesarkan
 gambar latar belakang. Opsi ini hanya berlaku jika
-Bekukan Gambar saat snipping diaktifkan.</translation>
+&apos;Bekukan Gambar saat pemotongan&apos; diaktifkan.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Tampilkan penggaris Area Snipping</translation>
+        <translation>Tampilkan penggaris di area pemotongan</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Garis vertikal dan horizontal dari pinggir
-desktop ke kursor pada area snipping.</translation>
+        <translation>Garis vertikal dan horizontal dari pinggir
+destop ke kursor pada area pemotongan.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Tampilkan info posisi dan ukuran Area Snipping</translation>
+        <translation>Tampilkan info posisi dan ukuran area pemotongan</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
@@ -1635,7 +1635,7 @@ pemilihan dapat dikonfirmasi dengan menekan ENTER/RETURN.</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Warna kursor Area Snipping</translation>
+        <translation>Warna kursor area pemotongan</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
@@ -1643,7 +1643,7 @@ pemilihan dapat dikonfirmasi dengan menekan ENTER/RETURN.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Tebal kursor Area Snipping</translation>
+        <translation>Tebal kursor area pemotongan</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
@@ -1675,7 +1675,7 @@ Nilai yang lebih kecil berarti lebih transparan.</translation>
     </message>
     <message>
         <source>Enable Snipping Area offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktifkan Ketidakteletian Area Pemotongan</translation>
     </message>
     <message>
         <source>When enabled will apply the configured
@@ -1687,11 +1687,11 @@ required with screen scaling enabled.</source>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
 </context>
 <context>

@@ -159,7 +159,9 @@ marker paths after finished drawing.</source>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished"></translation>
+        <translation>הגברת מקדם ההחלקה תקטין
+את מידת דיוק העטים והמדגישים אך
+תהפוך אותם לחלקים יותר.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
@@ -167,11 +169,11 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>לזכור את בחירת כלי הפירוש ולטעון בהתחלה</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>לעבור לכלי בחירה לאחר ציור פריט</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>

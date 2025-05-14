@@ -1802,30 +1802,30 @@ service when such exists. Change requires restart to take effect.</source>
     <name>VersionTab</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>גרסה</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished"></translation>
+        <translation>בנייה</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished"></translation>
+        <translation>על גבי:</translation>
     </message>
 </context>
 <context>
     <name>WatermarkSettings</name>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished"></translation>
+        <translation>תמונת סימן מים</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>עדכון</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>סיבוב סימן מים</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>

@@ -485,7 +485,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation>டெவலப்பர்களை ஒரு பீர் அல்லது காபிக்கு சிகிச்சையளிப்பதன் மூலம் நீங்கள் உதவ விரும்பினால் அல்லது செய்யப்பட விரும்பினால் அல்லது செய்ய விரும்பினால், நீங்கள் அதை %இங்கே செய்யலாம்.</translation>
+        <translation>டெவலப்பர்களை ஒரு பீர் அல்லது காபிக்கு சிகிச்சையளிப்பதன் மூலம் நீங்கள் உதவ விரும்பினால் &lt;br/&gt;அல்லது செய்யப்பட விரும்பினால் அல்லது செய்ய விரும்பினால், நீங்கள் அதை %1இங்கே செய்யலாம்%2.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
@@ -1262,7 +1262,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation>படம் மறுபெயரிடப்பட்டது</translation>
+        <translation>படம் மறுபெயரிடுதல் தோல்வி</translation>
     </message>
     <message>
         <source>Rename image</source>

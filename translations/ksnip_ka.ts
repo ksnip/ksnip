@@ -59,11 +59,11 @@
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>სურათის გადაღება</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>კურსორის ჩასმა</translation>
     </message>
     <message>
         <source>Delay</source>
@@ -120,7 +120,7 @@ available even when ksnip has no focus.</source>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>ქმედების პარამეტრები</translation>
     </message>
     <message>
         <source>Action</source>
@@ -151,7 +151,7 @@ marker paths after finished drawing.</source>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>მოგლუვების კოეფიციენტი</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
@@ -161,7 +161,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>ანოტატორის მორგება</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
@@ -183,7 +183,7 @@ Disabling this option allows having duplicate numbers.</source>
     </message>
     <message>
         <source>Canvas Color</source>
-        <translation type="unfinished"></translation>
+        <translation>ტილოს ფერი</translation>
     </message>
     <message>
         <source>Default Canvas background color for annotation area.
@@ -234,7 +234,7 @@ Change requires ksnip restart to take effect.</source>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩანართების გამოყენება</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
@@ -457,7 +457,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>დონაცია</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
@@ -1416,11 +1416,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>მალსახმობი ღილაკები</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>ამტვირთავი</translation>
     </message>
     <message>
         <source>Script Uploader</source>
@@ -1428,7 +1428,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>შემნახველი</translation>
     </message>
     <message>
         <source>Stickers</source>
@@ -1787,7 +1787,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>ამტვირთავი</translation>
     </message>
     <message>
         <source>FTP</source>

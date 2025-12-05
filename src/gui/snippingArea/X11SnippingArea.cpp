@@ -45,8 +45,8 @@ QRect X11SnippingArea::selectedRectArea() const
 
 void X11SnippingArea::setFullScreen()
 {
-    setFixedSize(QGuiApplication::primaryScreen()->size());
-    QWidget::showFullScreen();
+    setGeometry(mDesktopGeometry.toRect());
+    QWidget::show();
 }
 
 QSizeF X11SnippingArea::getSize() const

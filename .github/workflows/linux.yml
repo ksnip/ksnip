@@ -16,7 +16,7 @@ jobs:
         qtversion: ['5.15.2', '6.8.1']
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Set up build variables
       env:
@@ -27,7 +27,7 @@ jobs:
       run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
 
     - name: Install Qt
-      uses: jurplel/install-qt-action@v3
+      uses: jurplel/install-qt-action@v4
       with:
         version: ${{ matrix.qtversion }}
         host: 'linux'
@@ -70,7 +70,7 @@ jobs:
     needs: test-linux
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up build variables
         run: bash ./.github/scripts/setup_build_variables.sh
@@ -79,7 +79,7 @@ jobs:
         run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v3
+        uses: jurplel/install-qt-action@v4
         with:
           version: '5.15.2'
           host: 'linux'
@@ -108,7 +108,7 @@ jobs:
         run: bash ./.github/scripts/linux/build_appImage.sh
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ksnip.AppImage
           path: ksnip*.AppImage*
@@ -137,7 +137,7 @@ jobs:
     needs: test-linux
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up build variables
         run: bash ./.github/scripts/setup_build_variables.sh
@@ -146,7 +146,7 @@ jobs:
         run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v3
+        uses: jurplel/install-qt-action@v4
         with:
           version: '5.15.2'
           host: 'linux'
@@ -175,7 +175,7 @@ jobs:
         run: bash ./.github/scripts/linux/rpm/build_rpm.sh
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ksnip.rpm
           path: ksnip-*.rpm
@@ -204,7 +204,7 @@ jobs:
     needs: test-linux
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up build variables
         run: bash ./.github/scripts/setup_build_variables.sh
@@ -213,7 +213,7 @@ jobs:
         run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v3
+        uses: jurplel/install-qt-action@v4
         with:
           version: '5.15.2'
           host: 'linux'
@@ -242,7 +242,7 @@ jobs:
         run: bash ./.github/scripts/linux/deb/build_deb.sh
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ksnip.deb
           path: ksnip-*.deb

@@ -12,7 +12,7 @@ jobs:
     runs-on: macos-13
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Set up build variables
       run: bash ./.github/scripts/setup_build_variables.sh
@@ -21,7 +21,7 @@ jobs:
       run: bash ./.github/scripts/macos/setup_macos_build_variables.sh
 
     - name: Install Qt
-      uses: jurplel/install-qt-action@v3
+      uses: jurplel/install-qt-action@v4
       with:
         version: '5.15.2'
         host: 'mac'
@@ -57,7 +57,7 @@ jobs:
     needs: test-macos
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up build variables
         run: bash ./.github/scripts/setup_build_variables.sh
@@ -66,7 +66,7 @@ jobs:
         run: bash ./.github/scripts/macos/setup_macos_build_variables.sh
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v3
+        uses: jurplel/install-qt-action@v4
         with:
           version: '5.15.2'
           host: 'mac'
@@ -102,7 +102,7 @@ jobs:
 #        run: bash ./.github/scripts/macos/notarize_osx_dmg_package.sh
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ksnip-macos.dmg
           path: ksnip-*.dmg

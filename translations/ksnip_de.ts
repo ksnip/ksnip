@@ -109,7 +109,8 @@
     <message>
         <source>When enabled will make the shortcut
 available even when ksnip has no focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wenn aktiviert, wird der Shortcut aktiv sein
+auch wenn ksnip nicht im Fokus steht.</translation>
     </message>
 </context>
 <context>
@@ -1526,7 +1527,7 @@ Falls leer, wird alles kopiert.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestätige die Auswahl durch Drücken der ENTER Taste oder mittels Doppelklick an einer beliebigen Stelle.</translation>
     </message>
     <message>
         <source>Abort by pressing ESC.</source>
@@ -1688,11 +1689,11 @@ required with screen scaling enabled.</source>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
 </context>
 <context>

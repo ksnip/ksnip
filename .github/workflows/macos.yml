@@ -9,7 +9,7 @@ on:
 
 jobs:
   test-macos:
-    runs-on: macos-13
+    runs-on: macos-14
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -53,7 +53,7 @@ jobs:
 
   package-dmg:
     if: ${{ github.event_name == 'push' }}
-    runs-on: macos-13
+    runs-on: macos-14
     needs: test-macos
     steps:
       - name: Checkout

@@ -19,6 +19,8 @@
 
 #include "MultiCaptureHandler.h"
 
+#include <QDir>
+
 MultiCaptureHandler::MultiCaptureHandler(
 		IImageAnnotator *imageAnnotator,
 		const QSharedPointer<INotificationService> &notificationService,
@@ -357,7 +359,7 @@ void MultiCaptureHandler::copyToClipboardTab(int index)
 void MultiCaptureHandler::copyPathToClipboardTab(int index)
 {
 	auto path = mTabStateHandler->path(index);
-	mClipboard->setText(path);
+	mClipboard->setText(QDir::toNativeSeparators(path));
 }
 
 void MultiCaptureHandler::deleteImageTab(int index)

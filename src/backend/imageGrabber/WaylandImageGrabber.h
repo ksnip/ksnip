@@ -23,6 +23,7 @@
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusInterface>
 #include <QtDBus/QDBusReply>
+#include <QUrl>
 
 #include "AbstractImageGrabber.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
@@ -54,7 +55,7 @@ private:
 
 private slots:
     void portalResponse(QDBusPendingCallWatcher *watcher);
-
+    bool isInteractiveCapture() const;
     QPixmap createPixmapFromPath(const QString &path) const;
 };
 

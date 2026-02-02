@@ -23,8 +23,9 @@ WaylandImageGrabber::WaylandImageGrabber(const QSharedPointer<IConfig> &config) 
 	AbstractImageGrabber(config),
 	mRequestTokenCounter(1)
 {
-	addSupportedCaptureMode(CaptureModes::Portal);
-}
+  addSupportedCaptureMode(CaptureModes::RectArea);
+	addSupportedCaptureMode(CaptureModes::FullScreen);
+	}
 
 void WaylandImageGrabber::grab()
 {
@@ -43,7 +44,7 @@ QDBusMessage WaylandImageGrabber::getDBusMessage()
             QLatin1String("Screenshot"));
 
     message << QLatin1String("wayland:") << QVariantMap{
-        {QLatin1String("interactive"), false},
+        {QLatin1String("interactive"), isInteractiveCapture()},
         {QLatin1String("handle_token"), getRequestToken()}
     };
     return message;
@@ -54,6 +55,13 @@ void WaylandImageGrabber::gotScreenshotResponse(uint response, const QVariantMap
 	if (isResponseValid(response, results)) {
         auto path = getPathToScreenshot(results);
         auto screenshot = createPixmapFromPath(path);
+
+        if (screenshot.isNull()) {
+            qCritical("Failed to load screenshot from '%s'", qPrintable(path));
+            emit canceled();
+            return;
+        }
+        
         if(isTemporaryImage(path)) {
             emit finished(CaptureDto(screenshot));
         } else {
@@ -61,6 +69,7 @@ void WaylandImageGrabber::gotScreenshotResponse(uint response, const QVariantMap
         }
 	} else {
         qCritical("Failed to take screenshot");
+        emit canceled();
     }
 }
 
@@ -87,13 +96,21 @@ bool WaylandImageGrabber::isTemporaryImage(const QString &path)
 QString WaylandImageGrabber::getPathToScreenshot(const QVariantMap &results)
 {
     auto uri = results.value(QLatin1String("uri")).toString();
-    return uri.remove(QLatin1String("file://"));
+    if (uri.isEmpty()) {
+        return results.value(QLatin1String("path")).toString();
+    }
+    return QUrl(uri).toLocalFile();
 }
 
 QString WaylandImageGrabber::getRequestToken()
 {
 	mRequestTokenCounter += 1;
 	return QString("u%1").arg(mRequestTokenCounter);
+}
+
+bool WaylandImageGrabber::isInteractiveCapture() const
+{
+	return captureMode() != CaptureModes::FullScreen;
 }
 
 void WaylandImageGrabber::portalResponse(QDBusPendingCallWatcher *watcher)

@@ -124,7 +124,24 @@ void PlatformChecker::checkVersion()
 		auto value = regex.match(mCommandRunner->readFile(path)).captured(1).toInt(&isParseSuccessful);
 		if(isParseSuccessful) {
 			mGnomeVersion = value;
-		}
+		} else { 
+      QProcess proc;
+      proc.start("gnome-shell", {"--version"});
+      if(!proc.waitForFinished(1000)){ 
+        mGnomeVersion = -1;
+      }
+
+      const QString output = QString::fromUtf8(proc.readAllStandardOutput()).trimmed();
+
+      QRegularExpression gnomeVersionRegex(R"(((\d+)))");
+
+      auto match = gnomeVersionRegex.match(output);
+
+      if(match.hasMatch())
+        mGnomeVersion = match.captured(0).toInt();
+
+    }
+
 	}
 	mIsGnomeVersionChecked = true;
 }

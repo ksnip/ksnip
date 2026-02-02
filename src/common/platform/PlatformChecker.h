@@ -23,6 +23,7 @@
 #include <QString>
 #include <QRegularExpression>
 #include <QSharedPointer>
+#include <QProcess>
 
 #include "IPlatformChecker.h"
 #include "ICommandRunner.h"

@@ -60,6 +60,7 @@ void WaylandImageGrabber::gotScreenshotResponse(uint response, const QVariantMap
 	if (isResponseValid(response, results)) {
         auto path = getPathToScreenshot(results);
         auto screenshot = createPixmapFromPath(path);
+
         if (screenshot.isNull()) {
             qCritical("Failed to load screenshot from '%s'", qPrintable(path));
             emit canceled();
@@ -100,7 +101,10 @@ bool WaylandImageGrabber::isTemporaryImage(const QString &path)
 QString WaylandImageGrabber::getPathToScreenshot(const QVariantMap &results)
 {
     auto uri = results.value(QLatin1String("uri")).toString();
-    return uri.remove(QLatin1String("file://"));
+    if (uri.isEmpty()) {
+        return results.value(QLatin1String("path")).toString();
+    }
+    return QUrl(uri).toLocalFile();
 }
 
 QString WaylandImageGrabber::getRequestToken()

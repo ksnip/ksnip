@@ -262,6 +262,36 @@ to be installed before building ksnip from source. Installation instructions can
 
 If you are using Archlinux, you may prefer to [build ksnip through AUR](https://github.com/ksnip/ksnip#archlinux).
 
+## macOS
+On macOS the default build expects system-installed kImageAnnotator and kColorPicker. To build against the submodules,
+enable the flags below after initializing the submodules:
+```
+git submodule update --init --recursive
+cmake .. -DBUILD_WITH_QT6=ON -DUSE_SUBMODULE_KCOLORPICKER=ON -DUSE_SUBMODULE_KIMAGEANNOTATOR=ON
+cmake --build .
+```
+
+### Homebrew dependencies
+```
+brew install cmake qt@5
+```
+For Qt6 builds:
+```
+brew install cmake qt
+```
+
+### Qt5 build
+```
+cmake .. -DBUILD_WITH_QT6=OFF
+cmake --build .
+```
+
+### Qt6 build
+```
+cmake .. -DBUILD_WITH_QT6=ON
+cmake --build .
+```
+
 # Known Issues
 
 <details>

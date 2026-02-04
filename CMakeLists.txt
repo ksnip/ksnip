@@ -70,7 +70,13 @@ endif()
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED ${QT_COMPONENTS})
 
 set(KIMAGEANNOTATOR_MIN_VERSION 0.7.1)
-find_package(kImageAnnotator-Qt${QT_MAJOR_VERSION} ${KIMAGEANNOTATOR_MIN_VERSION} REQUIRED)
+set(KIMAGEANNOTATOR_SOURCE_DIR "${CMAKE_SOURCE_DIR}/libraries/kImageAnnotator")
+if (EXISTS "${KIMAGEANNOTATOR_SOURCE_DIR}/CMakeLists.txt")
+	set(BUILD_EXAMPLE OFF CACHE BOOL "Build kImageAnnotator example application" FORCE)
+	add_subdirectory("${KIMAGEANNOTATOR_SOURCE_DIR}" "${CMAKE_BINARY_DIR}/kImageAnnotator")
+else()
+	find_package(kImageAnnotator-Qt${QT_MAJOR_VERSION} ${KIMAGEANNOTATOR_MIN_VERSION} REQUIRED)
+endif()
 
 set(KCOLORPICKER_MIN_VERSION 0.3.0)
 find_package(kColorPicker-Qt${QT_MAJOR_VERSION} ${KCOLORPICKER_MIN_VERSION} REQUIRED)
@@ -87,4 +93,3 @@ if (BUILD_TESTS)
 
 	add_subdirectory(tests)
 endif (BUILD_TESTS)
-

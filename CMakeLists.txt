@@ -71,15 +71,27 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED ${QT_COMPONENTS})
 
 set(KIMAGEANNOTATOR_MIN_VERSION 0.7.1)
 set(KIMAGEANNOTATOR_SOURCE_DIR "${CMAKE_SOURCE_DIR}/libraries/kImageAnnotator")
+set(KCOLORPICKER_MIN_VERSION 0.3.0)
+set(KCOLORPICKER_SOURCE_DIR "${CMAKE_SOURCE_DIR}/libraries/kColorPicker")
+if (EXISTS "${KCOLORPICKER_SOURCE_DIR}/CMakeLists.txt")
+	set(BUILD_EXAMPLE OFF CACHE BOOL "Build kColorPicker example application" FORCE)
+	add_subdirectory("${KCOLORPICKER_SOURCE_DIR}" "${CMAKE_BINARY_DIR}/kColorPicker")
+	if (TARGET kColorPicker AND NOT TARGET kColorPicker::kColorPicker)
+		add_library(kColorPicker::kColorPicker ALIAS kColorPicker)
+	endif()
+	set("kColorPicker-Qt${QT_MAJOR_VERSION}_DIR"
+		"${CMAKE_BINARY_DIR}/kColorPicker/cmake"
+		CACHE PATH "Path to kColorPicker-Qt${QT_MAJOR_VERSION}Config.cmake" FORCE)
+else()
+	find_package(kColorPicker-Qt${QT_MAJOR_VERSION} ${KCOLORPICKER_MIN_VERSION} REQUIRED)
+endif()
+
 if (EXISTS "${KIMAGEANNOTATOR_SOURCE_DIR}/CMakeLists.txt")
 	set(BUILD_EXAMPLE OFF CACHE BOOL "Build kImageAnnotator example application" FORCE)
 	add_subdirectory("${KIMAGEANNOTATOR_SOURCE_DIR}" "${CMAKE_BINARY_DIR}/kImageAnnotator")
 else()
 	find_package(kImageAnnotator-Qt${QT_MAJOR_VERSION} ${KIMAGEANNOTATOR_MIN_VERSION} REQUIRED)
 endif()
-
-set(KCOLORPICKER_MIN_VERSION 0.3.0)
-find_package(kColorPicker-Qt${QT_MAJOR_VERSION} ${KCOLORPICKER_MIN_VERSION} REQUIRED)
 
 set(BASEPATH "${CMAKE_SOURCE_DIR}")
 include_directories("${BASEPATH}")

@@ -247,7 +247,9 @@ ksnip depends on [kImageAnnotator](https://github.com/ksnip/kImageAnnotator) and
 to be installed before building ksnip from source. Installation instructions can be found on the Github pages.
 
 # Building from source
-## Linux/Unix
+<details>
+  <summary>Linux/Unix</summary>
+
 The default build expects system-installed kImageAnnotator and kColorPicker.
 
 ### Dependencies
@@ -281,7 +283,11 @@ cmake --build .
 
 If you are using Archlinux, you may prefer to [build ksnip through AUR](https://github.com/ksnip/ksnip#archlinux).
 
-## macOS
+</details>
+
+<details>
+  <summary>macOS</summary>
+
 On macOS the default build expects system-installed kImageAnnotator and kColorPicker. To build against the submodules,
 enable the flags below after initializing the submodules:
 ```
@@ -311,7 +317,11 @@ cmake .. -DBUILD_WITH_QT6=ON
 cmake --build .
 ```
 
-## Windows
+</details>
+
+<details>
+  <summary>Windows</summary>
+
 The default build expects system-installed kImageAnnotator and kColorPicker.
 
 ### Dependencies
@@ -341,6 +351,8 @@ cmake --build build --config Release
 cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DBUILD_WITH_QT6=ON
 cmake --build build --config Release
 ```
+
+</details>
 
 # Known Issues
 

@@ -1,0 +1,6 @@
+[submodule "libraries/kImageAnnotator"]
+	path = libraries/kImageAnnotator
+	url = https://github.com/ksnip/kImageAnnotator.git
+[submodule "libraries/kColorPicker"]
+	path = libraries/kColorPicker
+	url = https://github.com/ksnip/kColorPicker.git

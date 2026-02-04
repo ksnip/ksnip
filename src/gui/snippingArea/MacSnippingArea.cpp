@@ -18,7 +18,13 @@
  */
 
 #include "MacSnippingArea.h"
+#include <QtGlobal>
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <QDesktopWidget>
+#else
+#include <QGuiApplication>
+#include <QScreen>
+#endif
 
 MacSnippingArea::MacSnippingArea(const QSharedPointer<IConfig> &config) : AbstractSnippingArea(config)
 {
@@ -32,7 +38,14 @@ QRect MacSnippingArea::selectedRectArea() const
 
 void MacSnippingArea::setFullScreen()
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     setFixedSize(QDesktopWidget().size());
+#else
+    auto screen = QGuiApplication::primaryScreen();
+    if (screen) {
+        setFixedSize(screen->geometry().size());
+    }
+#endif
     QWidget::showFullScreen();
 }
 

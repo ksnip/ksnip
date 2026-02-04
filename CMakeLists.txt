@@ -69,6 +69,14 @@ endif()
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED ${QT_COMPONENTS})
 
+if (APPLE AND BUILD_WITH_QT6)
+	get_target_property(_qt_gui_libs Qt6::Gui INTERFACE_LINK_LIBRARIES)
+	if (_qt_gui_libs)
+		list(REMOVE_ITEM _qt_gui_libs WrapOpenGL::WrapOpenGL)
+		set_target_properties(Qt6::Gui PROPERTIES INTERFACE_LINK_LIBRARIES "${_qt_gui_libs}")
+	endif()
+endif()
+
 set(KIMAGEANNOTATOR_MIN_VERSION 0.7.1)
 set(KIMAGEANNOTATOR_SOURCE_DIR "${CMAKE_SOURCE_DIR}/libraries/kImageAnnotator")
 set(KCOLORPICKER_MIN_VERSION 0.3.0)

@@ -13,6 +13,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
     - name: Set up build variables
       run: bash ./.github/scripts/setup_build_variables.sh
@@ -30,20 +32,12 @@ jobs:
     - name: Set up GoogleTest
       run: bash ./.github/scripts/setup_googleTest.sh
 
-    - name: Set up kColorPicker
-      env:
-        BUILD_TYPE: Debug
-      run: bash ./.github/scripts/setup_kColorPicker.sh
-
-    - name: Set up kImageAnnotator
-      env:
-        BUILD_TYPE: Debug
-      run: bash ./.github/scripts/setup_kImageAnnotator.sh
-
     - name: Build
       env:
         BUILD_TESTS: ON
         BUILD_TYPE: Debug
+        USE_SUBMODULE_KCOLORPICKER: ON
+        USE_SUBMODULE_KIMAGEANNOTATOR: ON
       run: bash ./.github/scripts/build_ksnip.sh
 
     - name: Test
@@ -58,6 +52,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
       - name: Set up build variables
         run: bash ./.github/scripts/setup_build_variables.sh
@@ -72,13 +68,10 @@ jobs:
           host: 'mac'
           install-deps: 'true'
 
-      - name: Set up kColorPicker
-        run: bash ./.github/scripts/setup_kColorPicker.sh
-
-      - name: Set up kImageAnnotator
-        run: bash ./.github/scripts/setup_kImageAnnotator.sh
-
       - name: Build
+        env:
+          USE_SUBMODULE_KCOLORPICKER: ON
+          USE_SUBMODULE_KIMAGEANNOTATOR: ON
         run: bash ./.github/scripts/build_ksnip.sh
 
       - name: Add OSX certificate to key chain

@@ -1,6 +1,7 @@
 name: linux
 
 on:
+  workflow_dispatch:
   push:
     branches: [ master ]
     tags:
@@ -263,4 +264,3 @@ jobs:
           release_name: ${{ env.RELEASE_NAME }}
           body: ${{ env.UPLOADTOOL_BODY }}
           prerelease: ${{ env.IS_PRERELASE }}
-

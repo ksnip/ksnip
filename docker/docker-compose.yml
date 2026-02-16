@@ -1,0 +1,34 @@
+#
+# Installation:
+# docker-compose build
+# docker-compose up
+#
+
+version: '3'
+services:
+  # https://github.com/fcwu/docker-ubuntu-vnc-desktop
+  ksnip-desktop-build:
+    container_name: ksnip-desktop
+    build: .
+    volumes:
+      - /dev/shm:/dev/shm
+      - ..:/code/ksnip
+    environment:
+      - TZ=Europe/Vienna
+      - USER=ksnip
+      - PASSWORD=ksnip
+    ports:
+      - "6080:80"
+
+  ksnip-desktop-pre-built:
+    image: pbeke/ksnip-desktop
+    volumes:
+      - /dev/shm:/dev/shm
+      - ..:/code/ksnip
+    environment:
+      - TZ=Europe/Vienna
+      - USER=ksnip
+      - PASSWORD=ksnip
+    ports:
+      - "6080:80"
+

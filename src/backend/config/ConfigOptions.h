@@ -54,6 +54,8 @@ public:
 	static QString trayIconDefaultActionModeString();
 	static QString trayIconDefaultCaptureModeString();
 	static QString useTrayIconString();
+	static QString useCustomTrayIconImageString();
+	static QString customTrayIconImageFileString();
 	static QString minimizeToTrayString();
 	static QString closeToTrayString();
 	static QString trayIconNotificationsEnabledString();

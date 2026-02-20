@@ -247,20 +247,112 @@ ksnip depends on [kImageAnnotator](https://github.com/ksnip/kImageAnnotator) and
 to be installed before building ksnip from source. Installation instructions can be found on the Github pages.
 
 # Building from source
-1. Get the latest release from GitHub by cloning the repo:
-    `$ git clone https://github.com/ksnip/ksnip`
-2. Change to repo directory:
-    `$ cd ksnip`
-3. Make new build directory and enter it:
-    `$ mkdir build && cd build`
-4. Create the makefile and build the project:
-    `$ cmake .. && make`
-5. Now install the application, eventually you need to run it with sudo:
-    `$ sudo make install`
-6. Run the application:
-    `$ ksnip`
+<details>
+  <summary>Linux/Unix</summary>
+
+The default build expects system-installed kImageAnnotator and kColorPicker.
+
+### Dependencies
+Install the following before building:
+- CMake
+- A C++17 compiler toolchain (GCC or Clang)
+- Qt5 or Qt6 (Widgets, Network, Xml, PrintSupport, Svg, DBus)
+- kImageAnnotator (matching your Qt version)
+- kColorPicker (matching your Qt version)
+
+### Build steps
+```
+git clone https://github.com/ksnip/ksnip
+cd ksnip
+mkdir build && cd build
+cmake ..
+cmake --build .
+```
+
+### Qt5 build
+```
+cmake .. -DBUILD_WITH_QT6=OFF
+cmake --build .
+```
+
+### Qt6 build
+```
+cmake .. -DBUILD_WITH_QT6=ON
+cmake --build .
+```
 
 If you are using Archlinux, you may prefer to [build ksnip through AUR](https://github.com/ksnip/ksnip#archlinux).
+
+</details>
+
+<details>
+  <summary>macOS</summary>
+
+On macOS the default build expects system-installed kImageAnnotator and kColorPicker. To build against the submodules,
+enable the flags below after initializing the submodules:
+```
+git submodule update --init --recursive
+cmake .. -DBUILD_WITH_QT6=ON -DUSE_SUBMODULE_KCOLORPICKER=ON -DUSE_SUBMODULE_KIMAGEANNOTATOR=ON
+cmake --build .
+```
+
+### Homebrew dependencies
+```
+brew install cmake qt@5
+```
+For Qt6 builds:
+```
+brew install cmake qt
+```
+
+### Qt5 build
+```
+cmake .. -DBUILD_WITH_QT6=OFF
+cmake --build .
+```
+
+### Qt6 build
+```
+cmake .. -DBUILD_WITH_QT6=ON
+cmake --build .
+```
+
+</details>
+
+<details>
+  <summary>Windows</summary>
+
+The default build expects system-installed kImageAnnotator and kColorPicker.
+
+### Dependencies
+Install the following before building:
+- CMake
+- Visual Studio (MSVC toolchain)
+- Qt5 or Qt6 (Widgets, Network, Xml, PrintSupport, Svg, DBus)
+- kImageAnnotator (matching your Qt version)
+- kColorPicker (matching your Qt version)
+
+### Build steps (Visual Studio)
+```
+git clone https://github.com/ksnip/ksnip
+cd ksnip
+cmake -S . -B build -G "Visual Studio 17 2022" -A x64
+cmake --build build --config Release
+```
+
+### Qt5 build
+```
+cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DBUILD_WITH_QT6=OFF
+cmake --build build --config Release
+```
+
+### Qt6 build
+```
+cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DBUILD_WITH_QT6=ON
+cmake --build build --config Release
+```
+
+</details>
 
 # Known Issues
 

@@ -19,6 +19,8 @@
 
 #include "SingleCaptureHandler.h"
 
+#include <QDir>
+
 SingleCaptureHandler::SingleCaptureHandler(
 		IImageAnnotator *imageAnnotator,
 		const QSharedPointer<INotificationService> &notificationService,
@@ -110,7 +112,7 @@ void SingleCaptureHandler::copy()
 
 void SingleCaptureHandler::copyPath()
 {
-	mClipboard->setText(mPath);
+	mClipboard->setText(QDir::toNativeSeparators(mPath));
 }
 
 void SingleCaptureHandler::openDirectory()

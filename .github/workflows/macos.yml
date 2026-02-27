@@ -1,125 +1,130 @@
 name: macOS
 
 on:
-  push:
-    branches: [ master ]
-    tags:
-      - "v*"
-  pull_request:
+    workflow_dispatch:
+    push:
+        branches: [master]
+        tags:
+            - "v*"
+    pull_request:
 
 jobs:
-  test-macos:
-    runs-on: macos-14
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-
-    - name: Set up build variables
-      run: bash ./.github/scripts/setup_build_variables.sh
-
-    - name: Set up macos build variables
-      run: bash ./.github/scripts/macos/setup_macos_build_variables.sh
-
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v4
-      with:
-        version: '5.15.2'
-        host: 'mac'
-        install-deps: 'true'
-
-    - name: Set up GoogleTest
-      run: bash ./.github/scripts/setup_googleTest.sh
-
-    - name: Set up kColorPicker
-      env:
-        BUILD_TYPE: Debug
-      run: bash ./.github/scripts/setup_kColorPicker.sh
-
-    - name: Set up kImageAnnotator
-      env:
-        BUILD_TYPE: Debug
-      run: bash ./.github/scripts/setup_kImageAnnotator.sh
-
-    - name: Build
-      env:
-        BUILD_TESTS: ON
-        BUILD_TYPE: Debug
-      run: bash ./.github/scripts/build_ksnip.sh
-
-    - name: Test
-      working-directory: ${{github.workspace}}/build/tests
-      run: ctest --extra-verbose
-
-
-  package-dmg:
-    if: ${{ github.event_name == 'push' }}
-    runs-on: macos-14
-    needs: test-macos
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up build variables
-        run: bash ./.github/scripts/setup_build_variables.sh
-
-      - name: Set up windows build variables
-        run: bash ./.github/scripts/macos/setup_macos_build_variables.sh
-
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v4
-        with:
-          version: '5.15.2'
-          host: 'mac'
-          install-deps: 'true'
-
-      - name: Set up kColorPicker
-        run: bash ./.github/scripts/setup_kColorPicker.sh
-
-      - name: Set up kImageAnnotator
-        run: bash ./.github/scripts/setup_kImageAnnotator.sh
-
-      - name: Build
-        run: bash ./.github/scripts/build_ksnip.sh
-
-      - name: Add OSX certificate to key chain
+    test-macos:
+        runs-on: macos-14
         env:
-          APPLE_CERT_P12: ${{ secrets.APPLE_CERT_P12 }}
-          APPLE_CERT_P12_PASS: ${{ secrets.APPLE_CERT_P12_PASS }}
-        run: bash ./.github/scripts/macos/add_osx_cert.sh
+            QT_VERSION: "6.8"
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  submodules: recursive
 
-      - name: Package dmg
+            - name: Checkout submodules at latest tags
+              run: bash ./.github/scripts/macos/checkout_submodules_latest_tags.sh
+
+            - name: Set up build variables
+              run: bash ./.github/scripts/setup_build_variables.sh
+
+            - name: Set up macos build variables
+              run: bash ./.github/scripts/macos/setup_macos_build_variables.sh
+
+            - name: Install Qt
+              uses: jurplel/install-qt-action@v4
+              with:
+                  version: "6.8"
+                  host: "mac"
+                  arch: "clang_64"
+                  install-deps: "true"
+
+            - name: Set up GoogleTest
+              run: bash ./.github/scripts/setup_googleTest.sh
+
+            - name: Build
+              env:
+                  BUILD_TESTS: ON
+                  BUILD_TYPE: Debug
+                  USE_SUBMODULE_KCOLORPICKER: ON
+                  USE_SUBMODULE_KIMAGEANNOTATOR: ON
+              run: bash ./.github/scripts/build_ksnip.sh
+
+            - name: Test
+              working-directory: ${{github.workspace}}/build/tests
+              run: ctest --extra-verbose
+
+    package-dmg:
+        if: ${{ github.event_name == 'push' }}
+        runs-on: macos-14
+        needs: test-macos
         env:
-          APPLE_DEV_IDENTITY: ${{ secrets.APPLE_DEV_IDENTITY }}
-        run: bash ./.github/scripts/macos/package_dmg.sh
+            QT_VERSION: "6.8"
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  submodules: recursive
 
-# As we don't have an active apple developer account membership the
-# notarization fails, so we skip it for now.
-#
-#      - name: Notarize dmg package
-#        env:
-#          APPLE_DEV_PASS: ${{ secrets.APPLE_DEV_PASS }}
-#          APPLE_DEV_USER: ${{ secrets.APPLE_DEV_USER }}
-#        run: bash ./.github/scripts/macos/notarize_osx_dmg_package.sh
+            - name: Checkout submodules at latest tags
+              run: bash ./.github/scripts/macos/checkout_submodules_latest_tags.sh
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ksnip-macos.dmg
-          path: ksnip-*.dmg
+            - name: Set up build variables
+              run: bash ./.github/scripts/setup_build_variables.sh
 
-      - name: Delete existing release with same name
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: bash ./.github/scripts/delete_release.sh
+            - name: Set up windows build variables
+              run: bash ./.github/scripts/macos/setup_macos_build_variables.sh
 
-      - name: Upload Release
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ksnip-${{ env.VERSION }}.dmg
-          asset_name: ksnip-${{ env.VERSION }}.dmg
-          tag: ${{ env.RELEASE_TAG }}
-          overwrite: true
-          release_name: ${{ env.RELEASE_NAME }}
-          body: ${{ env.UPLOADTOOL_BODY }}
-          prerelease: ${{ env.IS_PRERELASE }}
+            - name: Install Qt
+              uses: jurplel/install-qt-action@v4
+              with:
+                  version: "6.8"
+                  host: "mac"
+                  arch: "clang_64"
+                  install-deps: "true"
+
+            - name: Build
+              env:
+                  USE_SUBMODULE_KCOLORPICKER: ON
+                  USE_SUBMODULE_KIMAGEANNOTATOR: ON
+              run: bash ./.github/scripts/build_ksnip.sh
+
+            - name: Add OSX certificate to key chain
+              env:
+                  APPLE_CERT_P12: ${{ secrets.APPLE_CERT_P12 }}
+                  APPLE_CERT_P12_PASS: ${{ secrets.APPLE_CERT_P12_PASS }}
+              run: bash ./.github/scripts/macos/add_osx_cert.sh
+
+            - name: Package dmg
+              env:
+                  APPLE_DEV_IDENTITY: ${{ secrets.APPLE_DEV_IDENTITY }}
+              run: bash ./.github/scripts/macos/package_dmg.sh
+
+            # As we don't have an active apple developer account membership the
+            # notarization fails, so we skip it for now.
+            #
+            #      - name: Notarize dmg package
+            #        env:
+            #          APPLE_DEV_PASS: ${{ secrets.APPLE_DEV_PASS }}
+            #          APPLE_DEV_USER: ${{ secrets.APPLE_DEV_USER }}
+            #        run: bash ./.github/scripts/macos/notarize_osx_dmg_package.sh
+
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ksnip-macos.dmg
+                  path: ksnip-*.dmg
+
+            - name: Delete existing release with same name
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: bash ./.github/scripts/delete_release.sh
+
+            - name: Upload Release
+              uses: svenstaro/upload-release-action@v2
+              with:
+                  repo_token: ${{ secrets.GITHUB_TOKEN }}
+                  file: ksnip-${{ env.VERSION }}.dmg
+                  asset_name: ksnip-${{ env.VERSION }}.dmg
+                  tag: ${{ env.RELEASE_TAG }}
+                  overwrite: true
+                  release_name: ${{ env.RELEASE_NAME }}
+                  body: ${{ env.UPLOADTOOL_BODY }}
+                  prerelease: ${{ env.IS_PRERELASE }}

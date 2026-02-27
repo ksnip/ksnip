@@ -51,7 +51,6 @@ else ()
 	endif ()
 endif ()
 
-add_custom_target(translations ALL DEPENDS ${KSNIP_LANG_QM})
+add_custom_target(ksnip_translations ALL DEPENDS ${KSNIP_LANG_QM})
 
 install(FILES ${KSNIP_LANG_QM} DESTINATION ${KSNIP_LANG_INSTALL_DIR})
-

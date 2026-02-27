@@ -29,6 +29,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 option(BUILD_TESTS "Build Unit Tests" OFF)
+option(USE_SUBMODULE_KCOLORPICKER "Build kColorPicker from submodule" OFF)
+option(USE_SUBMODULE_KIMAGEANNOTATOR "Build kImageAnnotator from submodule" OFF)
 
 if (UNIX AND NOT APPLE)
 	# Without ECM we're unable to load XCB
@@ -69,11 +71,37 @@ endif()
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED ${QT_COMPONENTS})
 
-set(KIMAGEANNOTATOR_MIN_VERSION 0.7.1)
-find_package(kImageAnnotator-Qt${QT_MAJOR_VERSION} ${KIMAGEANNOTATOR_MIN_VERSION} REQUIRED)
+if (APPLE AND BUILD_WITH_QT6)
+	get_target_property(_qt_gui_libs Qt6::Gui INTERFACE_LINK_LIBRARIES)
+	if (_qt_gui_libs)
+		list(REMOVE_ITEM _qt_gui_libs WrapOpenGL::WrapOpenGL)
+		set_target_properties(Qt6::Gui PROPERTIES INTERFACE_LINK_LIBRARIES "${_qt_gui_libs}")
+	endif()
+endif()
 
+set(KIMAGEANNOTATOR_MIN_VERSION 0.7.1)
+set(KIMAGEANNOTATOR_SOURCE_DIR "${CMAKE_SOURCE_DIR}/libraries/kImageAnnotator")
 set(KCOLORPICKER_MIN_VERSION 0.3.0)
-find_package(kColorPicker-Qt${QT_MAJOR_VERSION} ${KCOLORPICKER_MIN_VERSION} REQUIRED)
+set(KCOLORPICKER_SOURCE_DIR "${CMAKE_SOURCE_DIR}/libraries/kColorPicker")
+if (USE_SUBMODULE_KCOLORPICKER AND EXISTS "${KCOLORPICKER_SOURCE_DIR}/CMakeLists.txt")
+	set(BUILD_EXAMPLE OFF CACHE BOOL "Build kColorPicker example application" FORCE)
+	add_subdirectory("${KCOLORPICKER_SOURCE_DIR}" "${CMAKE_BINARY_DIR}/kColorPicker")
+	if (TARGET kColorPicker AND NOT TARGET kColorPicker::kColorPicker)
+		add_library(kColorPicker::kColorPicker ALIAS kColorPicker)
+	endif()
+	set("kColorPicker-Qt${QT_MAJOR_VERSION}_DIR"
+		"${CMAKE_BINARY_DIR}/kColorPicker/cmake"
+		CACHE PATH "Path to kColorPicker-Qt${QT_MAJOR_VERSION}Config.cmake" FORCE)
+else()
+	find_package(kColorPicker-Qt${QT_MAJOR_VERSION} ${KCOLORPICKER_MIN_VERSION} REQUIRED)
+endif()
+
+if (USE_SUBMODULE_KIMAGEANNOTATOR AND EXISTS "${KIMAGEANNOTATOR_SOURCE_DIR}/CMakeLists.txt")
+	set(BUILD_EXAMPLE OFF CACHE BOOL "Build kImageAnnotator example application" FORCE)
+	add_subdirectory("${KIMAGEANNOTATOR_SOURCE_DIR}" "${CMAKE_BINARY_DIR}/kImageAnnotator")
+else()
+	find_package(kImageAnnotator-Qt${QT_MAJOR_VERSION} ${KIMAGEANNOTATOR_MIN_VERSION} REQUIRED)
+endif()
 
 set(BASEPATH "${CMAKE_SOURCE_DIR}")
 include_directories("${BASEPATH}")
@@ -87,4 +115,3 @@ if (BUILD_TESTS)
 
 	add_subdirectory(tests)
 endif (BUILD_TESTS)
-

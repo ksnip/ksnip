@@ -67,7 +67,7 @@ jobs:
 
   package-appImage:
     if: ${{ github.event_name == 'push' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: test-linux
     steps:
       - name: Checkout

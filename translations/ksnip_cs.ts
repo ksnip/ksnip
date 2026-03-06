@@ -308,24 +308,27 @@ Pro změnu je nutné restartovat ksnip.</translation>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>Změna velikosti podle obsahu je zpoždění, které umožňuje správci oken přijmout
+nový obsah. V případě, že hlavní okna nejsou správně přizpůsobena
+novému obsahu, může prodloužení tohoto zpoždění zlepšit chování.</translation>
     </message>
     <message>
         <source>Resize delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Zpoždění změny velikosti</translation>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Dočasný adresář</translation>
     </message>
     <message>
         <source>Temp directory used for storing temporary images that are
 going to be deleted after ksnip closes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dočasný adresář používaný k ukládání dočasných obrázků, které
+budou po zavření programu smazány.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Procházet</translation>
+        <translation>Procházet</translation>
     </message>
 </context>
 <context>
@@ -543,7 +546,7 @@ Chcete pokračovat?</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Uživatelské jméno</translation>
+        <translation>Uživatelské jméno</translation>
     </message>
     <message>
         <source>Password</source>
@@ -614,11 +617,11 @@ Chcete pokračovat?</translation>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahrání skriptu %1   bylo úspěšně dokončeno.</translation>
     </message>
     <message>
         <source>Uploaded to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahráno do %1</translation>
     </message>
 </context>
 <context>
@@ -666,7 +669,8 @@ Chcete pokračovat?</translation>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
-        <translation type="unfinished"></translation>
+        <translation>Klávesové zkratky jsou v současné době podporovány pouze pro Windows a X11.
+Zakázání této možnosti způsobí, že zkratky akcí budou fungovat pouze v ksnip.</translation>
     </message>
 </context>
 <context>
@@ -724,7 +728,8 @@ Změna tohoto nastavení se projeví po restartu ksnip.</translation>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit hlavní okno po pořízení nového snímku obrazovky,
+pokud bylo hlavní okno skryté nebo minimalizované.</translation>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
@@ -736,7 +741,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Implicit capture delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Implicitní zpoždění zachycení</translation>
     </message>
     <message>
         <source>This delay is used when no delay was selected in
@@ -745,7 +750,12 @@ a screenshot. This value is not applied when
 ksnip was already minimized. Reducing this value
 can have the effect that ksnip&apos;s main window is
 visible on the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Toto zpoždění se používá,
+pokud nebylo v uživatelském rozhraní vybráno žádné zpoždění.
+Umožňuje ksnipu skrýt se před pořízením snímku obrazovky.
+Tato hodnota se nepoužije, pokud byl ksnip již minimalizován.
+Snížení této hodnoty může mít za následek,
+že hlavní okno ksnipu bude na snímku obrazovky viditelné.</translation>
     </message>
 </context>
 <context>
@@ -868,11 +878,11 @@ Změna vyžaduje restart.</translation>
     </message>
     <message>
         <source>Upload title:</source>
-        <translation type="unfinished"></translation>
+        <translation>Název nahrávání:</translation>
     </message>
     <message>
         <source>Upload description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Popis nahrání:</translation>
     </message>
 </context>
 <context>
@@ -1104,27 +1114,27 @@ a zachycením obrazovky.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">Akce</translation>
+        <translation>Akce</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Soubory obrázků</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložit vše</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Zavřít okno</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyjmout</translation>
     </message>
     <message>
         <source>OCR</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR</translation>
     </message>
 </context>
 <context>
@@ -1159,7 +1169,7 @@ a zachycením obrazovky.</translation>
     </message>
     <message>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložit vše</translation>
     </message>
 </context>
 <context>
@@ -1206,7 +1216,7 @@ a zachycením obrazovky.</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Výchozí</translation>
+        <translation>Výchozí</translation>
     </message>
     <message>
         <source>The directory where the plugins are located.</source>

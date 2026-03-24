@@ -36,7 +36,7 @@
     <name>AboutTab</name>
     <message>
         <source>License: </source>
-        <translation type="unfinished">Lisens: </translation>
+        <translation>Lisens: </translation>
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>

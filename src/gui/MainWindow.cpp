@@ -26,7 +26,11 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mConfig(mDependencyInjector->get<IConfig>()),
 	mImageGrabber(mDependencyInjector->get<IImageGrabber>()),
 	mPluginManager(mDependencyInjector->get<IPluginManager>()),
+#ifdef UNIX_X11
+	mTrayIcon(new AppIndicatorTrayIcon(mConfig, mDependencyInjector->get<IIconLoader>(), this)),
+#else
 	mTrayIcon(new TrayIcon(mConfig, mDependencyInjector->get<IIconLoader>(), this)),
+#endif
 	mNotificationService(NotificationServiceFactory::create(mTrayIcon, mDependencyInjector->get<IPlatformChecker>(), mConfig)),
 	mToolBar(nullptr),
 	mImageAnnotator(new KImageAnnotatorAdapter),
@@ -584,7 +588,11 @@ void MainWindow::initGui()
 	addToolBar(mToolBar);
 
 	if(mConfig->useTrayIcon()) {
+#ifdef UNIX_X11
+		connect(mTrayIcon, &AppIndicatorTrayIcon::showEditorTriggered, [this](){ mVisibilityHandler->enforceVisible(); });
+#else
 		connect(mTrayIcon, &TrayIcon::showEditorTriggered, [this](){ mVisibilityHandler->enforceVisible(); });
+#endif
 		mTrayIcon->setCaptureActions(mToolBar->captureActions());
 		mTrayIcon->setOpenAction(mOpenImageAction);
 		mTrayIcon->setSaveAction(mToolBar->saveAction());

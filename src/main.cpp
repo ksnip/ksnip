@@ -30,6 +30,13 @@ int main(int argc, char** argv)
 {
 	qInstallMessageHandler(LogOutputHandler::handleOutput);
 
+#ifdef Q_OS_UNIX
+	if (qEnvironmentVariableIsEmpty("QT_QPA_PLATFORM") &&
+	    !qEnvironmentVariableIsEmpty("WAYLAND_DISPLAY")) {
+		qputenv("QT_QPA_PLATFORM", "wayland");
+	}
+#endif
+
 	QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QApplication app(argc, argv);

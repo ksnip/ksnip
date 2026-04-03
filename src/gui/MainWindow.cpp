@@ -115,10 +115,10 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 
 	mCaptureHandler->addListener(this);
 
-	handleGuiStartup();
 	setupImageAnnotator();
 	resize(minimumSize());
 	loadSettings();
+	handleGuiStartup();
 }
 
 MainWindow::~MainWindow()

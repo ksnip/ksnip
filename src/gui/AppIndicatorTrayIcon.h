@@ -29,7 +29,6 @@
 #include <QObject>
 #include <QAction>
 #include <QMenu>
-#include <QTimer>
 #include <QDesktopServices>
 #include <QUrl>
 
@@ -62,7 +61,7 @@ public:
 	void showWarning(const QString &title, const QString &message, const QString &contentUrl) override;
 	void showCritical(const QString &title, const QString &message, const QString &contentUrl) override;
 
-signals:
+Q_SIGNALS:
 	void showEditorTriggered() const;
 
 private:

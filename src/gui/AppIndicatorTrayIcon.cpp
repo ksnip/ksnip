@@ -95,7 +95,7 @@ GtkWidget* AppIndicatorTrayIcon::createGtkMenuItem(QAction *action)
 {
 	auto item = gtk_menu_item_new_with_label(action->text().remove(QLatin1Char('&')).toUtf8().constData());
 	g_object_set_data(G_OBJECT(item), "qt-action", action);
-	g_signal_connect(item, "activate", G_CALLBACK(onMenuItemActivated), this);
+	g_signal_connect(item, "activate", G_CALLBACK(onMenuItemActivated), nullptr);
 	return item;
 }
 
@@ -106,9 +106,11 @@ GtkWidget* AppIndicatorTrayIcon::createGtkSeparator()
 
 void AppIndicatorTrayIcon::onMenuItemActivated(GtkMenuItem *menuItem, gpointer userData)
 {
+	Q_UNUSED(userData);
 	auto action = static_cast<QAction*>(g_object_get_data(G_OBJECT(menuItem), "qt-action"));
 	if (action) {
-		QTimer::singleShot(0, action, &QAction::trigger);
+		qWarning("AppIndicatorTrayIcon: menu item activated: %s", qPrintable(action->text()));
+		action->trigger();
 	}
 }
 

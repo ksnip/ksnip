@@ -33,6 +33,7 @@ void GnomeWaylandWidgetVisibilityHandler::setVisible(bool isVisible)
 void GnomeWaylandWidgetVisibilityHandler::showWidget()
 {
 	mWidget->setWindowState(getSelectedWindowState());
-	mWidget->raise();
 	mWidget->show();
+	mWidget->raise();
+	mWidget->activateWindow();
 }

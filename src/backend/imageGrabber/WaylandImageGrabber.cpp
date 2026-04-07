@@ -23,9 +23,13 @@ WaylandImageGrabber::WaylandImageGrabber(const QSharedPointer<IConfig> &config) 
 	AbstractImageGrabber(config),
 	mRequestTokenCounter(1)
 {
-  addSupportedCaptureMode(CaptureModes::RectArea);
+	addSupportedCaptureMode(CaptureModes::RectArea);
+	addSupportedCaptureMode(CaptureModes::LastRectArea);
+	addSupportedCaptureMode(CaptureModes::ActiveWindow);
+	addSupportedCaptureMode(CaptureModes::CurrentScreen);
+	addSupportedCaptureMode(CaptureModes::WindowUnderCursor);
 	addSupportedCaptureMode(CaptureModes::FullScreen);
-	}
+}
 
 void WaylandImageGrabber::grab()
 {

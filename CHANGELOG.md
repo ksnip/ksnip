@@ -2,6 +2,8 @@
 
 ## Release 1.11.0
 * New: Allow pixel based adjustments via arrow keys when capturing an area. ([#646](https://github.com/ksnip/ksnip/issues/646), [#816](https://github.com/ksnip/ksnip/issues/816), [#887](https://github.com/ksnip/ksnip/issues/887), [#1002](https://github.com/ksnip/ksnip/issues/1002))
+* New: Enabled additional capture modes (RectArea, ActiveWindow, etc.) for Wayland and KDE Wayland backends.
+
 * Fixed: Cannot compile from source, kImageAnnotatorConfig not found despite being built and installed. ([#1027](https://github.com/ksnip/ksnip/issues/1027))
 * Fixed: Impossible to use by multiple users on the same machine. ([#975](https://github.com/ksnip/ksnip/issues/975))
 * New kImageAnnotator: Allow copying items between tabs. ([#318](https://github.com/ksnip/kImageAnnotator/issues/318))

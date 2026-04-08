@@ -62,6 +62,8 @@ static QImage readImage(int pipeFd)
 
 KdeWaylandImageGrabber::KdeWaylandImageGrabber(const QSharedPointer<IConfig> &config) : AbstractImageGrabber(config)
 {
+	addSupportedCaptureMode(CaptureModes::RectArea);
+	addSupportedCaptureMode(CaptureModes::ActiveWindow);
 	addSupportedCaptureMode(CaptureModes::WindowUnderCursor);
 	addSupportedCaptureMode(CaptureModes::CurrentScreen);
 	addSupportedCaptureMode(CaptureModes::FullScreen);
@@ -73,6 +75,8 @@ void KdeWaylandImageGrabber::grab()
         prepareDBus(QLatin1String("screenshotFullscreen"), isCaptureCursorEnabled());
     } else if (captureMode() == CaptureModes::CurrentScreen) {
         prepareDBus(QLatin1String("screenshotScreen"), isCaptureCursorEnabled());
+    } else if (captureMode() == CaptureModes::ActiveWindow) {
+        prepareDBus(QLatin1String("screenshotWindow"), isCaptureCursorEnabled());
     } else {
         int mask = 1;
         if (isCaptureCursorEnabled()) {

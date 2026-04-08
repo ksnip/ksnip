@@ -30,10 +30,21 @@ int main(int argc, char** argv)
 {
 	qInstallMessageHandler(LogOutputHandler::handleOutput);
 
+#ifdef Q_OS_UNIX
+	if (qEnvironmentVariableIsEmpty("QT_QPA_PLATFORM") &&
+	    !qEnvironmentVariableIsEmpty("WAYLAND_DISPLAY")) {
+		qputenv("QT_QPA_PLATFORM", "wayland");
+	}
+#endif
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 	QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#endif
 
     QApplication app(argc, argv);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
+#endif
 
     app.setOrganizationName(QLatin1String("ksnip"));
     app.setOrganizationDomain(QLatin1String("ksnip.ksnip.org"));

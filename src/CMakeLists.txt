@@ -205,6 +205,7 @@ elseif (UNIX)
                 ${CMAKE_SOURCE_DIR}/src/gui/notificationService/KdeDesktopNotificationService.cpp
                 ${CMAKE_SOURCE_DIR}/src/gui/desktopService/SnapDesktopServiceAdapter.cpp
                 ${CMAKE_SOURCE_DIR}/src/plugins/searchPathProvider/LinuxPluginSearchPathProvider.cpp
+                ${CMAKE_SOURCE_DIR}/src/gui/AppIndicatorTrayIcon.cpp
                 )
 elseif (WIN32)
         list(APPEND KSNIP_SRCS
@@ -276,11 +277,13 @@ if (APPLE)
                 "-framework CoreGraphics -framework AppKit"
                 )
 elseif (UNIX)
+        target_include_directories(ksnip PRIVATE ${AYATANA_APPINDICATOR_INCLUDE_DIRS})
         list(APPEND DEPENDENCY_LIBRARIES
                 Qt${QT_MAJOR_VERSION}::DBus
                 kImageAnnotator::kImageAnnotator
                 kColorPicker::kColorPicker
                 XCB::XFIXES
+                ${AYATANA_APPINDICATOR_LIBRARIES}
                 )
 
         # X11::X11 imported target only available with sufficiently new CMake

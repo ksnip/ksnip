@@ -866,7 +866,7 @@ visible on the screenshot.</source>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation>基地 URL 用来与 Imgur 通信。
+        <translation>用来与 Imgur 通信的基址 URL。
 更改需要重启应用。</translation>
     </message>
     <message>

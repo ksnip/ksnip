@@ -27,7 +27,6 @@ class GnomeWaylandWidgetVisibilityHandler : public WidgetVisibilityHandler
 public:
 	explicit GnomeWaylandWidgetVisibilityHandler(QWidget *widget);
 	~GnomeWaylandWidgetVisibilityHandler() = default;
-	void setVisible(bool isVisible) override;
 	void showWidget() override;
 };
 

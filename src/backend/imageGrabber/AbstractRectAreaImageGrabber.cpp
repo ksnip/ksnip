@@ -109,10 +109,15 @@ QPixmap AbstractRectAreaImageGrabber::getScreenshotFromRect(const QRect &rect) c
 QPixmap AbstractRectAreaImageGrabber::getScreenshot() const
 {
 	if (isRectAreaCaptureWithBackground()) {
-		return snippingAreaBackground().copy(mCaptureRect);
+		return getScreenshotFromBackground();
 	} else {
 		return getScreenshotFromRect(mCaptureRect);
 	}
+}
+
+QPixmap AbstractRectAreaImageGrabber::getScreenshotFromBackground() const
+{
+	return snippingAreaBackground().copy(mCaptureRect);
 }
 
 void AbstractRectAreaImageGrabber::setCaptureRectFromCorrectSource()

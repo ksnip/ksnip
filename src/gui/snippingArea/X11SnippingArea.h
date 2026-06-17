@@ -21,7 +21,6 @@
 #define KSNIP_X11SNIPPINGAREA_H
 
 #include "AbstractSnippingArea.h"
-#include "src/common/platform/HdpiScaler.h"
 
 class X11SnippingArea : public AbstractSnippingArea
 {
@@ -37,7 +36,6 @@ protected:
 
 private:
 	QRectF mDesktopGeometry;
-	HdpiScaler mHdpiScaler;
 	bool mIsDesktopGeometryCalculated;
 
 	void calculateDesktopGeometry();

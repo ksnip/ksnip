@@ -37,6 +37,7 @@ protected:
 	QRect activeWindowRect() const override;
 	bool isSnippingAreaBackgroundTransparent() const override;
 	CursorDto getCursorWithPosition() const override;
+	QPixmap getScreenshotFromBackground() const override;
 
 private:
     X11Wrapper *mX11Wrapper;

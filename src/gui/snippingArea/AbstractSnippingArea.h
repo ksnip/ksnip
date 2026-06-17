@@ -68,6 +68,7 @@ protected:
 	virtual QRectF getGeometry() const;
 	virtual void showSnippingArea();
 	QRect getCaptureArea() const;
+	QRect getGlobalCaptureArea() const;
 
 private:
     QRect mCaptureArea;

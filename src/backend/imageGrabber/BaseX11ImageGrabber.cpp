@@ -57,3 +57,9 @@ CursorDto BaseX11ImageGrabber::getCursorWithPosition() const
 {
 	return mX11Wrapper->getCursorWithPosition();
 }
+
+QPixmap BaseX11ImageGrabber::getScreenshotFromBackground() const
+{
+	auto copyRect = mCaptureRect.translated(-fullScreenRect().topLeft());
+	return snippingAreaBackground().copy(mHdpiScaler.scale(copyRect));
+}

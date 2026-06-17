@@ -79,6 +79,12 @@ QRect AbstractSnippingArea::getCaptureArea() const
     return anAuto;
 }
 
+QRect AbstractSnippingArea::getGlobalCaptureArea() const
+{
+	auto captureArea = getCaptureArea();
+	return { mapToGlobal(captureArea.topLeft()), captureArea.size() };
+}
+
 void AbstractSnippingArea::showSnippingArea()
 {
 	startTimeout();

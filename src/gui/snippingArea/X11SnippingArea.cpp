@@ -19,6 +19,7 @@
 
 #include "X11SnippingArea.h"
 #include <QGuiApplication>
+#include <QScreen>
 
 X11SnippingArea::X11SnippingArea(const QSharedPointer<IConfig> &config) :
 	AbstractSnippingArea(config),
@@ -34,13 +35,7 @@ X11SnippingArea::X11SnippingArea(const QSharedPointer<IConfig> &config) :
 
 QRect X11SnippingArea::selectedRectArea() const
 {
-    auto captureArea = getCaptureArea();
-
-    if(isBackgroundTransparent()) {
-		return captureArea;
-	} else {
-        return mHdpiScaler.scale(captureArea);
-	}
+	return getGlobalCaptureArea();
 }
 
 void X11SnippingArea::setFullScreen()

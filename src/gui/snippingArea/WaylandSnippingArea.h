@@ -21,6 +21,7 @@
 #define KSNIP_WAYLANDSNIPPINGAREA_H
 
 #include "X11SnippingArea.h"
+#include "src/common/platform/HdpiScaler.h"
 
 class WaylandSnippingArea : public X11SnippingArea
 {

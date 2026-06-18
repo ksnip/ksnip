@@ -35,7 +35,9 @@ AuthorTab::AuthorTab()
 				   createContributorEntry(QLatin1String("Allan Nordhøy"), tr("Norwegian Bokmål Translation"), QLatin1String("epost@anotheragency.no")) +
 				   createContributorEntry(QLatin1String("4goodapp"), tr("French Translation")) +
 				   createContributorEntry(QLatin1String("epsiloneridani"), tr("Polish Translation")) +
-				   createContributorEntry(QLatin1String("YAMADA Shinichirou, maboroshin"), tr("Japanese Translation"))
+				   createContributorEntry(QLatin1String("YAMADA Shinichirou, maboroshin"), tr("Japanese Translation")) +
+				   createContributorEntry(QLatin1String("Milo Ivir, milotype"), tr("Croatian Translation")), QLatin1String("mail@milotype.de")) 
+
 	);
 	mContent->setTextFormat(Qt::RichText);
 	mContent->setTextInteractionFlags(Qt::TextBrowserInteraction);

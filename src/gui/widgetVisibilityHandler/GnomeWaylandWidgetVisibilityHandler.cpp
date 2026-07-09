@@ -25,14 +25,10 @@ GnomeWaylandWidgetVisibilityHandler::GnomeWaylandWidgetVisibilityHandler(QWidget
 
 }
 
-void GnomeWaylandWidgetVisibilityHandler::setVisible(bool isVisible)
-{
-	mWidget->setVisible(isVisible);
-}
-
 void GnomeWaylandWidgetVisibilityHandler::showWidget()
 {
 	mWidget->setWindowState(getSelectedWindowState());
-	mWidget->raise();
 	mWidget->show();
+	mWidget->raise();
+	mWidget->activateWindow();
 }

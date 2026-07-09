@@ -164,6 +164,16 @@ QString ConfigOptions::useTrayIconString()
 	return applicationSectionString() + QLatin1String("UseTrayIcon");
 }
 
+QString ConfigOptions::useCustomTrayIconImageString()
+{
+	return applicationSectionString() + QLatin1String("UseCustomTrayIconImage");
+}
+
+QString ConfigOptions::customTrayIconImageFileString()
+{
+	return applicationSectionString() + QLatin1String("CustomTrayIconImageFile");
+}
+
 QString ConfigOptions::minimizeToTrayString()
 {
 	return applicationSectionString() + QLatin1String("MinimizeToTray");

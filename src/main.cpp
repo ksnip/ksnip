@@ -39,7 +39,7 @@ int main(int argc, char** argv)
     app.setOrganizationDomain(QLatin1String("ksnip.ksnip.org"));
     app.setApplicationName(QLatin1String("ksnip"));
     app.setApplicationVersion(QLatin1String(KSNIP_VERSION));
-    app.setDesktopFileName(QLatin1String("org.ksnip.ksnip.desktop"));
+    app.setDesktopFileName(QLatin1String("org.ksnip.ksnip"));
 
     auto dependencyInjector = new DependencyInjector;
 	DependencyInjectorBootstrapper::BootstrapCore(dependencyInjector);

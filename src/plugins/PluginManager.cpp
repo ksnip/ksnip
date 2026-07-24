@@ -39,7 +39,9 @@ void PluginManager::loadPlugins()
 	auto pluginInfos = mConfig->pluginInfos();
 
 	for (const auto& pluginInfo : pluginInfos) {
-		auto plugin = QSharedPointer<QObject>(mLoader->load(pluginInfo.path()));
+		auto pluginInstance = mLoader->load(pluginInfo.path());
+		// QPluginLoader owns the root instance and deletes it when the plugin is unloaded.
+		auto plugin = QSharedPointer<QObject>(pluginInstance, [](QObject *) {});
 		if(plugin.isNull()) {
 			mLogger->log(QString("Unable to load plugin %1 of type %2").arg(pluginInfo.path(), EnumTranslator::instance()->toString(pluginInfo.type())));
 		} else {

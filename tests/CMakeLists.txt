@@ -13,6 +13,7 @@ set(UNITTEST_SRC
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/SingleCaptureHandlerTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/operations/DeleteImageOperationTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/operations/LoadImageFromFileOperationTests.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/plugins/PluginManagerTests.cpp
 	)
 
 set(TESTUTILS_SRC
@@ -32,7 +33,8 @@ set(TESTUTILS_SRC
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/clipboard/ClipboardMock.h
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/captureHandler/CaptureTabStateHandlerMock.h
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/common/loader/IconLoaderMock.h
-	${CMAKE_CURRENT_SOURCE_DIR}/mocks/common/platform/CommandRunnerMock.h)
+	${CMAKE_CURRENT_SOURCE_DIR}/mocks/common/platform/CommandRunnerMock.h
+	${CMAKE_CURRENT_SOURCE_DIR}/mocks/plugins/PluginLoaderMock.h)
 
 add_library(KSNIP_STATIC ${KSNIP_SRCS})
 

@@ -22,6 +22,9 @@
 #include <QDesktopWidget>
 #endif
 
+#include <QPainter>
+#include <QScreen>
+
 AbstractRectAreaImageGrabber::AbstractRectAreaImageGrabber(AbstractSnippingArea *snippingArea, const QSharedPointer<IConfig> &config) :
 	AbstractImageGrabber(config),
 	mSnippingArea(snippingArea),
@@ -96,14 +99,37 @@ QPixmap AbstractRectAreaImageGrabber::snippingAreaBackground() const
 
 QPixmap AbstractRectAreaImageGrabber::getScreenshotFromRect(const QRect &rect) const
 {
-	auto screen = QGuiApplication::primaryScreen();
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-	auto windowId = 0;
+	// QScreen::grabWindow() interprets its coordinates relative to the screen
+	// it is called on, not relative to the virtual desktop. Passing virtual
+	// desktop coordinates to the primary screen therefore offsets the whole
+	// grab by that screen's position, which on a multi-monitor setup shifts
+	// the captured image sideways. Grab each screen at its own origin instead
+	// and compose them at their virtual desktop positions.
+	QPixmap composed(rect.size());
+	composed.fill(Qt::transparent);
+
+	QPainter painter(&composed);
+	for (auto screen : QGuiApplication::screens()) {
+		auto screenGeometry = screen->geometry();
+		auto intersection = screenGeometry.intersected(rect);
+		if (intersection.isEmpty()) {
+			continue;
+		}
+
+		auto source = intersection.translated(-screenGeometry.topLeft());
+		auto grabbed = screen->grabWindow(0, source.x(), source.y(), source.width(), source.height());
+		painter.drawPixmap(intersection.topLeft() - rect.topLeft(), grabbed);
+	}
+	painter.end();
+
+	return composed;
 #else
+	auto screen = QGuiApplication::primaryScreen();
 	auto windowId = QApplication::desktop()->winId();
-#endif
 	auto rectPosition = rect.topLeft();
 	return screen->grabWindow(windowId, rectPosition.x(), rectPosition.y(), rect.width(), rect.height());
+#endif
 }
 
 QPixmap AbstractRectAreaImageGrabber::getScreenshot() const

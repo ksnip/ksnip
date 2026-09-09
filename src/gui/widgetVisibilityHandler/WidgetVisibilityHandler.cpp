@@ -18,6 +18,7 @@
  */
 
 #include "WidgetVisibilityHandler.h"
+#include <QTimer>
 
 WidgetVisibilityHandler::WidgetVisibilityHandler(QWidget *widget) :
 	mWidget(widget),
@@ -115,6 +116,12 @@ void WidgetVisibilityHandler::showWidget()
 	mWidget->activateWindow();
 	mWidget->raise();
 	mWidget->show();
+
+	// Delayed activation for KDE Plasma compatibility
+	QTimer::singleShot(100, mWidget, [this]() {
+		mWidget->activateWindow();
+		mWidget->raise();
+	});
 }
 
 Qt::WindowState WidgetVisibilityHandler::getSelectedWindowState() const

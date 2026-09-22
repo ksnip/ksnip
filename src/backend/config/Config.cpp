@@ -320,6 +320,33 @@ void Config::setUseTrayIcon(bool enabled)
 	saveValue(ConfigOptions::useTrayIconString(), enabled);
 }
 
+bool Config::useCustomTrayIconImage() const
+{
+	return loadValue(ConfigOptions::useCustomTrayIconImageString(), false).toBool();
+}
+
+void Config::setCustomTrayIconImage(bool enabled)
+{
+	if (useCustomTrayIconImage() == enabled) {
+		return;
+	}
+	saveValue(ConfigOptions::useCustomTrayIconImageString(), enabled);
+}
+
+QString Config::customTrayIconImageFile() const
+{
+	return loadValue(ConfigOptions::customTrayIconImageFileString(), "").toString();
+}
+
+void Config::setCustomTrayIconImageFile(const QString& filepath)
+{
+	if(customTrayIconImageFile() == filepath) {
+		return;
+	}
+
+	saveValue(ConfigOptions::customTrayIconImageFileString(), filepath);
+}
+
 bool Config::minimizeToTray() const
 {
 	return loadValue(ConfigOptions::minimizeToTrayString(), true).toBool();

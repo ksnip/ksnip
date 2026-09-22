@@ -19,6 +19,18 @@
 
 #include "TrayIconSettings.h"
 
+/**
+ * @brief ...
+ *
+ * @param captureModes p_captureModes:...
+ * @param config p_config:...
+ */
+/**
+ * @brief ...
+ *
+ * @param captureModes p_captureModes:...
+ * @param config ${p_config:...}
+ */
 TrayIconSettings::TrayIconSettings(const QList<CaptureModes> &captureModes, const QSharedPointer<IConfig> &config) :
 	mConfig(config),
 	mUseTrayIconCheckBox(new QCheckBox(this)),
@@ -26,12 +38,21 @@ TrayIconSettings::TrayIconSettings(const QList<CaptureModes> &captureModes, cons
 	mCloseToTrayCheckBox(new QCheckBox(this)),
 	mTrayIconNotificationsCheckBox(new QCheckBox(this)),
 	mUsePlatformSpecificNotificationServiceCheckBox(new QCheckBox(this)),
-	mDefaultActionCaptureModeCombobox(new QComboBox(this)),
 	mStartMinimizedToTrayCheckBox(new QCheckBox(this)),
+	// fields for setting the default action when clicking the tray icon
+	mDefaultActionCaptureModeCombobox(new QComboBox(this)),
 	mDefaultActionShowEditorRadioButton(new QRadioButton(this)),
 	mDefaultActionCaptureRadioButton(new QRadioButton(this)),
 	mDefaultActionGroupBox(new QGroupBox(this)),
 	mDefaultActionLayout(new QGridLayout),
+	// fields for setting the tray icon image
+	mTrayIconDefaultRadioButton(new QRadioButton(this)),
+	mTrayIconCustomRadioButton(new QRadioButton(this)),
+	mTrayIconCustomFileSelectButton(new QPushButton(this)),
+	mTrayIconLineEdit(new QLineEdit(this)),
+	mTrayIconGroupBox(new QGroupBox(this)),
+	mTrayIconLayout(new QGridLayout),
+
 	mLayout(new QGridLayout)
 {
 	Q_ASSERT(mConfig != nullptr);
@@ -52,6 +73,10 @@ void TrayIconSettings::saveSettings()
 	mConfig->setPlatformSpecificNotificationServiceEnabled(mUsePlatformSpecificNotificationServiceCheckBox->isChecked());
 	mConfig->setDefaultTrayIconActionMode(selectedTrayIconDefaultActionMode());
 	mConfig->setDefaultTrayIconCaptureMode(mDefaultActionCaptureModeCombobox->currentData().value<CaptureModes>());
+
+	mConfig->setCustomTrayIconImageFile(mTrayIconLineEdit->displayText());
+	mConfig->setCustomTrayIconImage(mTrayIconCustomRadioButton->isChecked());
+	mConfig->setCustomTrayIconImageFile(mTrayIconLineEdit->displayText());
 }
 
 void TrayIconSettings::initGui()
@@ -81,6 +106,34 @@ void TrayIconSettings::initGui()
 	mDefaultActionGroupBox->setToolTip(tr("Default Action that is triggered by left clicking the tray icon."));
 	mDefaultActionGroupBox->setLayout(mDefaultActionLayout);
 
+	mTrayIconDefaultRadioButton->setText(tr("Use Default Icon Image"));
+	mTrayIconCustomRadioButton->setText(tr("Choose Custom Icon Image"));
+	mTrayIconLineEdit->setPlaceholderText("valid images are *.png *.jpg *.bmp and *.svg");
+	mTrayIconCustomFileSelectButton->setText(tr("Select an Image"));
+
+	connect(mTrayIconCustomFileSelectButton, &QPushButton::clicked, this, &TrayIconSettings::selectCustomImage);
+	// needed since we disable or enable file select based on this radio
+	connect(mTrayIconCustomRadioButton, &QRadioButton::clicked, this, &TrayIconSettings::useTrayIconChanged);
+	connect(mTrayIconDefaultRadioButton, &QRadioButton::clicked, this, &TrayIconSettings::useTrayIconChanged);
+
+	auto warnRequiresRestart = [this]() {
+		auto title = tr("Required Reload");
+		auto message = tr("Selecting a new image for the tray icon requires restarting the program to take effect");
+		auto messageBox = QMessageBox::warning(this, title, message);
+	};
+
+	connect(mTrayIconCustomRadioButton, &QRadioButton::clicked, this, warnRequiresRestart);
+
+	mTrayIconLayout->addWidget(mTrayIconDefaultRadioButton, 0, 0, 1, 3);
+	mTrayIconLayout->addWidget(mTrayIconCustomRadioButton, 0, 3, 1, 1);
+	mTrayIconLayout->addWidget(mTrayIconLineEdit, 1, 0, 1, 3);
+	mTrayIconLayout->addWidget(mTrayIconCustomFileSelectButton, 1, 3, 1, 1);
+	mTrayIconLayout->setColumnStretch(1, 3);
+
+	mTrayIconGroupBox->setTitle(tr("Tray Icon Image Settings"));
+	mTrayIconGroupBox->setToolTip(tr("Use the default tray icon image, or select your own"));
+	mTrayIconGroupBox->setLayout(mTrayIconLayout);
+
 	mLayout->setAlignment(Qt::AlignTop);
 	mLayout->setColumnMinimumWidth(0, 10);
 	mLayout->addWidget(mUseTrayIconCheckBox, 0, 0, 1, 4);
@@ -91,9 +144,24 @@ void TrayIconSettings::initGui()
 	mLayout->addWidget(mTrayIconNotificationsCheckBox, 5, 0, 1, 4);
 	mLayout->addWidget(mUsePlatformSpecificNotificationServiceCheckBox, 6, 0, 1, 4);
 	mLayout->addWidget(mDefaultActionGroupBox, 7, 0, 1, 4);
+	mLayout->addWidget(mTrayIconGroupBox, 8, 0, 1, 4);
 
 	setTitle(tr("Tray Icon Settings"));
 	setLayout(mLayout);
+}
+
+void TrayIconSettings::selectCustomImage()
+{
+	auto imageFileName = QFileDialog::getOpenFileName(
+		this,
+    	tr("Select Custom Tray Icon Image"),
+		QDir::homePath(),
+		tr("Image Files (*.png *.jpg *.bmp, *.svg)")
+	);
+
+	if(!imageFileName.isEmpty()) {
+		mTrayIconLineEdit->setText(imageFileName);
+	}
 }
 
 void TrayIconSettings::loadConfig()
@@ -107,6 +175,10 @@ void TrayIconSettings::loadConfig()
 	mDefaultActionShowEditorRadioButton->setChecked(mConfig->defaultTrayIconActionMode() == TrayIconDefaultActionMode::ShowEditor);
 	mDefaultActionCaptureRadioButton->setChecked(mConfig->defaultTrayIconActionMode() == TrayIconDefaultActionMode::Capture);
 	mDefaultActionCaptureModeCombobox->setCurrentIndex(indexOfSelectedCaptureMode());
+
+	mTrayIconCustomRadioButton->setChecked(mConfig->useCustomTrayIconImage());
+	mTrayIconDefaultRadioButton->setChecked(!mConfig->useCustomTrayIconImage());
+	mTrayIconLineEdit->setText(mConfig->customTrayIconImageFile());
 
 	useTrayIconChanged();
 }
@@ -140,4 +212,10 @@ void TrayIconSettings::useTrayIconChanged()
 	mDefaultActionCaptureModeCombobox->setEnabled(trayIconEnabled);
 	mDefaultActionShowEditorRadioButton->setEnabled(trayIconEnabled);
 	mDefaultActionCaptureRadioButton->setEnabled(trayIconEnabled);
+
+	mTrayIconDefaultRadioButton->setEnabled(trayIconEnabled);
+	mTrayIconCustomRadioButton->setEnabled(trayIconEnabled);
+	// conditionally show these two if the "custom image" radio is selected
+	mTrayIconLineEdit->setEnabled(trayIconEnabled && mTrayIconCustomRadioButton->isChecked());
+	mTrayIconCustomFileSelectButton->setEnabled(trayIconEnabled && mTrayIconCustomRadioButton->isChecked());
 }

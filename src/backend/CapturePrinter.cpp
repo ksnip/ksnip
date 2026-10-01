@@ -24,9 +24,8 @@ CapturePrinter::CapturePrinter(QWidget *parent) : mParent(parent)
 	Q_ASSERT(mParent != nullptr);
 }
 
-void CapturePrinter::print(const QImage &image, const QString &defaultPath)
+void CapturePrinter::print(const QImage &image)
 {
-    Q_UNUSED(defaultPath)
     QPrinter printer;
     printer.setOutputFormat(QPrinter::NativeFormat);
     QPrintDialog printDialog(&printer, mParent);
@@ -53,9 +52,8 @@ void CapturePrinter::printCapture(const QImage &image, QPrinter *p)
     painter.end();
 }
 
-void CapturePrinter::printPreview(const QImage &image, const QString &defaultPath)
+void CapturePrinter::printPreview(const QImage &image)
 {
-    Q_UNUSED(defaultPath)
     QPrinter printer;
     printer.setOutputFormat(QPrinter::NativeFormat);
     QPrintPreviewDialog printDialog(&printer, mParent, Qt::Window | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint | Qt::WindowMaximizeButtonHint | Qt::WindowCloseButtonHint);

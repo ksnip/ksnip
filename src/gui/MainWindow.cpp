@@ -620,16 +620,14 @@ void MainWindow::copyAsDataUri()
 
 void MainWindow::printClicked()
 {
-	auto savePath = mSavePathProvider->savePathWithFormat(QLatin1String("pdf"));
 	auto image = mCaptureHandler->image();
-	mCapturePrinter->print(image, savePath);
+	mCapturePrinter->print(image);
 }
 
 void MainWindow::printPreviewClicked()
 {
-	auto savePath = mSavePathProvider->savePathWithFormat(QLatin1String("pdf"));
 	auto image = mCaptureHandler->image();
-	mCapturePrinter->printPreview(image, savePath);
+	mCapturePrinter->printPreview(image);
 }
 
 void MainWindow::showOpenImageDialog()

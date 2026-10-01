@@ -31,8 +31,8 @@ Q_OBJECT
 public:
 	explicit CapturePrinter(QWidget *parent);
 	~CapturePrinter() override = default;
-	void print(const QImage &image, const QString &defaultPath);
-	void printPreview(const QImage &image, const QString &defaultPath);
+	void print(const QImage &image);
+	void printPreview(const QImage &image);
 
 private:
 	QWidget *mParent;

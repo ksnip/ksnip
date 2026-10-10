@@ -39,6 +39,9 @@ if (UNIX AND NOT APPLE)
 
 	find_package(X11 REQUIRED)
 	find_package(XCB COMPONENTS XFIXES)
+
+	include(FindPkgConfig)
+	pkg_check_modules(AYATANA_APPINDICATOR REQUIRED ayatana-appindicator3-0.1)
 endif ()
 
 set(QT_COMPONENTS Core Widgets Network Xml PrintSupport DBus Svg)

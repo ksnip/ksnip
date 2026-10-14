@@ -22,7 +22,7 @@
 QSharedPointer<IKeyHandler> KeyHandlerFactory::create(const QSharedPointer<IPlatformChecker> &platformChecker)
 {
 #if defined(__APPLE__)
-	return QSharedPointer<IKeyHandler>(new DummyKeyHandler);
+	return QSharedPointer<IKeyHandler>(new MacKeyHandler);
 #endif
 
 #if defined(UNIX_X11)

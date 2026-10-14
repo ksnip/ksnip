@@ -31,11 +31,20 @@ public:
 
 	bool registerKey(const QKeySequence &keySequence) override;
 	bool isKeyPressed(void* message) override;
+	void setPressedCallback(std::function<void()> callback) override;
+
+	// Called by the macOS hot key event handler when the registered key is pressed
+	void notifyKeyPressed() const;
 
 private:
-	KeySequenceToMacKeyCodeTranslator mKeyCodeMapper;
+	static quint32 mNextId;
 
-	void unregisterKey() const;
+	KeySequenceToMacKeyCodeTranslator mKeyCodeMapper;
+	std::function<void()> mPressedCallback;
+	void *mHotKeyRef = nullptr; // EventHotKeyRef, kept opaque to not expose Carbon in this header
+	quint32 mId = 0;
+
+	void unregisterKey();
 };
 
 #endif //KSNIP_MACKEYHANDLER_H

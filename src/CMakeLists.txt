@@ -273,7 +273,7 @@ if (APPLE)
         list(APPEND DEPENDENCY_LIBRARIES
                 kImageAnnotator::kImageAnnotator
                 kColorPicker::kColorPicker
-                "-framework CoreGraphics -framework AppKit"
+                "-framework CoreGraphics -framework AppKit -framework Carbon"
                 )
 elseif (UNIX)
         list(APPEND DEPENDENCY_LIBRARIES

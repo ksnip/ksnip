@@ -30,6 +30,9 @@ public:
 	~KeySequenceToMacKeyCodeTranslator() = default;
 	KeyCodeCombo map(const QKeySequence &keySequence) const;
 
+	// Returned as key when a key has no macOS virtual key code
+	static constexpr unsigned int InvalidKey = 0xFFFF;
+
 private:
 	HotKeyMap *mHotKeyMap;
 

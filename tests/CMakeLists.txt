@@ -15,6 +15,12 @@ set(UNITTEST_SRC
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/operations/LoadImageFromFileOperationTests.cpp
 	)
 
+if (APPLE)
+	list(APPEND UNITTEST_SRC
+		${CMAKE_CURRENT_SOURCE_DIR}/gui/globalHotKeys/KeySequenceToMacKeyCodeTranslatorTests.cpp
+		)
+endif()
+
 set(TESTUTILS_SRC
 	${CMAKE_CURRENT_SOURCE_DIR}/utils/TestRunner.h
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/backend/uploader/UploadHandlerMock.h
@@ -47,7 +53,7 @@ target_link_libraries(KSNIP_STATIC
 	)
 
 if (APPLE)
-	target_link_libraries(KSNIP_STATIC "-framework CoreGraphics")
+	target_link_libraries(KSNIP_STATIC "-framework CoreGraphics -framework Carbon")
 elseif (UNIX)
 	target_link_libraries(KSNIP_STATIC
 		Qt${QT_MAJOR_VERSION}::DBus

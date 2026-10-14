@@ -20,6 +20,8 @@
 #ifndef KSNIP_IKEYHANDLER_H
 #define KSNIP_IKEYHANDLER_H
 
+#include <functional>
+
 #include <QKeySequence>
 
 class IKeyHandler
@@ -30,6 +32,10 @@ public:
 
     virtual bool registerKey(const QKeySequence &keySequence) = 0;
     virtual bool isKeyPressed(void* message) = 0;
+
+    // Handlers that are notified by the OS through a callback instead of a
+    // native event (e.g. macOS) call this when the registered key is pressed.
+    virtual void setPressedCallback(std::function<void()> callback) { Q_UNUSED(callback) }
 };
 
 #endif //KSNIP_IKEYHANDLER_H

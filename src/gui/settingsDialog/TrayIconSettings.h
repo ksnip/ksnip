@@ -26,6 +26,10 @@
 #include <QCheckBox>
 #include <QComboBox>
 #include <QRadioButton>
+#include <QFileDialog>
+#include <QPushButton>
+#include <QLineEdit>
+#include <QMessageBox>
 
 #include "src/backend/config/IConfig.h"
 #include "src/common/helper/EnumTranslator.h"
@@ -53,6 +57,15 @@ private:
 	QGroupBox *mDefaultActionGroupBox;
 	QSharedPointer<IConfig> mConfig;
 
+	// settings for customizing the tray icon image
+	QRadioButton *mTrayIconDefaultRadioButton;
+	QRadioButton *mTrayIconCustomRadioButton;
+	QLineEdit *mTrayIconLineEdit;
+	QPushButton *mTrayIconCustomFileSelectButton;
+	QGroupBox *mTrayIconGroupBox;
+	QGridLayout *mTrayIconLayout;
+
+
 	void initGui();
 	void loadConfig();
 	void populateDefaultActionCaptureModeCombobox(const QList<CaptureModes> &captureModes);
@@ -60,6 +73,7 @@ private:
 	int indexOfSelectedCaptureMode() const;
 
 private slots:
+	void selectCustomImage();
 	void useTrayIconChanged();
 };
 

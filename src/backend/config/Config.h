@@ -104,6 +104,11 @@ public:
 	bool useTrayIcon() const override;
 	void setUseTrayIcon(bool enabled) override;
 
+	bool useCustomTrayIconImage() const override;
+	void setCustomTrayIconImage(bool enabled) override;
+	QString customTrayIconImageFile() const override;
+	void setCustomTrayIconImageFile(const QString &filename) override;
+
 	bool minimizeToTray() const override;
 	void setMinimizeToTray(bool enabled) override;
 

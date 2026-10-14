@@ -299,6 +299,9 @@ public:
 
 	// HotKeys
 
+	MOCK_METHOD(bool, macScreenCapturePermissionGuideShown, (), (const, override));
+	MOCK_METHOD(void, setMacScreenCapturePermissionGuideShown, (bool shown), (override));
+
 	MOCK_METHOD(bool, isGlobalHotKeysEnabledReadOnly, (), (const, override));
 	MOCK_METHOD(bool, globalHotKeysEnabled, (), (const, override));
 	MOCK_METHOD(void, setGlobalHotKeysEnabled, (bool enabled), (override));

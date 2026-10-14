@@ -1222,6 +1222,19 @@ bool Config::isGlobalHotKeysEnabledReadOnly() const
 	return false;
 }
 
+bool Config::macScreenCapturePermissionGuideShown() const
+{
+	return loadValue(ConfigOptions::macScreenCapturePermissionGuideShownString(), false).toBool();
+}
+
+void Config::setMacScreenCapturePermissionGuideShown(bool shown)
+{
+	if (macScreenCapturePermissionGuideShown() == shown) {
+		return;
+	}
+	saveValue(ConfigOptions::macScreenCapturePermissionGuideShownString(), shown);
+}
+
 bool Config::globalHotKeysEnabled() const
 {
 	return loadValue(ConfigOptions::globalHotKeysEnabledString(), true).toBool();

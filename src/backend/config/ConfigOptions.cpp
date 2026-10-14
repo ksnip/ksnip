@@ -539,6 +539,11 @@ QString ConfigOptions::ftpUploadPasswordString()
 	return ftpUploadSectionString() + QLatin1String("Password");
 }
 
+QString ConfigOptions::macScreenCapturePermissionGuideShownString()
+{
+	return applicationSectionString() + QLatin1String("MacScreenCapturePermissionGuideShown");
+}
+
 QString ConfigOptions::globalHotKeysEnabledString()
 {
 	return hotKeysSectionString() + QLatin1String("GlobalHotKeysEnabled");

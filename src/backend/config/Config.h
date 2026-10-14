@@ -314,6 +314,9 @@ public:
 
 	// HotKeys
 
+	bool macScreenCapturePermissionGuideShown() const override;
+	void setMacScreenCapturePermissionGuideShown(bool shown) override;
+
 	bool isGlobalHotKeysEnabledReadOnly() const override;
 	bool globalHotKeysEnabled() const override;
 	void setGlobalHotKeysEnabled(bool enabled) override;

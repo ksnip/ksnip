@@ -309,6 +309,9 @@ public:
 
 	// HotKeys
 
+	virtual bool macScreenCapturePermissionGuideShown() const = 0;
+	virtual void setMacScreenCapturePermissionGuideShown(bool shown) = 0;
+
 	virtual bool isGlobalHotKeysEnabledReadOnly() const = 0;
 	virtual bool globalHotKeysEnabled() const = 0;
 	virtual void setGlobalHotKeysEnabled(bool enabled) = 0;

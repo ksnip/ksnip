@@ -20,6 +20,10 @@
 
 #include "MainWindow.h"
 
+#if defined(__APPLE__)
+#include "src/gui/screenCapturePermission/MacScreenCapturePermission.h"
+#endif
+
 MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	QMainWindow(),
 	mDependencyInjector(dependencyInjector),
@@ -364,6 +368,14 @@ void MainWindow::triggerCapture(CaptureModes captureMode)
 
 void MainWindow::capture(CaptureModes captureMode, bool captureCursor, int delay)
 {
+#if defined(__APPLE__)
+	// Check before the main window is hidden, otherwise it would stay hidden behind the dialog
+	if (!MacScreenCapturePermission::isGranted()) {
+		MacScreenCapturePermission::showPermissionRequired(this);
+		return;
+	}
+#endif
+
 	auto isMainWindowVisible = !isMinimized();
 	auto adjustedDelay = mDelayHandler->getDelay(delay, isMainWindowVisible);
 

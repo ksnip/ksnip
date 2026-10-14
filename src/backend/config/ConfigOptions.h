@@ -107,6 +107,7 @@ public:
 	static QString ftpUploadUrlString();
 	static QString ftpUploadUsernameString();
 	static QString ftpUploadPasswordString();
+	static QString macScreenCapturePermissionGuideShownString();
 	static QString globalHotKeysEnabledString();
 	static QString rectAreaHotKeyString();
 	static QString lastRectAreaHotKeyString();

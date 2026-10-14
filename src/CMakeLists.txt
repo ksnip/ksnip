@@ -178,6 +178,7 @@ if (APPLE)
                 ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacWrapper.cpp
                 ${CMAKE_SOURCE_DIR}/src/backend/config/MacConfig.cpp
                 ${CMAKE_SOURCE_DIR}/src/gui/snippingArea/MacSnippingArea.cpp
+                ${CMAKE_SOURCE_DIR}/src/gui/screenCapturePermission/MacScreenCapturePermission.cpp
                 ${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/keyHandler/MacKeyHandler.cpp
                 ${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToMacKeyCodeTranslator.cpp
 				${CMAKE_SOURCE_DIR}/src/plugins/searchPathProvider/MacPluginSearchPathProvider.cpp

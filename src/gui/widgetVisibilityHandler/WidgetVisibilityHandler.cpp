@@ -42,7 +42,12 @@ void WidgetVisibilityHandler::makeInvisible()
 {
 	mWindowStateChangeLock = true;
 	setVisible(false);
+#if !defined(__APPLE__)
+	// On macOS minimizing is asynchronous and the minimize notification can arrive after the
+	// window has already been restored, which then hides the restored window (e.g. through the
+	// minimize to tray handling). The zero opacity set above is enough to hide it there.
 	mWidget->showMinimized();
+#endif
 }
 
 void WidgetVisibilityHandler::show()

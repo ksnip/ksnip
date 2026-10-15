@@ -32,19 +32,8 @@ MacSnippingArea::MacSnippingArea(const QSharedPointer<IConfig> &config) : Abstra
 
 QRect MacSnippingArea::selectedRectArea() const
 {
-    auto captureArea = getCaptureArea();
-    if (!isBackgroundTransparent() && width() > 0) {
-        // Scale by the real ratio between the frozen background and the window, since the
-        // background is not guaranteed to be captured at the screen's devicePixelRatio.
-        auto factor = static_cast<qreal>(background().width()) / width();
-        return {
-            static_cast<int>(captureArea.x() * factor),
-            static_cast<int>(captureArea.y() * factor),
-            static_cast<int>(captureArea.width() * factor),
-            static_cast<int>(captureArea.height() * factor)
-        };
-    }
-    return mHdpiScaler.scale(captureArea);
+    // In points, the image grabber converts to the resolution of the background
+    return getCaptureArea();
 }
 
 void MacSnippingArea::setFullScreen()

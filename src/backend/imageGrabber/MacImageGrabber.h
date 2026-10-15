@@ -35,9 +35,12 @@ protected slots:
     QRect fullScreenRect() const override;
     QRect activeWindowRect() const override;
 	CursorDto getCursorWithPosition() const override;
+	CursorDto getCursorRelativeToScreenshot() const override;
+	QPixmap getScreenshot() const override;
 
 private:
     MacWrapper *mMacWrapper;
+    mutable qreal mScreenshotRatio = 1.0;
 };
 
 

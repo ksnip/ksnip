@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.5)
 project(ksnip LANGUAGES CXX VERSION 1.11.0)
 
+if (APPLE)
+	enable_language(OBJCXX)
+endif ()
+
 if (DEFINED VERSION_SUFIX AND NOT "${VERSION_SUFIX}" STREQUAL "")
 	set(KSNIP_VERSION_SUFIX "-${VERSION_SUFIX}")
 endif()

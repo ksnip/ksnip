@@ -19,10 +19,19 @@
 
 #include "WidgetVisibilityHandlerFactory.h"
 
+#include <QGuiApplication>
+
 WidgetVisibilityHandler *WidgetVisibilityHandlerFactory::create(QWidget *widget, const QSharedPointer<IPlatformChecker> &platformChecker)
 {
 #if defined(UNIX_X11)
-	if (platformChecker->isWayland() && platformChecker->isGnome()) {
+	// The GNOME handler exists for native Wayland sessions, where a client cannot
+	// activate its own window. ksnip frequently runs as an X11/XWayland client on
+	// such a session (Qt defaults to the xcb platform), and there activateWindow()
+	// does work, so only use the GNOME handler for a native Wayland Qt platform.
+	// Otherwise an already existing editor gets raised but never takes keyboard
+	// focus (see #1197).
+	const bool isNativeWayland = QGuiApplication::platformName() == QLatin1String("wayland");
+	if (platformChecker->isWayland() && platformChecker->isGnome() && isNativeWayland) {
 		return new GnomeWaylandWidgetVisibilityHandler(widget);
 	} else {
 		return new WidgetVisibilityHandler(widget);

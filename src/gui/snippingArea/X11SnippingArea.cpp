@@ -35,7 +35,16 @@ X11SnippingArea::X11SnippingArea(const QSharedPointer<IConfig> &config) :
 
 QRect X11SnippingArea::selectedRectArea() const
 {
-	return getGlobalCaptureArea();
+	// The overlay is placed at the top left of the whole virtual desktop, see
+	// setFullScreen() below. Qt however derives global coordinates from the
+	// single screen it assigned to the window, so for a window spanning
+	// several screens mapToGlobal() displaces every selection that was not
+	// made on that screen by the width of the assigned one. With a secondary
+	// monitor on the right that pushed the selection completely outside of the
+	// desktop, and cropping from the background there returns a degenerate
+	// image. Use the desktop rectangle we actually placed the window at. #1021 #1071
+	const QRect captureArea = getCaptureArea();
+	return QRect(captureArea.topLeft() + mDesktopGeometry.topLeft().toPoint(), captureArea.size());
 }
 
 void X11SnippingArea::setFullScreen()

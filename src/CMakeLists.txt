@@ -175,7 +175,7 @@ set(KSNIP_SRCS
 if (APPLE)
         list(APPEND KSNIP_SRCS
                 ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacImageGrabber.cpp
-                ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacWrapper.cpp
+                ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacWrapper.mm
                 ${CMAKE_SOURCE_DIR}/src/backend/config/MacConfig.cpp
                 ${CMAKE_SOURCE_DIR}/src/gui/snippingArea/MacSnippingArea.cpp
                 ${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/keyHandler/MacKeyHandler.cpp
@@ -267,6 +267,10 @@ if (BUILD_WITH_QT6)
         list(APPEND DEPENDENCY_LIBRARIES Qt6::GuiPrivate)
 elseif (UNIX AND NOT APPLE)
         list(APPEND DEPENDENCY_LIBRARIES Qt5::X11Extras)
+endif ()
+
+if (APPLE)
+        set_source_files_properties(${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacWrapper.mm PROPERTIES COMPILE_FLAGS "-fobjc-arc")
 endif ()
 
 if (APPLE)

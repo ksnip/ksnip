@@ -47,7 +47,7 @@ target_link_libraries(KSNIP_STATIC
 	)
 
 if (APPLE)
-	target_link_libraries(KSNIP_STATIC "-framework CoreGraphics")
+	target_link_libraries(KSNIP_STATIC "-framework CoreGraphics -framework AppKit")
 elseif (UNIX)
 	target_link_libraries(KSNIP_STATIC
 		Qt${QT_MAJOR_VERSION}::DBus

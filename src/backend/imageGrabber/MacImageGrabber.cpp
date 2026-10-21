@@ -43,6 +43,30 @@ QRect MacImageGrabber::activeWindowRect() const
 
 CursorDto MacImageGrabber::getCursorWithPosition() const
 {
-    // MacOs currently captures always mouse by itself
-    return {};
+    return mMacWrapper->getCursorWithPosition();
+}
+
+/*
+ * The cursor position is in points, but the editor works with the pixels of the
+ * screenshot, so position and image are scaled to the ratio of the screenshot.
+ */
+CursorDto MacImageGrabber::getCursorRelativeToScreenshot() const
+{
+    auto cursor = AbstractRectAreaImageGrabber::getCursorRelativeToScreenshot();
+    if (!cursor.isValid()) {
+        return cursor;
+    }
+
+    auto size = QSizeF(cursor.image.size()) / cursor.image.devicePixelRatio() * mScreenshotRatio;
+    auto image = cursor.image.scaled(size.toSize(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    image.setDevicePixelRatio(1.0);
+
+    return { image, (QPointF(cursor.position) * mScreenshotRatio).toPoint() };
+}
+
+QPixmap MacImageGrabber::getScreenshot() const
+{
+    auto screenshot = AbstractRectAreaImageGrabber::getScreenshot();
+    mScreenshotRatio = screenshot.devicePixelRatio();
+    return screenshot;
 }

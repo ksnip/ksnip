@@ -149,7 +149,11 @@ QByteArray SingleInstanceParameterTranslator::getSeparator()
 
 QByteArray SingleInstanceParameterTranslator::getPathParameter(const QString &path)
 {
-	return path.toLatin1();
+	// The receiving side decodes with QString(const QByteArray &), i.e. UTF-8.
+	// Encoding with toLatin1() replaced every character outside Latin-1 (CJK,
+	// emoji, ...) with '?', so opening such an image in an already running
+	// instance failed with "No image provided but one was expected." (see #1195).
+	return path.toUtf8();
 }
 
 QByteArray SingleInstanceParameterTranslator::getBooleanString(bool value)

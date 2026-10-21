@@ -19,6 +19,10 @@
 
 #include "StandAloneBootstrapper.h"
 
+#if defined(__APPLE__)
+#include "src/gui/screenCapturePermission/MacScreenCapturePermission.h"
+#endif
+
 StandAloneBootstrapper::StandAloneBootstrapper(DependencyInjector *dependencyInjector) :
 	mCommandLine(nullptr),
 	mMainWindow(nullptr),
@@ -204,6 +208,9 @@ int StandAloneBootstrapper::startKsnip(const QApplication &app)
 {
 	loadTranslations(app);
 	createMainWindow();
+#if defined(__APPLE__)
+	MacScreenCapturePermission::showGuideOnFirstLaunch(mDependencyInjector->get<IConfig>());
+#endif
 	return app.exec();
 }
 

@@ -19,6 +19,7 @@
 #ifndef KSNIP_MACSCREENCAPTUREPERMISSION_H
 #define KSNIP_MACSCREENCAPTUREPERMISSION_H
 
+#include <QCoreApplication>
 #include <QSharedPointer>
 
 #include "src/backend/config/IConfig.h"
@@ -33,6 +34,7 @@ class QWidget;
  */
 class MacScreenCapturePermission
 {
+	Q_DECLARE_TR_FUNCTIONS(MacScreenCapturePermission)
 public:
 	/*
 	 * True when ksnip may capture the screen.
@@ -52,6 +54,7 @@ public:
 
 private:
 	static bool askUserToOpenSettings(QWidget *parent, const QString &intro);
+	static QString informativeText(const QString &openSettingsLabel);
 	static void requestAccessAndOpenSettings();
 };
 

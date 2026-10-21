@@ -18,7 +18,6 @@
 
 #include "MacScreenCapturePermission.h"
 
-#include <QCoreApplication>
 #include <QDesktopServices>
 #include <QMessageBox>
 #include <QPushButton>
@@ -27,22 +26,9 @@
 
 #include <CoreGraphics/CoreGraphics.h>
 
-namespace {
-
-QString tr(const char *text)
-{
-	return QCoreApplication::translate("MacScreenCapturePermission", text);
-}
-
-}
-
 bool MacScreenCapturePermission::isGranted()
 {
-	if (__builtin_available(macOS 10.15, *)) {
-		return CGPreflightScreenCaptureAccess();
-	}
-	// Older systems have no such permission
-	return true;
+	return CGPreflightScreenCaptureAccess();
 }
 
 void MacScreenCapturePermission::showGuideOnFirstLaunch(const QSharedPointer<IConfig> &config)
@@ -65,22 +51,40 @@ void MacScreenCapturePermission::showPermissionRequired(QWidget *parent)
 	askUserToOpenSettings(parent, tr("ksnip does not have permission to record your screen yet, so it cannot take a screenshot."));
 }
 
+QString MacScreenCapturePermission::informativeText(const QString &openSettingsLabel)
+{
+	// Numbers and line breaks are added here so translators only see plain sentences
+	QStringList steps;
+	steps << tr("Click \"%1\".").arg(openSettingsLabel);
+	steps << tr("In Privacy & Security, open \"Screen & System Audio Recording\" (called \"Screen Recording\" on older macOS versions).");
+	steps << tr("Turn on the switch next to ksnip. If ksnip is not listed, click + and add it.");
+	steps << tr("If macOS asks, choose \"Quit & Reopen\" so ksnip can start using the permission.");
+
+	QStringList paragraphs;
+	paragraphs << tr("Without it macOS only gives ksnip your wallpaper and its own windows.");
+
+	QStringList numberedSteps;
+	for (auto i = 0; i < steps.count(); ++i) {
+		numberedSteps << QStringLiteral("%1. %2").arg(i + 1).arg(steps.at(i));
+	}
+	paragraphs << numberedSteps.join(QLatin1Char('\n'));
+
+	paragraphs << tr("If ksnip is already switched on but this message keeps appearing, select ksnip in the list, remove it with the minus button, and add it again.");
+
+	return paragraphs.join(QStringLiteral("\n\n"));
+}
+
 bool MacScreenCapturePermission::askUserToOpenSettings(QWidget *parent, const QString &intro)
 {
+	auto openSettingsLabel = tr("Open System Settings");
+
 	QMessageBox messageBox(parent);
 	messageBox.setIcon(QMessageBox::Information);
 	messageBox.setWindowTitle(tr("Screen Recording permission needed"));
 	messageBox.setText(intro);
-	messageBox.setInformativeText(
-		tr("Without it macOS only gives ksnip your wallpaper and its own windows.\n\n"
-		   "1. Click \"Open System Settings\".\n"
-		   "2. In Privacy & Security, open \"Screen & System Audio Recording\" (called \"Screen Recording\" on older macOS versions).\n"
-		   "3. Turn on the switch next to ksnip. If ksnip is not listed, click + and add it.\n"
-		   "4. If macOS asks, choose \"Quit & Reopen\" so ksnip can start using the permission.\n\n"
-		   "If ksnip is already switched on but this message keeps appearing, select ksnip in the list, "
-		   "remove it with the minus button, and add it again."));
+	messageBox.setInformativeText(informativeText(openSettingsLabel));
 
-	auto openSettingsButton = messageBox.addButton(tr("Open System Settings"), QMessageBox::AcceptRole);
+	auto openSettingsButton = messageBox.addButton(openSettingsLabel, QMessageBox::AcceptRole);
 	messageBox.addButton(tr("Not Now"), QMessageBox::RejectRole);
 	messageBox.setDefaultButton(openSettingsButton);
 
@@ -97,8 +101,6 @@ void MacScreenCapturePermission::requestAccessAndOpenSettings()
 {
 	// Asking once makes macOS list ksnip under Screen Recording and shows its own prompt
 	// the first time. Later calls do nothing, which is why the settings pane is opened too.
-	if (__builtin_available(macOS 10.15, *)) {
-		CGRequestScreenCaptureAccess();
-	}
+	CGRequestScreenCaptureAccess();
 	QDesktopServices::openUrl(QUrl(QStringLiteral("x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture")));
 }

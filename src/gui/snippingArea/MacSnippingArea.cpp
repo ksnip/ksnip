@@ -28,12 +28,12 @@
 
 MacSnippingArea::MacSnippingArea(const QSharedPointer<IConfig> &config) : AbstractSnippingArea(config)
 {
-    setWindowFlags(windowFlags() | Qt::WindowFullscreenButtonHint);
 }
 
 QRect MacSnippingArea::selectedRectArea() const
 {
-    return mHdpiScaler.scale(getCaptureArea());
+    // In points, the image grabber converts to the resolution of the background
+    return getCaptureArea();
 }
 
 void MacSnippingArea::setFullScreen()
@@ -44,9 +44,12 @@ void MacSnippingArea::setFullScreen()
     auto screen = QGuiApplication::primaryScreen();
     if (screen) {
         setFixedSize(screen->geometry().size());
+        // Native full screen mode places the window below the menu bar, which offsets
+        // the snipping area from the frozen background, so cover the screen manually.
+        move(screen->geometry().topLeft());
     }
 #endif
-    QWidget::showFullScreen();
+    QWidget::show();
 }
 
 QSizeF MacSnippingArea::getSize() const

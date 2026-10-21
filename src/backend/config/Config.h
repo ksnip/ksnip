@@ -355,12 +355,14 @@ public:
 	bool customPluginSearchPathEnabled() const override;
 	void setCustomPluginSearchPathEnabled(bool enabled) override;
 
+protected:
+	QVariant loadValue(const QString &key, const QVariant &defaultValue = QVariant()) const;
+
 private:
 	QSettings mConfig;
 	const QSharedPointer<IDirectoryPathProvider> mDirectoryPathProvider;
 
 	void saveValue(const QString &key, const QVariant &value);
-	QVariant loadValue(const QString &key, const QVariant &defaultValue = QVariant()) const;
 };
 
 #endif // KSNIP_CONFIG_H

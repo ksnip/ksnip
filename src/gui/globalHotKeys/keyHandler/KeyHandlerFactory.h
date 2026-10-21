@@ -25,7 +25,7 @@
 #include "src/common/platform/IPlatformChecker.h"
 
 #if defined(__APPLE__)
-#include "DummyKeyHandler.h"
+#include "MacKeyHandler.h"
 #endif
 
 #if defined(UNIX_X11)

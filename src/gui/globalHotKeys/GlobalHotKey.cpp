@@ -23,6 +23,7 @@ GlobalHotKey::GlobalHotKey(QCoreApplication *app, const QKeySequence &keySequenc
 {
 	mApp = app;
     auto keyHandler = KeyHandlerFactory::create(platformChecker);
+	keyHandler->setPressedCallback([this]() { emit pressed(); });
 	keyHandler->registerKey(keySequence);
 	mKeyEventFilter = new NativeKeyEventFilter(keyHandler);
 	mApp->installNativeEventFilter(mKeyEventFilter);

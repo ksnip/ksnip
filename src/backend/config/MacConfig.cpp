@@ -34,12 +34,9 @@ bool MacConfig::freezeImageWhileSnippingEnabled() const
 	return true;
 }
 
-bool MacConfig::isGlobalHotKeysEnabledReadOnly() const
-{
-	return true;
-}
-
 bool MacConfig::globalHotKeysEnabled() const
 {
-	return false;
+	// Opt-in on macOS, the default hot keys use Option+Shift which is also
+	// how special characters are typed and could clash with normal typing.
+	return loadValue(ConfigOptions::globalHotKeysEnabledString(), false).toBool();
 }

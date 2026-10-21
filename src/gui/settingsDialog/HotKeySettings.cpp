@@ -97,7 +97,7 @@ void HotKeySettings::initGui()
 	mPortalKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys, mPlatformChecker);
 
 	mEnableGlobalHotKeysCheckBox->setText(tr("Enable Global HotKeys"));
-	mEnableGlobalHotKeysCheckBox->setToolTip(tr("HotKeys are currently supported only for Windows and X11.\n"
+	mEnableGlobalHotKeysCheckBox->setToolTip(tr("HotKeys are currently supported only for Windows, X11 and macOS.\n"
 											       "Disabling this option makes also the action shortcuts ksnip only."));
 	connect(mEnableGlobalHotKeysCheckBox, &QCheckBox::stateChanged, this, &HotKeySettings::globalHotKeysStateChanged);
 

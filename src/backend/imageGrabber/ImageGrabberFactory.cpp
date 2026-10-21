@@ -34,7 +34,15 @@ AbstractImageGrabber* ImageGrabberFactory::createImageGrabber()
 		}
     } else if (PlatformChecker::instance()->isWayland()) {
         auto config = KsnipConfigProvider::instance();
-    	if (config->forceGenericWaylandEnabled() || PlatformChecker::instance()->isSnap() || PlatformChecker::instance()->gnomeVersion() >= 41) {
+        // Since GNOME 41 the private org.gnome.Shell.Screenshot D-Bus interface is
+        // restricted to the portal, so the portal grabber has to be used there.
+        // The version probe can fail (for example when gnome-shell is not in PATH,
+        // as inside the Flatpak sandbox); in that case assume a modern GNOME
+        // instead of falling back to a grabber that cannot capture anything.
+        const auto isGnome = PlatformChecker::instance()->isGnome();
+        const auto gnomeVersion = PlatformChecker::instance()->gnomeVersion();
+        const auto needsPortal = isGnome && (gnomeVersion >= 41 || gnomeVersion < 0);
+    	if (config->forceGenericWaylandEnabled() || PlatformChecker::instance()->isSnap() || needsPortal) {
 		    return new WaylandImageGrabber();
     	} else if(PlatformChecker::instance()->isKde()) {
 		    return new KdeWaylandImageGrabber();

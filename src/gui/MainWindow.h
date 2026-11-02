@@ -27,7 +27,11 @@
 
 #include "src/gui/actions/ActionProcessor.h"
 #include "src/gui/actions/ActionsMenu.h"
+#ifdef UNIX_X11
+#include "src/gui/AppIndicatorTrayIcon.h"
+#else
 #include "src/gui/TrayIcon.h"
+#endif
 #include "src/gui/IImageProcessor.h"
 #include "src/gui/imageAnnotator/KImageAnnotatorAdapter.h"
 #include "src/gui/aboutDialog/AboutDialog.h"
@@ -96,7 +100,11 @@ private:
 	QSharedPointer<IConfig> mConfig;
 	QSharedPointer<IImageGrabber> mImageGrabber;
 	QSharedPointer<IPluginManager> mPluginManager;
+#ifdef UNIX_X11
+	AppIndicatorTrayIcon *mTrayIcon;
+#else
 	TrayIcon *mTrayIcon;
+#endif
 	QSharedPointer<INotificationService> mNotificationService;
 	bool mSessionManagerRequestedQuit;
 	bool mResizeOnNormalize;

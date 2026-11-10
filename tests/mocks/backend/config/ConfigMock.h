@@ -80,6 +80,9 @@ public:
 	MOCK_METHOD(QString, applicationStyle, (), (const, override));
 	MOCK_METHOD(void, setApplicationStyle, (const QString &style), (override));
 
+	MOCK_METHOD(Theme, theme, (), (const, override));
+	MOCK_METHOD(void, setTheme, (Theme theme), (override));
+
 	MOCK_METHOD(TrayIconDefaultActionMode, defaultTrayIconActionMode, (), (const, override));
 	MOCK_METHOD(void, setDefaultTrayIconActionMode, (TrayIconDefaultActionMode mode), (override));
 

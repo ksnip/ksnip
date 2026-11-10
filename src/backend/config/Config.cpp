@@ -281,6 +281,23 @@ void Config::setApplicationStyle(const QString &style)
 	saveValue(ConfigOptions::applicationStyleString(), style);
 }
 
+Theme Config::theme() const
+{
+	auto theme = loadValue(ConfigOptions::themeString(), static_cast<int>(Theme::System)).toInt();
+	if (theme < static_cast<int>(Theme::System) || theme > static_cast<int>(Theme::Dark)) {
+		return Theme::System;
+	}
+	return static_cast<Theme>(theme);
+}
+
+void Config::setTheme(Theme theme)
+{
+	if (Config::theme() == theme) {
+		return;
+	}
+	saveValue(ConfigOptions::themeString(), static_cast<int>(theme));
+}
+
 TrayIconDefaultActionMode Config::defaultTrayIconActionMode() const
 {
 	return loadValue(ConfigOptions::trayIconDefaultActionModeString(), (int)TrayIconDefaultActionMode::ShowEditor).value<TrayIconDefaultActionMode>();

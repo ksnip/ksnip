@@ -149,6 +149,11 @@ QString ConfigOptions::applicationStyleString()
 	return applicationSectionString() + QLatin1String("ApplicationStyle");
 }
 
+QString ConfigOptions::themeString()
+{
+	return applicationSectionString() + QLatin1String("Theme");
+}
+
 QString ConfigOptions::trayIconDefaultActionModeString()
 {
 	return applicationSectionString() + QLatin1String("TrayIconDefaultActionMode");

@@ -25,6 +25,7 @@
 #include "BuildConfig.h"
 #include "src/bootstrapper/BootstrapperFactory.h"
 #include "src/logging/LogOutputHandler.h"
+#include "src/common/helper/ThemeHelper.h"
 
 int main(int argc, char** argv)
 {
@@ -44,7 +45,8 @@ int main(int argc, char** argv)
     auto dependencyInjector = new DependencyInjector;
 	DependencyInjectorBootstrapper::BootstrapCore(dependencyInjector);
 
-	app.setStyle(dependencyInjector->get<IConfig>()->applicationStyle());
+	auto config = dependencyInjector->get<IConfig>();
+	ThemeHelper::apply(config->theme(), config->applicationStyle(), app);
 
 	BootstrapperFactory bootstrapperFactory;
 	return bootstrapperFactory.create(dependencyInjector)->start(app);

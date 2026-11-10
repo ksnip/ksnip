@@ -37,6 +37,8 @@ ApplicationSettings::ApplicationSettings(const QSharedPointer<IConfig> &config, 
     mTempDirectoryLineEdit(new QLineEdit(this)),
     mBrowseButton(new QPushButton(this)),
 	mApplicationStyleCombobox(new QComboBox(this)),
+	mThemeLabel(new QLabel(this)),
+	mThemeCombobox(new QComboBox(this)),
 	mResizeToContentDelaySpinBox(new CustomSpinBox(0, 1000, this)),
 	mLayout(new QGridLayout)
 {
@@ -103,6 +105,18 @@ void ApplicationSettings::initGui()
 	mApplicationStyleCombobox->setToolTip(mApplicationStyleLabel->toolTip());
 	mApplicationStyleCombobox->setFixedWidth(100);
 
+	mThemeLabel->setText(tr("Theme") + QLatin1String(":"));
+	mThemeLabel->setToolTip(tr("Sets the color scheme of the application.\n"
+	                           "System follows the color scheme configured on the system,\n"
+	                           "Light and Dark enforce the selected color scheme.\n"
+	                           "Change requires ksnip restart to take effect."));
+
+	mThemeCombobox->addItem(tr("System"));
+	mThemeCombobox->addItem(tr("Light"));
+	mThemeCombobox->addItem(tr("Dark"));
+	mThemeCombobox->setToolTip(mThemeLabel->toolTip());
+	mThemeCombobox->setFixedWidth(100);
+
 	mLayout->setAlignment(Qt::AlignTop);
 	mLayout->setColumnMinimumWidth(0, 10);
 	mLayout->addWidget(mAutoCopyToClipboardNewCapturesCheckbox, 0, 0, 1, 4);
@@ -121,9 +135,12 @@ void ApplicationSettings::initGui()
 	mLayout->addWidget(mApplicationStyleLabel, 12, 0, 1, 2);
 	mLayout->addWidget(mApplicationStyleCombobox, 12, 2, Qt::AlignLeft);
     mLayout->setRowMinimumHeight(13, 15);
-    mLayout->addWidget(mTempDirectoryLabel, 14, 0, 1, 2);
-    mLayout->addWidget(mTempDirectoryLineEdit, 14, 2, 1, 2);
-    mLayout->addWidget(mBrowseButton, 14, 4);
+	mLayout->addWidget(mThemeLabel, 14, 0, 1, 2);
+	mLayout->addWidget(mThemeCombobox, 14, 2, Qt::AlignLeft);
+    mLayout->setRowMinimumHeight(15, 15);
+    mLayout->addWidget(mTempDirectoryLabel, 16, 0, 1, 2);
+    mLayout->addWidget(mTempDirectoryLineEdit, 16, 2, 1, 2);
+    mLayout->addWidget(mBrowseButton, 16, 4);
 
 	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
@@ -142,6 +159,7 @@ void ApplicationSettings::loadConfig()
 	mEnableDebugging->setChecked(mConfig->isDebugEnabled());
 	mResizeToContentDelaySpinBox->setValue(mConfig->resizeToContentDelay());
 	mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
+	mThemeCombobox->setCurrentIndex(static_cast<int>(mConfig->theme()));
     mTempDirectoryLineEdit->setText(mConfig->tempDirectory());
 
 	useTabsChanged();
@@ -160,6 +178,7 @@ void ApplicationSettings::saveSettings()
 	mConfig->setIsDebugEnabled(mEnableDebugging->isChecked());
 	mConfig->setResizeToContentDelay(mResizeToContentDelaySpinBox->value());
 	mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
+	mConfig->setTheme(static_cast<Theme>(mThemeCombobox->currentIndex()));
     mConfig->setTempDirectory(mTempDirectoryLineEdit->displayText());
 }
 

@@ -47,6 +47,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/common/helper/RectHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/EnumTranslator.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/FileDialogFilterHelper.cpp
+	${CMAKE_SOURCE_DIR}/src/common/helper/ThemeHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/loader/IconLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/common/handler/DelayHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/common/handler/IDelayHandler.h

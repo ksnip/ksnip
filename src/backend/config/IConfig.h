@@ -26,6 +26,7 @@
 #include "src/common/enum/UploaderType.h"
 #include "src/common/enum/SaveQualityMode.h"
 #include "src/common/enum/CaptureModes.h"
+#include "src/common/enum/Theme.h"
 
 class Action;
 class PluginInfo;
@@ -89,6 +90,9 @@ public:
 
 	virtual QString applicationStyle() const = 0;
 	virtual void setApplicationStyle(const QString &style) = 0;
+
+	virtual Theme theme() const = 0;
+	virtual void setTheme(Theme theme) = 0;
 
 	virtual TrayIconDefaultActionMode defaultTrayIconActionMode() const = 0;
 	virtual void setDefaultTrayIconActionMode(TrayIconDefaultActionMode mode) = 0;

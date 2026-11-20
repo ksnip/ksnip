@@ -95,6 +95,9 @@ public:
 	QString applicationStyle() const override;
 	void setApplicationStyle(const QString &style) override;
 
+	Theme theme() const override;
+	void setTheme(Theme theme) override;
+
 	TrayIconDefaultActionMode defaultTrayIconActionMode() const override;
 	void setDefaultTrayIconActionMode(TrayIconDefaultActionMode mode) override;
 

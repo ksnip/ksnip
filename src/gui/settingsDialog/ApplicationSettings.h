@@ -59,6 +59,8 @@ private:
     QLineEdit *mTempDirectoryLineEdit;
     QPushButton *mBrowseButton;
 	QComboBox *mApplicationStyleCombobox;
+	QLabel *mThemeLabel;
+	QComboBox *mThemeCombobox;
 	CustomSpinBox *mResizeToContentDelaySpinBox;
 	QGridLayout *mLayout;
 	QSharedPointer<IConfig> mConfig;

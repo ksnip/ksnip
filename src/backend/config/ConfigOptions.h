@@ -51,6 +51,7 @@ public:
 	static QString saveFilenameString();
 	static QString saveFormatString();
 	static QString applicationStyleString();
+	static QString themeString();
 	static QString trayIconDefaultActionModeString();
 	static QString trayIconDefaultCaptureModeString();
 	static QString useTrayIconString();
